@@ -1,0 +1,47 @@
+---
+layout: post
+title: Does a bigger film production budget result in more ticket sales?
+date: 2014-12-29 19:40:54.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- movie budget
+- movie ticket sales
+- movies
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _thumbnail_id: '6445'
+  _aioseop_title: Does a bigger film production budget result in more ticket sales?
+  _aioseop_keywords: movies, film budget, film ticket sales
+  _aioseop_description: Randy Olson explores whether a bigger film production budget
+    results in more ticket sales.
+  dsq_thread_id: '3371814565'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430399207;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:5895;}i:1;a:1:{s:2:"id";i:5872;}i:2;a:1:{s:2:"id";i:5410;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/12/29/does-a-bigger-film-production-budget-result-in-more-ticket-sales/"
+---
+<p>If you take a stroll down a list of the <a href="http://en.wikipedia.org/wiki/List_of_most_expensive_films#Most_expensive_films_.28adjusted_for_inflation.29">most expensive films of all time</a>, you'll notice that most of the films are from the past 15 years. Every year, more and more money is being poured into producing larger and grander films, likely with the hope that a bigger film production budget will result in more movie ticket sales. For the chart below, I analyzed the production budget and ticket sales data of 11,706 films (courtesy of <a href="http://www.boxofficemojo.com/weekly/">Box Office Mojo</a>) to see whether that assumption held up.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/film-sales-vs-budget-correlation.png"><img src="{{ site.baseurl }}/assets/2014/12/film-sales-vs-budget-correlation.png" alt="film-sales-vs-budget-correlation" width="706" height="489" class="aligncenter size-full wp-image-6444" /></a></p>
+<p>(Note: All dollar values have been adjusted to 2014 dollars.)</p>
+<p>It's fun to note some of the outlier cases in the above chart:</p>
+<ul>
+<li><a href="http://www.imdb.com/title/tt2673854/">Midget Zombie Takeover</a> is the most unremarkable film on this chart (in terms of budget and ticket sales), with a measly budget of $2,043 and ticket sales totaling $10,653.</li>
+<li><a href="http://www.imdb.com/title/tt0390538/">Tarnation</a> is the biggest underdog success story with ticket sales totaling $721,546 coming from a budget of only $277.</li>
+<li><a href="http://www.imdb.com/title/tt0429277/">Zyzzyx Road</a> is the biggest failure with a paltry $35 in ticket sales despite a $2.36 <em>million</em> production budget, although the poor ticket sales were due to a <a href="http://en.wikipedia.org/wiki/Zyzzyx_Road#Release_and_box_office_gross">deliberate effort</a> by the producer.</li>
+</ul>
+<p>Amusing outliers aside, the above chart is likely misleading because the few outlier cases in the lower budget and ticket sales ranges are strongly affecting the linear regression. For that reason, I focused the analysis only on big-budget films with at least $1 million in both budget <em>and</em> ticket sales.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/film-sales-vs-budget-correlation-zoomed.png"><img src="{{ site.baseurl }}/assets/2014/12/film-sales-vs-budget-correlation-zoomed.png" alt="film-sales-vs-budget-correlation-zoomed" width="693" height="489" class="aligncenter size-full wp-image-6445" /></a></p>
+<p>Although there's a weak correlation between film production budget and ticket sales (R^2 = 0.32), it's fairly clear that just pouring money into a film's production budget to hire high-profile actors, add more CGI, etc. doesn't mean that the film will sell more tickets. In fact, if we compare the linear regression (blue line) to the line of parity (black line), <strong>the more that's spent on film production, the less likely the film will end up making that investment back in ticket sales.</strong></p>
+<p>Regardless, it's interesting to see that there's even a weak correlation between a film's budget and it's performance in the box office. Only 4 films with a $100M budget ever made less than $10M in ticket sales, whereas only 6 films with a budget less than $10M ever made more than $100M in ticket sales. It seems that the film industry is like the stock market: You have to spend money to make money. And if you want to make the real big money, you're gambling with an awful lot of benjamins.</p>

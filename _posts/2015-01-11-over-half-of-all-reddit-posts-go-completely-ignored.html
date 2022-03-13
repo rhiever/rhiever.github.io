@@ -1,0 +1,68 @@
+---
+layout: post
+title: Over half of all reddit posts go completely ignored
+date: 2015-01-11 11:36:25.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- reddit
+tags:
+- front page
+- reddit
+- underprovision
+- voting
+meta:
+  _edit_last: '2'
+  _thumbnail_id: '5931'
+  _responsive_layout: default
+  _aioseop_description: Randy Olson delves into the data to find that over half of
+    all reddit posts go completely ignored.
+  _aioseop_keywords: front page, reddit, underprovision, voting, successful post,
+    upvotes, downvotes, default subreddits
+  dsq_thread_id: '3411075610'
+  _aioseop_title: Over half of all reddit posts go completely ignored
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430357301;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:5948;}i:1;a:1:{s:2:"id";i:698;}i:2;a:1:{s:2:"id";i:5735;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/01/11/over-half-of-all-reddit-posts-go-completely-ignored/"
+---
+<p>A couple years ago, Eric Gilbert published a <a href="http://comp.social.gatech.edu/papers/cscw13.reddit.gilbert.pdf">research article</a> showing that more than half (~52%) of all popular links submitted to <a href="http://www.reddit.com/r/pics">/r/pics</a> go completely ignored the first time they're posted. I found this phenomenon to be strange because those 52% of links later went on to become wildly popular the second or third time they were posted, meaning that it's not just bad or uninteresting links that are going ignored on reddit: On a daily basis, we're missing out on hundreds of interesting links because no one bothered to upvote them.</p>
+<p>One drawback of Gilbert's study is that he focused solely on /r/pics. While /r/pics is one of the most popular subreddits, it certainly isn't representative of reddit as a whole. For that reason, my undergraduate assistant Robert Bato and I decided to follow up on Gilbert's findings to see if all of reddit was following suit. To do that, we collected every single post submitted to reddit in August 2014 and filtered them into 3 categories based on their score:</p>
+<ul>
+<li>>1 (received at least one upvote),</li>
+<li><1 (received mostly downvotes), and</li>
+<li>=1 (received no votes at all).</li>
+</ul>
+<p>Below is the breakdown of those posts.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/reddit-ignored-posts-pie.png"><img src="{{ site.baseurl }}/assets/2015/01/reddit-ignored-posts-pie.png" alt="reddit-ignored-posts-pie" width="633" height="573" class="aligncenter size-full wp-image-5931" /></a></p>
+<p>If we use "<1" and "=1" as a proxy for "ignored" (as in, maybe 1 or 2 other people saw it and voted on it), then roughly 52% of all reddit posts went ignored in our sample. That's right: <strong>Whenever you post a link on reddit, there's a 50/50 chance that it will be ignored</strong> (if you post like the typical redditor). It seems Gilbert was right on the money when he claimed that reddit is suffering from widespread <a href="http://en.wiktionary.org/wiki/underprovision">underprovision</a>.</p>
+<h3>What does this mean for reddit?</h3>
+<p>Logically, if we consistently find that half of all reddit posts are going ignored, that leaves us with the question: Has reddit reached its content carrying capacity? Is it impossible for reddit to effectively handle more than 50% of its posts on a daily basis?</p>
+<p>When I tallied the ignored posts based on defaults vs. non-defaults, <strong>the default subreddits accounted for about 2/3 of all the ignored posts on reddit.</strong> This tells us that the defaults are likely the main source of ignored posts: Only so many posts can receive adequate attention in a subreddit every day -- even a popular one -- and the rest are simply left to wither and die without a single upvote in reddit's archives.</p>
+<p>On the other end of the spectrum, the above statistic also tells us that 1/3 of all ignored posts are due to smaller subreddits that don't receive enough attention from users. These subreddits have users post links to them on a regular basis, but no one bothers to read the posts -- or at least upvote them.</p>
+<p>Both issues highlight that reddit still suffers from an over-concentration of users in the default subreddits.</p>
+<p>This conclusion is nothing new: I was writing about <a href="http://www.randalolson.com/2013/03/12/retracing-the-evolution-of-reddit-through-post-data/">the flaws of reddit's default subreddit system</a> almost 2 years ago. Despite reddit's continuous efforts to drive users into smaller subreddits, most users still focus on the defaults.</p>
+<p>So, what's the solution? I see two possibilities:</p>
+<ol>
+<li><strong>reddit users need to upvote more and post less.</strong> If there's too many posts not receiving enough upvotes, then this is the obvious solution. But reddit's karma system doesn't reward people who upvote, so it seems unlikely that this will work with the current incentive system.</li>
+<li><strong>reddit needs to filter more posts into smaller subreddits.</strong> The fewer posts a subreddit receives, the more attention (and possibly upvotes) each individual post will receive. Thus, we can increase reddit's content carrying capacity by filtering the posts typically going into the defaults into smaller, more niche subreddits.</li>
+</ol>
+<p>The problem with solution #2, of course, is that the reddit front page disproportionately rewards users who make it there. So even if there's an incredibly small chance of your post receiving any attention in a default subreddit compared to the smaller subreddits, if your post <em>does</em> reach the front page, it pays off more than if you posted in a smaller subreddit and more than makes up for all of your failed posts. (Game theorists might be thinking of risk analysis at this point...)</p>
+<p>Thus -- 2 years later -- I still believe reddit must do away with the default subreddit system if it stands a chance of reaching its maximum potential.</p>
+<h3>A historical perspective on ignored reddit posts</h3>
+<p>After I shared this article, <a href="http://www.reddit.com/user/minimaxir">/u/minimaxir</a> repeated this analysis on all of reddit's posts back to 2008. I've shared his chart below with his permission.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pct-ignored-reddit-posts-over-time.png"><img src="{{ site.baseurl }}/assets/2015/01/pct-ignored-reddit-posts-over-time-1024x768.png" alt="pct-ignored-reddit-posts-over-time" width="605" height="454" class="aligncenter size-large wp-image-5960" /></a></p>
+<p>Between 2008 and 2010 -- reddit's nascent years -- upwards of 75% of all reddit posts went ignored. Once reddit started becoming popular in 2010 and beyond, we see the ratio of ignored posts go down to an even 50/50, then oddly stagnate there. This suggests to me that ~50% of all posts is reddit's carrying capacity: Regardless of the number of users that join reddit, the increased number of upvotes from new users will be offset by the increased number of posts they submit. As a consequence, just waiting it out won't solve reddit's underprovision problem; we need to rethink reddit's default subreddit structure.</p>
+<p>You can find /u/minimaxir's data source <a href="https://docs.google.com/spreadsheets/d/1oZIWOIw5MRHZRwz5tz7vrBiiLMDh7UZPQWiSBNnZ908/edit?usp=sharing">here</a>.</p>
+<h3>What does this mean for you?</h3>
+<p>We all know that it's tough to have a successful post on reddit, but now we're beginning to learn that less than half of all posts receive just a single upvote -- an extremely loose criterion.</p>
+<p>This means that even if you make the best post possible on reddit, there's still a high chance that it's going to fail right out of the gate. Of course, if you pay attention to the reddit front page, there are some redditors who seem particularly talented at making successful posts on reddit -- and that's because there are some minor things you can do to increase your post's chances of being noticed.</p>
+<p>If you want to learn more about what factors into a successful reddit post, <a href="http://www.randalolson.com/2015/01/11/a-data-driven-guide-to-creating-successful-reddit-posts-redux/">read this guide</a>.</p>

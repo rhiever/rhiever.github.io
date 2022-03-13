@@ -1,0 +1,137 @@
+---
+layout: post
+title: Traveling salesman portrait in Python
+date: 2018-04-11 17:08:59.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- python
+- tutorial
+tags:
+- data visualization
+- optimization
+- python
+- traveling salesman problem
+- tutorial
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_keywords: data visualization, optimization, python, traveling salesman
+    problem, traveling salesman portrait, tsp, tutorial
+  responsive_meta_box_designation: ''
+  responsive_meta_box_facebook: ''
+  responsive_meta_box_twitter: ''
+  responsive_meta_box_googleplus: ''
+  responsive_meta_box_text_linkedin: ''
+  _oembed_695199155b553fc4a63416f907b2a6ec: "{{unknown}}"
+  _aioseop_description: Randy Olson shows how you can create your own traveling salesman
+    portrait using Python.
+  _aioseop_title: Traveling salesman portrait in Python
+  _thumbnail_id: '8835'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2018/04/11/traveling-salesman-portrait-in-python/"
+---
+<p>Last week, Antonio S. Chinchón made an interesting post showing <a href="https://fronkonstin.com/2018/04/04/the-travelling-salesman-portrait/">how to create a traveling salesman portrait</a> in R. Essentially, the idea is to sample a bunch of dark pixels in an image, solve the well-known <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">traveling salesman problem</a> for those pixels, then draw the optimized route between the pixels to create a unique portrait from the image. Antonio is a fan of Frankenstein, so he created a traveling salesman portrait from an old Frankenstein image.</p>
+<p><center><img src="{{ site.baseurl }}/assets/2018/04/frankyTSP.png" width="75%" /></center></p>
+<p>I liked the idea of the traveling salesman portrait, so I thought it would be a fun exercise to re-create it in Python. Below, I walk through the code line-by-line. If you want the full code snippet, you can find it on my <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/traveling-salesman-portrait/traveling-salesman-portrait.py">personal projects GitHub repository</a>.</p>
+<p>To start, we need an image of someone. For ease of comparison, I decided to use the same image as Antonio. Franky is looking handsome as ever.</p>
+<pre name="code" class="Python">import urllib.request
+import os
+
+image_url = 'http://www.randalolson.com/wp-content/uploads/Frankenstein.jpg'
+image_path = 'Frankenstein.jpg'
+
+if not os.path.exists(image_path):
+    urllib.request.urlretrieve(image_url, image_path)
+</pre>
+<p><center><img src="{{ site.baseurl }}/assets/2018/04/Frankenstein.jpg" width="75%" /></center></p>
+<p>Note: We can use any image we want, but this algorithm works best for images with light backgrounds.</p>
+<p>Next, we need to convert that image to black and white. <a href="https://pillow.readthedocs.io/">PIL</a> makes this operation pretty straightforward.</p>
+<pre name="code" class="Python">from PIL import Image
+
+original_image = Image.open(image_path)
+bw_image = original_image.convert('1', dither=Image.NONE)
+bw_image
+</pre>
+<p><center><img src="{{ site.baseurl }}/assets/2018/04/frankenstein-bw.png" width="75%" /></center></p>
+<p>Now we can use NumPy to identify the black pixels and select a random subset of them:</p>
+<pre name="code" class="Python">import numpy as np
+import matplotlib.pyplot as plt
+
+bw_image_array = np.array(bw_image, dtype=np.int)
+black_indices = np.argwhere(bw_image_array == 0)
+# Changing "size" to a larger value makes this algorithm take longer,
+# but provides more granularity to the portrait
+chosen_black_indices = black_indices[
+                           np.random.choice(black_indices.shape[0],
+                                            replace=False,
+                                            size=10000)]
+
+plt.figure(figsize=(6, 8), dpi=100)
+plt.scatter([x[1] for x in chosen_black_indices],
+            [x[0] for x in chosen_black_indices],
+            color='black', s=1)
+plt.gca().invert_yaxis()
+plt.xticks([])
+plt.yticks([])
+</pre>
+<p><center><img src="{{ site.baseurl }}/assets/2018/04/frankenstein-dots.png" width="75%" /></center></p>
+<p>Now all that's left to do is solve TSP for those 10,000 pixels. To do that, we first have to define the distance between every pixel. In this case, we're going to define distance between two pixels as the Euclidean distance between their x,y coordinates in the image. With that definition in mind, we can calculate the distances between all 10,000 pixels:</p>
+<pre name="code" class="Python">from scipy.spatial.distance import pdist, squareform
+
+distances = pdist(chosen_black_indices)
+distance_matrix = squareform(distances)
+</pre>
+<p>Great! The result is a giant 10,000 x 10,000 matrix with the Euclidean distances between every pixel. Now we can provide that matrix to an <a href="https://github.com/dmishin/tsp-solver">off-the-shelf traveling salesman problem solver</a>:</p>
+<pre name="code" class="Python">from tsp_solver.greedy_numpy import solve_tsp
+
+optimized_path = solve_tsp(distance_matrix)
+
+optimized_path_points = [chosen_black_indices[x] for x in optimized_path]
+
+plt.figure(figsize=(8, 10), dpi=100)
+plt.plot([x[1] for x in optimized_path_points],
+         [x[0] for x in optimized_path_points],
+         color='black', lw=1)
+plt.xlim(0, 600)
+plt.ylim(0, 800)
+plt.gca().invert_yaxis()
+plt.xticks([])
+plt.yticks([])
+</pre>
+<p>And voilà! We now have a traveling salesman portrait of the ever-handsome Frankenstein.</p>
+<p><center><img src="{{ site.baseurl }}/assets/2018/04/frankenstein-tsp.png" width="75%" /></center></p>
+<p>Finally, a side-by-side comparison:</p>
+<pre name="code" class="Python">plt.figure(figsize=(16, 10), dpi=100)
+
+plt.subplot(1, 2, 1)
+plt.imshow(original_image)
+plt.grid(False)
+plt.xlim(0, 600)
+plt.ylim(0, 800)
+plt.gca().invert_yaxis()
+plt.xticks([])
+plt.yticks([])
+
+plt.subplot(1, 2, 2)
+plt.plot([x[1] for x in optimized_path_points],
+         [x[0] for x in optimized_path_points],
+         color='black', lw=1)
+plt.grid(False)
+plt.xlim(0, 600)
+plt.ylim(0, 800)
+plt.gca().invert_yaxis()
+plt.xticks([])
+plt.yticks([])
+</pre>
+<p><center><img src="{{ site.baseurl }}/assets/2018/04/frankenstein-tsp-combo.png" width="90%" /></center></p>
+<p>If you want to make your own traveling salesman portrait, you can use <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/traveling-salesman-portrait/traveling-salesman-portrait.py">my Python script on GitHub</a>. Enjoy!</p>

@@ -1,0 +1,130 @@
+---
+layout: post
+title: A short demo on how to use IPython Notebook as a research notebook
+date: 2012-05-12 20:17:23.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- ipython
+- productivity
+- statistics
+- tutorial
+tags:
+- analysis of variance
+- ANOVA
+- bootstrap
+- confidence interval
+- ipython
+- Mann-Whitney-Wilcoxon
+- MWW
+- notebook
+- python
+- RankSum
+- research
+- standard error
+- statistics
+- tutorial
+meta:
+  _edit_last: '2'
+  _aioseop_title: A short demo on how to use IPython Notebook as a research notebook
+  _responsive_layout: default
+  _aioseop_description: Randal Olson provides a short demo on how to use IPython Notebook
+    as a research notebook.
+  dsq_thread_id: '3245754044'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430374917;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:31;}i:1;a:1:{s:2:"id";i:1896;}i:2;a:1:{s:2:"id";i:602;}}}}
+  _aioseop_keywords: research, ipython, notebook, tutorial, python, analysis of variance,
+    anova, bootstrap, confidence interval, mann-whitney-wilcoxon, MWW, RankSum, standard
+    error, statistics
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2012/05/12/a-short-demo-on-how-to-use-ipython-notebook-as-a-research-notebook/"
+---
+<p>As promised, here's the IPython Notebook tutorial I mentioned in <a href="http://www.randalolson.com/2012/05/10/ipython-notebook/" target="_blank">my introduction to IPython Notebook</a>.</p>
+<h3>Downloading and installing IPython Notebook</h3>
+<p>You can download IPython Notebook with the majority of the other packages you'll need in the <a href="https://www.anaconda.com/download/" target="_blank">Anaconda Python distribution</a>. From there, it's just a matter of running the installer, clicking Next and Accept buttons a bunch of times, and <em>voila!</em> IPython Notebook is installed.</p>
+<h3>Running IPython Notebook</h3>
+<p>For Mac and Linux users, open up your terminal. Windows users need to open up their Command Prompt. Change directories in the terminal (using the <strong>cd</strong> command) to the working directory where you want to store your IPython Notebook data.</p>
+<p>To run IPython Notebook, enter the following command:</p>
+<pre>ipython notebook</pre>
+<p>It may take a minute or two to set itself up, but eventually IPython Notebook will open in your default web browser and should look something like this:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/2012/05/ipython-notebook-e1336770390793.png" target="_blank"><img src="{{ site.baseurl }}/assets/2012/05/ipython-notebook-e1336770390793-1024x150.png" alt="IPython Notebook" width="550" height="80" class="alignnone size-large wp-image-77" /></a></p>
+<p>(<strong>NOTE</strong>: currently, IPython Notebook only supports Firefox and Chrome.)</p>
+<h3>Creating a new notebook</h3>
+<p>Conveniently, Titus Brown has already posted a quick demo on YouTube. (Start at 2m16s.)</p>
+<p>[youtube=http://www.youtube.com/watch?v=HaS4NXxL5Qc]<br />
+<br />
+Now that we've covered the basics, let's get into how to actually use all this as a research notebook.</p>
+<h3>Using IPython Notebook as a research notebook</h3>
+<p>The great part about the seamless integration of text and code in IPython Notebook is that it's entirely conducive to the "form hypothesis - test hypothesis - evaluate data - form conclusion from data - repeat" process that we all follow (purposely or not) in science. For this example, let's say we're studying an Artificial Life swarm system and the effects of various environmental parameters on the swarm.</p>
+<p>Here's the example research notebook: [<a href="http://www.randalolson.com/wp-content/uploads/Evolution-of-Swarming-Experiment.pdf" target="_blank">pdf</a>] [<a href="http://www.randalolson.com/wp-content/uploads/Evolution-of-Swarming-Experiment.zip">[ipynb w/ accompanying files</a>]</p>
+<p>I designed this demo research notebook to be a self-guided tour through the thought process of a researcher as he works on a research project, so hopefully it's helpful to other researchers out there.</p>
+<h3>Statistics in IPython Notebook</h3>
+<p><strong>UPDATE (10/19/2012):</strong> Please refer to my <a href="http://www.randalolson.com/2012/08/06/statistical-analysis-made-easy-in-python/">other blog post</a> for an up-to-date guide on statistics in Python.</p>
+<p>For those of you who (understandably) don't want to search through an entire research notebook to figure out how to do statistics in IPython Notebook, here's the cut and dry code.</p>
+<h5>Reading data</h5>
+<pre name="code" class="python"># Library for reading and parsing csv files
+import csv
+
+# My personal library that contains some useful helper functions
+import rso_stats
+
+# Read and parse data for file "control1.csv"
+control1 = csv.reader(open('control1.csv', 'rb'), delimiter=',')
+control1, control1_columns = rso_stats.parse_csv_data(control1)
+</pre>
+<p><em>control1</em> is the dictionary of parsed data</p>
+<p><em>control1_columns</em> is the list of column names used to access the data dictionary, sorted in the same order as the csv data file.</p>
+<p><strong>NOTE</strong>: This uses a function from <a href="http://www.randalolson.com/wp-content/uploads/2012/05/rso_stats.py" target="_blank">my custom Python library</a>, which parses the data into convenient data dictionaries.</p>
+<p>The data in the dictionaries can be accessed by:</p>
+<pre name="code" class="python"># Access the first column's list of data
+control1[control1_columns[0]]
+
+# Access the fourth column's list of data
+control1[control1_columns[3]]
+</pre>
+<h5>Standard error of the mean</h5>
+<pre name="code" class="python">import scipy
+from scipy import stats
+
+mean = scipy.mean(dataset_list)
+
+# Compute 2 standard errors of the mean of the values in data_list
+stderr = 2.0 * stats.sem(dataset_list)
+</pre>
+<h5>Bootstrapped 95% confidence intervals</h5>
+<p>The code below shows you how to compute bootstrapped 95% CIs for the mean. However, this function can bootstrap any range of CIs for any statistical function (mean, mode, standard deviation, etc.). Here's the input parameter description:</p>
+<pre>
+Input parameters:
+   data        = data to get bootstrapped CIs for
+   statfun     = function to compute CIs over (usually, mean)
+   alpha       = size of CIs (0.05 --> 95% CIs). default = 0.05
+   n_samples   = # of bootstrap populations to construct. default = 10,000
+
+Returns:
+   bootstrapped confidence intervals, formatted for the matplotlib errorbar() function
+</pre>
+<pre name="code" class="python">import scipy
+import rso_stats
+
+CIs = rso_stats.ci_errorbar(dataset_list, scipy.mean)
+</pre>
+<p><strong>NOTE</strong>: This uses a couple functions from <a href="http://www.randalolson.com/wp-content/uploads/2012/05/rso_stats.py" target="_blank">my custom Python library</a>, since bootstrapping CIs isn't currently supported by SciPy/NumPy.</p>
+<h5>Mann-Whitney-Wilcoxon RankSum test</h5>
+<pre name="code" class="python">from scipy import stats
+
+z_stat, p_val = stats.ranksums(dataset1_list, dataset2_list)
+</pre>
+<h5>Analysis of variance (ANOVA)</h5>
+<p>SciPy's ANOVA function takes two or more dataset lists as its input parameters.</p>
+<pre name="code" class="python">from scipy import stats
+
+f_val, p_val = stats.f_oneway(dataset1_list, dataset2_list, dataset3_list, ...)
+</pre>
+<p>Hopefully everyone finds this useful. Get in touch if you have any more ideas on IPython Notebook as a research notebook, or if you'd like to figure out how to do some more statistical tests in Python.</p>

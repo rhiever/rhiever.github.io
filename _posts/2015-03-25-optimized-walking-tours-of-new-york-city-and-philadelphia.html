@@ -1,0 +1,120 @@
+---
+layout: post
+title: Optimized walking tours of New York City and Philadelphia
+date: 2015-03-25 11:47:03.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+- machine learning
+tags:
+- genetic algorithm
+- machine learning
+- optimization
+- traveling salesman problem
+- walking tour
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_keywords: genetic algorithm, machine learning, optimization, walking tour,
+    traveling salesman problem, new york city, philadelphia, new york, pennsylvania
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430369195;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:6371;}i:1;a:1:{s:2:"id";i:6674;}i:2;a:1:{s:2:"id";i:336;}}}}
+  _thumbnail_id: '6764'
+  _aioseop_description: Randy Olson shows how machine learning can be used to optimize
+    walking tours in New York City and Philadelphia.
+  dsq_thread_id: '3625721539'
+  _aioseop_title: Optimized walking tours of New York City and Philadelphia
+  tc-thumb-fld: a:2:{s:9:"_thumb_id";s:4:"6764";s:11:"_thumb_type";s:5:"thumb";}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/03/25/optimized-walking-tours-of-new-york-city-and-philadelphia/"
+---
+<p>In the past couple weeks, I've shown you how to use machine learning to improve the efficiency of road trips all over the world, including the <a href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">U.S.</a>, <a href="http://www.randalolson.com/2015/03/10/computing-the-optimal-road-trip-across-europe/">Europe</a>, and <a href="http://www.randalolson.com/2015/03/14/computing-the-optimal-road-trip-across-south-america/">South America</a>. In this post, I'd like to show you how we can use the <a href="http://nbviewer.ipython.org/github/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/optimal-road-trip/Computing the optimal road trip across the U.S..ipynb">exact same algorithm</a> to optimize walking tours in large cities.</p>
+<p>If you're anything like me whenever you stop in a big city, you have a few main attractions that you'd like to visit and end up haphazardly spending half your day staring at maps and trying to figure out the public transit system.</p>
+<p>However, by focusing on a limited few attractions, we're missing out on dozens of interesting places that we could've visited along the way. This is where the route optimization algorithm can come into play again: If we hand the algorithm the list of popular attractions in a city, it can provide us an efficient walking tour around the city that hits all of those attractions.</p>
+<p>Below, I've mapped out optimized walking tours for New York City and Philadelphia that hit the most popular attractions in each city according to <a href="http://www.tripadvisor.com/Attractions-g60763-Activities-New_York_City_New_York.html">TripAdvisor</a>. These walking tours by no means represent the "definitive" walking tours for the cities, but both tours are guaranteed to give you a great taste of the cities while you're there.</p>
+<h3>Optimized walking tour of New York City</h3>
+<p>If skyscrapers, museums, and large crowds are your gig, then this walking tour is for you. In 4.5 hours of walking, you'll hit major sights like Central Park, Times Square, the Empire State Building, the Statue of Liberty, and more. This walking tour covers 14 miles of Manhattan, so come prepared with your walking shoes for what will add up to a <a href="http://en.wikipedia.org/wiki/Half_marathon">half marathon</a>.</p>
+<p>Of course, if you want to stop and actually enjoy the sights along the way (which I strongly advise!), this tour could easily end up taking several days. Between long lines, hour-long museum tours, and frequent stops for Cronuts, you'll likely only be able to hit a handful of stops per day before everything closes down. Keep that in mind when dividing this trip up over several days.</p>
+<p><a href="http://rhiever.github.io/optimal-roadtrip-usa/nyc-walking-tour.html"><img src="{{ site.baseurl }}/assets/2015/03/nyc-optimized-walking-tour.png" alt="nyc-optimized-walking-tour" width="616" height="900" class="aligncenter size-full wp-image-6764" /></a></p>
+<p><center><em>Click <a href="http://rhiever.github.io/optimal-roadtrip-usa/nyc-walking-tour.html">here</a> for an interactive version</em></center></p>
+<p>If 14 miles of walking sounds like too much, you can easily cut down on walking by taking the subway or bus for some of the longer legs of the trek. Or better yet, the same tour can be followed on a bike instead.</p>
+<p>Here's the Google Maps walking directions: <a href="https://www.google.com/maps/dir/American+Museum+of+Natural+History/The+Metropolitan+Museum+of+Art/The+Frick+Collection/Central+Park,+New+York,+NY/The+Museum+of+Modern+Art/St.+Patricks+Cathedral/45+Rockefeller+Plaza,+New+York,+NY+10011/Radio+City+Music+Hall/Theater+District,+New+York,+NY/Times+Square,+Manhattan,+NY+10036/@40.7704771,-73.9921235,14z/data=!3m2!4b1!5s0x89c258fbd5ec7547:0x7edf0a3ade84ad50!4m62!4m61!1m5!1m1!1s0x89c258f4b00f7a09:0xa27d8172624c5db1!2m2!1d-73.973988!2d40.781324!1m5!1m1!1s0x89c25896f660c26f:0x3b2fa4f4b6c6a1fa!2m2!1d-73.963244!2d40.779437!1m5!1m1!1s0x89c258eceefd111d:0xd88ef5290f5e20e8!2m2!1d-73.967134!2d40.771277!1m5!1m1!1s0x89c2589a018531e3:0xb9df1f7387a94119!2m2!1d-73.965355!2d40.782865!1m5!1m1!1s0x89c258f97bdb102b:0xea9f8fc0b3ffff55!2m2!1d-73.977622!2d40.761433!1m5!1m1!1s0x89c258fc102f6e51:0x88603435e036aa5b!2m2!1d-73.975993!2d40.758465!1m5!1m1!1s0x89c258feb834773b:0xaa70abfd11842ab7!2m2!1d-73.9777136!2d40.7591523!1m5!1m1!1s0x89c258f8d61b2f3d:0x92c4e681d9aada95!2m2!1d-73.979977!2d40.759976!1m5!1m1!1s0x89c25855b8fb3083:0xa0f9aef176042a5c!2m2!1d-73.9844722!2d40.759011!1m5!1m1!1s0x89c25855c6480299:0x55194ec5a1ae072e!2m2!1d-73.985131!2d40.758895!3e2">[1]</a> <a href="https://www.google.com/maps/dir/Times+Square,+Manhattan,+NY+10036/Bryant+Park,+New+York,+NY/New+York+Public+Library/Chrysler+Building/Grand+Central+Terminal/The+Morgan+Library+%26+Museum/Empire+State+Building/Madison+Square+Garden/The+High+Line,+New+York,+NY+10011/Chelsea+Market,+75+9th+Avenue,+New+York,+NY+10011/@40.7493867,-74.0083567,14z/data=!3m1!4b1!4m62!4m61!1m5!1m1!1s0x89c25855c6480299:0x55194ec5a1ae072e!2m2!1d-73.985131!2d40.758895!1m5!1m1!1s0x89c259aae7a0b1bd:0xb49cafb82537f1a7!2m2!1d-73.983233!2d40.753596!1m5!1m1!1s0x89c2590099a8a8a9:0x3b51df6e509a734c!2m2!1d-73.982253!2d40.753182!1m5!1m1!1s0x89c2590247c56379:0x15e13bea38b43e18!2m2!1d-73.975502!2d40.751621!1m5!1m1!1s0x89c25a21fb011c85:0x37513b7f1821408b!2m2!1d-73.977229!2d40.752726!1m5!1m1!1s0x89c2590738778edf:0x3ba82e23876af8d!2m2!1d-73.981344!2d40.749376!1m5!1m1!1s0x89c259a9b3117469:0xd134e199a405a163!2m2!1d-73.985664!2d40.74844!1m5!1m1!1s0x89c25a21fb011c85:0x33df10e49762f8e4!2m2!1d-73.993439!2d40.750504!1m5!1m1!1s0x89c259c7840fb4e5:0x583f615c850a3c91!2m2!1d-74.004765!2d40.747992!1m5!1m1!1s0x89c259bf144c69c3:0x7e61762e972dc0a2!2m2!1d-74.006064!2d40.742544!3e2">[2]</a> <a href="https://www.google.com/maps/dir/Chelsea+Market,+75+9th+Ave,+New+York,+NY+10011,+United+States/Ground+Zero+Museum+Workshop,+420+West+14th+Street,+New+York,+NY+10014/Greenwich+Village,+New+York,+NY/Washington+Square+Park,+New+York,+NY/SoHo,+New+York,+NY/Lower+East+Side+Tenement+Museum,+97+Orchard+Street,+New+York,+NY+10002/St.+Pauls+Chapel,+209+Broadway,+New+York,+NY+10007/The+National+September+11+Memorial+%26+Museum,+Greenwich+Street,+New+York,+NY/Liberty+Island+Ferry,+Brooklyn,+NJ+11231/@40.7362272,-74.0230254,13z/data=!4m56!4m55!1m5!1m1!1s0x89c259bf144c69c3:0x7e61762e972dc0a2!2m2!1d-74.006064!2d40.742544!1m5!1m1!1s0x89c259c08085d755:0xed2679104daeee8!2m2!1d-74.006718!2d40.741227!1m5!1m1!1s0x89c259940c3213a7:0x8882c42182df455f!2m2!1d-74.0027418!2d40.7335719!1m5!1m1!1s0x89c25990e23d7e8d:0xfa615edfd1b67e18!2m2!1d-73.997332!2d40.730823!1m5!1m1!1s0x89c2598c5e51e2f3:0xce2f3449f490f818!2m2!1d-74.0029883!2d40.723301!1m5!1m1!1s0x89c2598725d546db:0xb06f83e6ab473cf4!2m2!1d-73.990218!2d40.718555!1m5!1m1!1s0x89c25a19ace401fb:0x53a21bb39bb2288c!2m2!1d-74.009183!2d40.711328!1m5!1m1!1s0x89c25a1a3a6dba4d:0x8fa1dc0d98a896f0!2m2!1d-74.014339!2d40.709945!1m5!1m1!1s0x89c250895393bd49:0xd5a453e888c4b3f9!2m2!1d-74.047664!2d40.689868!3e2">[3]</a></p>
+<p>Here's the full list of attractions in order:</p>
+<ol>
+<li>American Museum of Natural History, Central Park West, New York, NY</li>
+<li>The Metropolitan Museum of Art, 1000 5th Avenue, New York, NY 10028</li>
+<li>The Frick Collection, East 70th Street, New York, NY</li>
+<li>Central Park, New York, NY</li>
+<li>The Museum of Modern Art (MOMA), West 53rd Street, New York, NY</li>
+<li>St. Patrick's Cathedral, 5th Avenue, New York, NY</li>
+<li>Rockefeller Center, 45 Rockefeller Plaza, New York, NY 10111</li>
+<li>Radio City Music Hall, Avenue of the Americas, New York, NY</li>
+<li>Theater District, New York, NY</li>
+<li>Times Square, New York, NY</li>
+<li>Bryant Park, New York, NY</li>
+<li>New York Public Library, New York, NY</li>
+<li>Chrysler Building, Lexington Avenue, New York, NY</li>
+<li>Grand Central Terminal, New York, NY</li>
+<li>The Morgan Library & Museum, Madison Avenue, New York, NY</li>
+<li>Empire State Building Observation Deck, 5th Avenue, New York, NY</li>
+<li>Madison Square Garden, Pennsylvania Plaza, New York, NY</li>
+<li>The High Line, New York, NY 10011</li>
+<li>Chelsea Market, 9th Avenue, New York, NY</li>
+<li>Ground Zero Museum Workshop, West 14th Street, New York, NY</li>
+<li>Greenwich Village, New York, NY</li>
+<li>Washington Square Park, New York, NY</li>
+<li>SoHo, New York, NY</li>
+<li>Tenement Museum, Orchard Street, New York, NY</li>
+<li>St. Paul's Chapel, Broadway, New York, NY</li>
+<li>The National September 11 Memorial & Museum, New York, NY 10006</li>
+<li>Statue of Liberty</li>
+</ol>
+<h3>Optimized walking tour of Philadelphia</h3>
+<p>The Liberty Bell, cheese steaks, and obnoxious sports fans: These are some of the things that Philadelphia is widely known for. But did you know that Philadelphia is home to one of the largest urban park systems in the U.S.? Or that it's home to America's first zoo?</p>
+<p>This 12-mile, 4-hour walking tour will take you through some of the best that Philadelphia has to offer, from beautiful parks to historic landmarks to breathtaking outdoor art collections. Again, don't take this tour lightly, and plan to spend at least a few days in total enjoying the sights.</p>
+<p><a href="http://rhiever.github.io/optimal-roadtrip-usa/philly-walking-tour.html"><img src="{{ site.baseurl }}/assets/2015/03/philly-optimized-walking-tour.png" alt="philly-optimized-walking-tour" width="605" height="593" class="aligncenter size-large wp-image-6765" /></a></p>
+<p><center><em>Click <a href="http://rhiever.github.io/optimal-roadtrip-usa/philly-walking-tour.html">here</a> for an interactive version</em></center></p>
+<p>The same disclaimers from the NYC walking tour apply here: If 12 miles of walking sounds like too much, you can easily cut down on walking by taking public transit for some of the longer legs of the trek. Or better yet, the same tour can be followed on a bike instead.</p>
+<p>Here's the Google Maps walking directions: <a href="https://www.google.com/maps/dir/Fairmount+Park,+Philadelphia,+PA+19119/Please+Touch+Museum/Philadelphia+Zoo/Philadelphia+Museum+of+Art/Rocky+Steps/Eastern+State+Penitentiary/Rodin+Museum/Barnes+Foundation/The+Franklin+Institute/Mutter+Museum,+19+South+22nd+Street,+Philadelphia,+PA+19103/@39.9704849,-75.2111125,14z/data=!3m2!4b1!5s0x89c6c6348be3b72b:0x12e2c9a670820d94!4m62!4m61!1m5!1m1!1s0x89c6b903670f2153:0xd9f3bb51b044a47d!2m2!1d-75.195498!2d39.987774!1m5!1m1!1s0x89c6c63457837bd1:0xefdeabc1a0b9f52f!2m2!1d-75.208905!2d39.979266!1m5!1m1!1s0x89c6c7af32e1a39b:0xa0048c1dd8a126a7!2m2!1d-75.195188!2d39.973529!1m5!1m1!1s0x89c6c5e645a890ff:0x8b2876210329c0d3!2m2!1d-75.180966!2d39.96557!1m5!1m1!1s0x89c6c7b5b7617f35:0xb69fd4a4216c6ab6!2m2!1d-75.180165!2d39.964934!1m5!1m1!1s0x89c6c7c939597ebb:0x6f1ed8c0e12235ad!2m2!1d-75.172665!2d39.968336!1m5!1m1!1s0x89c6c5e645a890ff:0xd4723ae3b94e5c7a!2m2!1d-75.173958!2d39.961923!1m5!1m1!1s0x89c6c7cb5301cbad:0x4b26651ad8cf55e0!2m2!1d-75.172137!2d39.960642!1m5!1m1!1s0x89c6c634865d9bd3:0x218fde05d3437478!2m2!1d-75.173135!2d39.958211!1m5!1m1!1s0x881e32c33b399229:0x576e5a7bd6310930!2m2!1d-75.17638!2d39.953133!3e2">[1]</a> <a href="https://www.google.com/maps/dir/Mutter+Museum,+19+S+22nd+St,+Philadelphia,+PA+19103,+United+States/Penn+Museum/University+of+Pennsylvania/Rittenhouse+Square,+Philadelphia,+PA/Cathedral+Basilica+of+Saints+Peter+%26+Paul/Pennsylvania+Academy+Of+The+Fine+Arts/Masonic+Temple/Philadelphia+City+Hall/51+N+12th+St,+Philadelphia,+PA+19107/National+Constitution+Center,+525+Arch+Street,+Philadelphia,+PA+19106/@39.9531128,-75.1883093,14z/data=!3m1!4b1!4m62!4m61!1m5!1m1!1s0x881e32c33b399229:0x576e5a7bd6310930!2m2!1d-75.17638!2d39.953133!1m5!1m1!1s0x89c6c65b1abc62f5:0x502bc78cb25423fd!2m2!1d-75.191378!2d39.949234!1m5!1m1!1s0x89c6c65a7f3bccc1:0x9eaa6a2b2d6fe94!2m2!1d-75.193214!2d39.952219!1m5!1m1!1s0x89c6c63ba89a53cd:0x9a21f09ff2e9fc3c!2m2!1d-75.1718643!2d39.9494655!1m5!1m1!1s0x89c6c6325a41279f:0xbd77ffada4952c35!2m2!1d-75.168267!2d39.957223!1m5!1m1!1s0x89c6c62dcbbbbb35:0x62eec179dd5aa928!2m2!1d-75.163508!2d39.95524!1m5!1m1!1s0x89c6c62e87b1438b:0x96f3cb1054c09c56!2m2!1d-75.162735!2d39.953665!1m5!1m1!1s0x89c6c62e5afd7d1b:0xf3775d7d679efbb8!2m2!1d-75.164023!2d39.952388!1m5!1m1!1s0x89c6c629675c58af:0xa2ba813f789c5fe1!2m2!1d-75.1588819!2d39.953223!1m5!1m1!1s0x89c6c8814be07267:0xe648c82ca822df72!2m2!1d-75.149072!2d39.953196!3e2">[2]</a> <a href="https://www.google.com/maps/dir/National+Constitution+Center,+525+Arch+St,+Philadelphia,+PA+19106,+United+States/Firemans+Hall+Museum,+147+North+2nd+Street,+Philadelphia,+PA+19106/Elfreths+Alley,+126+Elfreths+Alley,+Philadelphia,+PA+19106/Christ+Church,+20+North+American+Street,+Philadelphia,+PA+19106/National+Museum+of+American+Jewish+History,+101+South+Independence+Ml+East,+Philadelphia,+PA+19106/Independence+National+Historical+Park,+Philadelphia,+PA+19106/Philadelphias+Magic+Gardens,+1020+South+Street,+Philadelphia,+PA+19147/@39.9475618,-75.1594455,15z/data=!3m1!4b1!4m44!4m43!1m5!1m1!1s0x89c6c8814be07267:0xe648c82ca822df72!2m2!1d-75.149072!2d39.953196!1m5!1m1!1s0x89c6c886270792cd:0xfe60b1bed54bd984!2m2!1d-75.142866!2d39.953295!1m5!1m1!1s0x89c6c888a20efd9f:0x2a546ebd6fb62e96!2m2!1d-75.142457!2d39.952716!1m5!1m1!1s0x89c6c885e991fb39:0xf1f64b534bccb985!2m2!1d-75.144249!2d39.950719!1m5!1m1!1s0x89c6c8840dcf3dff:0xb1cd0c3e7df6c732!2m2!1d-75.148467!2d39.950211!1m5!1m1!1s0x89c6c88492ef5019:0x8647809a3e710321!2m2!1d-75.149732!2d39.949531!1m5!1m1!1s0x89c6c621441b1eef:0x692d76b6996315f8!2m2!1d-75.159281!2d39.942769!3e2">[3]</a></p>
+<p>Here's the full list of attractions in order:</p>
+<ol>
+<li>Fairmount Park, Philadelphia, PA</li>
+<li>Please Touch Museum, 4231 Avenue of the Republic, Philadelphia, PA</li>
+<li>Philadelphia Zoo, West Girard Avenue, Philadelphia, PA</li>
+<li>Philadelphia Museum of Art, Benjamin Franklin Parkway, Philadelphia, PA</li>
+<li>Rocky Steps, Benjamin Franklin Parkway, Philadelphia, PA</li>
+<li>Eastern State Penitentiary, Fairmount Avenue, Philadelphia, PA</li>
+<li>Rodin Museum, Benjamin Franklin Parkway, Philadelphia, PA</li>
+<li>Barnes Foundation, 2025 Benjamin Franklin Parkway, Philadelphia, PA 19130</li>
+<li>The Franklin Institute, North 20th Street, Philadelphia, PA</li>
+<li>Mutter Museum, South 22nd Street, Philadelphia, PA</li>
+<li>Penn Museum, 3260 South Street, Philadelphia, PA</li>
+<li>University of Pennsylvania, Philadelphia, PA</li>
+<li>Rittenhouse Square, Philadelphia, PA</li>
+<li>Cathedral Basilica of Saints Peter & Paul, Race Street, Philadelphia, PA</li>
+<li>Pennsylvania Academy Of The Fine Arts, North Broad Street, Philadelphia, PA</li>
+<li>Masonic Temple, North Broad Street, Philadelphia, PA</li>
+<li>Philadelphia City Hall, John F Kennedy Boulevard, Philadelphia, PA</li>
+<li>Reading Terminal Market, 51 N 12th St, Philadelphia, PA</li>
+<li>National Constitution Center, 525 Arch Street, Philadelphia, PA</li>
+<li>Fireman's Hall Museum, North 2nd Street, Philadelphia, PA</li>
+<li>Elfreth's Alley, Philadelphia, PA</li>
+<li>Christ Church, 20 North American Street, Philadelphia, PA</li>
+<li>National Museum of American Jewish History, Philadelphia, PA</li>
+<li>Independence National Historical Park, Philadelphia, PA</li>
+<li>Philadelphia's Magic Gardens, South Street, Philadelphia, PA</li>
+</ol>
+<h3>Optimize your own walking tour</h3>
+<p>Undoubtedly, you'd like to pick your own stops in your own cities and optimize a walking tour around that. Well, you're in luck!</p>
+<p>If you'd like to customize your own walking tour, I've released the Python code I used in this project with an open source license and instructions for how to optimize your custom walking tour. If Google Maps can route in the city you want to take walking tour in, then this code will work for you.</p>
+<p>You can find the code <a href="http://nbviewer.ipython.org/github/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/optimal-road-trip/Computing%20the%20optimal%20road%20trip%20across%20the%20U.S..ipynb">here</a>.</p>
+<p>Happy exploring!</p>

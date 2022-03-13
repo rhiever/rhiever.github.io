@@ -1,0 +1,95 @@
+---
+layout: post
+title: Major League Baseball home run leaders, 1871-2016
+date: 2016-03-10 18:19:28.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- python
+- tutorial
+tags:
+- animated visualizations
+- data visualization
+- major league baseball
+meta:
+  _edit_last: '2'
+  _thumbnail_id: '7852'
+  _responsive_layout: default
+  _aioseop_keywords: major league baseball, mlb, home runs, record, babe ruth, data
+    visualization, python, matplotlib, animated
+  _aioseop_description: Randy Olson highlights one example where animated data visualization
+    outperforms static visualizations.
+  _aioseop_title: Major League Baseball home run leaders, 1871-2016
+  dsq_thread_id: '4651915950'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2016/03/10/major-league-baseball-home-run-leaders-1871-2016/"
+---
+<p>Earlier this week, a Reddit user <a href="https://www.reddit.com/r/dataisbeautiful/comments/49d9m3/xpost_from_rbaseball_visualizing_the_historical/">shared</a> a fascinating animated data visualization showing the MLB home run leaders from the past 200+ years. I found this visualization especially interesting because it was one of the few examples where I've seen an animated data visualization effectively tell a story that a static visualization couldn't tell. I've recreated the user's visualization with Python below.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/mlb-baseball-homerun-records.gif"><img src="{{ site.baseurl }}/assets/2016/03/mlb-baseball-homerun-records.gif" alt="mlb-baseball-homerun-records" width="602" height="630" class="aligncenter size-full wp-image-7852" /></a></p>
+<p><center><a href="https://gfycat.com/FabulousFrenchAmericanalligator">Click here for a gfycat version</a></center></p>
+<p>We see the early battle for the home run throne in the late 1800's, then a period of stagnation in the early 1900s. As one Redditor explained:</p>
+<blockquote><p>The reason why the records remain fairly stagnant from 1903-1920 is because there was a <a href="https://en.wikipedia.org/wiki/Dead-ball_era">Dead-ball era</a> in the MLB. During the "Dead Ball Era," ballparks had ridiculously large dimensions, balls were used until they weren't useful anymore, and many pitchers "doctored" the ball by spitting on it or covering it in tobacco.</p></blockquote>
+<p>Shortly thereafter, we see why Babe Ruth was such a sensation in the 1920s, as his record skyrocketed to 714 home runs over his career. Ruth held that record until the 1970s, when Hank Aaron dethroned him and held onto the record for another 40 years. There's a lot more to discover in this animated visualization, but I'll leave that as an exercise to the reader.</p>
+<h3>The downside of this visualization</h3>
+<p>Of course, the most obvious criticism of this visualization is that the lines represent different people over time, which can be disorienting to some viewers. It's important to remember that this visualization is meant to show the evolution of <em>home run records</em> over time, and not necessarily the home run records of any particular individual.</p>
+<p>One possible way to overcome this shortcoming is to take a cue from <a href="https://xkcd.com/1392/">xkcd</a> and assign each player their own line:</p>
+<p><a href="https://xkcd.com/1392/" rel="attachment wp-att-7866"><img src="{{ site.baseurl }}/assets/2016/03/dominant_players_large-1024x660.png" alt="dominant_players_large" class="aligncenter size-large wp-image-7866" /></a></p>
+<p>However, we would likely have to limit the number of players we visualize at once, and would likely only be able to show one or two dominant players during each time period.</p>
+<p>Furthermore, since career home run records only go up over time, we would quickly see the 400+ home run range filled with several player's records. Perhaps an xkcd-like version can be made for <em>yearly</em> home runs of dominant players, but I'll leave that as an exercise for the future.</p>
+<h3>How do I remake this visualization?</h3>
+<p>Below is the Python code that I used to generate the animated visualization. Once you've generated all of the individual frames, you'll have to stitch them together with a program such as <a href="https://www.ffmpeg.org/">ffmpeg</a> or <a href="https://www.techsmith.com/camtasia.html">Camtasia</a>.</p>
+<pre name="code" class="python:nogutter">
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# This is my custom matplotlib style -- feel free to reuse it
+plt.style.use('https://gist.githubusercontent.com/rhiever/d0a7332fe0beebfdc3d5/raw/223d70799b48131d5ce2723cd5784f39d7a3a653/tableau10.mplstyle')
+
+mlb_data = pd.read_csv('http://www.randalolson.com/wp-content/uploads/mlb-home-run-leaders-static.csv', sep='\t')
+mlb_data.set_index('year', inplace=True)
+
+# For every year (except the first 5)...
+for year in mlb_data.index.unique()[5:]:
+    # Each year gets its own figure
+    plt.figure(figsize=(6, 9))
+
+    # Subset the data to only the data leading up to the current year
+    subset = mlb_data.loc[mlb_data.index <= year]
+
+    # Plot each home run record line separately
+    for i in range(1, 11):
+        player_name = mlb_data.loc[mlb_data.index == year, 'player-{}'.format(str(i).zfill(2))].values[0]
+        player_homeruns = int(mlb_data.loc[mlb_data.index == year, 'rank-{}'.format(str(i).zfill(2))].values[0])
+
+        player_label = '{}. {} ({})'.format(i, player_name, player_homeruns)
+        subset['rank-{}'.format(str(i).zfill(2))].plot(label=player_label)
+
+    # We don't need an x-axis label -- it's obvious that it's years
+    plt.xlabel('')
+
+    # matplotlib has an annoying tendency to represent years in scientific notation
+    # This line disables that
+    plt.gca().get_xaxis().get_major_formatter().set_useOffset(False)
+
+    # Give some space on the bottom so the x- and y-axis ticks don't overlap
+    plt.ylim(ymin=-1)
+
+    # Place the legend to the right of the figure
+    plt.legend(fontsize=14, bbox_to_anchor=(1.65, 0.8), title='Top 10', frameon=False)
+
+    plt.grid(False, axis='x')
+    plt.title(year)
+    plt.ylabel('Home Runs')
+
+    # You can also save it as a .pdf here
+    plt.savefig('{}.png'.format(year))
+</pre>

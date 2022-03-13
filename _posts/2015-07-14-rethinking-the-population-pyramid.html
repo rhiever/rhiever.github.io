@@ -1,0 +1,85 @@
+---
+layout: post
+title: Rethinking the population pyramid
+date: 2015-07-14 19:42:05.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- tutorial
+tags:
+- critique
+- data visualization
+- population pyramid
+- U.S. Census
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _oembed_2f0e995e7fdcfd1140cc7c72358867bb: "{{unknown}}"
+  _thumbnail_id: '7253'
+  _oembed_6cb944b9dc63ba2240409091438fe61b: "{{unknown}}"
+  _aioseop_keywords: data visualization, population pyramid, U.S. Census, bar chart,
+    critique, rework
+  _aioseop_description: Randy Olson critiques the popular population pyramid that
+    the U.S. census likes to use so frequently to display population statistics.
+  _aioseop_title: Rethinking the population pyramid
+  dsq_thread_id: '3935143814'
+  tc-thumb-fld: a:2:{s:9:"_thumb_id";s:4:"7253";s:11:"_thumb_type";s:5:"thumb";}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/07/14/rethinking-the-population-pyramid/"
+---
+<p>If you've ever browsed the U.S. Census population statistics pages, you've no doubt come across the famous <a href="https://en.wikipedia.org/wiki/Population_pyramid">population pyramid</a> that they so frequently use to display the distribution of the U.S. population by age and gender.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/united_states_population_pyramid.jpg"><img src="{{ site.baseurl }}/assets/2015/07/united_states_population_pyramid.jpg" alt="united_states_population_pyramid" width="617" height="434" class="aligncenter size-full wp-image-7258" /></a></p>
+<p>I was reading up about population pyramids last weekend and ran across an <a href="http://web.archive.org/web/20150719101814/http://www.portal.state.pa.us:80/portal/server.pt/document/901767/population_pyramids_pdf">interesting quote</a> that caught my eye:</p>
+<blockquote><p>the use of a population pyramid is considered the best way to graphically illustrate the age and sex distribution of a given population.</p></blockquote>
+<p>Now, I'm no expert at displaying population statistics, but I was shocked at this claim. Could it really be true that population pyramids are considered the <em>best</em> method for displaying population distributions?</p>
+<p>That line of thought ultimately led to the article below, where I raise three critiques of the population pyramid and present simpler and -- in my view -- more effective visualization methods.</p>
+<p>For this article, I used the <a href="http://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf">2010 U.S. Census population statistics</a>, which you can find <a href="http://www.randalolson.com/wp-content/uploads/us-age-gender-breakdown.csv">here</a> in a machine-readable format.</p>
+<p>You can also find all of the code for these charts in <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/rethinking-population-pyramid/Rethinking%20the%20population%20pyramid.ipynb">my GitHub repository</a>.</p>
+<h3>Problems with the population pyramid</h3>
+<h5>1) Violates the standard expectation of having the causal variable on the x-axis</h5>
+<p>One of the most noticeable mistakes that the population pyramid makes is flipping the chart on its side to form a "pyramid" shape. I can only view this as an aesthetic flourish, since it violates one of the <a href="http://mathbench.umd.edu/modules/visualization_graph/page02.htm">standard expectations</a> of plotting: <strong>The causal variable should always be on the x-axis.</strong></p>
+<p>When it comes to plotting, the x-axis is typically reserved for the independent variable, i.e., a fixed setting that has some sort of effect on another variable. In contrast, the y-axis is reserved for the dependent variable, i.e., the variable that shows some effect from varying the independent variable.</p>
+<p>The implication is that values on the x-axis <em>cause</em> some measurable <em>effect</em> on the values in the y-axis. This is why we always put the passage of time on the x-axis: it doesn't make sense to think of some other factor causing changes in the passage of time. (Until we discover time travel, anyway.)</p>
+<p>Since it doesn't make sense to think about a population's gender distributions having an effect on age -- and it makes far more sense to think about age having an effect on a population's gender distributions -- let's flip the axis of the pyramid so it's more in line with standard visualization practices.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pop_pyramid_rotated_annotated.png"><img src="{{ site.baseurl }}/assets/2015/07/pop_pyramid_rotated_annotated-1024x573.png" alt="pop_pyramid_rotated_annotated" width="605" height="339" class="aligncenter size-large wp-image-7253" /></a></p>
+<p>Now we don't have to reorient ourselves every time we look at the population pyramid, since the data is displayed more naturally.</p>
+<p>Ideally, the x-axis labels would be in between the "women" and "men" bars, but that was a bit tedious to pull off in my plotting software. Moving on...</p>
+<h5>2) Doesn't allow direct comparisons between the two categories</h5>
+<p>The second flaw with population pyramids is that they make it difficult to compare the age distributions of men and women.</p>
+<p>For example, can you tell me at a glance if there's more men or women in the 25-29 age group? You'd have to look up the number of men and women in the 25-29 age group separately and make the comparison that way, when there's really no reason that the chart shouldn't be performing those comparisons for you.</p>
+<p>Let's rework the population pyramid to group the people by age, with separate bars for men and women.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pop_pyramid_grouped_annotated.png"><img src="{{ site.baseurl }}/assets/2015/07/pop_pyramid_grouped_annotated-1024x573.png" alt="pop_pyramid_grouped_annotated" width="605" height="339" class="aligncenter size-large wp-image-7251" /></a></p>
+<p>Now we have the exact same benefits of the population pyramid, with the additional benefit of being able to immediately discern whether there are more women or men in each age group. Arguably, we can now perform the same comparison between age groups as well -- for example, are there more 50-54-year-old women than 30-34-year-old men? -- but those comparisons become difficult the further the age groups are from each other.</p>
+<p>What's immediately apparent from this version of the population pyramid is:</p>
+<ol>
+<li><strong>There are more young men than young women in the U.S.,</strong></li>
+<li>we reach gender parity around age 30,</li>
+<li>then men start dying out younger and leaving droves of widows behind starting at age 45.</li>
+</ol>
+<p>There's some really interesting implications in that data for the evolution of <a href="https://en.wikipedia.org/wiki/Human_sex_ratio">human sex ratios</a>, but I'll leave that for another time.</p>
+<h5>3) Relative trends between the categories are masked by displaying absolute values</h5>
+<p>There's clearly an interesting trend going on in the age 45+ groups where there are more women than men. But what's going on with the M:F ratio, especially in the 90+ categories? It's incredibly difficult to tell because these trends are masked when we display absolute values.</p>
+<p>If we're more interested in the relative trends between the two categories, we can drop the absolute values and instead show the percentage breakdown of the groups as I've done below.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pop_pyramid_stacked_annotated.png"><img src="{{ site.baseurl }}/assets/2015/07/pop_pyramid_stacked_annotated-1024x573.png" alt="pop_pyramid_stacked_annotated" width="605" height="339" class="aligncenter size-large wp-image-7254" /></a></p>
+<p>Now those trends I discussed above become abundantly clear, and we see that <strong>roughly 75% of U.S. adults aged 90+ are women</strong>. Sorry, straight men: your wife is probably going to outlive you.</p>
+<p>Of course, whether we would use this third chart solely depends on whether we care more about relative differences between the gender categories or the age distribution of the population. As with all charts, what data you should display depends on what story you want to tell with the data. In either case, I hope I've convinced you that the population pyramid -- as it's currently used -- is not quite ideal for telling either story.</p>
+<h3>Lessons learned</h3>
+<p>As with all of my long-winded articles critiquing a data visualization, I'll end with a brief summary of the main lessons we've learned.</p>
+<ol>
+<li>The causal variable (e.g., time or a parameter you control in an experiment) should always go on the x-axis.</li>
+<li>Group related data when within-group comparisons can be useful.</li>
+<li>What chart you use and what data you display depends on the story you want to tell. Don't try to force a story out of the wrong chart.</li>
+</ol>
+<p>Are there some other ways the population pyramid could be improved? Leave your suggestions in the comments.</p>
+<hr />
+<p>If you liked what you saw in this post and want to learn more, check out my <a href="http://shop.oreilly.com/product/0636920046592.do">Python data visualization video course</a> that I made in collaboration with O'Reilly. In just one hour, I will cover these topics and much more, which will provide you with a strong starting point for your career in data visualization.</p>
+<p><center><iframe src="http://www.oreilly.com/authors/widgets/684.html" height="230px" width="200px" scrolling="no" frameborder="0"></iframe></center></p>

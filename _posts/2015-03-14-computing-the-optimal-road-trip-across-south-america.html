@@ -1,0 +1,88 @@
+---
+layout: post
+title: Computing the optimal road trip across South America
+date: 2015-03-14 15:06:57.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+- machine learning
+tags:
+- genetic algorithm
+- machine learning
+- optimization
+- road trip
+- South America
+- traveling salesman problem
+meta:
+  _edit_last: '2'
+  _aioseop_keywords: genetic algorithm, machine learning, optimization, traveling
+    salesman problem, road trip, South America, popular cities, route planning
+  _thumbnail_id: '6556'
+  _responsive_layout: default
+  _aioseop_title: Computing the optimal road trip across South America
+  _aioseop_description: Randy Olson shows you how to compute an epic road trip across
+    South America.
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430362954;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:6456;}i:1;a:1:{s:2:"id";i:6371;}i:2;a:1:{s:2:"id";i:6674;}}}}
+  dsq_thread_id: '3595362219'
+  tc-thumb-fld: a:2:{s:9:"_thumb_id";s:4:"6556";s:11:"_thumb_type";s:5:"thumb";}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/03/14/computing-the-optimal-road-trip-across-south-america/"
+---
+<p>By popular request, I've created another follow-up to my posts about computing optimal road trips across the <a href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">U.S.</a> and <a href="http://www.randalolson.com/2015/03/10/computing-the-optimal-road-trip-across-europe/">Europe</a>. This time, I made an optimal road trip around South America. If you'd like to get into the nitty-gritty of how these road trips are created, check out the first post about the U.S. road trip.</p>
+<p>South America is yet another massive and diverse continent, so again there's no way I'll be able to pick a series of stops that will please everyone. However, by combining recommendations from <a href="http://www.tripadvisor.com/TravelersChoice-Destinations-cTop-g13">TripAdvisor</a> and <a href="http://www.huffingtonpost.com/2014/02/10/south-american-travel-destinations_n_4733206.html">Huffington Post</a>, I was able to create a trip with a nice mix between beautiful outdoor sights and lively cities across the entire South American continent. Below is the optimized route between those stops.</p>
+<p><a href="http://rhiever.github.io/optimal-roadtrip-usa/south-america-trip.html"><img src="{{ site.baseurl }}/assets/2015/03/south-america-optimal-road-trip.png" alt="south-america-optimal-road-trip" width="655" height="900" class="aligncenter size-full wp-image-6556" /></a></p>
+<p><center><em>Click <a href="http://rhiever.github.io/optimal-roadtrip-usa/south-america-trip.html">here</a> for the interactive version</em></center></p>
+<p>This trip ended up mostly following along the coastline of South America, covering roughly 18,148 miles (29,206 km) of driving, ferrying, and flying. You should plan to spend 3 or more months on this trip if you want to really enjoy it.</p>
+<p>Google Maps isn't routing between Colombia and its neighboring countries, so I drew direct lines between Quito <--> Bogota & Santa Marta <--> Isla Margarita that may need to be taken by plane instead. Your best bet with this trip is to start at Isla Margarita, Venezuela and follow the route south from there.</p>
+<p>Here's the full list of stops in order:</p>
+<ol>
+<li>Isla Margarita, Venezuela</li>
+<li>Angel Falls, Venezuela</li>
+<li>Jericoacoara, Brazil</li>
+<li>Fortaleza, Brazil</li>
+<li>Natal, Brazil</li>
+<li>Salvador, Brazil</li>
+<li>Trancoso, Brazil</li>
+<li>Belo Horizonte, Brazil</li>
+<li>Buzios, Brazil</li>
+<li>Rio de Janeiro, Brazil</li>
+<li>Sao Paulo, Brazil</li>
+<li>Curitiba, Brazil</li>
+<li>Florianopolis, Brazil</li>
+<li>Gramado, Brazil</li>
+<li>Punta del Este, Uruguay</li>
+<li>Asuncion, Paraguay</li>
+<li>Buenos Aires, Argentina</li>
+<li>Torres del Paine, Chile</li>
+<li>El Calafate, Argentina</li>
+<li>San Carlos de Bariloche, Argentina</li>
+<li>Santa Cruz, Chile</li>
+<li>Santiago, Chile</li>
+<li>Vina del Mar, Chile</li>
+<li>San Pedro de Atacama, Chile</li>
+<li>Nuestra Senora de La Paz, Bolivia</li>
+<li>Lake Titicaca, Bolivia/Peru</li>
+<li>Arequipa, Peru</li>
+<li>Urubamba, Peru</li>
+<li>Cusco, Peru</li>
+<li>Lima, Peru</li>
+<li>Mancora, Peru</li>
+<li>Quito, Ecuador</li>
+<li>Bogota, Colombia</li>
+<li>Cartagena, Colombia</li>
+<li>Santa Marta, Colombia</li>
+<li>Taganga, Colombia</li>
+</ol>
+<h3>Make your own road trip</h3>
+<p>If you'd like to customize your own road trip, I've released the Python code I used in this project with an open source license and instructions for how to optimize your custom road trip. You can find the code <a href="http://nbviewer.ipython.org/github/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/optimal-road-trip/Computing%20the%20optimal%20road%20trip%20across%20the%20U.S..ipynb">here</a>.</p>
+<p>Happy exploring!</p>

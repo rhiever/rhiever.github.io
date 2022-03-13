@@ -1,0 +1,46 @@
+---
+layout: post
+title: Programming Language Breakdown for the HealthCare.gov Website
+date: 2014-05-22 10:59:17.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+tags:
+- health care
+- healthcare.gov
+- lines of code
+- programming language
+- web site
+meta:
+  _aioseop_keywords: obamacare, health care, healthcare.gov, web site, programming
+    language, lines of code, obama, 500 million
+  _aioseop_description: Randy Olson breaks down the code base under the HealthCare.gov
+    website.
+  _aioseop_title: Programming Language Breakdown for the HealthCare.gov Website
+  _responsive_layout: default
+  _edit_last: '2'
+  _thumbnail_id: '4125'
+  dsq_thread_id: '3245765015'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430356328;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:4882;}i:1;a:1:{s:2:"id";i:2243;}i:2;a:1:{s:2:"id";i:2542;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/05/22/programming-language-breakdown-for-the-healthcare-gov-website/"
+---
+<p>Late last year, the NY Times released an article <a href="http://www.nytimes.com/2013/10/21/us/insurance-site-seen-needing-weeks-to-fix.html?pagewanted=all&_r=0">quoting a specialist</a> working on the <a href="http://healthcare.gov">HealthCare.gov</a> web site:</p>
+<blockquote><p>According to one specialist, the Web site contains about <strong>500 million lines of software code</strong>. By comparison, a large bank’s computer system is typically about one-fifth that size.</p></blockquote>
+<p>This astronomically large number became the subject of intense criticism over the following months, especially in the wake of HealthCare.gov's initially failed launch. Particularly, a number of software engineering experts <a href="http://dish.andrewsullivan.com/2013/11/21/the-sheer-size-of-healthcare-gov-ctd/">brought into question</a> how realistic it is for <em>any</em> software engineering team to even produce a code base that large. Despite this, the 500 million lines of code statistic has been uncritically cited worldwide.</p>
+<p>Just today, a <a href="http://www.reddit.com/r/dataisbeautiful/comments/265yns/million_lines_of_code/">data visualization poking fun at this statistic</a> made it to the front page of the subreddit /r/dataisbeautiful. Apparently annoyed by this horrendously false statistic for the last time, one programmer on the HealthCare.gov software development team decided to put the statistic to rest. This programmer performed an automated code count for the HealthCare.gov code base and estimated that there it has only about <a href="http://www.reddit.com/r/dataisbeautiful/comments/265yns/million_lines_of_code/cho3xhz">3.7 million lines of code</a> for the primary code base. Below is the breakdown of programming languages for that 3.7 million lines of code.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/healthcare-gov-code-count.png"><img src="{{ site.baseurl }}/assets/2014/05/healthcare-gov-code-count.png" alt="healthcare-gov-code-count" width="2501" height="1634" class="aligncenter size-full wp-image-4125" /></a></p>
+<p>The programmer clarified:</p>
+<blockquote><p>this doesn't include parts of the system used for administrative tasks.</p></blockquote>
+<p>and</p>
+<blockquote><p>the total number of lines of code controlling the entire system could be anywhere from 5 - 15 million lines of code.</p></blockquote>
+<p>So there you go -- as many of us guessed all along, the 500 million lines of code statistic was utterly bogus. Let's share this information and put that bad statistic to rest.</p>

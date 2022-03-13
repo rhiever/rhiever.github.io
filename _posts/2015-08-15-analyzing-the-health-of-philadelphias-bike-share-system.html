@@ -1,0 +1,60 @@
+---
+layout: post
+title: Analyzing the health of Philadelphia's bike share system
+date: 2015-08-15 19:17:46.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- bike share
+- Indego
+- machine learning
+- modeling
+- Philadelphia
+meta:
+  _edit_last: '2'
+  _aioseop_description: Randy Olson analyzes Philadelphia's bike share system to explore
+    how often the bike stations are available for use.
+  _aioseop_title: Analyzing the health of Philadelphia's bike share system
+  _thumbnail_id: '7480'
+  _aioseop_keywords: bike share, Indego, usage patterns, wait time, empty, full, machine
+    learning, modeling, Philadelphia
+  _responsive_layout: default
+  _oembed_51962ee11d40fcd00f1ec57b89a02e2d: "{{unknown}}"
+  dsq_thread_id: '4036376362'
+  responsive_meta_box_designation: ''
+  responsive_meta_box_facebook: ''
+  responsive_meta_box_twitter: ''
+  responsive_meta_box_googleplus: ''
+  responsive_meta_box_text_linkedin: ''
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/08/15/analyzing-the-health-of-philadelphias-bike-share-system/"
+---
+<p>Last month, I wrote about my initial attempts to <a href="http://www.randalolson.com/2015/07/18/visualizing-indego-bike-share-usage-patterns-in-philadelphia/">model and predict</a> the usage patterns of <a href="http://www.rideindego.com/">Indego</a>, Philadelphia's new bike share system. To recap:</p>
+<blockquote><p>If you've ever used a bike share before, you know that one of the biggest fears is coming up to an empty bike share station when you need a bike. (Or similarly, coming up to a full station when you need to drop a bike off.) To help abate those fears, I've started monitoring the Indego bike usage API to see if I could model and predict when the bike share stations are most likely going to be empty or full.</p></blockquote>
+<p>A couple weeks after my post, another team of data analysts made an <a href="http://greatergreaterwashington.org/post/27555/empty-bikeshare-stations-dont-always-mean-long-waits/">interesting suggestion</a> to the bike sharers in Washington, D.C.: If you run into an empty or full bike share station, just wait 5 minutes and there should be an opening for you. Since I had the Indego data on hand<sup><a href="#note-a">a</a></sup>, I decided to take a look at Philadelphia's bike share to see if the same advice holds here.</p>
+<p>Below, I analyzed each Indego station individually and plotted the percentage of the time each station recovered from becoming empty or full within 5 minutes. Each dot represents a station; if you hover over one of the dots, the plot will tell you the name of the station, the percents, and the number of times each station became empty or full since July '15.</p>
+<p><iframe src="http://www.randalolson.com/apps/station_recovery_scatter.html" scrolling="no" frameborder="0" width="600" height="625"></iframe></p>
+<p>The takeaway from this plot is that <strong>if you see an empty or full Indego bike station, you're better off finding another station than waiting 5 minutes</strong>. In fact, in the past couple months you typically had to wait about 30 minutes at a station before it was no longer full or empty -- with shorter wait times during peak hours<sup><a href="#note-b">b</a></sup>, of course.</p>
+<p>Thankfully, most of the Indego bike stations are quite healthy. Below, I plotted the breakdown of how often each station is healthy (not empty nor full), empty, or full and sorted the stations by how the percentage of time they're healthy.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/indego-pct-healthy-bar.png"><img src="{{ site.baseurl }}/assets/2015/08/indego-pct-healthy-bar-804x1024.png" alt="indego-pct-healthy-bar" width="605" height="771" class="aligncenter size-large wp-image-7480" /></a></p>
+<p>The majority of the Indego bike stations have an uptime of 90% or higher, with the station at 18th &amp; Fernon topping the list with a near-100% uptime. By far, <strong>the biggest problem Indego bike stations face is running out of bikes during the peak hours.</strong> The Children's Hospital of Philadelphia (CHOP) station, for example, frequently runs out of bikes in the evening when the hospital workers are heading back home. Similarly, commuting stations in the residential neighborhoods of Philadelphia -- such as 18th &amp; Washington Ave -- have a strong tendency to fill up shortly after work hours.</p>
+<p>To provide a better perspective on the Indego bike station downtimes, I plotted each station below. Again, each dot represents a station and you can hover over the dot to see the station names and statistics. The better-performing stations are on the bottom left of the chart, with near-zero downtimes.</p>
+<p><iframe src="http://www.randalolson.com/apps/station_health_scatter.html" scrolling="no" frameborder="0" width="600" height="575"></iframe></p>
+<p>Again, the critical issue of running out of bikes is highlighted in this chart: <strong>Some stations, such as 8th &amp; Market and 18th &amp; JFK, spend upwards of 25% of their time without a single bike.</strong> It's fair to assume that most of this downtime is during the evenings and overnight, but it's an alarming statistic nonetheless.</p>
+<p>Despite these difficulties, I think the above findings are a great sign for the future of our burgeoning bike share program. There's currently more demand for the bike share than it can sometimes provide, which means there's tremendous opportunity for bike share growth in Philadelphia.</p>
+<p>In the meantime, if you'd like to get the upper hand on the other bike sharers and find out the best times to take your bike routes, feel free to analyze my cache of the Indego usage data below.</p>
+<hr />
+<h5>Technical notes</h5>
+<p><sup id="note-a"><strong>a</strong></sup> I have made my cache of the Indego bike share data set available online here. (Note: Sorry, I had to take down the cache, but I've left this text here for historical records.) The data is in tab-separated format, compressed with gzip, and contains all of the data from the <a href="https://www.opendataphilly.org/dataset/bike-share-stations">API</a>, captured every 5 minutes. The cache auto-updates every 5 minutes after the hour, every hour. Please don't send requests for the cache more than one time per hour; I will have to take it down if my web site slows down due to high volumes of requests.</p>
+<p><sup id="note-b"><strong>b</strong></sup> The peak usage hours for the Indego bike share are typically 8-10 AM and 4-6 PM ET on the weekdays. You can read more about the Indego usage patterns in my <a href="http://www.randalolson.com/2015/07/18/visualizing-indego-bike-share-usage-patterns-in-philadelphia/">previous post</a>.</p>

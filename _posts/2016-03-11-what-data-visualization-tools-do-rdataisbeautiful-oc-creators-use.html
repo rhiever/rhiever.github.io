@@ -1,0 +1,212 @@
+---
+layout: post
+title: What data visualization tools do /r/DataIsBeautiful OC creators use?
+date: 2016-03-11 09:00:39.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- reddit
+tags:
+- data visualization
+- reddit
+- tools
+meta:
+  _edit_last: '2'
+  _thumbnail_id: '7876'
+  _aioseop_description: Randy Olson delves into Reddit comment data to find out what
+    data visualization tools /r/DataIsBeautiful OC creators use.
+  _responsive_layout: default
+  _aioseop_title: What data visualization tools do /r/DataIsBeautiful OC creators
+    use? [OC]
+  dsq_thread_id: '4652175895'
+  _wp_old_slug: what-tools-do-rdataisbeautiful-oc-creators-use
+  _aioseop_keywords: data visualization, tools, beginner, dataisbeautiful, reddit,
+    excel, python, d3js, tableau, ggplot, r, javascript, gephi
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2016/03/11/what-data-visualization-tools-do-rdataisbeautiful-oc-creators-use/"
+---
+<p>One of the most common questions that newcomers to data [science/visualization/analysis] ask is: "What tools should I use to create data visualizations?" While I always <a href="http://shop.oreilly.com/product/0636920046592.do">recommend</a> learning design principles <em>before</em> tools, I thought I'd take a stab at answering that question by analyzing what tools the <a href="http://reddit.com/r/dataisbeautiful">/r/DataIsBeautiful</a> community uses.</p>
+<p>For the uninitiated, /r/DataIsBeautiful is an online community dedicated to data analysis and visualization, where people post and discuss various data visualizations from around the web. Sometimes /r/DataIsBeautiful community members create and share their own data visualizations -- called "OC," or Original Content -- which I have always found to be a great source of ideas and inspiration.</p>
+<p>As part of the /r/DataIsBeautiful posting rules, every OC contributor must include a comment on their post describing the data source(s) and tool(s) they used to create their data visualization. Thus, analyzing their tool usage over the years was a fairly simple n-gram analysis of all comments made by OC contributors on /r/DataIsBeautiful that mention the word "tool." For this article, I analyzed <a href="#comment-data">thousands of comments</a> made by OC contributors to /r/DataIsBeautiful between January 2014 and January 2016.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/DIB-tools-used-bar.png" rel="attachment wp-att-7876"><img src="{{ site.baseurl }}/assets/2016/03/DIB-tools-used-bar.png" alt="DIB-tools-used-bar" width="787" height="449" class="aligncenter size-full wp-image-7876" /></a></p>
+<p>(Unfortunately, it was difficult to parse out mentions of the "R" language with the n-gram analysis, so we'll have to use ggplot2 as a proxy.)</p>
+<p>The most popular tools on /r/DataIsBeautiful are:</p>
+<table>
+<tr>
+<td><strong>Tool</strong></td>
+<td><strong>Free?</strong></td>
+<td><strong>Requires programming?</strong></td>
+<td><strong>Typical uses</strong></td>
+</tr>
+<tr>
+<td><a href="https://products.office.com/en-us/excel">Excel</a></td>
+<td>Paid</td>
+<td>No</td>
+<td>Basic data analysis and visualization</td>
+</tr>
+<tr>
+<td><a href="https://www.python.org/">Python</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>General-purpose scripting language that is typically used for data scraping, cleaning, and wrangling</td>
+</tr>
+<tr>
+<td><a href="https://d3js.org/">D3.js</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>JavaScript-based library for interactive data visualization on the web</td>
+</tr>
+<tr>
+<td><a href="http://www.tableau.com/">Tableau</a></td>
+<td>Paid, with limited free option</td>
+<td>No</td>
+<td>Advanced interactive data visualizations for the web</td>
+</tr>
+<tr>
+<td><a href="https://ggplot2.tidyverse.org/">ggplot2</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Advanced data visualization library for the R scripting language</td>
+</tr>
+<tr>
+<td><a href="https://www.r-project.org/">R</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Scripting language designed for statistical analysis, modeling, and data visualization</td>
+</tr>
+<tr>
+<td><a href="http://matplotlib.org">matplotlib</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Python-based visualization library for making basic data visualizations</td>
+</tr>
+</table>
+<p>As expected, Excel dominates the list as the primary tool that most beginners use: In this case, there have been at least 643 OC data visualizations on /r/DataIsBeautiful that were made with Excel. Excel is a great tool to start with, but you should eventually move on to more advanced tools that allow you to programmatically generate visualizations such as matplotlib/Seaborn, D3.js, or ggplot2. If programming isn't your forte, Tableau is a much better option than Excel.</p>
+<p>Here's descriptions for the rest of the tools:</p>
+<table>
+<tr>
+<td><strong>Tool</strong></td>
+<td><strong>Free?</strong></td>
+<td><strong>Requires programming?</strong></td>
+<td><strong>Typical uses</strong></td>
+</tr>
+<tr>
+<td><a href="https://www.javascript.com/">JavaScript</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Scripting language for the web</td>
+</tr>
+<tr>
+<td><a href="http://www.highcharts.com/">Highcharts</a></td>
+<td>Free for non-commercial projects</td>
+<td>Yes</td>
+<td>JavaScript-based library for programmatically creating interactive data visualizations for the web; easier to use but less flexibility than D3.js</td>
+</tr>
+<tr>
+<td><a href="https://datawrapper.de/">Datawrapper</a></td>
+<td>Free</td>
+<td>No</td>
+<td>Basic online interactive visualizations</td>
+</tr>
+<tr>
+<td><a href="https://gephi.org/">Gephi</a></td>
+<td>Free</td>
+<td>No</td>
+<td>Network visualization</td>
+</tr>
+<tr>
+<td><a href="https://plot.ly/">Plotly</a></td>
+<td>Free</td>
+<td>No</td>
+<td>Web-based GUI for creating interactive data visualizations</td>
+</tr>
+<tr>
+<td><a href="https://cartodb.com/">CartoDB</a></td>
+<td>Free (limited)</td>
+<td>No</td>
+<td>Web-based tool for creating interactive online maps</td>
+</tr>
+<tr>
+<td><a href="http://seaborn.pydata.org/">Seaborn</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Python-based visualization library for advanced statistical data visualization</td>
+</tr>
+<tr>
+<td><a href="http://www.mathworks.com/products/matlab/">Matlab</a></td>
+<td>Paid</td>
+<td>Yes</td>
+<td>Powerful analysis, modeling, and data visualization tool</td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/chart/">Google Charts</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Simple JavaScript-based visualization library for creating interactive online visualizations</td>
+</tr>
+<tr>
+<td><a href="http://leafletjs.com/">Leaflet.js</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Simple JavaScript-based visualization library for creating interactive online map visualizations</td>
+</tr>
+<tr>
+<td><a href="https://www.latex-project.org/">LaTeX</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Document preparation system that it somehow used to create visualizations (???)</td>
+</tr>
+<tr>
+<td><a href="https://support.google.com/fusiontables/answer/2571232">Google Fusion</a></td>
+<td>Free</td>
+<td>No</td>
+<td>Web-based tool for creating interactive online data and map visualizations</td>
+</tr>
+<tr>
+<td><a href="http://bokeh.pydata.org/en/latest/">Bokeh</a></td>
+<td>Free</td>
+<td>Yes</td>
+<td>Python-based visualization library for creating interactive data and map visualizations</td>
+</tr>
+</table>
+<p>I was also curious about temporal trends in library usage, so I grouped the tool mentions by year and plotted them below.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/DIB-tools-used-line.png" rel="attachment wp-att-7877"><img src="{{ site.baseurl }}/assets/2016/03/DIB-tools-used-line.png" alt="DIB-tools-used-line" width="605" height="343" class="aligncenter size-large wp-image-7877" /></a></p>
+<p>GUI-based visualization tools such as Tableau and Gephi are seeing steady growth, whereas Python and matplotlib (oddly) seem to be waning in relative popularity. D3.js and ggplot2 are similarly experiencing steady growth, although I should note that 2016's counts are only based on January 2016's comments and may change by the end of the year. We'll have to revisit these trends come 2017.</p>
+<p>Hopefully that answers all of your data visualization tool-related questions! If you have any more questions or concerns, please leave them in the comments.</p>
+<hr />
+<p><a name="comment-data"></a> </p>
+<h3>How to download the comments I analyzed</h3>
+<p>If you'd like to repeat this analysis yourself, run the following SQL statement on the <a href="https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments">Google BigQuery database</a>.</p>
+<pre name="code" class="sql:nogutter">
+SELECT
+  body,
+  created_utc
+FROM
+  [fh-bigquery:reddit_comments.2016_01],
+  [fh-bigquery:reddit_comments.2015_12],
+  [fh-bigquery:reddit_comments.2015_11],
+  [fh-bigquery:reddit_comments.2015_10],
+  [fh-bigquery:reddit_comments.2015_09],
+  [fh-bigquery:reddit_comments.2015_08],
+  [fh-bigquery:reddit_comments.2015_07],
+  [fh-bigquery:reddit_comments.2015_06],
+  [fh-bigquery:reddit_comments.2015_05],
+  [fh-bigquery:reddit_comments.2015_04],
+  [fh-bigquery:reddit_comments.2015_03],
+  [fh-bigquery:reddit_comments.2015_02],
+  [fh-bigquery:reddit_comments.2015_01],
+  [fh-bigquery:reddit_comments.2014]
+WHERE
+  LOWER(BODY) LIKE "%tool%"
+  AND subreddit == "dataisbeautiful"
+</pre>

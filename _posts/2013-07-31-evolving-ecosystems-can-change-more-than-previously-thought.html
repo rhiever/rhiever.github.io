@@ -1,0 +1,55 @@
+---
+layout: post
+title: Evolving ecosystems can change more than previously thought
+date: 2013-07-31 08:12:27.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- research
+tags:
+- Avida
+- digital evolution
+- eco-evolutionary dynamics
+- ecological fixed point
+- ecology
+- evolution
+meta:
+  _edit_last: '1'
+  _responsive_layout: default
+  _wpas_done_all: '1'
+  _aioseop_keywords: ecosystem, ecology, evolution, ecological fixed point, eco-evolutionary
+    dynamics, Avida, digital evolution
+  _aioseop_description: Randy Olson discusses a recently published paper that suggests
+    that evolution plays a large role in shaping ecosystems than previously assumed.
+  _aioseop_title: Evolving ecosystems can change more than previously thought
+  dsq_thread_id: '3245766949'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430396931;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:5663;}i:1;a:1:{s:2:"id";i:3209;}i:2;a:1:{s:2:"id";i:2055;}}}}
+  _oembed_5705d09f09c9e9c8c02d85d243b7711c: <iframe width="605" height="454" src="https://www.youtube.com/embed/vCWdCKPtnYE?feature=oembed"
+    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+  _oembed_time_5705d09f09c9e9c8c02d85d243b7711c: '1567751991'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2013/07/31/evolving-ecosystems-can-change-more-than-previously-thought/"
+---
+<p>For decades, whenever ecology researchers used computer models to study how ecosystems change over time, they often assumed that the species in any given ecosystem are more-or-less fixed. The abundances of each species may change over time -- and some species may even go extinct and be replaced by an existing species from another ecosystem -- but once a stable ecosystem is established, new species aren't going to evolve. In ecology research, such an ecosystem is said to have reached an <a href="http://www.jstor.org/stable/1293834">ecological fixed point</a>.</p>
+<p>However, recent research suggests that ecosystems may not be as fixed as previously believed. Ecological communities may look like fixed points only because new species don’t evolve on timescales that are easily observed in our lifetime. If it takes thousands or even millions of years for a new species to evolve, then a community may look fixed on the scale of hundreds of years, but be quite fluid on the scale of thousands or millions of years. The new evidence suggests that natural ecosystems exist in a <em>dynamic steady state</em> when studied from the point of view of longer time scales, where new species are constantly evolving and replacing the incumbent species over extremely long time periods.</p>
+<p>Of course, it's difficult to study whether natural ecosystems actually exist in a dynamic steady state because it would take thousands of years to conduct such an experiment. That's why we turned to the digital evolution platform called <a href="http://avida.devosoft.org/">Avida</a> -- where we can simulate evolving ecosystems over thousands of digital years -- to try and answer this important question. Below is a high-level summary of our findings from the <a href="http://beacon-center.org/education-outreach/graduate-education/">BEACON class research project</a>. If you want to get into the nitty-gritty details of the experiments, we're publishing a report on the findings in the Proceedings of the <a href="http://www.dmi.unict.it/ecal2013/">European Conference on Artificial Life</a> in September 2013 (preprint <a href="http://adamilab.msu.edu/wp-content/uploads/Olson-Evolved-digital-ecosystems-Dynamic-steady-state-not-optimal-fixed-point-2013.pdf">here</a>).</p>
+<h5>Evolving digital ecosystems: dynamic steady state, not ecological fixed point</h5>
+<p>To study whether ecosystems exist in a dynamic steady state, we had to simulate an evolving ecosystem for thousands of digital years. In Avida terms, we evolved the ecosystems for 500,000 updates (roughly 60,000 generations), which is more than enough time for an ecosystem to reach a stable state in Avida. At update 500,000, we took a snapshot of the ecosystem and determined the species present at update 500,000. Following that, we evolved the ecosystem for another 500,000 updates, took another snapshot, and determined the species present at update 1,000,000. What we found was surprising: the species had drastically changed after 500,000 updates of evolution!</p>
+<p>[caption id="attachment_1796" align="alignleft" width="600px"]<a href="http://www.randalolson.com/wp-content/uploads/evolved-digital-ecosystems.png"><img src="{{ site.baseurl }}/assets/2013/07/evolved-digital-ecosystems.png" alt="Evolving digital ecosystems change over long time periods" width="538" height="425" class="size-full wp-image-1796" /></a> <strong>A simplified view of an evolving digital ecosystem</strong><br />Many species in a stable ecosystem can change after thousands of years of evolution. For example, the "green circle" species evolved into a "yellow star" species that doesn't resemble its ancestor at all. Similarly, the "blue triangle" species evolved into a "green triangle" species, which could mean that the species evolved to live off of a different food source. Finally, the "red square" species stayed the same after several thousand years of evolution; whether that was due to chance or the species was strongly selected to remain the same is a subject of future study.[/caption]</p>
+<p>If evolving ecosystems do indeed exist in an ecological steady state, we should have seen the exact same species at updates 500,000 and 1,000,000. Instead, we saw ecosystems that consumed the same resources and had the same number of species, yet the individual species had changed after thousands of digital years of evolution. We interpreted this phenomenon to suggest that natural ecosystems exist in a dynamic steady state rather than a single ecological fixed point. This finding has far-reaching impacts in ecology research, especially with the recent findings that <a href="http://www.bbc.co.uk/news/science-environment-22039872">some species can evolve much faster than traditionally assumed</a>.</p>
+<h5>Population bottlenecks aren't so bad in the long run</h5>
+<p>Another open question affecting ecosystem dynamics over time is whether extreme events such as catastrophic <a href="http://en.wikipedia.org/wiki/Population_bottleneck">population bottlenecks</a> have a lasting impact on the long-term evolution of ecological communities. To investigate this question, we ran the same experiment as above, except we randomly killed all but a fixed number of organisms after we took the snapshot of the ecosystem at update 500,000. We know, it's a little cruel to kill so many digital organisms en masse, but we don't have to get <a href="http://www.iacuc.org/aboutus.htm">IACUC</a> approval for experiments with digital organisms (yet).</p>
+<p>These experiments yielded another series of interesting and unexpected results. In the report linked above, we showed that regardless of the size of the bottleneck, the ecosystem recovers from the population bottleneck in the long term regardless of the size of the bottleneck, <em>even if the ecosystem is reduced to a single organism</em>. This result tells us that ecosystems are surprisingly robust to catastrophic events over long timescales.</p>
+<p>[caption id="attachment_1838" align="aligncenter" width="704"]<a href="http://www.randalolson.com/wp-content/uploads/panda-huh.png"><img src="{{ site.baseurl }}/assets/2013/07/panda-huh.png" alt="Don&#039;t worry about pandas going extinct; another panda-like species will evolve again in another million years." width="704" height="471" class="size-full wp-image-1838" /></a> Don't worry about pandas going extinct; another panda-like species will evolve again in a million years.<br />Photo: flickr/Chris Wieland[/caption]</p>
+<p>When we compared the species at update 1,000,000 to their ancestors from before the bottleneck, we found that they were also quite different. Surprisingly, when we compared how different the species were using a species similarity measure, we found that the species in ecosystems that experienced a population bottleneck were <em>just as different</em> from their ancestor population as the species in ecosystems that never experienced a bottleneck. This result again tells us that population bottlenecks have a negligible impact on the long-term evolution of ecosystems, and more importantly, hints that <a href="http://web.archive.org/web/20150309145249/http://evolution.berkeley.edu/evosite/evo101/IIIE5bNeutraltheory.shtml">neutral evolution</a> plays a much larger role in shaping ecosystems over long timescales than we previously thought.</p>
+<p>This study teaches us yet another important lesson about how evolution shapes ecological communities, perhaps best captured in Bob Dylan's famous hit song: for the ecosystems, they are a-changin'...</p>
+<p>http://www.youtube.com/watch?v=vCWdCKPtnYE</p>

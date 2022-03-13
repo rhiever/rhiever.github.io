@@ -1,0 +1,55 @@
+---
+layout: post
+title: Clash of Clans Troop Efficiency
+date: 2014-09-09 14:45:30.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+tags:
+- attack strategy
+- Clash of Clans
+- efficiency
+- troops
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _thumbnail_id: '5127'
+  _aioseop_description: Randy Olson analyzes all of the troops in Clash of Clans and
+    discovers which ones give you the biggest bang for your buck.
+  _aioseop_keywords: Clash of Clans, coc, troops, efficiency, attack strategy, dps,
+    hp, mmo, Barbarian, Archer, Goblin, Giant, Wall Breaker, Balloon, Wizard, Healer,
+    Dragon, P.E.K.K.A., Minion, Hog Rider, Valkyrie, Golem, Witch
+  _aioseop_title: Clash of Clans Troop Efficiency
+  dsq_thread_id: '3245766044'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430384470;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:2777;}i:1;a:1:{s:2:"id";i:2412;}i:2;a:1:{s:2:"id";i:5525;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/09/09/clash-of-clans-troop-efficiency/"
+---
+<p>For the past couple months, I've been filling my downtime by playing <a href="http://www.supercell.net/games/view/clash-of-clans">Clash of Clans</a>, a MMO base builder game where you can plunder other player's bases. In hopes of improving my attack strategy, I've read several guides on how to conduct the best attacks in the game. One thing that's missing from these guides, though, is an analysis of how <em>efficient</em> the attacks are. It's one thing to completely annihilate your opponent, but it's another challenge altogether to annihilate your opponent while expending as few resources as possible.</p>
+<p>To start up the conversation on attack efficiency in Clash of Clans, I've created several visualizations below looking at the cost and housing efficiency of every troop in the game. All of the data in these visualizations comes from <a href="http://clashofclans.wikia.com/wiki/Troops">here</a>, and I've provided a tabulated version of the data <a href="http://www.randalolson.com/wp-content/uploads/Clash-of-Clans-troops.csv">here</a>. You can access the interactive versions by clicking on the image.</p>
+<h3>Troop cost efficiency</h3>
+<p>Unless you're extremely patient, you're probably going to be raiding other player's bases to steal their resources so you can build up your own base. That means that you'll want to do as much damage to your opponent's base while spending as few resources as possible. Below, I've plotted the DPS and HP that every troop provides for every Elixir it costs. Each point represents an upgrade level for the troop. I had to plot the Elixir and Dark Elixir troops separately because there isn't a clear conversion rate between Elixir and Dark Elixir.</p>
+<p><a href="https://plot.ly/~randal_olson/19/clash-of-clans-troop-cost-efficiency-elixir-troops/"><img src="{{ site.baseurl }}/assets/2014/09/coc-troop-cost-efficiency-elixir.png" alt="coc-troop-cost-efficiency-elixir" width="605" height="555" class="aligncenter size-large wp-image-5126" /></a></p>
+<p>(note that the axes in the chart above are on logarithmic scale to help display the data better)</p>
+<p>For experienced players, the main result here is likely unsurprising: <strong>Barbarians, Archers, and Goblins give you the biggest bang for your buck</strong>. Don't go raiding for resources with Giants, Wizards, or (worst) Dragons or you'll quickly find yourself <em>losing</em> resources every time you go raiding.</p>
+<p><a href="https://plot.ly/~randal_olson/22/clash-of-clans-troop-cost-efficiency-dark-elixir-troops/"><img src="{{ site.baseurl }}/assets/2014/09/coc-troop-cost-efficiency-dark-elixir.png" alt="coc-troop-cost-efficiency-dark-elixir" width="642" height="584" class="aligncenter size-full wp-image-5125" /></a></p>
+<p>It's hard to compare Elixir cost efficiency to Dark Elixir cost efficiency, but it's fairly clear from the plot above that Minions are the most cost effective Dark Elixir troop in the game. Witches may seem abysmal on paper until you remember that their main role is summoning Skeletons to attack the enemy base.</p>
+<p>What I found particularly interesting in the interactive versions of these plots is that <strong>almost every troop in the game becomes <em>less</em> cost efficient as you upgrade them</strong>. Upgraded troops may be stronger (and <a href="http://i.imgur.com/FlzFnFV.png">more fashionable</a>), but you don't get as much out of them per Elixir.</p>
+<h3>Troop housing space efficiency</h3>
+<p>Of course, Clash of Clans isn't always about raiding villages for resources. Especially during Clan Wars, you'll want to completely wipe out your opponent's base so your clan gets more victory stars. In this case, your limiting resource becomes housing space. Every base can only support so many troops, and some troops take up more space than others. Below, I've plotted the DPS and HP that every troop provides for every housing space it takes up.</p>
+<p><a href="https://plot.ly/~randal_olson/18/clash-of-clans-troop-housing-space-efficiency/"><img src="{{ site.baseurl }}/assets/2014/09/coc-troop-housing-efficiency.png" alt="coc-troop-housing-efficiency" width="605" height="540" class="aligncenter size-large wp-image-5127" /></a></p>
+<p><strong>The Golem stands tall as the ultimate tank in the game, whereas Wizards dish out the most damage per housing space</strong> (with Goblins as an underrated runner up). Higher-level Barbarians and Balloons seem to provide the best of both worlds, providing both ample DPS and HP for every housing space they take up.</p>
+<p>Again in the interactive version, you'll note that -- unsurprisingly -- all troops provide more DPS and HP per housing space as they're upgraded. This is ultimately the reason you should always upgrade your troops, even if they provide less bang for your purple buck.</p>
+<p>You'll also notice that some upgrades provide far more of an advantage than others. The level 5 Wizard upgrade improves the Wizard's DPS per housing space from 32 to 43 (+34%), whereas the level 6 upgrade only improves it to 45 (+5%), which hardly seems worth the exorbitant level 6 upgrade cost. The Balloon's level 5 and 6 upgrades take it from an underwhelming 14.4 DPS/HS & 56 HP/HS all the way up to 32.4 DPS/HS (+125%) & 109 HP/HS (+95%), marking them as two of the most cost effective upgrades in the game.</p>
+<h3>Caveats</h3>
+<p>There are of course some caveats to the results I outlined above. Particularly, if you followed the housing space efficiency chart, you may be inclined to spam Giants at your enemy and avoid Healers and expect to wipe out your opponent's base. Or worse, if you followed the cost efficiency chart, you may be inclined to spam Goblins and completely avoid Wall Breakers for the most cost efficient attack.</p>
+<p>Keep in mind that every troop has a particular purpose. Healers are useless by themselves, but they have great synergy with high-HP troops like the Giant. Goblins may have high DPS, but they attack defenses last and will die in droves if Wall Breakers don't open up the base for them. Think of these charts as a stepping stone, not a Rosetta stone, for crafting your perfect Clash of Clans attack strategy.</p>

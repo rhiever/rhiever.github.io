@@ -1,0 +1,81 @@
+---
+layout: post
+title: A short guide to using statistics in Evolutionary Computation
+date: 2013-07-20 16:50:42.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- research
+- statistics
+- tutorial
+tags:
+- 95% confidence interval
+- benchmark testing
+- evolutionary computation
+- performance comparison
+- statistics
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _wpas_done_all: '1'
+  _aioseop_description: Randy Olson discusses how and why Evolutionary Computation
+    researchers should incorporate statistics into their research.
+  _aioseop_title: A short guide to using statistics in Evolutionary Computation
+  _aioseop_keywords: evolutionary computation, statistics, performance comparison,
+    benchmark testing, 95% confidence interval
+  _thumbnail_id: '1563'
+  dsq_thread_id: '3245763731'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430368359;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:71;}i:1;a:1:{s:2:"id";i:1647;}i:2;a:1:{s:2:"id";i:289;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2013/07/20/a-short-guide-to-using-statistics-in-evolutionary-computation/"
+---
+<p>A couple weeks ago, I attended the <a href="http://www.sigevo.org/gecco-2013/" target="_blank">Genetic and Evolutionary Computation Conference (GECCO)</a> for the first time. While I was perusing through the workshops and tutorials available in the first couple days of the conference, I noticed something peculiar: There was <a href="http://www.sigevo.org/gecco-2013/tutorials.html#saece" target="_blank">an introductory tutorial on statistics</a>. "Why are they teaching basic stats at such a prestigious conference?," I wondered. "Shouldn't most Evolutionary Computation (EC) researchers here know basic stats and how important it is?"</p>
+<p>Once I sat through the first day of presentations, I quickly realized why that tutorial was offered: <strong>At least half of the presentations were lacking statistics!</strong></p>
+<p>That's when I remembered that Computer Scientists aren't really taught statistics. During my undergraduate CS degree, I took an intro stats course during Freshman year that I was happy to banish from my mind after the final exam. During my graduate CS training, I learned a little bit about stats in my data mining course, but no teachers ever stressed stats as a method for inference from experimental data, nor did they talk about 95% confidence intervals and P-values. In fact, the only reason I learned about using stats was because of <a href="http://beacon-center.org/education-outreach/graduate-education/" target="_blank">my interdisciplinary training in biological studies</a>, where researchers live and die by making statistical inferences from their data.</p>
+<p>Since not everyone can attend the GECCO workshops, and assuming my CS training is representative of most CS training nowadays, I've written a short guide to explain why statistics is important in EC and how to use basic statistics in EC research.</p>
+<h3>Why statistics is important in EC</h3>
+<h5>EC is inherently random</h5>
+<p>In core Computer Science research, we rely on proofs and establishing best- and worst-case scenarios (i.e., <a href="https://en.wikipedia.org/wiki/Big_O_notation" target="_blank">performance boundaries</a>) to scientifically validate and compare our work. For deterministic algorithms, that works fine. However, we have to keep in mind that EC uses an evolutionary process to guide the search, which means that the search process is inherently random to some degree. This is an important point to keep in mind because it means that two separate runs of the same evolutionary algorithm (with different random number seeds) can come up with completely different results.</p>
+<p>The random nature of EC is even more important to keep in mind if we want to compare our evolutionary algorithm to another evolutionary algorithm. If we run both algorithms only once and compare their fitness over evolutionary time, chance is going to play a huge role in which algorithm appears to perform better. For example, if our evolutionary algorithm just happens to start near the best solution in the benchmark problem we're using, and the other evolutionary algorithm starts far away in the search space from the best solution, we might conclude that our algorithm performs better than the other algorithm. Such a case is represented in the graph below.</p>
+<p>[caption id="attachment_1565" align="aligncenter" width="734"]<a href="http://www.randalolson.com/wp-content/uploads/individual_run_1.png"><img src="{{ site.baseurl }}/assets/2013/07/individual_run_1.png" alt="Graph of a single evolutionary run for both algorithms" width="734" height="382" class="size-full wp-image-1565" /></a> A single evolutionary run of each algorithm. From this run, it appears that our algorithm performs better than the current best algorithm.[/caption]</p>
+<p>However, the opposite situation might occur, and we could falsely conclude that our evolutionary algorithm performs worse. Such is the situation in the graph below.</p>
+<p>[caption id="attachment_1566" align="aligncenter" width="734"]<a href="http://www.randalolson.com/wp-content/uploads/individual_run_2.png"><img src="{{ site.baseurl }}/assets/2013/07/individual_run_2.png" alt="Graph of a single evolutionary run for both algorithms" width="734" height="382" class="size-full wp-image-1566" /></a> Two more single evolutionary runs of each algorithm. This time, due to the random nature of evolutionary algorithms, it appears that the current best algorithm outperforms out algorithm. These two graphs demonstrate that we cannot compare two evolutionary algorithms using a single run.[/caption]</p>
+<p>Clearly, we can't make any comparisons between evolutionary algorithms based on individual runs.</p>
+<h5>Showing the average isn't enough</h5>
+<p>Some EC practitioners, privy to the above challenge, respond by running several replicates of each evolutionary algorithm (with different random number seeds) and show the <em>average</em> performance of each algorithm over time. This is typically what we see in EC conference presentations without statistics, where they plot the average fitness over evolutionary time.</p>
+<p>The problem here is that the graph doesn't give us a sense of the <em>range of performance</em> of each algorithm. Remember, each evolutionary run will give a different result, which means that multiple replicates of an algorithm will perform differently. Without a sense for the range of each algorithm's performance, we can't really compare the two algorithms. The algorithms could be all over the place, sometimes performing well and other times performing poorly, or they could always perform well. Without a sense of the range, we don't know.</p>
+<p>[caption id="attachment_1564" align="aligncenter" width="734"]<a href="http://www.randalolson.com/wp-content/uploads/average_fitness.png"><img src="{{ site.baseurl }}/assets/2013/07/average_fitness.png" alt="Graph showing average fitness" width="734" height="437" class="size-full wp-image-1564" /></a> The average fitness of both algorithms over several replicates. From this graph, we would conclude that our algorithm performs better than the current best algorithm on average.[/caption]</p>
+<p>For example, look at the graph above. It looks like our evolutionary algorithm is performing better than the current best algorithm <em>on average</em> over many replicates, right? Let's show the 95% confidence intervals (estimated by showing 1.96 x standard error) to give a sense of the range of performance.</p>
+<p>[caption id="attachment_1563" align="aligncenter" width="734"]<a href="http://www.randalolson.com/wp-content/uploads/average_fitness_ci.png"><img src="{{ site.baseurl }}/assets/2013/07/average_fitness_ci.png" alt="Graph showing average fitness with a 95% confidence interval" width="734" height="437" class="size-full wp-image-1563" /></a> The average fitness with a 95% confidence interval for each algorithm. This graph shows us that our algorithm does not actually perform better than the current best algorithm, and only appeared to perform better on average due to chance.[/caption]</p>
+<p>The results don't look so different after all. The confidence intervals are wide, which means that the performance of the algorithms is all over the place. There's also quite a bit of overlap between the confidence intervals, which means that there isn't really a difference in performance between the two algorithms. The reason our algorithm seemed to perform better on average was only due to chance.</p>
+<h5>Statistics helps prevent false positives</h5>
+<p>In short, <strong>without showing some basic statistics, we could be misleading ourselves and others who follow up on our work.</strong> In the case above, if we hadn't looked at the 95% confidence intervals, we might have mistakenly claimed that our algorithm performs better than the current best algorithm. And that, if you ask me, is worse than not publishing at all.</p>
+<h3>Using statistics in Evolutionary Computation</h3>
+<p>Now that we're motivated to use statistics in Evolutionary Computation, there are just a few basic concepts we need to go over. Once we have these concepts down, we're ready to incorporate a basic, yet powerful statistical analysis into our EC research.</p>
+<h5>Replicates, replicates, and more replicates</h5>
+<p>First and foremost, if we want to get a sense for how our evolutionary algorithm is performing, we need to run it many times with different random number seeds. A general rule of thumb is that <strong>30 replicates should be enough to get a broad idea of the evolutionary trends</strong>, then <strong>100 or more replicates should be performed for the setup that is going to be published.</strong> In statistics, the <a href="http://en.wikipedia.org/wiki/Law_of_large_numbers" target="_blank">Law of Large Numbers</a> tells us that the more replicates we run, the closer we get to finding the true average performance, <strong>so more replicates is always better.</strong></p>
+<h5>Standard error</h5>
+<p>As I alluded to earlier, the <a href="https://en.wikipedia.org/wiki/Standard_error" target="_blank">standard error</a> gives us an idea of the range of our evolutionary algorithm's average performance. The higher the standard error, the larger the range of the performance, and vice versa. Standard error is computed with the equation:</p>
+<p><center>[pmath]std error = {std deviation} / sqrt{N}[/pmath]</center></p>
+<p>where <em>std deviation</em> is a measure of how varied the fitness values are among our replicates and <em>N</em> is the number of replicates we ran. Every scientific computing library (R, matlab, SciPy, etc.) worth its salt has the standard error function built in, so we don't have to worry about coding it ourselves.</p>
+<p>One interesting thing to note here is that we can make the standard error incredibly small by running thousands of replicates (N = 1000s), which means that we have a highly accurate measure of the evolutionary algorithm's average performance.</p>
+<h5>95% confidence intervals</h5>
+<p>Finally, from the standard error we can construct an estimated <a href="http://en.wikipedia.org/wiki/Confidence_interval" target="_blank">95% confidence interval</a> that shows us the range of our evolutionary algorithm's performance. If we were to run the algorithm multiple times again with different random number seeds, there is a 95% chance that the average performance of those replicates would fall within the confidence interval.</p>
+<p>If we want to compare the performance of two algorithms, all we have to do is check whether the algorithm's 95% confidence intervals overlap. If they overlap, then there is a high chance that they perform the same. The more the confidence intervals overlap, the more likely the algorithms are to perform the same. On the other hand, if the 95% confidence intervals <em>don't</em> overlap, then the algorithm with the highest average performance performs <a href="http://en.wikipedia.org/wiki/Statistical_significance" target="_blank">significantly</a> better.</p>
+<p>One can imagine how this is useful for evolutionary computation research. Now we can make a statement such as, "We are confident that our evolutionary algorithm performs significantly better than the current best evolutionary algorithm at least 95% of the time," which is a <strong>scientifically powerful statement to make</strong>.</p>
+<p>[caption id="attachment_1623" align="aligncenter" width="736"]<a href="http://www.randalolson.com/wp-content/uploads/average_fitness_ci_significant.png"><img src="{{ site.baseurl }}/assets/2013/07/average_fitness_ci_significant.png" alt="Average fitness with 95% confidence intervals" width="736" height="437" class="size-full wp-image-1623" /></a> Showing 95% confidence intervals allows us to think about whether the increase in performance is realistically significant, not just statistically significant.[/caption]</p>
+<p>On top of that, because we show 95% confidence intervals, we can also think about whether our algorithm is realistically performing better than the other algorithm. For example, let's say we are comparing two evolutionary algorithms that <a href="http://www.youtube.com/watch?v=V2ADU8YWIug" target="_blank">evolve controllers for walking robots</a>, and the graph above is a measure of how far the robots walked before falling over (in millimeters). Even if the confidence intervals don't overlap (indicating statistical significance), is walking 90mm <em>really</em> much better than walking 70mm? If you ask me, if the robot is only walking 90mm (~3.5 inches), <em>neither</em> algorithm is performing very well. <strong>Always remember to ask yourself: is the improved performance from the new algorithm <em>realistically</em> better?</strong></p>
+<p>We can compute an estimated 95% confidence interval by using the following equations:</p>
+<p><center>[pmath]CI high = average + (1.96 * std error)[/pmath]</p>
+<p>[pmath]CI low = average - (1.96 * std error)[/pmath]</center></p>
+<p>where the confidence interval ranges from <em>CI low</em> to <em>CI high</em>. <em>CI low</em> and <em>CI high</em> are the minimum and maximum points that we plot for the confidence intervals in the figures above. Again, scientific computing libraries already have functions built in to calculate 95% confidence intervals (both estimated & <a href="https://en.wikipedia.org/wiki/Non-parametric_statistics" target="_blank">more precise versions</a>), so don't worry about programming it.</p>
+<h3>Moving forward and changing the EC culture</h3>
+<p>Computing statistics on the performance of our evolutionary algorithms is incredibly simple, yet it allows us to make powerful statements about their relative performance. We should strive to build a culture of statistical analysis into the EC research community so we can avoid false positives on performance comparisons. That said, I hope this guide has convinced you that if you write <em>or review</em> a paper discussing an evolutionary algorithm, you will insist that at least basic statistics such as 95% confidence intervals be included before it is published.</p>

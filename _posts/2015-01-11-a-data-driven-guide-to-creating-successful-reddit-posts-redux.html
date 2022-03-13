@@ -1,0 +1,69 @@
+---
+layout: post
+title: A data-driven guide to creating successful reddit posts, redux
+date: 2015-01-11 21:15:20.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+- reddit
+tags:
+- front page
+- reddit
+- upvotes
+meta:
+  _edit_last: '2'
+  _aioseop_title: A data-driven guide to creating successful reddit posts, redux
+  _aioseop_keywords: reddit, front page, upvotes, successful post, imgur, time, subreddit
+  _aioseop_description: Randy Olson revisits an old analysis to find out what makes
+    for a successful reddit post.
+  _responsive_layout: default
+  _thumbnail_id: '5964'
+  dsq_thread_id: '3412196556'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430370313;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:804;}i:1;a:1:{s:2:"id";i:5930;}i:2;a:1:{s:2:"id";i:698;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/01/11/a-data-driven-guide-to-creating-successful-reddit-posts-redux/"
+---
+<p>A couple years ago, I wrote an <a href="http://www.randalolson.com/2013/03/15/a-data-driven-guide-to-creating-successful-reddit-posts/">article</a> using massive data set of reddit posts to tackle one of the more popular questions about reddit: How do I get a highly-upvoted post on reddit? In light of the recent findings that <a href="http://www.randalolson.com/2015/01/11/over-half-of-all-reddit-posts-go-completely-ignored/">half of all reddit posts go ignored</a>, this question is more important than ever.</p>
+<p>Given how much reddit has <a href="www.randalolson.com/2013/03/12/retracing-the-evolution-of-reddit-through-post-data/">changed</a> over the years, it seems appropriate to revisit this topic and see if my 2-year-old findings still hold true.  Below, my undergraduate assistant Robert Bato and I analyzed 550,000 reddit posts from August 2014 to find out what makes a successful post on reddit nowadays. I bolded the big takeaway messages if you're not feeling like a long read.</p>
+<p><strong>Disclaimer:</strong> I am only making statements about probability in this post. Following these guidelines will by no means 100% guarantee that you will have a successful post. Rather, following these guidelines will maximize your chance of having a successful post.</p>
+<h3>When to post</h3>
+<p>Just as last time, time is one of the most important factors when making a successful post on reddit. Below, we've charted the percentage of posts that receive a score higher than 100 -- a reasonable proxy for at least a modicum of success -- over the day of the week and time of day. We'll be referring to posts that receive a score higher than 100 as "successful posts" for the remainder of this article.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pct-top-posts-hourly-august-100.png"><img src="{{ site.baseurl }}/assets/2015/01/pct-top-posts-hourly-august-100.png" alt="pct-top-posts-hourly-august-100" width="605" height="455" class="aligncenter size-large wp-image-5968" /></a></p>
+<p>As before, the U.S. Eastern time zone still rules reddit. Posts submitted around 9am EST tend to see the most success (around 5% garner >100 upvotes), whereas posts submitted around midnight EST typically do the worst (~2.5% garner >100 upvotes). I can only guess this is the result of American workers on the east coast coming into work and firing up reddit before actually starting their workday. Also note that the weekends see a larger fraction of successful posts, most likely because there's fewer posts submitted on the weekend (and therefore less competition).</p>
+<p>We've provided an alternative view of the same data below in a matrix format. Reading from side-to-side shows you the percentage of posts that scored >100 for a single day, whereas reading up-and-down shows you the percentage of posts that scored >100 for a particular time of day. The bluer the square is, the more posts that succeeded, whereas the whiter the square is the fewer posts that succeeded.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pct-above-thrsh-100-august-heatmap.png"><img src="{{ site.baseurl }}/assets/2015/01/pct-above-thrsh-100-august-heatmap-1024x321.png" alt="pct-above-thrsh-100-august-heatmap" width="605" height="190" class="aligncenter size-large wp-image-5964" /></a></p>
+<p>The take-away for this section? <strong>To maximize your chances of having a successful post on reddit, you should submit your post around 9am EST on the weekends.</strong> If the weekends don't work for you, that's fine -- you can still achieve reasonable success by posting around 9am EST on any day.</p>
+<h3>What to post</h3>
+<p>Now that we know when to post, we need to figure out what to post. You may already have an article in mind that you want to share, in which case you can skip this section. But if you're looking for ideas on the kind of content to share, keep on reading.</p>
+<p>The most important thing to get out of the way is that <a href="http://imgur.com">imgur.com</a> -- an image rehosting and sharing site -- is <em>the</em> domain of choice for most redditors. In fact, nearly 2/3 of all successful posts on reddit were links to an image on imgur. <strong>If you're looking to share an image, your best bet is to rehost it on imgur and share that link.</strong></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pct-posts-threshold-imgur-nonimgur-pie.png"><img src="{{ site.baseurl }}/assets/2015/01/pct-posts-threshold-imgur-nonimgur-pie.png" alt="pct-posts-threshold-imgur-nonimgur-pie" width="643" height="611" class="aligncenter size-full wp-image-5966" /></a></p>
+<p>If we rank all link domains submitted to reddit by the fraction of successful posts, we get the list below. Note that only link domains with at least 2,000 posts were included in this list so that it shows only the more popular domains on reddit.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pct-posts-threshold-domain-august-100hreshposts-100.png"><img src="{{ site.baseurl }}/assets/2015/01/pct-posts-threshold-domain-august-100hreshposts-100.png" alt="pct-posts-threshold-domain-august-100hreshposts-100" width="909" height="607" class="aligncenter size-full wp-image-5965" /></a></p>
+<p>A quick scroll down the list shows reddit's love for sharing images and GIFs. If they're not rehosting images on imgur, they're sharing fancy HTML5 videos on <a href="http://gfycat.com/">gfycat</a>, images from Wikimedia, or memes generated on <a href="http://livememe.com">LiveMeme</a>. In fact, 14 of the top 25 domains shown here are dedicated to hosting and sharing some form of image or video.</p>
+<p>Wikipedia is especially a favorite on /r/TodayILearned, whereas <a href="http://thinkprogress.org/">ThinkProgress</a> articles are a favorite to share all over reddit. <a href="http://arstechnica.com/">Ars Technica</a> is reddit's go-to place for all things tech, and no reddit gamer's life would be complete without a <a href="http://steampowered.com">Steam</a> account. reddit's favorite major news outlets also pop out on this chart: <a href="http://time.com/">Time</a>, <a href="http://businessinsider.com">Business Insider</a>, and <a href="http://slate.com/">Slate</a>.</p>
+<p>For better or for worse, <strong>your post stands the best chance of becoming successful if you're sharing some form of visual media: images, GIFs, or videos</strong> (in that order). Articles sometimes do well in certain subreddits depending on their focus, but they're almost always outperformed by pure image posts. I suspect this is because over half of reddit's users are on mobile devices, which makes reading lengthy articles unappealing.</p>
+<h3>Where to post</h3>
+<p>Now that we know to post some sort of visual media hosted on imgur around 9am EST, we need to figure out where to post it. For that, we looked at all subreddits that had at least 10,000 posts submitted to them (to make sure they're a decently active subreddit) and ranked them by the percentage of successful posts submitted there.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pct-posts-threshold-subreddit-august-10kposts-100thresh.png"><img src="{{ site.baseurl }}/assets/2015/01/pct-posts-threshold-subreddit-august-10kposts-100thresh.png" alt="pct-posts-threshold-subreddit-august-10kposts-100thresh" width="942" height="602" class="aligncenter size-full wp-image-5967" /></a></p>
+<p><a href="http://reddit.com/r/gonewild">/r/gonewild (NSFW)</a> by far has the highest fraction of successful posts of the larger subreddits, but unless you're looking to share nude selfies, you probably don't want to post there. If you're looking to share some sort of image, <a href="http://reddit.com/r/WTF">/r/WTF</a> (pics that make you go "WTF?"), <a href="http://reddit.com/r/AdviceAnimals">/r/AdviceAnimals</a> (silly memes), and <a href="http://reddit.com/r/aww">/r/aww</a> (cute animal pictures) are your top 3 choices. <a href="http://reddit.com/r/todayilearned">/r/TodayILearned</a> is still the best place to share educational articles, and <a href="http://reddit.com/r/minecraft">/r/Minecraft</a> holds the bragging rights as a large gaming subreddit with the highest fraction of successful posts.</p>
+<p>Following the goal of this article, <strong>/r/WTF or /r/AdviceAnimals will give us the highest chance of having a successful image post.</strong> Don't bother posting in /r/gonewild or /r/soccer unless your image is relevant to those subreddits.</p>
+<h3>Summary</h3>
+<p>In sum, your post has the highest chance of success if you:</p>
+<ul>
+<li>Post it around 9am EST</li>
+<li>Post an image hosted on imgur</li>
+<li>Post an image on /r/WTF or /r/AdviceAnimals</li>
+</ul>
+<p>Of course, you don't need to follow these guidelines to the letter. Articles still do quite well on /r/TodayILearned and /r/worldnews, as do videos on (you guessed it) /r/videos. Give these tips a try for a week or two and report back how well they worked for you in the comments.</p>
+<h3>Important caveat</h3>
+<p>As always, it's vital that you should first pay close attention to the subreddit's posting rules before posting there. Posting a funny picture to /r/TodayILearned will only get your post removed by the moderators, so make sure your kind of post is allowed before submitting it.</p>

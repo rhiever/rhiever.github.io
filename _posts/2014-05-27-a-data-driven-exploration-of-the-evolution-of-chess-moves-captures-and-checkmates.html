@@ -1,0 +1,75 @@
+---
+layout: post
+title: 'A data-driven exploration of the evolution of chess: Moves, captures, and
+  checkmates'
+date: 2014-05-27 16:49:38.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- capture piece
+- checkmate
+- chess game
+- chess move
+- chess theory
+- history of chess
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_description: Randy Olson analyzes over 650,000 chess tournament games to
+    explore how common chess moves have changed over time.
+  _thumbnail_id: '4324'
+  _aioseop_keywords: chess game, chess theory, history of chess, chess move, capture
+    piece, checkmate
+  _aioseop_title: 'Evolution of chess: Moves, captures, and checkmates'
+  dsq_thread_id: '3245767380'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430363426;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:4273;}i:1;a:1:{s:2:"id";i:4205;}i:2;a:1:{s:2:"id";i:5525;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/05/27/a-data-driven-exploration-of-the-evolution-of-chess-moves-captures-and-checkmates/"
+---
+<p>For the 4th installment in my <a href="http://www.randalolson.com/2014/05/26/a-data-driven-exploration-of-the-evolution-of-chess-popularity-of-openings/">series</a> of <a href="http://www.randalolson.com/2014/05/24/a-data-driven-exploration-of-the-evolution-of-chess-match-lengths-and-outcomes/">blog</a> <a href="http://www.randalolson.com/2014/05/24/chess-tournament-matches-and-elo-ratings/">posts</a> exploring a data set of over 650,000 chess tournament games ranging back to the 15th century, I wanted to look at how chess moves have changed over time. Again, I only have reliable data on chess games back to 1850, so 1850 will be my starting point.</p>
+<p>One thing I was interested in is whether preferences for specific chess moves have changed over time. Was the all-powerful Queen more popular in the past, then lost favor as new strategies developed? Or has capturing pieces become more common nowadays than in previous years?</p>
+<p>Thankfully, each chess game is recorded in <a href="https://en.wikipedia.org/wiki/Portable_Game_Notation">PGN format</a>, which means that it stores every move each player made, the outcome of the game, etc. Here's an example game in PGN format:</p>
+<blockquote><p>[Event "F/S Return Match"]<br />
+[Site "Belgrade, Serbia Yugoslavia|JUG"]<br />
+[Date "1992.11.04"]<br />
+[Round "29"]<br />
+[White "Fischer, Robert J."]<br />
+[Black "Spassky, Boris V."]<br />
+[Result "1/2-1/2"]</p>
+<p>1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 {This opening is called the Ruy Lopez.} 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Nb8 10. d4 Nbd7 11. c4 c6 12. cxb5 axb5 13. Nc3 Bb7 14. Bg5 b4 15. Nb1 h6 16. Bh4 c5 17. dxe5 Nxe4 18. Bxe7 Qxe7 19. exd6 Qf6 20. Nbd2 Nxd6 21. Nc4 Nxc4 22. Bxc4 Nb6 23. Ne5 Rae8 24. Bxf7+ Rxf7 25. Nxf7 Rxe1+ 26. Qxe1 Kxf7 27. Qe3 Qg5 28. Qxg5 hxg5 29. b3 Ke6 30. a3 Kd6 31. axb4 cxb4 32. Ra5 Nd5 33. f3 Bc8 34. Kf2 Bf5 35. Ra7 g6 36. Ra6+ Kc5 37. Ke1 Nf4 38. g3 Nxh3 39. Kd2 Kb5 40. Rd6 Kc5 41. Ra6 Nf2 42. g4 Bd3 43. Re6 1/2-1/2</p></blockquote>
+<p>Notice the extra notation beside the location that the piece moved to: N, B, x, +, etc. Each of these symbols have a particular meaning, e.g., "Qxe7" means that the Queen moved to e7 and took a piece. This notation makes it fairly easy to parse out what pieces are moving where, how many pieces were captured, etc. I charted the evolution of preferences for these movements below.</p>
+<h3>Piece captures</h3>
+<p>One of the biggest questions I wanted to answer with this project is whether capturing pieces has become more or less common nowadays. From my own experience, I noticed that as I became more skilled at chess, I became less focused on capturing all of my opponent's pieces and more focused on controlling the board. Has chess as a sport similarly progressed this way over time?</p>
+<p>The chart below shows the rate at which pieces were captured over time. "0.2" means that a piece was captured every 1 / 0.2 = 5 ply.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-piece-capture-rate-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-piece-capture-rate-over-time.png" alt="chess-piece-capture-rate-over-time" width="550" height="308" class="aligncenter size-large wp-image-4328" /></a></p>
+<p>Over time, the average chess game has consistently ended with about 16 pieces captured between the two sides. Despite the fact that <a href="http://www.randalolson.com/2014/05/24/a-data-driven-exploration-of-the-evolution-of-chess-match-lengths-and-outcomes/">chess games are getting longer</a>, more pieces aren't being captured in that extended time period. Whereas a piece was captured every 4 ply in 1850, a piece is captured every 5 ply in 2014. This may indeed be because chess games are increasingly becoming more strategic, focusing on gaining control of the board rather than capturing more pieces.</p>
+<h3>Checkmates</h3>
+<p>If chess games are becoming more strategic, then we should expect to see more checkmates over time. Surprisingly, we see the opposite: Less than 2% of expert chess games end in a checkmate in 2014, down from 8% in 1850. I was puzzled by this finding until it occurred to me that most expert chess players are able to predict the next few moves in every game, and therefore resign or call a draw well before the checkmate has occurred. The overall decline in checkmates over time is possibly explained by the fact that <a href="http://www.randalolson.com/2014/05/24/a-data-driven-exploration-of-the-evolution-of-chess-match-lengths-and-outcomes/">draws are becoming the norm</a> in expert chess play, meaning there's fewer games that even come close to a checkmate.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-checkmates-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-checkmates-over-time.png" alt="chess-checkmates-over-time" width="736" height="414" class="aligncenter size-full wp-image-4324" /></a></p>
+<h3>Piece preferences</h3>
+<p>We can also look at whether chess players have preferred to use different pieces over time. My favorite piece when I first started to play was always the Queen, but in more recent games I've discovered how powerful Knights can be early on. Below, I charted out the move rates of the pieces over time. "0.33" means that the piece is moved every 1 / 0.33 = 3 ply.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-rook-moves-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-rook-moves-over-time.png" alt="chess-rook-moves-over-time" width="550" height="289" class="aligncenter size-large wp-image-4330" /></a></p>
+<p>Rooks became considerably more popular to use between 1850 and 1900, then leveled off at being used every 7 ply since then. I'd love to hear a chess historian's perspective on this. Perhaps a popular chess book was published around 1850 highlighting new strategies for the Rook?</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-knight-moves-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-knight-moves-over-time.png" alt="chess-knight-moves-over-time" width="550" height="294" class="aligncenter size-large wp-image-4325" /></a></p>
+<p>Meanwhile, Knights and Pawns saw a steady increase in popularity from 1920-1970. My best guess is that this is a direct result of the rise of the <a href="https://en.wikipedia.org/wiki/Hypermodernism_(chess)">Hypermodernism</a> school of chess after WWI, which advocated usage of <a href="https://en.wikipedia.org/wiki/Pawn_structure#d5_chain">Pawn chains</a> and <a href="https://en.wikipedia.org/wiki/Outpost_(chess)">Knight outposts</a>, both strategies heavily involving Pawns and Knights.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-pawn-moves-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-pawn-moves-over-time.png" alt="chess-pawn-moves-over-time" width="550" height="294" class="aligncenter size-large wp-image-4327" /></a></p>
+<p>Interestingly, Pawns and Knights started falling out of favor in the 1970s, right when <a href="https://en.wikipedia.org/wiki/Bobby_Fischer">Bobby Fischer</a> shook up the chess world with his <a href="https://en.wikipedia.org/wiki/Bobby_Fischer#World_Champion">dramatic march to become World Champion</a>. Did Fischer's breathtaking campaign change chess as we knew it?</p>
+<p>Finally, King, Queen, and Bishop move rates have remained more-or-less the same over time. I actually find it pretty incredible that we can see much of a change in piece preferences at all, considering that <a href="http://www.randalolson.com/2014/05/26/a-data-driven-exploration-of-the-evolution-of-chess-popularity-of-openings/">chess strategies are changing so much</a> over time.</p>
+<h3>Castling</h3>
+<p>Castling has been a very popular move throughout chess history. Over 1850-2014, only 16% of the games had one player not castle, and less than 4% of the games had both players not castle. (Surprisingly, many of those games lasted more than 50 ply!)</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-kscastle-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-kscastle-over-time.png" alt="chess-kscastle-over-time" width="550" height="308" class="aligncenter size-large wp-image-4326" /></a></p>
+<p>Kingside castling is by far the most popular move (used by 80% of players today) because it requires only 2 pieces to be moved out of the way before it can be done, instead of 3 pieces with the queenside castle. Considering that preferences for queenside castling (below) have remained fairly consistent, I can only guess that players who previously never castled started to realize the value of castling in the 1890s.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-qscastle-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-qscastle-over-time.png" alt="chess-qscastle-over-time" width="550" height="309" class="aligncenter size-large wp-image-4329" /></a></p>
+<p>In contrast to the kingside castle, players have consistently used the queenside castle only about 8% of the time from 1850-2014. It seems that expert chess players want to get their Rooks into play as quickly as possible, leaving the queenside pieces for play later in the game.</p>
+<p>That's all for today. In the next installment, I'll be looking at preferences for specific locations on the board.</p>

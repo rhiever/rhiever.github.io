@@ -1,0 +1,66 @@
+---
+layout: post
+title: The curious case of the closed access data set in the open access journal
+date: 2013-11-13 21:12:19.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- open science
+- philosophy
+tags:
+- data sharing
+- open access
+- open science
+- plos one
+- proprietary data
+- twitter
+meta:
+  _edit_last: '1'
+  _responsive_layout: default
+  _wpas_done_all: '1'
+  _aioseop_description: Randy Olson ponders how studies using proprietary data should
+    be handled when published in open access journals.
+  _aioseop_title: The curious case of the closed access data set in the open access
+    journal
+  _aioseop_keywords: open science, open access, twitter, plos one, data sharing, proprietary
+    data
+  dsq_thread_id: '3245763944'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1429840041;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:2542;}i:1;a:1:{s:2:"id";i:2114;}i:2;a:1:{s:2:"id";i:4789;}}}}
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2013/11/13/the-curious-case-of-the-closed-access-data-set-in-the-open-access-journal/"
+---
+<p>Earlier this year, I ran across a <a href="http://www.washingtonpost.com/blogs/innovations/wp/2013/05/06/measuring-happiness-through-twitter/">news article</a> that got me really excited in the science-nerdy kind of way. The article talked about how we could <em>measure</em> how happy the people in each U.S. state are just by looking at geotagged tweets. They even linked to a <a href="http://www.hedonometer.org/index.html">shwanky web app</a> that the researchers had put together showing the "average happiness" of the U.S. since 2009. I have a penchant for <a href="http://www.randalolson.com/2013/03/12/retracing-the-evolution-of-reddit-through-post-data/">playing around with social network data</a>, so I was ecstatic when I saw that the authors had published the <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0064417">corresponding article</a> in PLoS ONE (<a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0026752">two articles</a>, in fact).</p>
+<p>That means I could easily get my hands on the raw data set, right?</p>
+<p><strong>Wrong.</strong></p>
+<p>I received a response to my raw data request a week later saying that they couldn't share the raw Twitter data. They're absolutely right, of course. It says it right there in the <a href="https://dev.twitter.com/overview/terms/agreement-and-policy">Twitter API usage terms</a>.</p>
+<p>Twitter has made it clear time and again that they don't want Twitter content being stored outside of Twitter, and they especially don't want people sharing that Twitter data if it is stored external to Twitter. Basically: If you want Twitter data, you have to go to them and access it through the Twitter API yourself. Here's a couple clauses in the Twitter API usage terms that make it difficult to use for research:</p>
+<blockquote><p>You shall not use Twitter Content or other data collected from end users to create or maintain a separate status update or social network database or service.</p></blockquote>
+<blockquote><p>You will not attempt or encourage others to use or access the Twitter API to aggregate, cache (except as part of a Tweet), or store place and other geographic location information contained in Twitter Content.</p></blockquote>
+<p>The problem is: That restriction directly contradicts <a href="http://www.plosone.org/static/editorial#sharing">PLoS ONE's rules about sharing data</a>. In fact, it's bolded right there on the web site:</p>
+<blockquote><p>PLoS ONE will not consider a study if the conclusions depend solely on the analysis of proprietary data.</p></blockquote>
+<p>PLoS ONE's stance on proprietary data makes sense. After all, one of the major reasons PLoS was founded was to make research easily accessible and reproducible -- and that entails sharing the raw data underlying every study.</p>
+<p>So, what can be done about this curious case of the closed access data set in the open access journal?</p>
+<p>Does this mean researchers using Twitter data can't publish in open access journals?</p>
+<p>Does this render Twitter an inviable platform to study social networks, if the ultimate goal is to publish the study open access?</p>
+<p>I don't really have any answers, and the folks at PLoS ONE have been pondering it since June.</p>
+<p>Any thoughts?</p>
+<h5>Update (11/17/2013) -- possible solution?</h5>
+<p>After a brief email conversation with Jonathan Eisen (partially shown <a href="http://www.randalolson.com/2013/11/13/the-curious-case-of-the-closed-access-data-set-in-the-open-access-journal/#comment-287">here in the comments</a>), we reached a couple possible solutions:</p>
+<blockquote><p><strong>Jonathan Eisen</strong><br />
+... I think the only way I would ponder allowing something to be published would be if the full workflow for ALL analyses of said data was released so that at least people could examine and try to use the workflow themselves.  If not, I don't like it.</p></blockquote>
+<blockquote><p><strong>Randy Olson</strong><br />
+The authors explained their method in the paper. However, a critical component of replicating the study is accessing Twitter to get the tweets from 2011 that they actually used for the study, which by now is extremely difficult if not impossible. (By default, the Twitter API only accesses recent tweets.) IMO, that makes the study irreproducible.</p>
+<p>Some possible solutions given Twitter's data sharing restrictions:</p>
+<p>1) If researchers could denote which tweets they used in a study (e.g. with a list of tweet IDs) and Twitter allowed the mining of specific tweet IDs, then the study is semi-reproducible. The person replicating the experiment still has to mine all 10,000,000 tweets, which is a significant burden, but at least it's possible to access the same data used in the study again.</p>
+<p>2) If Twitter could allow researchers to register a set of tweets in Twitter with a key name (e.g., "geo-happiness-plos-one-2013-tweets"), then researchers reproducing the study could contact Twitter and ask for the set of tweets with that key name. That of course places a burden on Twitter to organize tweets in a certain way, which I doubt they will do (unless there's $$$ in it).
+</p></blockquote>
+<p>What do you think?</p>

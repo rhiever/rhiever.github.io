@@ -1,0 +1,104 @@
+---
+layout: post
+title: Python 2.7 still reigns supreme in pip installs
+date: 2016-09-03 19:04:36.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- python
+tags:
+- ipython
+- pandas
+- python
+meta:
+  _edit_last: '2'
+  _aioseop_title: Python 2.7 still reigns supreme in pip installs
+  _responsive_layout: default
+  dsq_thread_id: '5117428911'
+  _thumbnail_id: '8399'
+  _aioseop_description: Randy Olson analyzes trends in Python package installs to
+    observe how the transition from Python 2 to 3 is progressing
+  _aioseop_keywords: python 2.7, python 3, version, upgrade, transition, pip, package
+    management, data visualization, bigquery
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2016/09/03/python-2-7-still-reigns-supreme-in-pip-installs/"
+---
+<p>The <a href="https://wiki.python.org/moin/Python2orPython3">Python 2 vs. Python 3 divide</a> has long been a thorn in the Python community's side. On one hand, Python package developers face the challenge of supporting two incompatible versions of Python, which is time that could be better spent improving the package. On the other hand, many Python users are reluctant to upgrade from Python 2 to 3 because of the time commitment such an upgrade entails. The Python Software Foundation's official stance on the matter is:</p>
+<blockquote><p>Python 2.x is legacy, Python 3.x is the present and future of the language</p></blockquote>
+<p>(Upgrading Python 2 code to Python 3 <a href="http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html">isn't that bad</a>, by the way.)</p>
+<p>I like to check in on the Python community's <a href="http://www.randalolson.com/2015/01/30/python-usage-survey-2014/">transition from 2 to 3</a> every once in a while, so I figured it was about time for another check. Conveniently, Juan Pablo posted a <a href="https://gist.github.com/juanpabloaj/dffc6900f80abcfe8ce121a39cffa743">preliminary analysis</a> yesterday looking at the evolution of pip package downloads by Python version over the past couple months. Below, I will delve into that data a bit more to see what insights we can draw.</p>
+<h3>Overall Python downloads</h3>
+<p>If we look at all pip installs in July and August '16, <strong>Python 2.7 still comprises roughly 90% of all pip installs</strong>. There are some interesting day-to-day fluctuations that presumably show fewer users installing Python packages on the weekend, but overall there are about 10,000,000 packages installed on Python 2.7 distributions every day.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-downloads.png" alt="python-pip-downloads" width="756" height="521" class="aligncenter size-full wp-image-8386" /></a></p>
+<p>Of course, the statistics above capture all pip installs from all Python packages. What about the <a href="http://scipy.org/about.html">Scientific Python (SciPy) stack</a>, which most of my readers are probably concerned about?</p>
+<h3>SciPy stack downloads</h3>
+<p>To look at Python usage across the SciPy stack, I used the same query as above except I limited the search to the following packages:</p>
+<ul>
+<li>NumPy</li>
+<li>SciPy</li>
+<li>matplotlib</li>
+<li>pandas</li>
+<li>SymPy</li>
+<li>IPython</li>
+<li>Jupyter</li>
+<li>nose</li>
+<li>scikit-learn</li>
+<li>scikit-image</li>
+<li>Seaborn</li>
+<li>Bokeh</li>
+</ul>
+<p>(I added the last two per my personal opinion; the others are referenced on the SciPy page.)</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-scipy-stack-pip-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-scipy-stack-pip-downloads.png" alt="python-scipy-stack-pip-downloads" width="605" height="390" class="aligncenter size-large wp-image-8399" /></a></p>
+<p>Much to my dismay, <strong>even in the SciPy stack pip is used to install an order of magnitude more packages on Python 2.7 distributions than Python 3</strong> (roughly 80% of all installs), with little sign of slowing down. At this point, we have to wonder: will Python's scientific Python community be ready when <a href="https://pythonclock.org/">support for Python 2 is officially dropped in 2020</a>?</p>
+<h3>Breakdown by packages in the SciPy stack</h3>
+<p>I was also curious to see the Python usage statistics broken down by the various scientific Python packages, so that's what I've plotted below. In general, it seems that <strong>it's important for the scientific Python packages to primarily support Python 2.7, 3.4, and 3.5</strong>, with a handful of packages even having a large Python 2.6 user base.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-bokeh-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-bokeh-downloads.png" alt="python-pip-package-bokeh-downloads" width="605" height="391" class="aligncenter size-large wp-image-8387" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-ipython-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-ipython-downloads.png" alt="python-pip-package-ipython-downloads" width="605" height="391" class="aligncenter size-large wp-image-8388" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-jupyter-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-jupyter-downloads.png" alt="python-pip-package-jupyter-downloads" width="605" height="391" class="aligncenter size-large wp-image-8389" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-matplotlib-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-matplotlib-downloads.png" alt="python-pip-package-matplotlib-downloads" width="605" height="391" class="aligncenter size-large wp-image-8390" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-nose-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-nose-downloads.png" alt="python-pip-package-nose-downloads" width="605" height="391" class="aligncenter size-large wp-image-8391" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-numpy-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-numpy-downloads.png" alt="python-pip-package-numpy-downloads" width="605" height="391" class="aligncenter size-large wp-image-8392" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-pandas-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-pandas-downloads.png" alt="python-pip-package-pandas-downloads" width="605" height="391" class="aligncenter size-large wp-image-8393" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-scikit-image-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-scikit-image-downloads.png" alt="python-pip-package-scikit-image-downloads" width="605" height="391" class="aligncenter size-large wp-image-8394" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-scikit-learn-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-scikit-learn-downloads.png" alt="python-pip-package-scikit-learn-downloads" width="605" height="391" class="aligncenter size-large wp-image-8395" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-scipy-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-scipy-downloads.png" alt="python-pip-package-scipy-downloads" width="605" height="391" class="aligncenter size-large wp-image-8396" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-seaborn-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-seaborn-downloads.png" alt="python-pip-package-seaborn-downloads" width="605" height="391" class="aligncenter size-large wp-image-8397" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/python-pip-package-sympy-downloads.png"><img src="{{ site.baseurl }}/assets/2016/09/python-pip-package-sympy-downloads.png" alt="python-pip-package-sympy-downloads" width="605" height="391" class="aligncenter size-large wp-image-8398" /></a></p>
+<h3>Conclusions</h3>
+<p>Python 2 still seems to be the most-used version of Python by far, at least in terms of packages installed via pip. With <a href="https://pythonclock.org/">Python 2's end of life</a> in the near future, it's time for the Python community to start having a serious conversation about how to smooth the transition from Python 2 to 3.</p>
+<p>Aside from <a href="https://docs.python.org/2/library/2to3.html">2to3</a> for automatic code translation, most <a href="http://py3readiness.org/">major packages providing Python 3 support</a>, and <a href="http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html">several</a> <a href="https://docs.python.org/3/howto/pyporting.html">guides</a> focused on porting Python code from 2 to 3, what are we missing? If you're still using Python 2, what would convince you to make the switch?</p>
+<h3>Data source</h3>
+<p>I queried the <a href="https://bigquery.cloud.google.com/table/the-psf:pypi.downloads20160903">PSF downloads table</a> on BigQuery using the following query.</p>
+<pre name="code" class="sql:nogutter">
+SELECT
+  CONCAT( DATE(timestamp), '_', REGEXP_EXTRACT(details.python, r'^([2-3].[0-9]).') ) AS date_python,
+  COUNT(details.python) AS downloads
+FROM (TABLE_DATE_RANGE([the-psf:pypi.downloads], TIMESTAMP('2016-06-01'), TIMESTAMP('2016-09-01')))
+WHERE
+  LOWER(details.installer.name) LIKE 'pip'
+  AND (LOWER(file.project) LIKE 'numpy'
+    OR LOWER(file.project) LIKE 'scipy'
+    OR LOWER(file.project) LIKE 'matplotlib'
+    OR LOWER(file.project) LIKE 'pandas'
+    OR LOWER(file.project) LIKE 'sympy'
+    OR LOWER(file.project) LIKE 'ipython'
+    OR LOWER(file.project) LIKE 'jupyter'
+    OR LOWER(file.project) LIKE 'nose'
+    OR LOWER(file.project) LIKE 'scikit-%'
+    OR LOWER(file.project) LIKE 'seaborn'
+    OR LOWER(file.project) LIKE 'bokeh')
+GROUP BY
+  date_python
+ORDER BY
+  date_python
+</pre>
+<p>This query was modified from Juan Pablo's <a href="https://gist.github.com/juanpabloaj/dffc6900f80abcfe8ce121a39cffa743">earlier query</a>.</p>

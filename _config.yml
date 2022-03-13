@@ -1,0 +1,97 @@
+# WhatATheme
+markdown: kramdown
+
+# URL of the Site
+url: ''
+# Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
+baseurl:
+
+# Title of the Site
+title: Dr. Randal Olson
+# Description of the Site
+description: Full stack data scientist and artificial intelligence researcher
+# URL of Image of the Site
+site-image: /rolson.github.io/assets/images/meta.jpg
+# Keywords of the Site
+site-keywords: Site, Template, Theme
+# URL for the Image of custom Favicon
+favicon-url: /rolson.github.io/assets/images/favicon.ico
+
+# URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
+heroimage: https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+
+# Social Media and Contact
+# If you don't want to use any icon, you can leave them blank.
+email: randal.s.olson@gmail.com
+facebook_username: RandalSOlson
+twitter_username: randal_olson
+instagram_username: randalsolson
+linkedin_username: randal.s.olson
+github_username:  rhiever
+youtube_channel_id: UCvEj2pLBlh_LpfJx7LxXh9A
+reddit_username:
+behance_username:
+dribbble_username:
+spotify_username:
+
+# Google Analytics
+google-analytics: UA-3573562-2
+
+# Disqus
+disqus-shortname:
+
+# Name of the Author
+author-name: Dr. Randal Olson
+# URL for the Image of the Author
+author-image: /rolson.github.io/assets/images/randal-olson.jpg
+# 60 Words About the Author
+author-about: Full stack data scientist and artificial intelligence researcher
+# URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
+author-url: http://www.randalolson.com/
+
+# SASS
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Build settings
+plugins:
+  - jekyll-admin
+  - jekyll-feed
+
+# Permalink
+permalink: "blog/:title"
+
+# Compress
+compress_html:
+  clippings: all
+
+# Defaults
+defaults:
+  -
+    scope:
+      type: 'posts'
+    values:
+      layout: post
+      post-image: ""
+      description: ""
+      tags:
+        - ""
+  -
+    scope:
+      type: 'pages'
+    values:
+      layout: page
+
+# Excludes
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

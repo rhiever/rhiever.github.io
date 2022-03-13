@@ -1,0 +1,393 @@
+---
+layout: post
+title: How many college football teams can you watch in-person in one football season?
+date: 2018-03-20 17:45:43.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- machine learning
+tags:
+- artificial intelligence
+- evolutionary computation
+- genetic algorithm
+- machine learning
+- optimization
+- road trip
+- traveling salesman problem
+- united states
+- usa
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_title: How many college football teams can you watch in-person in one football
+    season?
+  responsive_meta_box_designation: ''
+  responsive_meta_box_facebook: ''
+  responsive_meta_box_twitter: ''
+  responsive_meta_box_googleplus: ''
+  responsive_meta_box_text_linkedin: ''
+  _aioseop_description: Randy Olson uses machine learning to discover how many college
+    football teams can you watch in-person in one football season, which results in
+    a 3 1/2 month long trip around the USA.
+  _thumbnail_id: '8781'
+  _aioseop_keywords: college football, 2018 season, ncaa, optimal, optimize, trip,
+    evolutionary algorithms, genetic algorithms, machine learning, traveling salesman
+    problem
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2018/03/20/how-many-college-football-teams-can-you-watch-in-person-in-one-football-season/"
+---
+<p>The college football season once again came to an end back in January, which now leaves us college football fans with nothing to do but <a href="https://www.reddit.com/r/CFB/">post football memes online</a> and feign interest in other sports until August rolls around again. This year, I've decided to jump the gun and start planning ahead for the 2018 college football season. With the <a href="http://www.espn.com/college-football/schedule/_/week/1">2018 college football season schedule</a> already announced, we can start planning our vacations to see our favorite teams, rivalry games, and stadiums.</p>
+<p>But what if we did something a little different this year? What if we embarked on a trip that was a little more... epic in scope?</p>
+<p><a href="https://en.wikipedia.org/wiki/Ohio_Stadium#/media/File:Panoramic_view_of_Ohio_Stadium.jpg"><img src="{{ site.baseurl }}/assets/2018/03/2560px-Panoramic_view_of_Ohio_Stadium.jpg" /></a><br />
+<center><font size="2"><strong>Ohio State's stadium, nicknamed "The Horseshoe," is a must-visit for any college football fan</strong></font></center></p>
+<p>If you've followed my blog over the years, you'll know that I'm no stranger to <a href="http://www.randalolson.com/?s=road+trip">planning epic, once-in-a-lifetime road trips</a>. This time, I'm going to make a trip that allows us to watch as many different college football teams in-person as possible during the 2018 regular season. If you don't care about how I made this trip, skip down to the "Optimized college football trip v1.0" section.</p>
+<h3>Rules of the trip</h3>
+<p>The best place to start when planning a trip of this magnitude is to set a few ground rules. In this case, I'm going to make a handful of assumptions:</p>
+<ol>
+<li><strong>We only care about Division I FBS teams for this trip.</strong> 130 teams are enough to work with already.</li>
+<li><strong>We especially care about Power 5 conference teams.</strong> Most of the best college football teams are in the <a href="https://en.wikipedia.org/wiki/Power_Five_conferences">Power 5 conferences</a>, so when push comes to shove, we prefer seeing a Power 5 team over any other.</li>
+<li><strong>We want to see as many big rivalry games as possible.</strong> <a href="http://bleacherreport.com/articles/2464420-college-footballs-25-all-time-best-rivalry-games">Big rivalry games</a> are unique and fun to watch.</li>
+<li><strong>We will attend a maximum of one game per day.</strong> Without advance knowledge of what time the games are taking place, it's impossible to schedule multiple games per day.</li>
+<li><strong>We will need to fly between every game.</strong> Sometimes driving between the games may be possible---especially between Saturday and Thursday games---but for the most part we will need to hop on a plane to make the next game on time.</li>
+</ol>
+<p>We these rules in mind, we can now formulate a plan on how to create this trip.</p>
+<h3>How to optimize the trip</h3>
+<p>If you're familiar with college football, optimizing this trip is no small feat: As of the 2018 season, there will be 130 Division I football teams with 51 days of games scheduled over a 3 1/2 month period, typically on Thursdays, Fridays, and Saturdays. Each of the 51 days have somewhere between 1 and 77 games scheduled on that day, and it's our task to choose a series of 51 games that allows us to see as many teams as possible.</p>
+<p>The challenge comes when we calculate the number of possible trips we can choose: On August 25, there are only 4 games to choose from. Easy enough. On August 30, there are 9 different games to choose from, for a total of (4x9=) 36 possible trips. On August 31, we add another 5 games to choose from and we're up to (4x9x5=) 180 possible trips. By day 51, we're up to roughly <strong>1.6 x 10<sup>32</sup> possible trips</strong>. That got out of hand quickly, didn't it?</p>
+<p>Even with a computer, solving this problem in a <a href="https://en.wikipedia.org/wiki/Brute-force_search">brute force</a> manner isn't practical. On my computer, I can evaluate about 1,000 different trips per second. Even if I spread this program across 1,000,000 more computers, it would take about <strong>5 x 10<sup>15</sup> years to compute</strong> every possible trip. Unfortunately the 2018 college football season would be over by then, and even worse, humanity isn't even <a href="https://en.wikipedia.org/wiki/Timeline_of_the_far_future#Future_of_humanity">expected</a> to survive nearly that long. Therefore, we need to find a smarter way to optimize this trip if we want a chance of going on it before the Human race goes extinct.</p>
+<p>In my previous posts, I described a <a href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">genetic algorithm approach</a> to optimizing trips similar to this one. In this post, I'm going to take the same kind of approach: At first, I'll create 500 random trips and evaluate them according to how well they meet rules #1--#3. After that, I'll take the best of the initial trips, make copies of them, and make small random changes to the copies, for example by picking the UCF @ UConn game on August 30 instead of the Wake Forest @ Tulane game. Finally, I'll throw out all of the old trips that I started with. After I repeat this evaluate-rank-copy-modify-delete process 500 times, I'm left with an optimized trip that maximizes the number of Division I FBS teams that we can see in the 2018 season. And this time we only had to wait a few minutes.</p>
+<h3>Optimized college football trip v1.0</h3>
+<p>After a few minutes of running, my algorithm output the optimized trip below. Although this trip isn't provably optimal, it provides an itinerary that will take us to <strong>48 different stadiums, watch 90 different teams (including 47 of the top 50 Power 5 teams), and witness 6 of the biggest rivalries in college football</strong>---all within the restrictive 51-day regular season schedule.</p>
+<p>I've provided an interactive map of the trip below.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/optimized-cfb-trip-v1.png"><img src="{{ site.baseurl }}/assets/2018/03/optimized-cfb-trip-v1-1024x587.png" alt="Optimized college football trip v1.0" class="aligncenter size-large wp-image-8781" /></a></p>
+<p><center><font size="2"><strong>Click <a href="http://rhiever.github.io/optimal-roadtrip-usa/optimized-cfb-trip-v1.html">here</a> to see an interactive version of the map</strong></font></center></p>
+<p>From the Red River Showdown to the classic Army-Navy Game, this trip will have you visiting many of the nation's iconic stadiums and watching some of the best games that college football has to offer.</p>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/5/56/Bronco_Stadium_September_25_2010.JPG"><img src="{{ site.baseurl }}/assets/2018/03/Bronco_Stadium_September_25_2010.JPG" /></a><br />
+<center><font size="2"><strong>Boise State's Albertsons Stadium is one of the many unique stadiums you'll visit on this trip</strong></font></center></p>
+<p>If you'd like to look up each game, I've provided a table below. In some cases, the teams are playing on a neutral site and the Home/Away designation doesn't apply.</p>
+<table>
+<tbody>
+<tr>
+<th width="90px"><strong>Date</strong></th>
+<th><strong>Location</strong></th>
+<th><strong>Home team</strong></th>
+<th><strong>Away team</strong></th>
+</tr>
+<tr>
+<td>August 25</td>
+<td>Aggie Memorial Stadium, Las Cruces, NM</td>
+<td>New Mexico State Aggies</td>
+<td>Wyoming Cowboys</td>
+</tr>
+<tr>
+<td>August 30</td>
+<td>Ross-Ade Stadium, West Lafayette, IN</td>
+<td>Purdue Boilermakers</td>
+<td>Northwestern Wildcats</td>
+</tr>
+<tr>
+<td>August 31</td>
+<td>Camp Randall Stadium, Madison, WI</td>
+<td>Wisconsin Badgers</td>
+<td>Western Kentucky Hilltoppers</td>
+</tr>
+<tr>
+<td>September 1</td>
+<td>Notre Dame Stadium, Notre Dame, IN</td>
+<td>Notre Dame Fighting Irish</td>
+<td>Michigan Wolverines</td>
+</tr>
+<tr>
+<td>September 2</td>
+<td>AT&amp;T Stadium, Arlington, TX</td>
+<td>LSU Tigers</td>
+<td>Miami Hurricanes</td>
+</tr>
+<tr>
+<td>September 3</td>
+<td>Doak Campbell Stadium, Tallahassee, FL</td>
+<td>Florida State Seminoles</td>
+<td>Virginia Tech Hokies</td>
+</tr>
+<tr>
+<td>September 7</td>
+<td>Gerald J. Ford Stadium, Dallas, TX</td>
+<td>SMU Mustangs</td>
+<td>TCU Horned Frogs</td>
+</tr>
+<tr>
+<td>September 8</td>
+<td>Kyle Field, College Station, TX</td>
+<td>Texas A&amp;M Aggies</td>
+<td>Clemson Tigers</td>
+</tr>
+<tr>
+<td>September 13</td>
+<td>BB&amp;T Field, Winston-salem, NC</td>
+<td>Wake Forest Demon Deacons</td>
+<td>Boston College Eagles</td>
+</tr>
+<tr>
+<td>September 14</td>
+<td>Liberty Bowl Memorial Stadium, Memphis, TN</td>
+<td>Memphis Tigers</td>
+<td>Georgia State Panthers</td>
+</tr>
+<tr>
+<td>September 15</td>
+<td>Williams-Brice Stadium, Columbia, SC</td>
+<td>South Carolina Gamecocks</td>
+<td>Marshall Thundering Herd</td>
+</tr>
+<tr>
+<td>September 20</td>
+<td>Lincoln Financial Field, Philadelphia, PA</td>
+<td>Temple Owls</td>
+<td>Tulsa Golden Hurricane</td>
+</tr>
+<tr>
+<td>September 21</td>
+<td>Memorial Stadium, Champaign, IL</td>
+<td>Illinois Fighting Illini</td>
+<td>Penn State Nittany Lions</td>
+</tr>
+<tr>
+<td>September 22</td>
+<td>Jordan-Hare Stadium, Auburn, AL</td>
+<td>Auburn Tigers</td>
+<td>Arkansas Razorbacks</td>
+</tr>
+<tr>
+<td>September 27</td>
+<td>Hard Rock Stadium, Miami, FL</td>
+<td>Miami Hurricanes</td>
+<td>North Carolina Tar Heels</td>
+</tr>
+<tr>
+<td>September 28</td>
+<td>Folsom Field, Boulder, CO</td>
+<td>Colorado Buffaloes</td>
+<td>UCLA Bruins</td>
+</tr>
+<tr>
+<td>September 29</td>
+<td>Memorial Stadium, Lawrence, KS</td>
+<td>Kansas Jayhawks</td>
+<td>Oklahoma State Cowboys</td>
+</tr>
+<tr>
+<td>October 4</td>
+<td>TDECU Stadium, Houston, TX</td>
+<td>Houston Cougars</td>
+<td>Tulsa Golden Hurricane</td>
+</tr>
+<tr>
+<td>October 5</td>
+<td>LaVell Edwards Stadium, Provo, UT</td>
+<td>BYU Cougars</td>
+<td>Utah State Aggies</td>
+</tr>
+<tr>
+<td>October 6</td>
+<td>Cotton Bowl, Dallas, TX</td>
+<td>Oklahoma Sooners</td>
+<td>Texas Longhorns</td>
+</tr>
+<tr>
+<td>October 9</td>
+<td>Centennial Bank Stadium, Jonesboro, AR</td>
+<td>Arkansas State Red Wolves</td>
+<td>Appalachian State Mountaineers</td>
+</tr>
+<tr>
+<td>October 11</td>
+<td>Bobcat Stadium, San Marcos, TX</td>
+<td>Texas State Bobcats</td>
+<td>Georgia Southern Eagles</td>
+</tr>
+<tr>
+<td>October 12</td>
+<td>Rice-Eccles Stadium, Salt Lake City, UT</td>
+<td>Utah Utes</td>
+<td>Arizona Wildcats</td>
+</tr>
+<tr>
+<td>October 13</td>
+<td>Bobby Dodd Stadium, Atlanta, GA</td>
+<td>Georgia Tech Yellow Jackets</td>
+<td>Duke Blue Devils</td>
+</tr>
+<tr>
+<td>October 18</td>
+<td>Sun Devil Stadium, Tempe, AZ</td>
+<td>Arizona State Sun Devils</td>
+<td>Stanford Cardinal</td>
+</tr>
+<tr>
+<td>October 19</td>
+<td>Albertsons Stadium, Boise, ID</td>
+<td>Boise State Broncos</td>
+<td>Colorado State Rams</td>
+</tr>
+<tr>
+<td>October 20</td>
+<td>Neyland Stadium, Knoxville, TN</td>
+<td>Tennessee Volunteers</td>
+<td>Alabama Crimson Tide</td>
+</tr>
+<tr>
+<td>October 23</td>
+<td>Ladd-Peebles Stadium, Mobile, AL</td>
+<td>South Alabama Jaguars</td>
+<td>Troy Trojans</td>
+</tr>
+<tr>
+<td>October 25</td>
+<td>Milan Puskar Stadium, Morgantown, WV</td>
+<td>West Virginia Mountaineers</td>
+<td>Baylor Bears</td>
+</tr>
+<tr>
+<td>October 26</td>
+<td>TCF Bank Stadium, Minneapolis, MN</td>
+<td>Minnesota Golden Gophers</td>
+<td>Indiana Hoosiers</td>
+</tr>
+<tr>
+<td>October 27</td>
+<td>EverBank Field, Jacksonville, FL</td>
+<td>Georgia Bulldogs</td>
+<td>Florida Gators</td>
+</tr>
+<tr>
+<td>October 30</td>
+<td>Doyt Perry Stadium, Bowling Green, OH</td>
+<td>Bowling Green Falcons</td>
+<td>Kent State Golden Flashes</td>
+</tr>
+<tr>
+<td>October 31</td>
+<td>Glass Bowl, Toledo, OH</td>
+<td>Toledo Rockets</td>
+<td>Ball State Cardinals</td>
+</tr>
+<tr>
+<td>November 1</td>
+<td>Spectrum Stadium, Orlando, FL</td>
+<td>UCF Knights</td>
+<td>Temple Owls</td>
+</tr>
+<tr>
+<td>November 2</td>
+<td>Scott Stadium, Charlottesville, VA</td>
+<td>Virginia Cavaliers</td>
+<td>Pittsburgh Panthers</td>
+</tr>
+<tr>
+<td>November 3</td>
+<td>Ohio Stadium, Columbus, OH</td>
+<td>Ohio State Buckeyes</td>
+<td>Nebraska Cornhuskers</td>
+</tr>
+<tr>
+<td>November 6</td>
+<td>UB Stadium, Buffalo, NY</td>
+<td>Buffalo Bulls</td>
+<td>Kent State Golden Flashes</td>
+</tr>
+<tr>
+<td>November 7</td>
+<td>Yager Stadium, Oxford, OH</td>
+<td>Miami (OH) RedHawks</td>
+<td>Ohio Bobcats</td>
+</tr>
+<tr>
+<td>November 8</td>
+<td>Carter-Finley Stadium, Raleigh, NC</td>
+<td>NC State Wolfpack</td>
+<td>Wake Forest Demon Deacons</td>
+</tr>
+<tr>
+<td>November 9</td>
+<td>Carrier Dome, Syracuse, NY</td>
+<td>Syracuse Orange</td>
+<td>Louisville Cardinals</td>
+</tr>
+<tr>
+<td>November 10</td>
+<td>Los Angeles Memorial Coliseum, Los Angeles, CA</td>
+<td>USC Trojans</td>
+<td>California Golden Bears</td>
+</tr>
+<tr>
+<td>November 13</td>
+<td>Scheumann Stadium, Muncie, IN</td>
+<td>Ball State Cardinals</td>
+<td>Western Michigan Broncos</td>
+</tr>
+<tr>
+<td>November 14</td>
+<td>Peden Stadium, Athens, OH</td>
+<td>Ohio Bobcats</td>
+<td>Buffalo Bulls</td>
+</tr>
+<tr>
+<td>November 15</td>
+<td>TDECU Stadium, Houston, TX</td>
+<td>Houston Cougars</td>
+<td>Tulane Green Wave</td>
+</tr>
+<tr>
+<td>November 16</td>
+<td>Gerald J. Ford Stadium, Dallas, TX</td>
+<td>SMU Mustangs</td>
+<td>Memphis Tigers</td>
+</tr>
+<tr>
+<td>November 17</td>
+<td>Bill Snyder Family Stadium, Manhattan, KS</td>
+<td>Kansas State Wildcats</td>
+<td>Texas Tech Red Raiders</td>
+</tr>
+<tr>
+<td>November 20</td>
+<td>Waldo Stadium, Kalamazoo, MI</td>
+<td>Western Michigan Broncos</td>
+<td>Northern Illinois Huskies</td>
+</tr>
+<tr>
+<td>November 22</td>
+<td>Vaught-Hemingway Stadium, Oxford, MS</td>
+<td>Ole Miss Rebels</td>
+<td>Mississippi State Bulldogs</td>
+</tr>
+<tr>
+<td>November 23</td>
+<td>Martin Stadium, Pullman, WA</td>
+<td>Washington State Cougars</td>
+<td>Washington Huskies</td>
+</tr>
+<tr>
+<td>November 24</td>
+<td>Spartan Stadium, East Lansing, MI</td>
+<td>Michigan State Spartans</td>
+<td>Rutgers Scarlet Knights</td>
+</tr>
+<tr>
+<td>December 8</td>
+<td>Lincoln Financial Field, Philadelphia, PA</td>
+<td>Navy Midshipmen</td>
+<td>Army Black Knights</td>
+</tr>
+</tbody>
+</table>
+<p>This trip is a still a work in progress, and there are a couple areas that I'd like to improve upon. For one, there are several iconic football stadiums that this trip misses out on, <a href="https://en.wikipedia.org/wiki/Michigan_Stadium">The Big House</a> among them. I'd like to find a way to incorporate those stadiums into this trip without missing out on any more teams. I'll make sure to keep this post updated as I make progress.</p>
+<p>That's all for now. Do you have any ideas on how to improve this trip? Leave your thoughts in the comments.</p>

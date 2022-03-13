@@ -1,0 +1,48 @@
+---
+layout: post
+title: 'IPython Notebook: Finally, the research notebook I''ve always been looking
+  for is here!'
+date: 2012-05-10 23:56:29.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- ipython
+- productivity
+- statistics
+tags:
+- ipython
+- notebook
+- python
+- research
+meta:
+  _edit_last: '2'
+  _wp_old_slug: test
+  _aioseop_title: 'IPython Notebook: Finally, the research notebook I''ve always been
+    looking for is here!'
+  _aioseop_keywords: ipython, notebook, python, research
+  _aioseop_description: Randal Olson discusses the new digital research notebook provided
+    in the IPython library.
+  dsq_thread_id: '3245762928'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430362156;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:71;}i:1;a:1:{s:2:"id";i:572;}i:2;a:1:{s:2:"id";i:1896;}}}}
+  _responsive_layout: default
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2012/05/10/ipython-notebook/"
+---
+<p>I attended a Software Carpentry workshop hosted by <a href="http://ivory.idyll.org/" target="_blank">Titus Brown</a> and <a href="http://third-bit.com/" target="_blank">Greg Wilson</a> this week and was introduced to, among many other things, a piece of software that I've been looking for ever since I started my graduate program: <a href="http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html" target="_blank">IPython Notebook</a>. It can easily be installed with the majority of the other packages you'll need in the <a href="https://www.anaconda.com/download/" target="_blank">Anaconda Python distribution</a>.</p>
+<p>I do the majority of my post-experiment data analysis in Python nowadays, since it's one of the few sanely-designed scripting languages out there with all the functionality I need. What I've been missing is a seamless user interface where I can both take notes about my research <em>and</em> perform my data analysis in the same location. IPython Notebook finally provides that.</p>
+<p>Ever since I announced my conversion from RTF files to IPython Notebook as my primary means of taking research notes, I've received a lot of flack about how Python doesn't support advanced statistical tests, such as bootstrapping confidence intervals, Mann-Whitney Wilcoxon RankSum tests, and ANOVA tests. After a day of searching with my lab mates, I finally turned up all the libraries I need:</p>
+<ul>
+<li>Bootstrapped confidence intervals: <a href="https://pypi.python.org/pypi/scikits.bootstrap" target="_blank">https://pypi.python.org/pypi/scikits.bootstrap</a></li>
+<li>MWW RankSum test: <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html" target="_blank">http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html</a></li>
+<li>ANOVA: <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html" target="_blank">http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html</a></li>
+</ul>
+<p>If you can't find a Python library for a statistical test you need, post here and we'll try to find it. The IPython notebook has plenty of uses beyond a research notebook, too. For example, Titus Brown recently posted the IPython notebook that he used to generate all of the graphs in <a href="https://web.archive.org/web/20170303022909/http://ged.msu.edu:80/papers/2012-diginorm/" target="_blank">one of his recent papers</a>. Imagine the implications for science if scientists actually start showing the code they used to generate their graphs! (No more hiding that outlier point on the side of the graph...)</p>
+<p>I'll be putting up some tutorials and examples of how to use IPython Notebook for exploratory statistical data analysis soon, so stay posted!</p>

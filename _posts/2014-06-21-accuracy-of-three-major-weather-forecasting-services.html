@@ -1,0 +1,53 @@
+---
+layout: post
+title: Accuracy of three major weather forecasting services
+date: 2014-06-21 14:50:54.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+tags:
+- accuracy
+- meteorologist
+- nate silver
+- prediction
+- rainfall
+- weather forecast
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_description: Randy Olson charts out the accuracy of three major weather
+    forecasting services.
+  _aioseop_title: Accuracy of three major weather forecasting services
+  _aioseop_keywords: weather forecast, prediction, accuracy, rainfall, meteorologist,
+    nate silver, national weather service, weather.gov, the weather channel, weather.com
+  _thumbnail_id: '4764'
+  dsq_thread_id: '3245765447'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430395454;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:4747;}i:1;a:1:{s:2:"id";i:804;}i:2;a:1:{s:2:"id";i:2183;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/06/21/accuracy-of-three-major-weather-forecasting-services/"
+---
+<p>For the past month, I've been slowly working my way through Nate Silver's book, <a href="http://www.amazon.com/The-Signal-Noise-Many-Predictions/dp/159420411X">The Signal and the Noise</a>. It's really a great read, but if you're a regular reader on this blog, I'd imagine you've already read it. This book is loaded with all kinds of great examples of where predictive analytics succeeds and fails, and I decided to highlight his <a href="http://www.randalolson.com/2014/06/21/we-can-only-forecast-the-weather-a-few-days-into-the-future/">weather forecasting example</a> because of how surprising it was to me.</p>
+<p>For those who aren't in the know: Most of the weather forecasts out there for the U.S. are originally based on data from the <a href="http://www.weather.gov/">U.S. National Weather Service</a>, a government-run agency tasked with measuring and predicting everything related to weather across all of North America. Commercial companies like <a href="http://www.weather.com/">The Weather Channel</a> then build off of those data and forecasts and try to produce a "better" forecast -- a fairly lucky position to be in, if you consider that the NWS does a good portion of the heavy lifting for them.</p>
+<p>We all rely on these weather forecasts to plan our day-to-day activities. For example, before planning a summer grill out over the weekend, we'll check our favorite weather web site to see whether it's going to rain. Of course, we're always left to wonder: Just how accurate are these forecasts? Plotted below is the accuracy of three major weather forecasting services. Note that a perfect forecast means that, e.g., the service forecasted a 20% chance of rain for 40 days of the year, and exactly 8 (20%) of those days actually had rain.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/weather-forecast-accuracy-flipped.png"><img src="{{ site.baseurl }}/assets/2014/06/weather-forecast-accuracy-flipped.png" alt="weather-forecast-accuracy-flipped" width="650" class="aligncenter size-full wp-image-4764" /></a></p>
+<p>There's some pretty startling trends here. For one, The Weather Service is pretty accurate for the most part, and that's because they consistently try to provide the most accurate forecasts possible. They pride themselves on the fact that if you go to <a href="http://www.weather.gov">Weather.gov</a> and it says there's a 60% chance of rain, there <em>really is</em> a 60% chance of rain that day.</p>
+<p>With the advantage of having The Weather Service's forecasts and data as a starting point, it's perhaps unsurprising that The Weather Channel manages to be slightly more accurate in their forecasts. The only major inaccuracy they have, which is surprisingly consistent, is in the lower and higher probabilities of raining: <a href="http://www.weather.com/">Weather.com</a> often forecasts that there's a higher probability of raining than there really is.</p>
+<p>This phenomenon is commonly known as a <a href="https://en.wikipedia.org/wiki/Wet_bias">wet bias</a>, where weather forecasters will err toward predicting more rain than there really is. After all, we all take notice when forecasters say there won't be rain and it ends up raining (= ruined grill out!); but when they predict rain and it ends up not raining, we'll shrug it off and count ourselves lucky.</p>
+<p>The worst part of this graph is the <a href="http://freakonomics.com/2008/04/21/how-valid-are-tv-weather-forecasts/">performance of local TV meteorologists</a>. These guys consistently over-predict rain so much that it's difficult to place much confidence in their forecasts at all. As Silver notes:</p>
+<blockquote><p>
+TV weathermen they aren't bothering to make accurate forecasts because they figure the public won't believe them anyway. But the public shouldn't believe them, because the forecasts aren't accurate.
+</p></blockquote>
+<p>Even worse, some meteorologists have admitted that they <a href="http://www.nytimes.com/2012/09/09/magazine/the-weatherman-is-not-a-moron.html?_r=2&pagewanted=all&">purposely fudge their rain forecasts to improve ratings</a>. What's a better way to keep you tuning in every day than to make you think it's raining all the time, and they're the only ones saving you from soaking your favorite outfit?</p>
+<p>For me, the big lesson learned from this chapter in Silver's book is that I'll be tuning in to <a href="http://weather.gov">Weather.gov</a> for my weather forecasts from now on. Most notably because, as Silver puts it:</p>
+<blockquote><p>
+The further you get from the government's original data, and the more consumer facing the forecasts, the worse this bias becomes. Forecasts "add value" by subtracting accuracy.
+</p></blockquote>

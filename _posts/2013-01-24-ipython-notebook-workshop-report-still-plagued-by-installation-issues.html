@@ -1,0 +1,56 @@
+---
+layout: post
+title: 'IPython Notebook workshop report: still plagued by installation issues'
+date: 2013-01-24 19:51:59.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- ipython
+- outreach
+tags:
+- ipython
+- notebook
+- report
+- workshop
+meta:
+  _edit_last: '2'
+  _wpas_done_all: '1'
+  _aioseop_title: 'IPython Notebook workshop report: still plagued by installation
+    issues'
+  _aioseop_description: A brief report from a workshop run to teach scientists how
+    to use IPython Notebook for scientific computing.
+  _responsive_layout: default
+  _wpas_skip_3634464: '1'
+  _wpas_skip_3634460: '1'
+  _aioseop_keywords: ipython, notebook, workshop, report, randal olson
+  dsq_thread_id: '3245763165'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430272328;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:71;}i:1;a:1:{s:2:"id";i:1896;}i:2;a:1:{s:2:"id";i:31;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2013/01/24/ipython-notebook-workshop-report-still-plagued-by-installation-issues/"
+---
+<p><strong>Update (Nov. 2014):</strong> IPython Notebook installation has advanced considerably since I originally published this post. Check out the <a href="https://www.anaconda.com/download/">Anaconda Python Distribution</a> for an easy one-click installer for all your Python library needs.</p>
+<hr />
+<p>Today I ran a small (~20 person) 1-hour workshop at Michigan State University focusing on installing IPython Notebook and using it as a research notebook. Since I knew it's quite a pain to install IPython Notebook for the first time, I put together a set of installation instructions for both <a href="https://github.com/rhiever/ipython-notebook-workshop#windows">Windows</a> and <a href="https://github.com/rhiever/ipython-notebook-workshop#mac-and-linux">Mac/Linux</a> and asked the attendees to attempt to install IPython Notebook ahead of time. On top of that, I held a 30-minute session before the workshop dedicated solely to installing IPython Notebook (which admittedly, helped a little bit).</p>
+<p>By the end of it, I was able to get through the IPython Notebook demo, and many people seemed excited about using it for their research. Before everyone left, I had the attendees fill out a post-workshop survey to get their opinion on the workshop. In the post-workshop survey, I found some interesting trends in the responses:</p>
+<ul>
+<li>All but one attendee indicated that they understood how to use IPython Notebook and found its interface intuitive</li>
+<li>Half of the workshop attendees indicated that they planned to start using IPython Notebook for their research</li>
+<li>Those that indicated that they don't plan to use IPython Notebook for their research cited installation issues as the primary or secondary reason for not doing so</li>
+</ul>
+<p>I think the third trend is the most telling: <strong>one of the biggest barriers to the adoption of IPython Notebook is installation issues</strong>. <a href="https://twitter.com/jseabold/status/294559714346401792">This isn't an uncommon observation</a>, either. In my case, despite all of my precautions, the workshop was still plagued by installation issues. At least 1/4 of the workshop attendees had these issues during the workshop, including:</p>
+<ul>
+<li>Missing libraries being required for the newer version of IPython Notebook that don't come with the installation package (not even <a href="http://www.enthought.com/products/epd_free.php">EPD</a>) by default</li>
+<li>IPython Notebook not running in Chrome, only Firefox</li>
+<li>pandas compatibility issues with the newer version IPython Notebook</li>
+<li>Newer ipynb files not being backwards-compatible with older IPython Notebook versions</li>
+</ul>
+<p>This highlights <del datetime="2013-06-02T16:49:02+00:00">two key</del> some key issues the IPython community needs to work on before IPython can reach a broader audience: <del datetime="2013-06-02T16:49:02+00:00">(1) we cannot rely on EPD to maintain a free, update-to-date Python package installer and (2)</del> we need to sort out the IPython installation process and distill it to a single, double-click install file.</p>
+<p><strong>UPDATE:</strong> Fernando Perez offered some <a href="http://www.randalolson.com/2013/01/24/ipython-notebook-workshop-report-still-plagued-by-installation-issues/#comment-88">easy installation instructions</a> that seem to have solved the installation issues. I will report on how these work out in an upcoming workshop soon!</p>

@@ -1,0 +1,174 @@
+---
+layout: post
+title: A data-driven look at marble racing
+date: 2020-05-24 10:24:18.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- data analysis
+- data visualization
+- marble racing
+meta:
+  _oembed_eaf28a2b00a231ed9db32e11b47e3038: <blockquote class="twitter-tweet" data-width="550"
+    data-dnt="true"><p lang="en" dir="ltr">the marbles race video <a href="https://t.co/gf0GgmYlOi">pic.twitter.com/gf0GgmYlOi</a></p>&mdash;
+    Jeff (@BeastQuake) <a href="https://twitter.com/BeastQuake/status/1241841727012392960?ref_src=twsrc%5Etfw">March
+    22, 2020</a></blockquote><script async src="https://platform.twitter.com/widgets.js"
+    charset="utf-8"></script>
+  _oembed_time_eaf28a2b00a231ed9db32e11b47e3038: '1590276217'
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_description: Randy Olson looks at the new marble racing phenomenon through
+    the eyes of a data scientist. Do marbles have measurable "skill"?
+  _aioseop_title: A data-driven look at marble racing
+  responsive_meta_box_designation: ''
+  responsive_meta_box_facebook: ''
+  responsive_meta_box_twitter: ''
+  responsive_meta_box_googleplus: ''
+  responsive_meta_box_text_linkedin: ''
+  _aioseop_keywords: marble racing, jelle, john oliver, marbula one, data analysis,
+    data visualization
+  _oembed_cd72dd98a2b04495ba721ddabb7f0fe2: <blockquote class="twitter-tweet" data-width="550"
+    data-dnt="true"><p lang="en" dir="ltr">Race <a href="https://t.co/POe5ujIQ5a">pic.twitter.com/POe5ujIQ5a</a></p>&mdash;
+    viral posts (@BestViralPosts) <a href="https://twitter.com/BestViralPosts/status/1222648826303066113?ref_src=twsrc%5Etfw">January
+    29, 2020</a></blockquote><script async src="https://platform.twitter.com/widgets.js"
+    charset="utf-8"></script>
+  _oembed_time_cd72dd98a2b04495ba721ddabb7f0fe2: '1590276574'
+  _thumbnail_id: '9062'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2020/05/24/a-data-driven-look-at-marble-racing/"
+---
+<p><!-- wp:paragraph --></p>
+<p>Race tracks. High stakes. Rabid fans. Marbles...?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Marble racing has taken the world by storm in 2020. Unless you've been living under a rock -- which is entirely understandable given the state of the world -- you've probably seen marble racing in one form or another in the past few months. If not, you owe it to yourself to watch one of the most satisfying comeback stories of the year:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:core-embed/twitter {"url":"https://twitter.com/BestViralPosts/status/1222648826303066113","type":"rich","providerNameSlug":"twitter","className":""} --></p>
+<figure class="wp-block-embed-twitter wp-block-embed is-type-rich is-provider-twitter">
+<div class="wp-block-embed__wrapper">
+https://twitter.com/BestViralPosts/status/1222648826303066113
+</div>
+</figure>
+<p><!-- /wp:core-embed/twitter --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://www.youtube.com/channel/UCYJdpnjuSWVOLgGT9fIzL0g">Jelle's Marble Runs</a> started as a quirky YouTube channel back in 2006 and has refined the art of marble racing to the point that many --- including sponsor <a href="https://www.youtube.com/watch?v=z4gBMw64aqk" class="aioseop-link">John Oliver</a> from Last Week Tonight --- consider marble racing a legitimate contender for the national sports spotlight. Given that Jelle's Marble Runs just completed their popular Marbula One competition last month, I was curious to look at the race results to see if these races were anything more than chaos.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Do some marbles race better than others? Who would I put my money on in season 2 of Marbula One? <em>Is one of the marbles having an affair?</em> If any of these questions interest you, read on and I'll answer some of them.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The first step to answering these questions was to get some data. Thankfully, all of the Marbula One videos are organized in a YouTube playlist available <a href="https://www.youtube.com/playlist?list=PLSmWeUDtr9fBm-OMFrcYtDRnmPwvjKt_s">here</a>. From every race, my marble racing analytics team recorded each marble racer's qualifier performance, total race time, average lap time, final rank, and some other statistics. That dataset is available for download on my website <a href="http://www.randalolson.com/wp-content/uploads/Jelles-Marble-Racing-Marbula-One.csv">here</a>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Do some marbles race better than others?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>At first thought, it might seem like a ridiculous question to ask whether one marble racer is more skilled than another. All marbles are created equal, after all, and there's not much to differentiate one marble from another. However, it's clear that not all marbles trained equally in preparation for the first season of Marbula One. The chart below shows the distribution and median of race times of every individual marble racer, sorted from fastest to slowest race times.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Note that I had to standardize their race times because each of the race tracks took a varying amount of time. Thus, a marble's performance in one race is measured as how much faster or slower they were than the average time it took all of the marbles to complete that race track.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":9059,"sizeSlug":"large"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img src="{{ site.baseurl }}/assets/2020/05/marbula-one-individual-race-times-757x1024.png" alt="Individual marble racer performance in Marbula One" class="wp-image-9059" /></figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p><a href="https://jellesmarbleruns.fandom.com/wiki/Starry" class="aioseop-link">Starry</a> clocked in the greatest individual race time this Marbula One season, crossing the finish line a full 7 seconds faster than the bulk of the pack in the first race of the season. Unfortunately for <a href="https://jellesmarbleruns.fandom.com/wiki/Team_Galactic" class="aioseop-link">Team Galactic</a>, Starry appeared to be fatigued after this race as she turned in mediocre performances for the rest of the season.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Outlier performances aside, we see something that's rather surprising in this data: <strong>Several marbles seemed to consistently perform above average in season 1 of Marbula One</strong>. <a href="https://jellesmarbleruns.fandom.com/wiki/Snowy" class="aioseop-link">Snowy</a>, <a href="https://jellesmarbleruns.fandom.com/wiki/Smoggy" class="aioseop-link">Smoggy</a>, <a href="https://jellesmarbleruns.fandom.com/wiki/Speedy" class="aioseop-link">Speedy</a>, and <a href="https://jellesmarbleruns.fandom.com/wiki/Prim" class="aioseop-link">Prim</a> stand out as the top racers, consistently vying for the top spot in every race. Speedy especially demonstrated why he's considered one of the sport's top athletes with stellar performances in every Marbula One race.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>On the other end of the spectrum --- and equally surprising --- we see that <strong>some marbles consistently perform worse than their competitors</strong>. <a href="https://jellesmarbleruns.fandom.com/wiki/Mary" class="aioseop-link">Mary</a>, <a href="https://jellesmarbleruns.fandom.com/wiki/Sublime" class="aioseop-link">Sublime</a>, <a href="https://jellesmarbleruns.fandom.com/wiki/Vespa" class="aioseop-link">Vespa</a>, <a href="https://jellesmarbleruns.fandom.com/wiki/Snowflake" class="aioseop-link">Snowflake</a> somehow always found themselves behind everyone else, with Mary even failing to finish one race because she <a href="https://www.youtube.com/watch?v=QSNt3hW6f7g" class="aioseop-link">fell a full lap behind</a>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's look into how these performances affected their teams.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>What marble teams should I bet on?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>If you're new to marble racing and looking for a took to root for, I've compiled a chart with you in mind. Below I show the distribution of each team's placement in every Marbula One race, sorted from the best-ranking teams to the worst. If you like to root for the winners, pick a team near the top of this chart. If you like to root for the underdogs, pick a team near the bottom of this chart.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":9062,"sizeSlug":"large"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img src="{{ site.baseurl }}/assets/2020/05/marbula-one-team-ranks-757x1024.png" alt="Marble team performance in Marbula One" class="wp-image-9062" /></figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>The <a href="https://jellesmarbleruns.fandom.com/wiki/Savage_Speeders" class="aioseop-link">Savage Speeders</a>, one of the most decorated teams in Marble League history, lived up to their name this season and consistently ranked in the top 8. The lone exception for the Savage Speeders was one out-of-character performance in race 5 from <a href="https://jellesmarbleruns.fandom.com/wiki/Rapidly" class="aioseop-link">Rapidly</a>, where some suspect he put in a late night at the clubs the night before the race. The Savage Speeders will no doubt ride on this victory into the <a href="https://jellesmarbleruns.fandom.com/wiki/Marble_League_2020" class="aioseop-link">2020 Marble League</a> this summer, as they expect to easily pass the qualifiers and add to their mountain of gold medals.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The <a href="https://jellesmarbleruns.fandom.com/wiki/Hornets" class="aioseop-link">Hornets</a>, on the other hand, are performing about as well as the NBA team they share a name with. As a relatively new team to the Marble League, the Hornets are still trying to make a name for themselves as they hope to avoid relegation. Luckily for them, the Hornets were officially invited to participate in this year's Marble League and will have the opportunity to prove that they belong in the big leagues.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Interestingly, teams such as the <a href="https://jellesmarbleruns.fandom.com/wiki/Snowballs" class="aioseop-link">Snowballs</a> and <a href="https://jellesmarbleruns.fandom.com/wiki/Team_Primary" class="aioseop-link">Team Primary</a> had an up-and-down Marbula One season, sometimes placing first in one race then placing last in the next --- much to the disappointment of their fans. Let's see why these teams seemed to struggle.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Some marble racing teams need a reshuffle</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>To get a better idea of why some teams were so hot and cold during throughout the Marbula One season, I matched each team up on the line plot below. Each team had two athletes competing in this season, and I compared the average race rank of each team's athletes. As an example for team Snowballs, <a href="https://jellesmarbleruns.fandom.com/wiki/Snowy" class="aioseop-link">Snowy</a> ranked 3rd in every Marbula One race on average vs. <a href="https://jellesmarbleruns.fandom.com/wiki/Snowflake" class="aioseop-link">Snowflake</a>'s average rank of 13.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":9061,"sizeSlug":"large"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img src="{{ site.baseurl }}/assets/2020/05/marbula-one-team-mismatched-performance-757x1024.png" alt="Mismatched teammates in Marbula One" class="wp-image-9061" /></figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>From the above chart, it's clear that some teammates are holding their team back. Team Snowballs and Team Primary could have been in contention for the podium if it weren't for Snowflake and Mary, and <a href="https://jellesmarbleruns.fandom.com/wiki/Sublime" class="aioseop-link">Sublime</a> embarrassed his team in every race he participated in --- including a race he didn't even finish. What's worse is that Snowflake, Mary, and Sublime are all team captains, who you expect to lift their team up instead of hold them back.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>It might be time for Snowflake and Mary to consider stepping back into managerial roles. It's been years since either of them have stood on the podium for individual events, and it's hard to deny that their recent performances are holding their teams back.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Does qualifier performance matter?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>The last question I wanted to investigate was brought to me by a <a href="https://twitter.com/mepgg/status/1263283693596151808" class="aioseop-link">fellow marble racing fan</a>: Does qualifier performance matter? In Marbula One races, before the main race every marble completes one lap around the race track. Their performance in that one lap determines their starting position in the upcoming race, where the marble racer with the fastest qualifier lap starts ahead of everyone else and the marble racer with the slowest qualifier lap starts behind everyone else. Is a marble racer's fate sealed if they don't perform well in the qualifier?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>To answer this question, I matched up each marble racer's qualifier rank (x-axis) with their final rank in the corresponding race (y-axis). To make the trend a little clearer, I binned the ranks into the Top 4, Ranks 5 - 8, Ranks 9 - 12, and the Bottom 4.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":9069,"sizeSlug":"large"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img src="{{ site.baseurl }}/assets/2020/05/marbula-one-qualifiers-vs-final-rank-1024x941.png" alt="Comparison of qualifier rank vs. final race rank" class="wp-image-9069" /></figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>In general, if a marble racer places in the top 50% in the qualifier, she will place in the top 50% in the race as well. The opposite case is true as well when a marble racer places in the bottom 50% of the qualifier. It's safe to say that <strong>qualifiers generally decide who will <a href="https://jellesmarbleruns.fandom.com/wiki/Marbula_One" class="aioseop-link">bring home points</a> for their team in the upcoming race</strong>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>However, <strong>it's not unheard of for marble racers to defy the odds</strong>. Snowy amazingly <a href="https://www.youtube.com/watch?v=3JJWQbWFxHc" class="aioseop-link">claimed the gold</a> in race 6 despite a poor showing in the qualifier, and Wospy infamously <a href="https://www.youtube.com/watch?v=KTXbB0BVLZc" class="aioseop-link">failed to even complete race 2</a> after an impressive showing in the qualifier. No matter the cause, fans live for these kinds of upsets!</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>The near future of marble racing</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>In this post, I was quite surprised to discover that not all marble athletes are created equal, and that some marbles seem to consistently perform better or worse than their peers. It's possible that this is all statistical noise, but we'll have to wait for Marbula One season 2 sometime in<a href="https://twitter.com/Jellesmarbles/status/1246922544864780291" class="aioseop-link"> Autumn 2020</a> to find out. Given the track record of some of these marble athletes, I suspect they will once again find themselves ahead of the pack in season 2.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>If you're excited for more marble racing, thankfully you won't have to wait very long. This year's Marble League starting in late June:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:core-embed/facebook {"url":"https://www.facebook.com/watch/?v=576361566321669","align":"center","className":""} --></p>
+<figure class="wp-block-embed-facebook aligncenter wp-block-embed">
+<div class="wp-block-embed__wrapper">
+https://www.facebook.com/watch/?v=576361566321669
+</div>
+</figure>
+<p><!-- /wp:core-embed/facebook --></p>
+<p><!-- wp:paragraph --></p>
+<p>and there are plenty more events to catch up with on their YouTube <a href="https://www.youtube.com/channel/UCYJdpnjuSWVOLgGT9fIzL0g/playlists" class="aioseop-link">here</a>. Enjoy, marble racers!</p>
+<p><!-- /wp:paragraph --></p>

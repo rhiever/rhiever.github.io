@@ -1,0 +1,61 @@
+---
+layout: post
+title: Can the Name Age Calculator guess how old you are?
+date: 2015-08-13 18:47:49.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- age calculator
+- baby names
+- FiveThirtyEight
+- Social Security Administration
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _thumbnail_id: '7407'
+  dsq_thread_id: '4030441035'
+  _aioseop_description: Randy Olson demonstrates how you can guess someone's age when
+    all you know is their name.
+  _aioseop_title: Can the Name Age Calculator guess how old you are?
+  _aioseop_keywords: Social Security Administration, FiveThirtyEight, baby names,
+    web app, web tool, name, age, calculator, guess, visualization, united states,
+    usa
+  tc-thumb-fld: a:2:{s:9:"_thumb_id";s:4:"7407";s:11:"_thumb_type";s:5:"thumb";}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/08/13/can-the-name-age-calculator-guess-how-old-you-are/"
+---
+<p>Can you guess someone's age when all you know is their first name? That was the crazy idea behind <a href="http://fivethirtyeight.com/features/how-to-tell-someones-age-when-all-you-know-is-her-name/">one of FiveThirtyEight's articles</a> last year, and their surprising answer is, "Yes."</p>
+<p>The idea behind guessing someone's age based on their name is simple: There exists an openly-accessible <a href="http://www.ssa.gov/oact/babynames/limits.html">database</a> of when everyone in the U.S. was born and what they were named. If we add in the <a href="http://www.ssa.gov/oact/NOTES/as120/LifeTables_Tbl_7.html">U.S. actuarial tables</a>, which provides us with estimates of how many men and women born each year are still alive today, we can get a rough estimate of the age distribution of people with a given name.</p>
+<p>Take Joseph, for example:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/silver-feature-joseph2.png"><img src="{{ site.baseurl }}/assets/2015/08/silver-feature-joseph2-1024x797.png" alt="silver-feature-joseph2" width="605" height="471" class="aligncenter size-large wp-image-7395" /></a></p>
+<p>As the FiveThirtyEight team writes:</p>
+<blockquote><p>Joseph has been one of the most enduring American names; it’s never gone out of fashion. So knowing that a man is named Joseph doesn’t tell you very much about his age. The median living Joseph is 37 years old, and the <a href="http://en.wikipedia.org/wiki/Interquartile_range">interquartile range</a> (that is, the range spanning the 25th through 75th percentiles) runs from 21 to 56. In other words, a quarter of living Josephs are older than 56 and a quarter are younger than 21; the rest are somewhere in between. Not very helpful.</p></blockquote>
+<p>Not very helpful indeed. However, this method shines for most names because names tend to go through short trend cycles. Brittany, for example, was popular name for girls in the 1980s and 1990s, but waned in the 2000s. Since most of those Brittanys are still alive, we can take a guess that someone named Brittany is somewhere between 19 and 25 years old in 2015 -- a pretty good guess considering we know nothing else about Brittany.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/silver-feature-brittany3.png"><img src="{{ site.baseurl }}/assets/2015/08/silver-feature-brittany3-1024x797.png" alt="silver-feature-brittany3" width="605" height="471" class="aligncenter size-large wp-image-7398" /></a></p>
+<p>The FiveThirtyEight team went on to analyze a bunch of other names and identify several interesting trends, but at the end of the article I wanted to look up my own name to see how well this method works for me.</p>
+<p>Since I was already analyzing the entire baby name database anyway, I decided to make a web tool out of FiveThirtyEight's methods and called it the <a href="http://rhiever.github.io/name-age-calculator/">Name Age Calculator</a>: Enter your name and gender, and it will make a best guess at how old you are.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/name-age-calculator-randy.png"><img src="{{ site.baseurl }}/assets/2015/08/name-age-calculator-randy-1024x815.png" alt="name-age-calculator-randy" width="605" height="482" class="aligncenter size-large wp-image-7399" /></a></p>
+<p><center><a href="http://rhiever.github.io/name-age-calculator/"><strong>Click here to look up your name on the Name Age Calculator</strong></a></center></p>
+<p>I was a little disappointed to see that the method didn't work well for my name after all, but it nails the age of my father, who I was named after. So the Name Age Calculator indirectly got it right.</p>
+<p>The rise of the *aydens is pretty accurately captured:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/name-age-calculator-jayden.png"><img src="{{ site.baseurl }}/assets/2015/08/name-age-calculator-jayden-1024x761.png" alt="name-age-calculator-jayden" width="605" height="450" class="aligncenter size-large wp-image-7406" /></a></p>
+<p>As is our recent fascination with Game of Thrones:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/name-age-calculator-khaleesi.png"><img src="{{ site.baseurl }}/assets/2015/08/name-age-calculator-khaleesi-1024x799.png" alt="name-age-calculator-khaleesi" width="605" height="472" class="aligncenter size-large wp-image-7407" /></a></p>
+<p>There's plenty of other fun trends to explore. Have fun looking up your name, your family's names, and your friend's names. How close is it to guessing your name?</p>
+<hr />
+<p>If you'd like to tinker with the code or send in a bug report (or better yet, a bug fix!), I've open sourced the code on GitHub <a href="https://github.com/rhiever/name-age-calculator">here</a>.</p>
+<h4>Caveats</h4>
+<p>As with any data analysis project, there are some important caveats to this project.</p>
+<p>For one, previous research on the Social Security Administration baby name database suggests that records prior to 1940 are <a href="https://web.archive.org/web/20190331143421/http://www.prooffreader.com/2014/08/sex-ratio-is-clearest-indicator-of-bias.html">estimates</a> and should be taken with a grain of salt. However, records after 1985 are based on actual Social Security records and are quite reliable.</p>
+<p>Another methodological caveat to this project is that the actuarial tables don't break down survivorship by name, and it's likely that <a href="https://web.archive.org/web/20160205222223/http://freakonomics.com:80/2013/04/08/how-much-does-your-name-matter-a-new-freakonomics-radio-podcast/">people with certain names</a> don't live as long as others due to various socioeconomic factors. There isn't much we can do about that, though, since the only input the web app receives is your name.</p>

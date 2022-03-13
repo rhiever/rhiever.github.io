@@ -1,0 +1,262 @@
+---
+layout: post
+title: 'TPOT: A Python tool for automating data science'
+date: 2016-05-08 19:12:27.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- machine learning
+- python
+- research
+tags:
+- automation
+- data science
+- machine learning
+meta:
+  _aioseop_title: 'TPOT: A Python tool for automating data science'
+  _edit_last: '2'
+  _thumbnail_id: '8093'
+  _responsive_layout: default
+  _aioseop_description: Randy Olson demonstrates why designing machine learning pipelines
+    is difficult, and how it can be automated using TPOT.
+  _aioseop_keywords: data science, machine learning, automated machine learning, python,
+    scikit-learn, sklearn, mnist, random forest, logistic regression
+  dsq_thread_id: '4810575748'
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2016/05/08/tpot-a-python-tool-for-automating-data-science/"
+---
+<p>Machine learning is often <a href="https://en.wikipedia.org/wiki/Machine_learning">touted</a> as:</p>
+<blockquote><p>A field of study that gives computers the ability to learn without being explicitly programmed.</p></blockquote>
+<p>Despite this common claim, anyone who has worked in the field knows that designing effective machine learning systems is a tedious endeavor, and typically requires considerable experience with machine learning algorithms, expert knowledge of the problem domain, and brute force search to accomplish. Thus, contrary to what machine learning enthusiasts would have us believe, <strong>machine learning still requires a considerable amount of explicit programming.</strong></p>
+<p>In this article, we're going to go over three aspects of machine learning pipeline design that tend to be tedious but nonetheless important. After that, we're going to step through a demo for a tool that intelligently automates the process of machine learning pipeline design, so we can spend our time working on the more interesting aspects of data science.</p>
+<p>Let's get started.</p>
+<h3>Model hyperparameter tuning is important</h3>
+<p>One of the most tedious parts of machine learning is model hyperparameter tuning.</p>
+<p>Support vector machines require us to select the ideal kernel, the kernel's parameters, and the penalty parameter <em>C</em>. Artificial neural networks require us to tune the number of hidden layers, number of hidden nodes, and many more hyperparameters. Even random forests require us to tune the number of trees in the ensemble at a minimum.</p>
+<p>All of these hyperparameters can have significant impacts on how well the model performs. For example, on the <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> handwritten digit data set:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/tpot-demo-mnist-digits.png" rel="attachment wp-att-8093"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-mnist-digits-1024x1024.png" alt="tpot-demo-mnist-digits" width="600" class="aligncenter size-large wp-image-8093" /></a></p>
+<p>If we fit a random forest classifier with only 10 trees (scikit-learn's default):</p>
+<pre name="code" class="python:nogutter">
+import pandas as pd
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.cross_validation import cross_val_score
+
+mnist_data = pd.read_csv('https://raw.githubusercontent.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/master/tpot-demo/mnist.csv.gz', sep='\t', compression='gzip')
+
+cv_scores = cross_val_score(RandomForestClassifier(n_estimators=10, n_jobs=-1),
+                            X=mnist_data.drop('class', axis=1).values,
+                            y=mnist_data.loc[:, 'class'].values,
+                            cv=10)
+
+print(cv_scores)
+
+[ 0.93461813  0.96287836  0.94688749  0.94072275  0.95114286  0.94570653
+  0.94884253  0.94311848  0.93825043  0.95668954]
+
+print(np.mean(cv_scores))
+
+0.946885709001
+</pre>
+<p>The random forest achieves an average of 94.7% cross-validation accuracy on MNIST. However, what if we tuned that hyperparameter a little bit and provided the random forest with 100 trees instead?</p>
+<pre name="code" class="python:nogutter">
+cv_scores = cross_val_score(RandomForestClassifier(n_estimators=100, n_jobs=-1),
+                            X=mnist_data.drop('class', axis=1).values,
+                            y=mnist_data.loc[:, 'class'].values,
+                            cv=10)
+
+print(cv_scores)
+
+[ 0.96259814  0.97829812  0.9684466   0.96700471  0.966       0.96399486
+  0.97113461  0.96755752  0.96397942  0.97684391]
+
+print(np.mean(cv_scores))
+
+0.968585789367
+</pre>
+<p>With such a minor change, we improved the random forest's average cross-validation accuracy from 94.7% to 96.9%. This small improvement in accuracy can translate into millions of additional digits classified correctly if we're applying this model on the scale of, say, processing addresses for the U.S. Postal Service.</p>
+<p><strong>Never use the defaults for your model.</strong> Hyperparameter tuning is vitally important for every machine learning project.</p>
+<h3>Model selection is important</h3>
+<p>We all love to think that our favorite model will perform well on every machine learning problem, but different models are better suited for different tasks.</p>
+<p>For example, if we're working on a signal processing problem where we need to classify whether there's a "hill" or "valley" in the time series:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/tpot-demo-hill-valley.png" rel="attachment wp-att-8092"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley.png" alt="tpot-demo-hill-valley" width="600" class="aligncenter size-large wp-image-8092" /></a></p>
+<p>And we apply a "tuned" random forest to the problem:</p>
+<pre name="code" class="python:nogutter">
+import pandas as pd
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.cross_validation import cross_val_score
+
+hill_valley_data = pd.read_csv('https://raw.githubusercontent.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/master/tpot-demo/Hill_Valley_without_noise.csv.gz', sep='\t', compression='gzip')
+
+cv_scores = cross_val_score(RandomForestClassifier(n_estimators=100, n_jobs=-1),
+                            X=hill_valley_data.drop('class', axis=1).values,
+                            y=hill_valley_data.loc[:, 'class'].values,
+                            cv=10)
+
+print(cv_scores)
+
+[ 0.64754098  0.64754098  0.57024793  0.61983471  0.62809917  0.61983471
+  0.70247934  0.59504132  0.49586777  0.65289256]
+
+print(np.mean(cv_scores))
+
+0.617937948787
+</pre>
+<p>Then we're going to find that the random forest isn't well-suited for signal processing tasks like this one when it achieves a disappointing average of 61.8% cross-validation accuracy.</p>
+<p>What if we tried a different model, for example a logistic regression?</p>
+<pre name="code" class="python:nogutter">
+cv_scores = cross_val_score(LogisticRegression(),
+                            X=hill_valley_data.drop('class', axis=1).values,
+                            y=hill_valley_data.loc[:, 'class'].values,
+                            cv=10)
+
+print(cv_scores)
+
+[ 1.          1.          1.          0.99173554  1.          0.98347107
+  1.          0.99173554  1.          1.        ]
+
+print(np.mean(cv_scores))
+
+0.996694214876
+</pre>
+<p>We'll find that a logistic regression is well-suited for this signal processing task---in fact, it easily achieves near-100% cross-validation accuracy without any hyperparameter tuning at all.</p>
+<p><strong>Always try out many different machine learning models</strong> for every machine learning task that you work on. Trying out---and tuning---different machine learning models is another tedious yet vitally important step of machine learning pipeline design.</p>
+<h3>Feature preprocessing is important</h3>
+<p>As we've seen in the previous two examples, machine learning model performance is also affected by how the features are represented. <em>Feature preprocessing</em> is a step in machine learning pipelines where we reshape the features in a manner that makes the data set easier for models to classify.</p>
+<p>For example, if we're working on a harder version of the "hill" vs. "valley" signal processing problem with noise:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/tpot-demo-hill-valley-noise.png" rel="attachment wp-att-8091"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley-noise.png" alt="tpot-demo-hill-valley-noise" width="600" class="aligncenter size-full wp-image-8091" /></a></p>
+<p>And we apply a "tuned" random forest to the problem:</p>
+<pre name="code" class="python:nogutter">
+import pandas as pd
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.decomposition import PCA
+from sklearn.pipeline import make_pipeline
+from sklearn.cross_validation import cross_val_score
+
+hill_valley_noisy_data = pd.read_csv('https://raw.githubusercontent.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/master/tpot-demo/Hill_Valley_with_noise.csv.gz', sep='\t', compression='gzip')
+
+cv_scores = cross_val_score(RandomForestClassifier(n_estimators=100, n_jobs=-1),
+                            X=hill_valley_noisy_data.drop('class', axis=1).values,
+                            y=hill_valley_noisy_data.loc[:, 'class'].values,
+                            cv=10)
+
+print(cv_scores)
+
+[ 0.52459016  0.51639344  0.57377049  0.6147541   0.6557377   0.56557377
+  0.575       0.575       0.60833333  0.575     ]
+
+print(np.mean(cv_scores))
+
+0.578415300546
+</pre>
+<p>We'll again find that the "tuned" random forest averages a disappointing 57.8% cross-validation accuracy.</p>
+<p>However, if we preprocess the features---denoising them via Principal Component Analysis (PCA), for example:</p>
+<pre name="code" class="python:nogutter">
+cv_scores = cross_val_score(make_pipeline(PCA(n_components=10),
+                                          RandomForestClassifier(n_estimators=100,
+                                                                 n_jobs=-1)),
+                            X=hill_valley_noisy_data.drop('class', axis=1).values,
+                            y=hill_valley_noisy_data.loc[:, 'class'].values,
+                            cv=10)
+
+print(cv_scores)
+
+[ 0.96721311  0.98360656  0.8852459   0.96721311  0.95081967  0.93442623
+  0.91666667  0.89166667  0.94166667  0.95833333]
+
+print(np.mean(cv_scores))
+
+0.93968579235
+</pre>
+<p>We'll find that the random forest now achieves an average of 94% cross-validation accuracy by applying a simple feature preprocessing step.</p>
+<p><strong>Always explore numerous feature representations for your data.</strong> Machines learn differently from humans, and a feature representation that makes sense to us may not make sense to the machine.</p>
+<h3>Automating data science with TPOT</h3>
+<p>To summarize what we've learned so far about effective machine learning system design, we should:</p>
+<ol>
+<li>Always tune the hyperparameters for our models</li>
+<li>Always try out many different models</li>
+<li>Always explore numerous feature representations for our data</li>
+</ol>
+<p>We must also consider the following:</p>
+<ol>
+<li>There are thousands of possible hyperparameter configurations for every model</li>
+<li>There are dozens of popular machine learning models</li>
+<li>There are dozens of popular feature preprocessing methods</li>
+</ol>
+<p>This is why it can be so tedious to design effective machine learning systems. This is also why my collaborators and I created <a href="http://github.com/rhiever/tpot">TPOT</a>, an open source Python tool that intelligently automates the entire process.</p>
+<p>If your data set is <a href="http://github.com/amueller/scipy_2015_sklearn_tutorial/blob/master/notebooks/01.3%20Data%20Representation%20for%20Machine%20Learning.ipynb">compatible with scikit-learn</a>, then TPOT will automatically optimize a series of feature preprocessors and models that maximize the cross-validation accuracy on the data set. For example, if we want TPOT to solve the noisy "hill" vs. "valley" classification problem:</p>
+<p>(Before running the code below, make sure to <a href="http://EpistasisLab.github.io/tpot/installing/">install TPOT first</a>.)</p>
+<pre name="code" class="python:nogutter">
+import pandas as pd
+from sklearn.cross_validation import train_test_split
+from tpot import TPOTClassifier
+
+hill_valley_noisy_data = pd.read_csv('https://raw.githubusercontent.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/master/tpot-demo/Hill_Valley_with_noise.csv.gz', sep='\t', compression='gzip')
+
+X = hill_valley_noisy_data.drop('class', axis=1).values
+y = hill_valley_noisy_data.loc[:, 'class'].values
+
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                    train_size=0.75,
+                                                    test_size=0.25)
+
+my_tpot = TPOTClassifier(generations=10)
+my_tpot.fit(X_train, y_train)
+
+print(my_tpot.score(X_test, y_test))
+
+0.970100392842
+</pre>
+<p>Depending on the machine you're running it on, 10 TPOT generations should take about 5 minutes to complete. During this time, you're free to browse Hacker News, refill your cup of coffee, or admire the beautiful weather outside. In the meantime, TPOT will handle all of the work for you.</p>
+<p>After 5 minutes of optimization, TPOT will discover a pipeline that achieves 96% cross-validation accuracy on the noisy "hill" vs. "valley" problem---better than the hand-designed pipeline we created above!</p>
+<p>If we want to see what pipeline TPOT created, TPOT can export the corresponding scikit-learn code for us with the <code>export()</code> command:</p>
+<pre name="code" class="python:nogutter">
+my_tpot.export('exported_pipeline.py')
+</pre>
+<p>which will look something like:</p>
+<pre name="code" class="python:nogutter">
+import numpy as np
+
+from sklearn.cross_validation import train_test_split
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import Normalizer
+
+# NOTE: Make sure that the class is labeled 'class' in the data file
+tpot_data = np.recfromcsv('PATH/TO/DATA/FILE', sep='COLUMN_SEPARATOR', dtype=np.float64)
+features = np.delete(tpot_data.view(np.float64).reshape(tpot_data.size, -1), tpot_data.dtype.names.index('class'), axis=1)
+training_features, testing_features, training_classes, testing_classes = \
+    train_test_split(features, tpot_data['class'], random_state=42)
+
+exported_pipeline = make_pipeline(
+    Normalizer(norm="l2"),
+    GradientBoostingClassifier(learning_rate=0.97, max_features=0.97, n_estimators=500)
+)
+
+exported_pipeline.fit(training_features, training_classes)
+results = exported_pipeline.predict(testing_features)
+</pre>
+<p>and shows us that a tuned gradient tree boosting classifier is probably the best model for this problem once the data has been normalized.</p>
+<p>We've designed TPOT to be an end-to-end automated machine learning system, which can act as a drop-in replacement for any scikit-learn model that you're currently using in your workflow.</p>
+<p>If TPOT sounds like the tool you've been looking for, here's a few links that you may find useful:</p>
+<ul>
+<li><a href="http://github.com/rhiever/tpot">TPOT repository on GitHub</a></li>
+<li><a href="http://EpistasisLab.github.io/tpot/">TPOT documentation</a></li>
+<li><a href="http://EpistasisLab.github.io/tpot/installing/">TPOT installation instructions</a></li>
+<li><a href="http://EpistasisLab.github.io/tpot/examples/">TPOT example code</a></li>
+</ul>
+<p>And as always, please feel free to <a href="http://www.randalolson.com/contact/">get in touch</a>.</p>
+<hr />
+<p>You can find all of the code used in this article on <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/tpot-demo/TPOT%20-%20A%20Python%20tool%20for%20automating%20data%20science.ipynb">my GitHub</a>. Enjoy!</p>

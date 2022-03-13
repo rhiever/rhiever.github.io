@@ -1,0 +1,65 @@
+---
+layout: post
+title: Average IQ of students by college major and gender ratio
+date: 2014-06-25 21:49:58.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+tags:
+- college major
+- gender differences
+- IQ score
+- SAT
+- standardized tests
+meta:
+  _responsive_layout: default
+  _thumbnail_id: '4832'
+  _edit_last: '2'
+  _aioseop_title: Average IQ of students by college major and gender ratio
+  _aioseop_description: Randy Olson charts out the IQ of students by their major's
+    gender ratio and reveals a startling trend.
+  _aioseop_keywords: IQ score, SAT, standardized tests, college major, gender differences,
+    university, standardized testing, intelligence
+  dsq_thread_id: '3245765772'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430398566;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:5019;}i:1;a:1:{s:2:"id";i:4622;}i:2;a:1:{s:2:"id";i:4574;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/06/25/average-iq-of-students-by-college-major-and-gender-ratio/"
+---
+<p>After all the controversy that arose after I posted my <a href="http://www.randalolson.com/2014/06/14/percentage-of-bachelors-degrees-conferred-to-women-by-major-1970-2012/">breakdown of college majors by gender</a> last week, I promised myself I'd stay away from controversial gender-related topics for a while. But when I ran across an <a href="https://www.ets.org/">ETS</a>-curated data set of <a href="http://statisticbrain.com/iq-estimates-by-intended-college-major/">average student IQs by college major</a>, I couldn't avoid putting this visualization together. Below, I plotted several college major's estimated average student IQ over the gender ratio of that major.</p>
+<p>The result? A shockingly clear correlation: <strong>the more female-dominated a college major is, the lower the average IQ of the students studying in the major</strong>. A naive reader may look at this graph and conclude that men are smarter than women, but it is vital to note that, on average, <a href="http://www.sciencemag.org/content/269/5220/41">men and women have about the same IQ</a>.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/iq-by-college-major-gender.png"><img src="{{ site.baseurl }}/assets/2014/06/iq-by-college-major-gender.png" alt="iq-by-college-major-gender" width="650" class="aligncenter size-full wp-image-4832" /></a></p>
+<p>By popular request, here's an interactive version of the above chart: <a href="https://plot.ly/~etpinard/330/us-college-majors-average-iq-of-students-by-gender-ratio/">https://plot.ly/~etpinard/330/us-college-majors-average-iq-of-students-by-gender-ratio/</a></p>
+<p>IQs are typically <a href="http://en.wikipedia.org/wiki/IQ_classification">classified</a> as follows:</p>
+<ul>
+<li>130+: Very superior intelligence</li>
+<li>120-129: Superior</li>
+<li>110-119: Above average</li>
+<li>90-109: Average</li>
+</ul>
+<p>Considering that many of the female-dominated majors heavily involve interpersonal interactions, my initial thought was that this all made sense: Women are widely known to be more socially-inclined and nurturing than men, so we would expect to see them dominate fields that heavily involve people. But how does that explain the drastic IQ differences between male- and female-dominated fields, if the average man and woman have the same IQ?</p>
+<p>The answer comes from the fact that the IQ score here is estimated from the students' SAT score. This isn't an altogether unreasonable approach: Several studies have shown a <a href="http://pss.sagepub.com/content/15/6/373">strong correlation between SAT scores and IQ scores</a>. But if we break down the SAT score by Verbal and Quantitative, we see why this IQ estimation is potentially misleading.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/verbal-by-college-major-gender.png"><img src="{{ site.baseurl }}/assets/2014/06/verbal-by-college-major-gender.png" alt="verbal-by-college-major-gender" width="650" class="aligncenter size-large wp-image-4860" /></a></p>
+<p>If we re-make the first plot against the Verbal SAT score, we see that it's basically a wash: there's no correlation between a major's gender ratio and the average student's Verbal SAT score.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/quant-by-college-major-gender.png"><img src="{{ site.baseurl }}/assets/2014/06/quant-by-college-major-gender.png" alt="quant-by-college-major-gender" width="650" class="aligncenter size-full wp-image-4859" /></a></p>
+<p>When we plot the students' Quantitative SAT score against the major's gender ratio, we see the negative correlation appear again. This tells us that the original plot is actually showing preference for quantitative majors: The higher the estimated IQ, the more quantitative/analytical the major, and the fewer women enrolling in those majors.</p>
+<p>This brings up an interesting question of how valuable the SAT is as a standardized test across all majors, if a higher SAT score is really only indicating that the student is better at solving quantitative/analytical problems. Not all majors require a high analytical aptitude, after all.</p>
+<h5>Technical bits</h5>
+<p>Some of my readers requested the R^2 for the above plots. Here they are:</p>
+<p>The R^2 on the IQ vs major's gender ratio graph is 0.601</p>
+<p>The R^2 on the Verbal SAT vs. major's gender ratio graph is 0.019</p>
+<p>The R^2 on the Quantitative SAT vs. major's gender ratio graph is 0.738</p>
+<p>The R^2 between Quantitative SAT score and Verbal SAT score is 0.027</p>
+<p>For those who want to know what R^2 means: <a href="http://en.wikipedia.org/wiki/Coefficient_of_determination">http://en.wikipedia.org/wiki/Coefficient_of_determination</a></p>
+<h5>Notice about the IQ data</h5>
+<p>Since I posted this article, the veracity of the IQ data set has been brought into question. I think StatisticBrain is a fairly reliable data source, but I write this here so readers can come to their own opinion about what this data shows, and how much to trust it.</p>
+<p>The data source says "Graduate Record Examination scores" then goes on to list SAT scores. Which is it? According to <a href="http://www.reddit.com/r/IntelligenceQ/comments/21q7e3/iq_estimates_by_intended_college_major/cggd6mo">this comment</a>, the scores listed are pre-2011 GRE scores, which can be found on the ETS web site <a href="https://www.ets.org/s/gre/pdf/2010-11_gre_guide.pdf">here</a>. The IQ estimates appear to have been performed separately from ETS, perhaps by <a href="http://statisticbrain.com/iq-estimates-by-intended-college-major/">StatisticBrain</a>.</p>
+<p>So what does this mean for the graphs above? The IQ estimates are representative of students who are in their last year of undergraduate studies (or have already graduated) and are intending to apply to one of the majors. That makes the IQ estimates an imperfect sample, as some students may be changing majors for graduate school. I'd like to see this analysis redone with the SAT scores of students tied to their final undergraduate college major rather than intended graduate school major.</p>

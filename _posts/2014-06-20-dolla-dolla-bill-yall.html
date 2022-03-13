@@ -1,0 +1,43 @@
+---
+layout: post
+title: 'Dolla dolla bill y''all: Relative volume and value of U.S. currency in circulation
+  by bill denomination'
+date: 2014-06-20 10:19:46.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+tags:
+- currency
+- federal reserve
+- relative value
+- u.s. dollars
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _thumbnail_id: '4695'
+  _aioseop_keywords: u.s. dollars, relative value, currency, federal reserve
+  _aioseop_description: Randy Olson visualizes the relative volume and value of U.S.
+    currency in circulation from 1993 to 2013.
+  _aioseop_title: 'Dolla dolla bill y''all: Relative volume and value of U.S. currency
+    in circulation by bill denomination'
+  dsq_thread_id: '3260966086'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430280384;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:2114;}i:1;a:1:{s:2:"id";i:5525;}i:2;a:1:{s:2:"id";i:5879;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/06/20/dolla-dolla-bill-yall/"
+---
+<p>Last year, Seth Kadish posted some <a href="http://vizual-statistix.tumblr.com/post/48960550015/this-is-a-set-of-nested-pie-charts-donut-charts">fancy charts</a> showing the relative volume and value of U.S. currency in circulation. Although his charts looked visually appealing, they were <a href="http://www.reddit.com/r/dataisbeautiful/comments/1i3vum/dolla_dolla_bill_yall_oc/">fairly heavily criticized</a> because of his use of nested pie charts, which make it notoriously difficult to compare the relative size of areas.</p>
+<p>For today's data visualization exercise, I decided to try remaking his charts as stacked area charts instead. This was a fairly straightforward exercise: I took the volume and value data from the <a href="http://www.federalreserve.gov/paymentsystems/coin_data.htm">Federal Reserve's data repository</a> and remade the charts in Excel. Note that I tried to keep everything else as similar as possible, including the color scheme (for better or for worse).</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/usa-currency-volume.png"><img src="{{ site.baseurl }}/assets/2014/06/usa-currency-volume-1024x768.png" alt="usa-currency-volume" width="550" height="412" class="aligncenter size-large wp-image-4695" /></a></p>
+<p>Whereas there have always been more $1 bills in circulation (about 35% of all bills), $100 bills have steadily grown from 13% of all bills in 1993 to 26.7% in 2013. The rest of the bills have remained relatively consistent throughout the years: $5 bills around 7%, $10 bills around 6%, $20 bills around 23%, and $50 bills around 5%. The only notable spike occurred in 1999, when an abnormally large number of bills were created (except $2 bills), seemingly focusing on $20 bills. Interestingly, many of the (presumably older) bills were destroyed in 2000 and 2001, marking the only years on record where we actually saw a decrease in the total number of bills.</p>
+<p>Bills larger than $100 were excluded because they comprise too small a portion of all bills to be effectively visualized.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/usa-currency-values.png"><img src="{{ site.baseurl }}/assets/2014/06/usa-currency-values-1024x768.png" alt="usa-currency-values" width="550" height="412" class="aligncenter size-large wp-image-4702" /></a></p>
+<p>Above, we see where the value of U.S. currency is concentrated, primarily in $100 bills. Since more and more $100 bills are being produced nowadays (relative to other bills), the total value of all U.S. currency is shifting over into $100 bills (58.5% in 1993 vs. 77.2% in 2013). $20 bills saw the largest decrease in relative value, dropping from 21.7% in 1993 to a paltry 12.9% in 2013. Given that this trend toward more $100 bills doesn't seem to be stopping, it leaves us to wonder if we'll be dropping some of the smaller bills (particularly, $2 and $5) soon enough in favor of a more efficient bill system.</p>

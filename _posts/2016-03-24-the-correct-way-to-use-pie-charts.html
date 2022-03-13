@@ -1,0 +1,77 @@
+---
+layout: post
+title: The correct way to use pie charts
+date: 2016-03-24 10:00:44.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- tutorial
+tags:
+- data visualization
+- pie charts
+meta:
+  _responsive_layout: default
+  _edit_last: '2'
+  _thumbnail_id: '7925'
+  _aioseop_description: Randy Olson defends the infamous pie chart and explains the
+    correct way to use them.
+  _aioseop_title: The correct way to use pie charts
+  _aioseop_keywords: data visualization, pie chart, design, advice, guide, tips, sum
+    to whole, few categories, start at top, simple proportion
+  dsq_thread_id: '4673994630'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2016/03/24/the-correct-way-to-use-pie-charts/"
+---
+<p>Pie charts are the most widely berated chart in data visualization. <a href="http://www.darkhorseanalytics.com/blog/salvaging-the-pie">Many articles</a> have been written over the years describing <a href="https://www.perceptualedge.com/articles/visual_business_intelligence/save_the_pies_for_dessert.pdf">why pie charts are bad</a>, and <a href="http://www.businessinsider.com/pie-charts-are-the-worst-2013-6">why we should no longer use them</a>. Even key members of the data visualization community consider using a pie chart <a href="https://web.archive.org/web/20130113194317/https://twitter.com/EdwardTufte/status/289208399621672960">equivalent to using incorrect grammar</a>.</p>
+<p>In short, pie charts are the <a href="http://mashable.com/2012/10/03/comic-sans-history/#5OmCl1m8zPqB">comic sans</a> of data visualization: Many would agree that if you use a pie chart, you immediately betray your lack of data visualization knowledge.</p>
+<p>I believe that the reason so many people dislike pie charts is because they're so frequently misused by amateur practitioners. Furthermore, I believe that pie charts still play an important role in data visualization, and I'm going to make my case in favor of pie charts below. Along the way, I will explain the correct way to use pie charts; please take note and share this information with your colleagues so we can salvage the pie chart's reputation.</p>
+<h3>The advantages of pie charts</h3>
+<p>From my point of view, pie charts have two major advantages over their alternatives:</p>
+<ol>
+<li><strong>Pie charts are easy to understand.</strong> Even readers who have never taken a statistics course can look at a pie chart and immediately understand what it's trying to show. This is a vital factor if you are making data visualizations for public consumption.</li>
+<li><strong>Pie charts easily communicate a simple proportion.</strong> If all you need to communicate is that one category (or the sum of a few categories) represents a simple proportion of a whole, then pie charts will excel at this task.</li>
+</ol>
+<p>I will demonstrate these points with a few examples below. First, let's cover the three most common mistakes that designers make when using pie charts.</p>
+<h3>Make sure your parts sum to a meaningful whole</h3>
+<p>By far, the most common mistake with pie charts is representing parts that don't sum to a meaningful whole. "What is a meaningful whole?," you ask. Let's make this concrete with an example.</p>
+<p>Say we're putting together a presentation for our boss and want to demonstrate the popularity of three programming languages as indicated by their Google search frequency. We make the pie chart below and move on with our slides.</p>
+<p>What's wrong with this pie chart?</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pie-chart-not-meaningful-whole.png" rel="attachment wp-att-7924"><img src="{{ site.baseurl }}/assets/2016/03/pie-chart-not-meaningful-whole.png" alt="pie-chart-not-meaningful-whole" width="550" class="aligncenter size-large wp-image-7924" /></a></p>
+<p>That's right: R, JavaScript, and Python don't represent every programming language out there, yet by making them the only "pieces of the pie," that's exactly what we're claiming! In other words, our parts don't sum to a meaningful whole that represents all Google searches for all programming languages.</p>
+<p>To fix this problem, we have to add an "Other programming languages" part to the pie chart, as we have below. Now we're properly visualizing the relative popularity of our three programming languages.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pie-chart-correct.png" rel="attachment wp-att-7923"><img src="{{ site.baseurl }}/assets/2016/03/pie-chart-correct.png" alt="pie-chart-correct" width="600" class="aligncenter size-full wp-image-7923" /></a></p>
+<p>With the pie chart above, we can easily make the point that R, JavaScript, and Python together represent a little less than 1/4 of all Google searches for programming languages.</p>
+<p>Note that we're using the pie chart to make statements about <em>simple proportions</em> of the whole: 1/4, 1/3, 1/2, etc. are fine as simple proportions, but don't use pie charts to communicate a specific percentage, for example, 32.3333%).</p>
+<h3>Collapse categories down to 3 or fewer categories that matter</h3>
+<p>Now let's say we want to provide a broader picture of all the programming languages that people search for on Google. We make the pie chart below to show the percentage breakdown for all of the programming languages that we've been tracking.</p>
+<p>What's wrong with this pie chart?</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pie-chart-too-many-categories.png" rel="attachment wp-att-7925"><img src="{{ site.baseurl }}/assets/2016/03/pie-chart-too-many-categories-1024x428.png" alt="pie-chart-too-many-categories" width="600" class="aligncenter size-large wp-image-7925" /></a></p>
+<p>Right again! We went overboard and showed way too many categories at once. Pie charts are not designed to communicate multiple proportions, so we should collapse our categories down to only a handful that really matter -- 3 or fewer is the general rule of thumb.</p>
+<p>This is where we really have to think about the message that we want to communicate with this pie chart. Do we really want to show <em>all</em> of the programming languages, or do we want to only focus on a few of them? In this case, we decide that we really only care about Java, PHP, and Python, and collapse the other categories into an "Other" column.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pie-chart-categories-collapsed.png" rel="attachment wp-att-7938"><img src="{{ site.baseurl }}/assets/2016/03/pie-chart-categories-collapsed.png" alt="pie-chart-categories-collapsed" width="400" class="aligncenter size-full wp-image-7938" /></a></p>
+<p>Now we have a very clear message with our pie chart: Java, PHP, and Python together represent nearly 1/2 of all Google searches for programming languages, and Java represents roughly 1/4 of all searches alone.</p>
+<p>Note that we shouldn't try to use the pie chart to compare <em>between</em> Java, PHP, or Python: <a href="https://www.perceptualedge.com/articles/visual_business_intelligence/save_the_pies_for_dessert.pdf">Pie slices are notoriously difficult to compare directly</a>, especially if we ask our uncle who always takes the bigger slice of pumpkin pie during Thanksgiving dinner. If we want to compare the proportions, then we should use a bar chart instead.</p>
+<h3>Always start your pie charts at the top</h3>
+<p>One final note: Our readers will typically start reading our pie charts from the top of the circle -- the 0‎° mark. We should never violate our readers' expectations by starting the parts at any other section of the circle, even if it makes the pie chart look like Pac-Man.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/pie-chart-misaligned.png" rel="attachment wp-att-7947"><img src="{{ site.baseurl }}/assets/2016/03/pie-chart-misaligned.png" alt="pie-chart-misaligned" width="600" class="aligncenter size-full wp-image-7947" /></a></p>
+<p>Fortunately, most data visualization software starts pie charts at the 0‎° mark. But in case you find software that doesn't: you've been warned!</p>
+<h3>Recap</h3>
+<p>Now that we've walked through a few visualization exercises, let's recap what we've learned about pie charts.</p>
+<ol>
+<li><strong>The parts must sum to a meaningful whole.</strong> Always ask yourself what the parts add up to, and if that makes sense for what you're trying to convey.</li>
+<li><strong>Collapse your categories down to three or fewer.</strong> Pie charts cannot communicate multiple proportions, so stick to their strengths and keep your pie charts simple.</li>
+<li><strong>Always start your pie charts at the top.</strong> We naturally start reading pie charts at the top (the 0‎° mark). Don't violate your reader's expectations.</li>
+</ol>
+<p>Pie charts are useful for representing a simple proportion of a whole, and can easily be interpreted by expert and novice alike. Keep these tips in mind the next time you need to communicate a simple proportion to a general audience.</p>
+<hr />
+<p>If you liked what you saw in this post and want to learn more about data visualization, come take a look at my <a href="http://shop.oreilly.com/product/0636920046592.do">Python data visualization video course</a> that I made in collaboration with O'Reilly. In just one hour, I will cover these topics and much more, which will provide you with a strong starting point for your career in data visualization.</p>
+<p><center><iframe src="http://www.oreilly.com/authors/widgets/684.html" height="230px" width="200px" scrolling="no" frameborder="0"></iframe></center></p>

@@ -1,0 +1,76 @@
+---
+layout: post
+title: Visualizing Indego bike share usage patterns in Philadelphia
+date: 2015-07-18 19:03:52.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- bike share
+- Indego
+- machine learning
+- modeling
+- Philadelphia
+meta:
+  _thumbnail_id: '7313'
+  _responsive_layout: default
+  _edit_last: '2'
+  _aioseop_keywords: Indego, bike share, Philadelphia, machine learning, modeling,
+    visualization
+  _aioseop_description: Randy Olson visualizes the Indego bike share usage patterns
+    in Philadelphia to see how the locals are making use of the bike share program.
+  _aioseop_title: Visualizing Indego bike share usage patterns in Philadelphia
+  dsq_thread_id: '3947829875'
+  tc-thumb-fld: a:2:{s:9:"_thumb_id";s:4:"7313";s:11:"_thumb_type";s:5:"thumb";}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/07/18/visualizing-indego-bike-share-usage-patterns-in-philadelphia/"
+---
+<p>One of the many things that I love about my new home town of Philadelphia is that the government <a href="https://www.opendataphilly.org/">openly shares</a> curated data sets covering most of the governmental functions. Since I recently joined Philadelphia's <a href="http://www.rideindego.com/">Indego bike share program</a>, I decided to start working with their <a href="https://www.opendataphilly.org/dataset/bike-share-stations">bike usage data set</a> to see what useful tools I could build.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/indego-bike-share.jpg"><img src="{{ site.baseurl }}/assets/2015/07/indego-bike-share.jpg" alt="indego-bike-share" width="500" height="500" class="aligncenter size-full wp-image-7332" /></a></p>
+<p>If you've ever used a bike share before, you know that one of the biggest fears is coming up to an empty bike share station when you need a bike. (Or similarly, coming up to a full station when you need to drop a bike off.) To help abate those fears, I've started monitoring the Indego bike usage API to see if I could model and predict when the bike share stations are most likely going to be empty or full. This tool is useful in two ways:</p>
+<ol>
+<li><strong>It helps the Indego users</strong> by keeping them aware of the bad times to use certain bike share stations.</li>
+<li><strong>It helps the Indego bike share service</strong> by predicting when a particular bike share station will require service (e.g., driving a truck out to pick up or drop off a large batch of bikes).</li>
+</ol>
+<p>Undoubtedly Indego's data science team is already performing some flavor of this model-and-predict scheme, but I thought it'd be fun to publicly tackle this problem and see how far I could get. For this post, I'll focus on visualizing patterns in the data, and will take a stab at prediction in a future post.</p>
+<h3>Daily usage patterns</h3>
+<p>One of the first steps toward building a model that can make any sort of useful prediction is to look at the existing patterns in the data. How are Philadelphians making use of the Indego bike share program? What does a typical day look like for the Indego bike share program?</p>
+<p>To get at those questions, I've been gathering the current status of each bike share station every 5 minutes since July 1, 2015. To provide some visuals of the data, I fit <a href="https://en.wikipedia.org/wiki/Regression_analysis">regressions</a> to the usage patterns of each individual bike share station. The measure I'm using here to represent "station usage" is the percentage of a station's docks that are filled with bikes, where 100% represents a station full of bikes and 0% represents an empty station.</p>
+<p>I've plotted each regression below, separated into three distinct categories:</p>
+<ul>
+<li><strong>Outbound commuting stations:</strong> Stations where people take a bike from home to ride to work or school.</li>
+<li><strong>Inbound commuting stations:</strong> Stations where people take a bike from work or school to ride back home.</li>
+<li><strong>Underused stations:</strong> Stations that see minimal use compared to the other stations.</li>
+</ul>
+<p><a href="http://www.randalolson.com/wp-content/uploads/daily-usage-patterns-outbound.png"><img src="{{ site.baseurl }}/assets/2015/07/daily-usage-patterns-outbound.png" alt="daily-usage-patterns-outbound" width="605" height="386" class="aligncenter size-large wp-image-7309" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/daily-usage-patterns-inbound.png"><img src="{{ site.baseurl }}/assets/2015/07/daily-usage-patterns-inbound.png" alt="daily-usage-patterns-inbound" width="761" height="486" class="aligncenter size-full wp-image-7308" /></a></p>
+<p>As the two above plots show, <strong>many Philadelphians have adopted the Indego bike share program into their daily commute to work.</strong> Around 8 AM ET, we start to see bikes leaving several stations around town, which is followed shortly thereafter by an influx of bikes into stations at other parts of the city. Similarly around 5 PM ET, we see the reverse trend, with bikes heading back to the home stations.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/daily-usage-patterns-underused.png"><img src="{{ site.baseurl }}/assets/2015/07/daily-usage-patterns-underused.png" alt="daily-usage-patterns-underused" width="605" height="386" class="aligncenter size-large wp-image-7310" /></a></p>
+<p>Unfortunately, several bike share stations seem to go mostly ignored. As shown in the above plot, these stations see little to no change in their usage throughout the day -- with the same bikes sitting in their docks day by day -- which perhaps means the stations need to be relocated.</p>
+<h3>Mapping the daily usage patterns</h3>
+<p>To provide a better spatial context to the above patterns, I mapped each bike share station onto an interactive map of Philadelphia and color-coded the stations by their usage pattern.</p>
+<p><iframe width="100%" height="520" frameborder="0" src="https://rhiever.cartodb.com/viz/8706bfce-2d84-11e5-b911-0e4fddd5de28/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></p>
+<p>As expected, the stations that see a large influx of bikes during work hours are in the primary business districts and education centers of Philadelphia. The bike stations along Market Street, around the University of Pennsylvania and Drexel University, and even up at Temple University are all places that Indego bike sharers ride to work.</p>
+<p>In contrast, most of the bike stations that see a decline in bikes in the morning are in residential areas further out in the city. This observation only piles on evidence that the Indego bike share program is being used for daily commutes to work and school moreso than joyrides by tourists.</p>
+<p>By this view, <strong>the Indego bike share program has been a resounding success so far.</strong> Some of the existing underused stations may require adjustment, but it's quite clear that Indego is here to stay.</p>
+<h3>Weekly usage patterns</h3>
+<p>Finally, I thought it would be interesting to show the weekly usage patterns of the stations. I've selected a handful of stations below and plotted their usage patterns, where darker red means "close to full of bikes" and darker blue means "close to empty."</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/day-by-day-usage-patterns-11th-Reed.png"><img src="{{ site.baseurl }}/assets/2015/07/day-by-day-usage-patterns-11th-Reed.png" alt="day-by-day-usage-patterns-11th &amp; Reed" width="605" height="208" class="aligncenter size-large wp-image-7312" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/day-by-day-usage-patterns-The-Childrens-Hospital-of-Philadelphia-CHOP.png"><img src="{{ site.baseurl }}/assets/2015/07/day-by-day-usage-patterns-The-Childrens-Hospital-of-Philadelphia-CHOP.png" alt="day-by-day-usage-patterns-The Children&#039;s Hospital of Philadelphia (CHOP)" width="889" height="305" class="aligncenter size-full wp-image-7313" /></a></p>
+<p>The stations at 11th & Reed and CHOP display the stereotypical commuting patterns that I discussed above. Interestingly, the CHOP station is one of a handful of stations that seems to be used almost exclusively for commuting, whereas most stations see some form of notable activity on the weekends.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/day-by-day-usage-patterns-2nd-Germantown.png"><img src="{{ site.baseurl }}/assets/2015/07/day-by-day-usage-patterns-2nd-Germantown.png" alt="day-by-day-usage-patterns-2nd &amp; Germantown" width="889" height="305" class="aligncenter size-full wp-image-7311" /></a></p>
+<p>Above, I've visualized the weekly usage patterns of the station at 2nd & Germantown to highlight the irregular usage patterns of some of the Indego bike share stations. Even though the 2nd & Germantown station is used as an outbound commuter station on the weekdays, it's also quite popular as a station to reach the bars, restaurants, and activities in Northern Liberties on Friday night.</p>
+<p>At this point, I clearly need more data to properly model and predict the usage patterns since it's fairly clear that some bike stations are used differently at different times of the week. In the meantime...</p>
+<h3>What else would help the Indego bike share program?</h3>
+<p>I was previously thinking that we needed an Indego dock status tracker, but the most common devices are already covered: <a href="http://bikes.oobrien.com/philadelphia/#zoom=13&lon=-75.1700&lat=39.9600">web</a> | <a href="http://web.archive.org/web/20150722231010/http://chanmatt.me:80/realtimeindego.html">iOS</a> | <a href="https://web.archive.org/web/20160514010837/https://play.google.com/store/apps/details?id=com.rahulrvr.spotbikephl">Android</a></p>
+<p>Do you have any ideas for what tools would be useful to supplement the Indego bike share program? Feel free to add your suggestions here in the comments.</p>

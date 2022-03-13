@@ -1,0 +1,70 @@
+---
+layout: post
+title: The reddit world map
+date: 2014-10-27 16:15:55.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- reddit
+- research
+tags:
+- internet
+- map
+- reddit
+- social network
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _oembed_5fa7129f7af40a4fa29c92f9cb6db529: "{{unknown}}"
+  _oembed_60690848e05803dd235dba699e1228f9: "{{unknown}}"
+  _oembed_58b03affef507cb858f8361841b5372b: "{{unknown}}"
+  _thumbnail_id: '5452'
+  _aioseop_title: The reddit world map
+  _aioseop_description: Randy Olson presents the interactive reddit world map.
+  dsq_thread_id: '3245766495'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430301484;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:2183;}i:1;a:1:{s:2:"id";i:2011;}i:2;a:1:{s:2:"id";i:1979;}}}}
+  _aioseop_keywords: reddit, subreddit, community, social network, map, internet,
+    Twitter, Facebook, Pinterest, network analysis
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/10/27/the-reddit-world-map/"
+---
+<p>We can all agree that online social networks dominate most people's day-to-day Internet lives. <a href="http://www.pewinternet.org/fact-sheets/social-networking-fact-sheet/">90%</a> of all U.S. adults aged 18-29 have a Facebook account, and a large portion of those people check their Facebook at least once a day.</p>
+<p>What's strange is that most people regard social networks as nothing more than a blob of status updates and links that occasionally has something interesting on it. These people rely on word of mouth or rudimentary search features to find interesting content on social networks, despite the fact that there's often small communities focused on exactly what they want to talk about.</p>
+<p>Last year, I set out to change all that. I wanted to connect people to these smaller communities.</p>
+<p>The toughest part about online social networks is navigating them. With millions of users and hundreds of thousands of communities, how can we possibly hope to find the right community? That's when I had the thought: We all use maps to navigate the real world. Why can't we use maps to navigate online social networks?</p>
+<p>Randall Munroe famously inked a high-level social network map back in 2007:</p>
+<p><a href="http://xkcd.com/802/"><img src="{{ site.baseurl }}/assets/2014/10/online_communities_2.png" width="600" /></a></p>
+<p>but his map wasn't particularly useful for navigating individual networks.</p>
+<p>Thus, I set out on an expedition to map out the untamed lands of my favorite social network -- reddit.com -- like a modern-day Lewis and Clark. Below are the results.</p>
+<h3>The reddit world map</h3>
+<p>After several months of web scraping, data tinkering, and fidgeting with layouts, I settled on a methodology for mapping reddit. I decided that I would project reddit onto a 2D plane where every subreddit is represented by a dot. A subreddit would connect to another subreddit if many users posted or commented in both of the subreddits, and the subreddit would be colored red if it <a href="https://en.wikipedia.org/wiki/Degree_(graph_theory)">connected to many subreddits</a> or blue if it were connected to only a few. Finally, subreddits that connected to each other would be <a href="https://en.wikipedia.org/wiki/Force-directed_graph_drawing">placed closer to each other</a> on the 2D plane than subreddits that didn't, which had the neat effect of creating "meta-communities" of subreddits.</p>
+<p><a href="http://rhiever.github.io/redditviz/"><img src="{{ site.baseurl }}/assets/2014/10/reddit-map-full.png" alt="reddit-map-full" width="600" class="aligncenter size-full wp-image-5442" /></a></p>
+<p>When I initially shared this map, people started charting out the meta-communities that I had inadvertently created. Here's one of my favorite maps:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/reddit-world-map.jpg"><img src="{{ site.baseurl }}/assets/2014/10/reddit-world-map.jpg" alt="reddit-world-map" width="600" class="aligncenter size-full wp-image-5448" /></a></p>
+<p>Sure enough, if you zoom around on the <a href="http://rhiever.github.io/redditviz/">interactive version of the map</a>, you'll see these meta-communities of reddit pop up before your very eyes: video games, sports, technology, movies, music, and of course a huge porn peninsula. To better highlight these meta-communities, I decided to color the subreddits by their <a href="https://en.wikipedia.org/wiki/Cluster_analysis">cluster</a>.</p>
+<h3>Community structure</h3>
+<p>Unbelievably, those very same meta-communities popped out in the clustered version of the map.</p>
+<p><a href="http://rhiever.github.io/redditviz/clustered/"><img src="{{ site.baseurl }}/assets/2014/10/reddit-map-full-clustered.png" alt="reddit-map-full-clustered" width="600" class="aligncenter size-full wp-image-5452" /></a></p>
+<p>We see the active gaming cluster:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/reddit-map-gaming-cluster.png"><img src="{{ site.baseurl }}/assets/2014/10/reddit-map-gaming-cluster.png" alt="reddit-map-gaming-cluster" width="700" class="aligncenter size-full wp-image-5454" /></a></p>
+<p>The hub of reddit techies:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/reddit-map-tech-cluster.png"><img src="{{ site.baseurl }}/assets/2014/10/reddit-map-tech-cluster.png" alt="reddit-map-tech-cluster" width="600" class="aligncenter size-large wp-image-5457" /></a></p>
+<p>The isolated My Little Pony island:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/reddit-map-mlp-cluster.png"><img src="{{ site.baseurl }}/assets/2014/10/reddit-map-mlp-cluster-1024x679.png" alt="reddit-map-mlp-cluster" width="600" class="aligncenter size-large wp-image-5455" /></a></p>
+<p>And of course the massive porn cluster:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/reddit-map-porn-cluster.png"><img src="{{ site.baseurl }}/assets/2014/10/reddit-map-porn-cluster-1024x729.png" alt="reddit-map-porn-cluster" width="600" class="aligncenter size-large wp-image-5456" /></a></p>
+<p>Again, I made this <a href="http://rhiever.github.io/redditviz/clustered/">interactive version</a> available online to explore and make use of.</p>
+<p>All of this points to a major discovery: By Liking, commenting on, sharing, hashtagging, RTing, and voting on content in these social networks, we are creating a hidden structure that shows what we're really interested in, and what we're on the social network to talk about. These maps bring this hidden structure to light.</p>
+<p>If you'd like to read more about how these maps are constructed, you can read the corresponding research article <a href="https://peerj.com/articles/cs-4/">here</a>.</p>
+<h3>Where do we go from here?</h3>
+<p>Ultimately, I'd love to see this mapping methodology applied to social networks beyond reddit. Much like reddit and its subreddits, Twitter organizes itself around hashtags, Facebook organizes itself around Pages, and Pinterest organizes itself around Pins. The only thing stopping us from mapping these social networks out is the availability of their data.</p>
+<p>Come, my fellow Lewis and Clarks. Let's map out the untamed lands of social media.</p>

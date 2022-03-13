@@ -1,0 +1,109 @@
+---
+layout: post
+title: Small multiples vs. animated GIFs for showing changes in fertility rates over
+  time
+date: 2015-08-23 16:10:10.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- tutorial
+tags:
+- fertility rates
+- GIFs
+- small multiples
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_keywords: animated GIFs, small multiples, fertility rates, data visualization,
+    usa, japan, united states, population crisis, Human Fertility Database
+  _aioseop_description: Randy Olson demonstrates how small multiples can be used to
+    communicate data more effectively than animated GIFs.
+  _aioseop_title: Small multiples vs. animated GIFs for showing changes in fertility
+    rates over time
+  dsq_thread_id: '4060048690'
+  _thumbnail_id: '7605'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/08/23/small-multiples-vs-animated-gifs-for-showing-changes-in-fertility-rates-over-time/"
+---
+<p>A couple weeks ago, Stephen Holzman <a href="https://www.reddit.com/r/dataisbeautiful/comments/3gplje/usa_vs_japan_agespecific_fertility_rates_19472010/">shared</a> an animated GIF on <a href="https://www.reddit.com/r/dataisbeautiful/">/r/DataIsBeautiful</a> that caught my eye. The GIF showed the evolution of fertility rates of the U.S. and Japan between 1947 and 2010, which starts right in the middle of the post-WWII Baby Boom and follows the gradual decline of Japan's fertility rates, which has led to somewhat of a <a href="http://qz.com/162788/japan-is-rapidly-losing-population-and-half-the-world-is-about-to-join-it/">population crisis</a> for Japan.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/usa-vs-japan-fertility.gif"><img src="{{ site.baseurl }}/assets/2015/08/usa-vs-japan-fertility.gif" alt="usa-vs-japan-fertility" width="690" height="388" class="aligncenter size-full wp-image-7586" /></a></p>
+<p>Although Stephen's GIF is fun to watch -- especially because the animation gives the appearance of waves rising and falling -- I couldn't help but be frustrated by the limitations of GIFs in data visualization. If we wanted to compare the fertility rates of 1980 and 2010, for example, we'd have to keep a mental snapshot of what the 1980 frame looked like for when the 2010 frame came around. Thus, comparisons of time points beyond a couple years are impossible with animated GIFs unless the viewer has photographic memory.</p>
+<p>This drawback is the exact reason that <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> were introduced to data visualization: If we're comparing the same data in the same format between several different [times|treatments|countries|etc.], then we can visualize the data on the same scale and axes to make them easily comparable.</p>
+<p>I've long been a proponent of small multiples over GIFs, so I took Stephen's data (which is actually from the <a href="http://www.humanfertility.org">Human Fertility Database</a>) and reworked it into small multiples. You can click on the image for a super-high-res version.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/usa-vs-japan-fertility-rates-small-multiple.png"><img src="{{ site.baseurl }}/assets/2015/08/usa-vs-japan-fertility-rates-small-multiple-751x1024.png" alt="usa-vs-japan-fertility-rates-small-multiple" width="605" height="825" class="aligncenter size-large wp-image-7590" /></a></p>
+<p>Each year gets its own plot -- running from left to right -- with both country's fertility rates plotted. The total fertility rate for each year is annotated onto its corresponding plot, and color-coded according to the country. I plotted the x-axis tick labels to show the reader the age range of the plots, but only on the top and bottom rows to avoid too much repetition. Similarly, the y-axis tick labels only appear on the plots on the left.</p>
+<p>Of course, the drawback of small multiples is that we no longer see the data in the same detail as we did with the larger plots. Out of necessity, each plot in a small multiples chart must be small, simple, and have few axis ticks, which can make small multiples a poor choice if you're making a comparison where there has been little change.</p>
+<p>We can compensate for this by subsetting the data. After all, 64 years is quite a lot of data to show in one graph. What if we just looked at every five years?</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/usa-vs-japan-fertility-rates-small-multiple-subset.png"><img src="{{ site.baseurl }}/assets/2015/08/usa-vs-japan-fertility-rates-small-multiple-subset-975x1024.png" alt="usa-vs-japan-fertility-rates-small-multiple-subset" width="605" height="635" class="aligncenter size-large wp-image-7605" /></a></p>
+<p>Now it's straightforward to compare across and within decades: 1947, 1955, 1965, etc. can easily be compared by looking down the column. By the same token, 1947 and 1950 can easily be compared by looking down the row. We still get about the same level of detail as the GIF, and maintain the overall trend of declining fertility rates in both countries as time goes on.</p>
+<p>From this chart, two major trends that are readily apparent from the data:</p>
+<p>1) <strong>Both the USA and Japan have experienced declining birth rates since the 1940s</strong> -- Japan moreso.</p>
+<p>2) <strong>In the past 20 years, Japanese couples have started having children later in life (after their 30s)</strong> -- so much so that in 2010, half the children born were born to parents older than 30.</p>
+<p>Which begs the question: Why show all this data if we only have two points to make?</p>
+<h3>Simplifying the charts even more</h3>
+<p>If the above two trends are all we wanted to show with the data, then we can simplify the charts even more by calculating summary statistics and plotting those instead.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/total-fertility-usa-japan.png"><img src="{{ site.baseurl }}/assets/2015/08/total-fertility-usa-japan-1024x692.png" alt="total-fertility-usa-japan" width="605" height="409" class="aligncenter size-large wp-image-7613" /></a></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/avg-age-birth-usa-japan.png"><img src="{{ site.baseurl }}/assets/2015/08/avg-age-birth-usa-japan-1024x686.png" alt="avg-age-birth-usa-japan" width="605" height="405" class="aligncenter size-large wp-image-7609" /></a></p>
+<p>These charts take away the opportunity for the reader to glean any additional insights from the data. However, if we wanted to tell a straightforward story with charts, these would be the best ones to use.</p>
+<h3>Conclusions</h3>
+<ul>
+<li>Animated GIFs, while flashy, often make it more difficult to gain insight from data.</li>
+<li>Static charts, such as small multiples, can simplify animated GIFs to make trends in the data more apparent.</li>
+<li>Sometimes it's better to calculate summary statistics and plot those instead, especially if showing all of the data does not lend additional insight.</li>
+</ul>
+<p>If you liked what you saw in this post and want to learn more, check out my <a href="http://shop.oreilly.com/product/0636920046592.do">Python data visualization video course</a> that I made in collaboration with O'Reilly. In just one hour, I will cover these topics and much more, which will provide you with a strong starting point for your career in data visualization.</p>
+<p><center><iframe src="http://www.oreilly.com/authors/widgets/684.html" height="230px" width="200px" scrolling="no" frameborder="0"></iframe></center></p>
+<h3>Code for the small multiples visualization</h3>
+<p>I can't share the data that I used to create this visualization -- you'll have to download it from the Human Fertility Database -- but I've provided the Python code I used to generate the small multiples visualization below for education purposes.</p>
+<pre name="code" class="python:nogutter">
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+plt.style.use('https://gist.githubusercontent.com/rhiever/d0a7332fe0beebfdc3d5/raw/'
+              '223d70799b48131d5ce2723cd5784f39d7a3a653/tableau10.mplstyle')
+
+# "japan_fertility" and "usa_fertility" are pandas DataFrames with
+# the fertility data from the Human Fertility Database
+
+plt.figure(figsize=(12, 16))
+
+for plot_num, ((index_japan, japan), (index_usa, usa)) in enumerate(
+                                                    zip(japan_fertility.groupby('Year'),
+                                                    usa_fertility.groupby('Year'))):
+    ax = plt.subplot(8, 8, plot_num + 1)
+    plt.fill_between(usa.Age.values, usa.ASFR.values, color='#1f77b4', alpha=0.7)
+    plt.fill_between(japan.Age.values, japan.ASFR.values, color='#d62728', alpha=0.7)
+    plt.xlim(9, 51)
+    plt.ylim(0, 0.3)
+    
+    if index_japan <= 1954 or index_japan >= 2003:
+        plt.xticks(range(10, 51, 20), fontsize=10)
+    else:
+        plt.xticks(range(10, 51, 20), [''])
+        
+    if plot_num % 8 == 0:
+        plt.yticks(np.arange(0.1, 0.31, 0.1), fontsize=10)
+    else:
+        plt.yticks(np.arange(0.1, 0.31, 0.1), [''])
+
+    plt.text(40, 0.26, usa.ASFR.sum().round(2), fontsize=10,
+             ha='center', color='#1f77b4')
+    plt.text(40, 0.225, japan.ASFR.sum().round(2), fontsize=10,
+             ha='center', color='#d62728')
+    plt.title(index_japan, fontsize=10)
+    
+plt.tight_layout()
+plt.savefig('usa-vs-japan-fertility-rates-small-multiple.pdf', dpi=300)
+</pre>
+<p>Note that I had to add the plot axis labels, the plot title, and a couple annotations manually.</p>

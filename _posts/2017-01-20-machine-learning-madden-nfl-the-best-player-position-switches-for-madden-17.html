@@ -1,0 +1,229 @@
+---
+layout: post
+title: 'Machine Learning Madden NFL: The best player position switches for Madden
+  17'
+date: 2017-01-20 16:49:35.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- machine learning
+tags:
+- football
+- machine learning
+- madden
+- nfl
+meta:
+  _oembed_a2f3b2d315314d22e348ebea60e0d4df: "{{unknown}}"
+  _responsive_layout: default
+  _thumbnail_id: '8545'
+  _jetpack_dont_email_post_to_subs: '1'
+  _edit_last: '2'
+  _aioseop_keywords: madden, nfl, football, machine learning, statistics, linear model,
+    calculate, player ratings, OVR, predict, top player, position switch
+  dsq_thread_id: '5479906552'
+  _aioseop_description: Randy Olson uses machine learning to figure out the best player
+    position switches in Madden 17.
+  _aioseop_title: 'Machine Learning Madden NFL: The best player position switches
+    for Madden 17'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2017/01/20/machine-learning-madden-nfl-the-best-player-position-switches-for-madden-17/"
+---
+<p>A couple weeks ago, I wrote about my <a href="http://www.randalolson.com/2017/01/10/machine-learning-madden-nfl-how-madden-player-ratings-are-actually-calculated/">initial efforts</a> toward using machine learning to model the "master equations" that govern the Madden NFL player ratings system. This week, I'd like to put those models to use to compute the best player position switches for Madden 17.</p>
+<p>Sometimes NFL players are assigned to play a particular position for their team even though they're better suited to play at another position. Perhaps their team had a glaring weakness at that position, or there was already a better player filling their preferred position.</p>
+<p>In Madden 17, these position mismatches cause some players to have an embarrassingly low overall player rating (OVR) even though they're star players waiting for their time to shine. I'm going to highlight a handful of those players below, but I've also uploaded a spreadsheet of <a href="https://docs.google.com/spreadsheets/d/1dQnTE4lnO5dP_KMRAlMmCTQjkCOGan_yj5fFKP8iTFs/edit?usp=sharing">Madden 17 player ratings at all positions</a> so you can sort through them yourself.</p>
+<h3>The >95 OVR club</h3>
+<p>Perhaps the worst position mismatch in the Madden 17 preseason teams is Khalil Mack:</p>
+<p><center><br />
+<a href="https://commons.wikimedia.org/wiki/File:Khalil_Mack.JPG"><img src="{{ site.baseurl }}/assets/2017/01/Khalil_Mack.jpg" width="300" /></a><br />
+<font size="1">Image courtesy of <a href="https://commons.wikimedia.org/wiki/File:Khalil_Mack.JPG">Wikipedia</a></font><br />
+</center></p>
+<p>Technically, Khalil Mack should've been a part of Madden 17's <a href="http://www.espn.com/nfl/story/_/id/17164328/meet-players-rated-99-overall-madden-nfl-17-houston-texans-jj-watt">coveted 99 OVR club</a>, but since he started the season at left outside linebacker (LOLB), he was assigned a 94 OVR. A wise Madden coach will quickly move Mack over to the left end (LE) position, where Madden will rate him at 99 OVR and Mack will rain sacks on QBs all season. Perhaps it makes sense to put Mack at LOLB in a 3-4 defense, but don't put his pass rushing talents to waste as a linebacker in a 3-4 defense.</p>
+<p>Here's all of the Madden 17 players that could've made the >95 OVR club:</p>
+<table style="text-align:center;">
+<tr>
+<th><strong>Player</strong></th>
+<th><strong>Team</strong></th>
+<th><strong>Position</strong></th>
+<th><strong>OVR</strong></th>
+<th><strong>Recommended Position</strong></th>
+<th><strong>New OVR</strong></th>
+</tr>
+<tr>
+<td>Khalil Mack</td>
+<td>Raiders</td>
+<td>LOLB</td>
+<td>94</td>
+<td>LE</td>
+<td>99 (+5)</td>
+</tr>
+<tr>
+<td>Derrick Johnson</td>
+<td>Chiefs</td>
+<td>MLB</td>
+<td>90</td>
+<td>SS</td>
+<td>98 (+8)</td>
+</tr>
+<tr>
+<td>Pernell McPhee</td>
+<td>Bears</td>
+<td>LOLB</td>
+<td>92</td>
+<td>DT</td>
+<td>98 (+6)</td>
+</tr>
+<tr>
+<td>Brandon Marshall</td>
+<td>Broncos</td>
+<td>MLB</td>
+<td>90</td>
+<td>SS</td>
+<td>96 (+6)</td>
+</tr>
+<tr>
+<td>Sean Lee</td>
+<td>Cowboys</td>
+<td>ROLB</td>
+<td>89</td>
+<td>SS</td>
+<td>96 (+7)</td>
+</tr>
+<tr>
+<td>Thomas Davis Sr.</td>
+<td>Panthers</td>
+<td>LOLB</td>
+<td>88</td>
+<td>SS</td>
+<td>96 (+8)</td>
+</tr>
+</table>
+<h3>Biggest gainers</h3>
+<p>Below is a list of players who improve in OVR the most simply by changing positions. Notably, Lee Smith can jump from a mediocre Madden tight end (TE) to an above average fullback (FB) thanks to his exceptional blocking skills.</p>
+<table style="text-align:center;">
+<tr>
+<th><strong>Player</strong></th>
+<th><strong>Team</strong></th>
+<th><strong>Position</strong></th>
+<th><strong>OVR</strong></th>
+<th><strong>Recommended Position</strong></th>
+<th><strong>New OVR</strong></th>
+</tr>
+<tr>
+<td>Zak DeOssie</td>
+<td>Giants</td>
+<td>TE</td>
+<td>55</td>
+<td>ROLB</td>
+<td>75 (+20)</td>
+</tr>
+<tr>
+<td>Lee Smith</td>
+<td>Raiders</td>
+<td>TE</td>
+<td>75</td>
+<td>FB</td>
+<td>87 (+12)</td>
+</tr>
+<tr>
+<td>Christian Kirksey</td>
+<td>Browns</td>
+<td>MLB</td>
+<td>74</td>
+<td>SS</td>
+<td>85 (+11)</td>
+</tr>
+<tr>
+<td>Jonathan Anderson</td>
+<td>Bears</td>
+<td>MLB</td>
+<td>66</td>
+<td>SS</td>
+<td>77 (+11)</td>
+</tr>
+<tr>
+<td>Cordarrelle Patterson</td>
+<td>Vikings</td>
+<td>WR</td>
+<td>70</td>
+<td>HB</td>
+<td>81 (+11)</td>
+</tr>
+<tr>
+<td>Deone Bucannon</td>
+<td>Cardinals</td>
+<td>MLB</td>
+<td>78</td>
+<td>SS</td>
+<td>88 (+10)</td>
+</tr>
+</table>
+<h3>Best out-of-position kickers</h3>
+<p>And just for fun---and because the NFL had a bit of a <a href="http://www.nfl.com/news/story/0ap3000000742721/article/kickers-miss-record-12-extrapoint-attempts-sunday">kicker SNAFU</a> this year---below is a list of the non-kickers who could become the best kickers if necessity called. Funny enough, according to Madden, Ryan Tannehill (the Dolphins' starting QB) would make almost as good a kicker as he would a QB.</p>
+<table style="text-align:center;">
+<tr>
+<th><strong>Player</strong></th>
+<th><strong>Team</strong></th>
+<th><strong>Position</strong></th>
+<th><strong>OVR</strong></th>
+<th><strong>Recommended Position</strong></th>
+<th><strong>New OVR</strong></th>
+</tr>
+<tr>
+<td>Ryan Tannehill</td>
+<td>Dolphins</td>
+<td>QB</td>
+<td>79</td>
+<td>K</td>
+<td>76</td>
+</tr>
+<tr>
+<td>Tim Hightower</td>
+<td>Saints</td>
+<td>HB</td>
+<td>73</td>
+<td>K</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Odell Beckham Jr.</td>
+<td>Giants</td>
+<td>WR</td>
+<td>93</td>
+<td>K</td>
+<td>74</td>
+</tr>
+<tr>
+<td>Mohamed Sanu Sr.</td>
+<td>Falcons</td>
+<td>WR</td>
+<td>77</td>
+<td>K</td>
+<td>67</td>
+</tr>
+<tr>
+<td>Dontrelle Inman</td>
+<td>Chargers</td>
+<td>WR</td>
+<td>72</td>
+<td>K</td>
+<td>67</td>
+</tr>
+<tr>
+<td>Ben Roethlisberger</td>
+<td>Steelers</td>
+<td>QB</td>
+<td>93</td>
+<td>K</td>
+<td>66</td>
+</tr>
+</table>
+<p>Feel free to look through the <a href="https://docs.google.com/spreadsheets/d/1dQnTE4lnO5dP_KMRAlMmCTQjkCOGan_yj5fFKP8iTFs/edit?usp=sharing">full spreadsheet</a> and report your findings in the comments. There's far more useful position switches than what I reported here.</p>

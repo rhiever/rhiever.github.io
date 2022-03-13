@@ -1,0 +1,66 @@
+---
+layout: post
+title: The ebb and flow of movies redux
+date: 2014-10-26 18:03:53.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- movies
+- streamgraph
+- ticket sales
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _oembed_f73a132a84fcaaa2cca790f36476a8ce: "{{unknown}}"
+  _thumbnail_id: '5414'
+  _aioseop_title: The ebb and flow of movies redux
+  _aioseop_description: Randy Olson attempts to revive and update the popular "ebb
+    and flow of movie ticket sales" graphic.
+  _aioseop_keywords: movies, film, box office, ticket sales, ebb and flow, streamgraph,
+    hollywood, blockbuster
+  dsq_thread_id: '3245766391'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430360372;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:2630;}i:1;a:1:{s:2:"id";i:5895;}i:2;a:1:{s:2:"id";i:5872;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/10/26/the-ebb-and-flow-of-movies-redux/"
+---
+<p>Six years ago, the NY Times published one of my favorite interactive graphics entitled, <a href="http://www.nytimes.com/interactive/2008/02/23/movies/20080223_REVENUE_GRAPHIC.html">"The ebb and flow of movies."</a> This brilliant graphic concisely visualized over two decades of box office sales with the now-popular <a href="https://en.wikipedia.org/wiki/Streamgraph">streamgraph</a>. The colors indicated how well each movie did -- from hit to flop -- and the height of the vertical area signified how "hot" each movie was the box office each week. As you scroll through the years, you'll see now-classics like Back to the Future and Jurassic Park pop up and fade away in the seemingly endless stream of time.</p>
+<p>One of the most unfortunate parts of this graphic is that it's terribly outdated at this point: The latest movies listed were popular back when I was still a sophomore in undergrad. As such, this post will be the first in a series of articles documenting my attempts to revitalize and update "The ebb and flow of movies" to 2014 (and soon, 2015).</p>
+<h3>Visualizing 3 decades of box office sales</h3>
+<p>At this point, I've gathered the weekly box office sales of the top movies for the past 3 decades (1982-2014), which fits comfortably into a ~8 MB file. However, it's been surprisingly difficult to find visualization software that can visualize 3 decades of data into a streamgraph without crashing. I've had the best luck so far has been with the <a href="https://rawgraphs.io/">RAW engine</a>, which I used to plot 5 years of box office sales (2009-2014) below.</p>
+<p>Darker blue = more total sales for that movie<br />
+Lighter blue = less total sales<br />
+Vertical height indicates weekly sales</p>
+<p>You can click on all of the images below for zoomed-in versions.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/ebb-flow-top-10-5-years.png"><img src="{{ site.baseurl }}/assets/2014/10/ebb-flow-top-10-5-years-1024x248.png" alt="ebb-flow-top-10-5-years" width="605" height="146" class="aligncenter size-large wp-image-5414" /></a></p>
+<p>Obviously this graph isn't particularly useful for communicating information about specific movies, but it does show the seasonal ebb and flow of movie sales, which I look at in more detail below. Ultimately, we'll need an interactive version similar to the NY Times rather than this static graph. I'm open to suggestions for software.</p>
+<p>In the meantime, I've visualized zoomed-in versions of the past few years of box office sales below. The left side of each label starts on its corresponding area. Sorry for the overlapping names in some cases; there are so many movies that I had to place all of them automatically.</p>
+<p><center><br />
+<h3>2014</h3>
+<p></center></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/2014-movies-ebb-flow.png"><img src="{{ site.baseurl }}/assets/2014/10/2014-movies-ebb-flow-1024x192.png" alt="2014-movies-ebb-flow" width="605" height="113" class="aligncenter size-large wp-image-5413" /></a></p>
+<p><center><br />
+<h3>2013</h3>
+<p></center></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/2013-movies-ebb-flow.png"><img src="{{ site.baseurl }}/assets/2014/10/2013-movies-ebb-flow-1024x256.png" alt="2013-movies-ebb-flow" width="605" height="151" class="aligncenter size-large wp-image-5412" /></a></p>
+<p><center><br />
+<h3>2012</h3>
+<p></center></p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/2012-movies-ebb-flow.png"><img src="{{ site.baseurl }}/assets/2014/10/2012-movies-ebb-flow-1024x256.png" alt="2012-movies-ebb-flow" width="605" height="151" class="aligncenter size-large wp-image-5411" /></a></p>
+<h3>Seasonality of box office sales</h3>
+<p>Another phenomenon that the original "Ebb and flow" article pointed to was the seasonality of box office sales:</p>
+<blockquote><p>Summer blockbusters and holiday hits make up the bulk of box office revenue each year</p></blockquote>
+<p>Streamgraphs make for a pretty presentation of sales, but the seasonal trends are better communicated with a line chart. Below, I calculated the median weekly movie sales for each week over the 1982-2014 period.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/weekly-median-movie-sales.png"><img src="{{ site.baseurl }}/assets/2014/10/weekly-median-movie-sales.png" alt="weekly-median-movie-sales" width="752" height="467" class="aligncenter size-full wp-image-5428" /></a></p>
+<p>Sure enough, we see the clear mark of the blockbuster season from mid-June through August and the rush of families to the movie theater after Thanksgiving and Christmas. What's more surprising to me is the spike in mid-April. What's going on there?</p>
+<p>That's all for now! Hopefully we can find the software to pull this revival off.</p>

@@ -1,0 +1,80 @@
+---
+layout: post
+title: 'U.S. college majors: Median yearly earnings vs. gender ratio'
+date: 2015-08-16 19:35:46.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- college major
+- gender
+- pay gap
+meta:
+  _edit_last: '2'
+  _oembed_e642af5ff2f056b66b60180779ab1a81: "{{unknown}}"
+  _responsive_layout: default
+  _oembed_030062981508a83782cc2335d69181a1: "{{unknown}}"
+  dsq_thread_id: '4039033891'
+  _aioseop_description: Randy Olson explores a curious correlation showing that female-dominated
+    college majors earn less than male-dominated majors.
+  _aioseop_title: 'U.S. college majors: Median yearly earnings vs. gender ratio'
+  _aioseop_keywords: gender pay gap, gender equality, income, college major, university,
+    education, correlation
+  _thumbnail_id: '7542'
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/08/16/u-s-college-majors-median-yearly-earnings-vs-gender-ratio/"
+---
+<p>Last year, I looked at the <a href="http://www.randalolson.com/2014/06/14/percentage-of-bachelors-degrees-conferred-to-women-by-major-1970-2012/">gender ratios across college majors</a> and discovered an interesting-yet-spurious correlation: College majors with higher male:female ratios (i.e., with more men than women) <a href="http://www.randalolson.com/2014/06/25/average-iq-of-students-by-college-major-and-gender-ratio/">tend to have students with higher estimated IQs</a>. After much debate, the correlation seemed to be explained by the fact that male-dominated majors tend to be more quantitative in nature, and the IQ estimation procedure relied heavily on students' quantitative SAT score. Thus, we were only observing a gender preference for quantitative vs. non-quantitative majors.</p>
+<p>Recently, I ran across an <a href="http://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/">interesting FiveThirtyEight article</a> that analyzed the estimated median earnings for recent college graduates broken down by major. The data that they used from the American Community Survey was publicly available on <a href="https://github.com/fivethirtyeight/data/tree/master/college-majors">their GitHub</a>, so I decided to take a closer look at the correlation between estimated median earnings and the gender ratio for each major<a href="#note-a" target="_blank"><sup>a</sup></a>.</p>
+<p>Below, each square is a college major<a href="#note-b" target="_blank"><sup>b</sup></a> scaled by the number of recent college graduates<a href="#note-c" target="_blank"><sup>c</sup></a>. The squares are colored by the general category of each major, and I annotated a handful of the most popular majors. If you'd like to look up specific majors, use <a href="http://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/">FiveThirtyEight's lookup tables</a>.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/us-college-majors-income-vs-gender-ratio-ann.png"><img src="{{ site.baseurl }}/assets/2015/08/us-college-majors-income-vs-gender-ratio-ann-1024x702.png" alt="us-college-majors-income-vs-gender-ratio-ann" width="605" height="415" class="aligncenter size-large wp-image-7542" /></a></p>
+<p>The trend that's immediately apparent from this chart is that <strong>female-dominated majors make less on average than male-dominated majors</strong>. Some interesting exceptions to the trend are Nursing (90% women; $48k median earnings) and Transportation Science (12% women; $35k median earnings), where Nursing especially stands out as a relatively lucrative major despite being primarily women.</p>
+<p>Despite the outliers, we're still left to wonder: Is it really true that <a href="https://obamawhitehouse.archives.gov/equal-pay/career">women earn less than men</a> -- even for college graduates? I decided to investigate this issue a little further. Of course, the first step is to make sure that our eyes aren't fooling us, so I fit a linear regression onto the data and weighted the majors by their number of recent graduates.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/us-college-majors-income-vs-gender-ratio-regression.png"><img src="{{ site.baseurl }}/assets/2015/08/us-college-majors-income-vs-gender-ratio-regression-998x1024.png" alt="us-college-majors-income-vs-gender-ratio-regression" width="605" height="621" class="aligncenter size-large wp-image-7543" /></a></p>
+<p>Sure enough, there's a clear and significant negative correlation between a college major's median year earnings and gender ratio. Let's try to find out why.</p>
+<h3>Why do female-dominated majors earn less?</h3>
+<p>If you look through the list of female-dominated majors, you'll notice that many of them can be quite difficult to find a job with because they're so competitive: There are far more graduates than jobs in many of the fields. Could female-dominated majors be earning less because they couldn't find a job after college? The unemployment rate for each major was included in the data set, so let's take a look at that correlation below.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/us-college-majors-unemployment-vs-gender-ratio-regression.png"><img src="{{ site.baseurl }}/assets/2015/08/us-college-majors-unemployment-vs-gender-ratio-regression-973x1024.png" alt="us-college-majors-unemployment-vs-gender-ratio-regression" width="605" height="637" class="aligncenter size-large wp-image-7546" /></a></p>
+<p>For the most part, this idea seems to be busted: <strong>There is no significant correlation between the gender ratios and unemployment rates of college majors</strong>, and most majors are sitting around the national unemployment rate of 5.5%.</p>
+<p>What about <em>underemployment</em>? In his FiveThirtyEight article, Ben Casselman <a href="http://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/">wrote</a> that drama majors (which tend to be female more often than male) are more likely to end up waiting tables than using their degree. Underemployment rate was also available for each major, so let's take a look.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/us-college-majors-underemployment-vs-gender-ratio-regression.png"><img src="{{ site.baseurl }}/assets/2015/08/us-college-majors-underemployment-vs-gender-ratio-regression-974x1024.png" alt="us-college-majors-underemployment-vs-gender-ratio-regression" width="605" height="636" class="aligncenter size-large wp-image-7545" /></a></p>
+<p>Yet again, our idea has been busted: <strong>There is only a weak correlation between the gender ratios and underemployment rates of college majors</strong>, so the typical narrative of useless college degrees doesn't seem to explain why male-dominated majors earn more than female-dominated ones.</p>
+<p>I was a bit lost at this point until I remembered my controversial post from last year.</p>
+<h3>Back to an old study...</h3>
+<p>If you read my blog last year (or read the introduction to this post!), you may remember the correlation between quantitative SAT scores (and <a href="http://www.statisticbrain.com/iq-estimates-by-intended-college-major/">IQs</a>) and gender ratios of college majors. What if we matched up the quantitative SAT scores -- which can be used as a proxy for how quantitatively-focused a major is -- with the median earnings for each major<a href="#note-d" target="_blank"><sup>d</sup></a>?</p>
+<p>(Again, the majors are scaled by the number of recent graduates to provide a sense of relative popularity.)</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/us-college-majors-income-vs-quant-sat-score-regression.png"><img src="{{ site.baseurl }}/assets/2015/08/us-college-majors-income-vs-quant-sat-score-regression-1024x1000.png" alt="us-college-majors-income-vs-quant-sat-score-regression" width="605" height="591" class="aligncenter size-large wp-image-7544" /></a></p>
+<p>(For the stats nerds: R^2 = 0.624)</p>
+<p>Perhaps this all makes sense now: It seems possible that <strong>male-dominated majors -- such as Engineering, Physics, and Computer Science -- earn more than female-dominated majors because male-dominated majors are often more quantitative in nature.</strong> These quantitative majors are often employed by large companies to design products, perform data analysis, manage the company, etc., and their salaries are higher to match the responsibilities of the job.</p>
+<p>It's another question of whether businesses and governments should value the services provided by quantitative majors more than, say, Education majors, but I'll leave that discussion for another day.</p>
+<h3>Disclaimer</h3>
+<p>Of course, <a href="https://xkcd.com/552/">correlation != causation</a>, and I'm not trying to make any causative inferences here. We would need to perform controlled experiments if we wanted to establish a causal relationship. I'm simply building a plausible narrative around these correlations in case anyone wanted to explore these correlations in more depth in the future.</p>
+<h3>Summary</h3>
+<ul>
+<li>Female-dominated majors tend to earn less than male-dominated majors</li>
+<li>This correlation isn't explained by the employability of the majors</li>
+<li>It seems plausible that male-dominated majors are usually paid more because they are more quantitative in nature, which large companies tend to value highly</li>
+</ul>
+<h3>Alternative explanations</h3>
+<p>So, what do you think? Do you think this explanation holds, or do you think there's another explanation at work here? I'll do my best to describe plausible alternative explanations in this section.</p>
+<ul>
+<li>One of the commenters <a href="http://www.randalolson.com/2015/08/16/u-s-college-majors-median-yearly-earnings-vs-gender-ratio/#comment-8288">mentioned</a> that we should view the correlation in the opposite direction: "Men are more driven by income when choosing majors than women. Women value attributes other than income more than men."</li>
+<ul>
+<hr />
+<h5>Technical notes</h5>
+<p><sup id="note-a">a</sup> There are plenty of caveats that come with this data set, and I advise reading up about them in the <a href="http://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/">FiveThirtyEight article</a>.</p>
+<p><sup id="note-b">b</sup> I excluded Petroleum Engineering from this analysis for clarity, which is a small outlier major (only 2,339 recent graduates) with a median salary of $110k and only 12% women.</p>
+<p><sup id="note-c">c</sup> "Recent" graduates are graduates under age 28, which is roughly within five years of graduation on a normal schedule.</p>
+<p><sup id="note-d">d</sup> I performed this merger manually and did my best to match the majors when their name did not match exactly. Several majors were dropped since quantitative SAT scores were only available for a subset of majors. You can find that data set <a href="https://gist.github.com/rhiever/c03b608ef2fa76331506">here</a>.</ul>
+</ul>

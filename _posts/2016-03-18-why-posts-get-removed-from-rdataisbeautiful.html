@@ -1,0 +1,66 @@
+---
+layout: post
+title: Why posts get removed from /r/DataIsBeautiful
+date: 2016-03-18 15:17:12.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- reddit
+tags:
+- community management
+- data visualization
+- reddit
+- subreddit
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_title: Why posts get removed from /r/DataIsBeautiful
+  _aioseop_description: Randy Olson delves into the data to show why posts get removed
+    by the moderators of /r/DataIsBeautiful.
+  _aioseop_keywords: Reddit, DataIsBeautiful, subreddit, data visualization, rules,
+    post, removed, moderator
+  dsq_thread_id: '4674093221'
+  _thumbnail_id: '7996'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2016/03/18/why-posts-get-removed-from-rdataisbeautiful/"
+---
+<p>I've been a moderator of <a href="http://www.reddit.com/r/dataisbeautiful">/r/DataIsBeautiful</a> -- one of the largest online communities dedicated to data analysis and visualization -- for the past 2 1/2 years. During that time, I've reviewed thousands of data visualizations created by amateurs and professionals alike.</p>
+<p>(For those not in the know: Moderators on Reddit volunteer their time to help run the subreddits, remove spam, enforce posting rules, and various other tasks to keep the subreddits on-topic and spam-free.)</p>
+<p>Although moderating on Reddit is often a <a href="http://associationsnow.com/2015/07/reddit-volunteer-moderators/">thankless job</a>, my experience on /r/DataIsBeautiful has provided me a <a href="http://www.randalolson.com/2016/03/11/what-data-visualization-tools-do-rdataisbeautiful-oc-creators-use/">unique perspective</a> on the data visualization world.</p>
+<p>For this post, I thought it would be a fun exercise to visualize how /r/DataIsBeautiful's posting rules have evolved over time. After all, it only seems appropriate that a /r/DataIsBeautiful moderator would analyze and visualize their own community, right?</p>
+<p>/r/DataIsBeautiful currently has five core posting rules (1-5), and three experimental rules (6-8):</p>
+<p><center><a href="http://www.randalolson.com/wp-content/uploads/dib-posting-rules.png" rel="attachment wp-att-7971"><img src="{{ site.baseurl }}/assets/2016/03/dib-posting-rules.png" alt="dib-posting-rules" width="300" class="aligncenter size-full wp-image-7971" /></a></center></p>
+<p>These posting rules try to provide objective criteria for what makes an appropriate /r/DataIsBeautiful post, and generally make sure that:</p>
+<ol>
+<li>The post actually contains a data visualization</li>
+<li>The post gives appropriate credit to the data visualization's creator</li>
+<li>The post isn't obviously and maliciously misleading</li>
+</ol>
+<h3>Evolution of /r/DataIsBeautiful's posting rules</h3>
+<p>I've always been curious about the relative importance of these rules over time, so I analyzed the <a href="https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments">Reddit comment cache on BigQuery</a>, parsed out the official moderator comments that /r/DataIsBeautiful moderators made when removing posts, and binned them by month.</p>
+<p>I was able to analyze the comments between January 2013 and January 2016, which provides a unique perspective on the subreddit before and after it became a <a href="https://web.archive.org/web/20160727120330/http://www.redditblog.com:80/2014/05/whats-that-lassie-old-defaults-fell.html">default subreddit</a> in early 2014.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/DIB-post-removal-reasons-fractions.png" rel="attachment wp-att-7968"><img src="{{ site.baseurl }}/assets/2016/03/DIB-post-removal-reasons-fractions-1024x459.png" alt="DIB-post-removal-reasons-fractions" width="605" height="271" class="aligncenter size-large wp-image-7968" /></a></p>
+<p>By far, the two biggest reasons for posts being removed on Reddit are:</p>
+<ul>
+<li><strong>failing to link to something that includes a data visualization</strong>, and</li>
+<li><strong>failing to properly credit the original author of the visualization</strong></li>
+</ul>
+<p>Today, those two reasons <strong>constitute roughly 50% and 40% of all post removals, respectively</strong>.</p>
+<p>Interestingly, ever since it defaulted /r/DataIsBeautiful has been receiving increasingly more posts that don't even include data visualizations. I believe this trend highlights the importance of an active moderation team as a community grows: As /r/DataIsBeautiful's subscriber numbers climbed from the hundreds of thousands into the millions, the moderators were there to help the community stay on track and share relevant content.</p>
+<p>You'll also notice that there was a stint in 2014 where the moderation team required that all posts linking directly to images must link to PNGs (due to text quality issues with JPEGs), but that rule was replaced when we <a href="https://www.reddit.com/r/dataisbeautiful/comments/2lokun/mod_announcement_new_posting_rules_enacted_today/">enacted</a> the rule requiring that all posts link directly to the original source. Since only Original Content creators can post direct links to images now, we decided that it was best to allow them to decide how they wanted to share their content.</p>
+<p>You may also notice the lack of the "no political posts except for Thursdays" <a href="https://www.reddit.com/r/dataisbeautiful/comments/477lvp/notice_dataisbeautiful_is_currently_cutting_back/">rule</a>, which was introduced in February 2016. Since February 2016's comment data is not yet available, I'll have to leave that analysis for a future post.</p>
+<h3>Post removal counts</h3>
+<p>For completeness, I've also included the raw counts for each post removal reason below.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/DIB-post-removal-reasons-counts.png" rel="attachment wp-att-7967"><img src="{{ site.baseurl }}/assets/2016/03/DIB-post-removal-reasons-counts-1024x461.png" alt="DIB-post-removal-reasons-counts" width="605" height="272" class="aligncenter size-large wp-image-7967" /></a></p>
+<p>You'll likely notice the spike in "original source" removals in late 2014, which was due to the /r/DataIsBeautiful mod team more strictly <a href="https://www.reddit.com/r/dataisbeautiful/comments/2lokun/mod_announcement_new_posting_rules_enacted_today/">enforcing</a> directly links to the original source. The community took a couple months to get used to the rule, but eventually returned to normal.</p>
+<p>For the most part, posting rules 3-8 deal with edge cases: Posters confusing infographics with data visualizations, sensationalized post titles, or reposts of links that were already shared recently. While theserules are nonetheless important, this analysis has shown us that only two of the eight posting rules play the most important role in keeping /r/DataIsBeautiful on track.</p>
+<p>We'll be sure to continually review and revise these posting rules as the /r/DataIsBeautiful community grows. If you have ideas on how we can improve the community -- through posting rules or otherwise -- please <a href="https://www.reddit.com/message/compose?to=%2Fr%2Fdataisbeautiful">reach out to us by modmail</a>.</p>

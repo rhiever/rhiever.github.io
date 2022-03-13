@@ -1,0 +1,117 @@
+---
+layout: post
+title: The Optimal U.S. National Parks Centennial Road Trip
+date: 2016-07-30 15:57:32.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+- machine learning
+tags:
+- Gurobi
+- machine learning
+- optimization
+- road trip
+- traveling salesman problem
+meta:
+  _aioseop_description: In celebration of the NPS centennial, Randy Olson uses optimization
+    techniques to find the shortest route that stops at 47 of the U.S. National Parks.
+  _oembed_time_4f512c49428abb6cb8d8823c60727fba: '1469904064'
+  _edit_last: '2'
+  _responsive_layout: default
+  _oembed_f79a81f88e781b2191934571bb0bf2c2: "{{unknown}}"
+  _aioseop_keywords: national park service, national park, nps, centennial, road trip,
+    united states, usa, optimization, optimal, machine learning, Gurobi
+  _oembed_4f512c49428abb6cb8d8823c60727fba: '<blockquote data-secret="rgMi7GFCG6"
+    class="wp-embedded-content"><a href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">Computing
+    the optimal road trip across the U.S.</a></blockquote><iframe class="wp-embedded-content"
+    sandbox="allow-scripts" security="restricted" style="position: absolute; clip:
+    rect(1px, 1px, 1px, 1px);" src="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/embed/#?secret=rgMi7GFCG6"
+    data-secret="rgMi7GFCG6" width="600" height="338" title="&#8220;Computing the
+    optimal road trip across the U.S.&#8221; &#8212; Dr. Randal S. Olson" frameborder="0"
+    marginwidth="0" marginheight="0" scrolling="no"></iframe>'
+  _oembed_cb8417a634499508468f8666baa798b0: <a href="https://nathanbrixius.wordpress.com/2016/06/09/computing-optimal-road-trips-using-operations-research/">Computing
+    Optimal Road Trips Using Operations&nbsp;Research</a>
+  _thumbnail_id: '8290'
+  dsq_thread_id: '5027300598'
+  _aioseop_title: The Optimal U.S. National Parks Centennial Road Trip
+  _oembed_164305d3e3b194d27cd5cac17b56c3c1: "{{unknown}}"
+  _oembed_time_cb8417a634499508468f8666baa798b0: '1469904065'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2016/07/30/the-optimal-u-s-national-parks-centennial-road-trip/"
+---
+<p>In August 2016, the <a href="https://www.nps.gov/subjects/centennial/index.htm">National Park Service</a> celebrates their 100th year of managing the United States' system of beautiful national parks. So what's a better way to celebrate 100 years of stewardship than to visit all of the national parks in one epic road trip?</p>
+<p>If you've followed my blog for the past year or so, you'll know that I've made a hobby of <a href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">optimizing various road trips around the U.S.</a>, so I couldn't pass up on this opportunity to optimize yet another road trip.</p>
+<h3>U.S. National Parks</h3>
+<p>If you're unfamiliar with the U.S. national park system, it consists of <a href="https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States">59 protected areas</a> across the U.S. that are managed by the U.S. National Park Service. Many of the national parks are known for their natural beauty, unique geological features, unusual ecosystems, and/or recreational opportunities, which makes them ideal spots to visit if you need a break from the hustle and bustle of the big city.</p>
+<p>[caption width="600"]<a href="https://en.wikipedia.org/wiki/File:USA_09847_Grand_Canyon_Luca_Galuzzi_2007.jpg"><img src="{{ site.baseurl }}/assets/2016/07/800px-USA_09847_Grand_Canyon_Luca_Galuzzi_2007.jpg" /></a> Unique combinations of geologic color and erosional forms decorate a canyon that is 277 river miles (446km) long, up to 18 miles (29km) wide, and a mile (1.6km) deep. Grand Canyon overwhelms our senses through its immense size. <a href="https://www.nps.gov/grca/index.htm">[NPS]</a>[/caption]</p>
+<p>[caption width="600"]<a href="https://commons.wikimedia.org/wiki/File:Fall_at_Oconaluftee_Overlook.JPG"><img src="{{ site.baseurl }}/assets/2016/07/800px-Fall_at_Oconaluftee_Overlook.JPG" /></a> Ridge upon ridge of forest straddles the border between North Carolina and Tennessee in Great Smoky Mountains National Park. World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park. <a href="https://www.nps.gov/grsm/index.htm">[NPS]</a>[/caption]</p>
+<p>[caption width="600"]<a href="https://en.wikipedia.org/wiki/File:Grand_Prismatic_Spring_and_Midway_Geyser_Basin_from_above.jpg"><img src="{{ site.baseurl }}/assets/2016/07/800px-Grand_Prismatic_Spring_and_Midway_Geyser_Basin_from_above.jpg" /></a> Visit Yellowstone and experience the world's first national park. Marvel at a volcano's hidden power rising up in colorful hot springs, mudpots, and geysers. Explore mountains, forests, and lakes to watch wildlife and witness the drama of the natural world unfold. Discover the history that led to the conservation of our national treasures "for the benefit and enjoyment of the people." <a href="https://www.nps.gov/yell/index.htm">[NPS]</a>[/caption]</p>
+<p>12 of the national parks are in Alaska, Hawaii, and other U.S. territories, which can make them difficult to drive to unless you have a flying car. Thus for road trip, we're going to focus on the national parks that span the 48 contiguous states in the mainland United States. Don't worry: that limitation still leaves us 47 national parks, which should be plenty for one road trip.</p>
+<h3>The optimal road trip to the U.S. National Parks</h3>
+<p>In total, this road trip spans 14,498 miles (23,333 km) of road and will take roughly 2 months if you're traveling at a breakneck pace. I've designed this road trip to form a circle around the U.S., so you can hop on at any point and proceed whatever direction you like. Just make sure to follow the agenda from that point on if you want to follow the optimal route!</p>
+<p>[caption width="600"]<a href="http://www.randalolson.com/wp-content/uploads/us-national-parks-optimal-road-trip.png"><img src="{{ site.baseurl }}/assets/2016/07/us-national-parks-optimal-road-trip-1024x604.png" alt="The Optimal U.S. National Parks Centennial Road Trip" width="600" class="aligncenter size-large wp-image-8290" /></a> Click <a href="http://rhiever.github.io/optimal-roadtrip-usa/optimized-us-national-parks-trip-47-parks.html">here</a> for an interactive version[/caption]</p>
+<p>Here's the Google Maps for the full trip: <a href="https://www.google.com/maps/dir/Mather+Point,+Rim+Trail,+Grand+Canyon+Village,+Arizona/Petrified+Forest+National+Park,+Arizona/Saguaro+National+Park+Visitor+Center,+North+Kinney+Road,+Tucson,+Arizona/Guadalupe+Mountains+National+Park,+Texas/Carlsbad+Caverns+National+Park,+New+Mexico/Big+Bend+National+Park,+Texas/Hot+Springs+National+Park,+Hot+Springs,+Arizona+71901/Mammoth+Cave+National+Park,+Kentucky/Great+Smoky+Mountains+National+Park,+Tennessee/Everglades+National+Park,+Florida/">[1]</a> <a href="https://www.google.com/maps/dir/Everglades+National+Park,+Florida/Dry+Tortugas+National+Park,+Florida/Biscayne+National+Park,+Florida/Congaree+National+Park,+South+Carolina/Shenandoah+National+Park,+Virginia/Acadia+National+Park,+Maine/Cuyahoga+Valley+National+Park,+Ohio/Isle+Royale+National+Park,+Michigan/Voyageurs+National+Park,+International+Falls,+Minnesota+56649/Theodore+Roosevelt+National+Park,+North+Dakota/Badlands+National+Park,+South+Dakota/">[2]</a> <a href="https://www.google.com/maps/dir/Badlands+National+Park,+South+Dakota/Wind+Cave+National+Park+Visitor+Center,+Hot+Springs,+South+Dakota/Rocky+Mountain+National+Park,+Colorado/Great+Sand+Dunes+National+Park+and+Preserve,+Colorado/Black+Canyon+of+the+Gunnison+National+Park,+Colorado/Mesa+Verde+National+Park,+Mesa+Verde,+Colorado/Canyonlands+National+Park,+Utah/Arches+National+Park,+Utah/Capitol+Reef+National+Park,+Utah/Bryce+Canyon+National+Park,+Utah/Zion+National+Park,+Utah/">[3]</a> <a href="https://www.google.com/maps/dir/Zion+National+Park,+Utah/Great+Basin+National+Park,+Nevada/Grand+Teton+National+Park,+Wyoming/Yellowstone+National+Park,+Wyoming/Glacier+National+Park,+Montana/North+Cascades+National+Park,+Washington/Mount+Rainier+National+Park,+Washington/Olympic+National+Park,+Washington/Crater+Lake+National+Park,+Oregon/Redwood+National+and+State+Parks,+California/Lassen+Volcanic+National+Park,+California/">[4]</a> <a href="https://www.google.com/maps/dir/Lassen+Volcanic+National+Park,+California/Yosemite+National+Park,+California/Kings+Canyon+National+Park,+California/Sequoia+National+Park,+California/Pinnacles+National+Park,+California/The+Robert+J.+Lagomarsino+Visitor+Center+at+Channel+Islands+National+Park,+1901+Spinnaker+Drive,+Ventura,+California+93001/Joshua+Tree+National+Park,+California/Death+Valley+National+Park,+California/Mather+Point,+Rim+Trail,+Grand+Canyon+Village,+Arizona/">[5]</a></p>
+<p>Here's the full list of national parks in order:</p>
+<ol>
+<li>Grand Canyon National Park, Arizona</li>
+<li>Petrified Forest National Park, Arizona</li>
+<li>Saguaro National Park, Arizona</li>
+<li>Guadalupe Mountains National Park, Texas</li>
+<li>Carlsbad Caverns National Park, New Mexico</li>
+<li>Big Bend National Park, Texas</li>
+<li>Hot Springs National Park, Arkansas</li>
+<li>Mammoth Cave National Park, Kentucky</li>
+<li>Great Smoky Mountains National Park, Tennessee</li>
+<li>Everglades National Park, Florida</li>
+<li>Dry Tortugas National Park, Florida</li>
+<li>Biscayne National Park, Florida</li>
+<li>Congaree National Park, South Carolina</li>
+<li>Shenandoah National Park, Virginia</li>
+<li>Acadia National Park, Maine</li>
+<li>Cuyahoga Valley National Park, Ohio</li>
+<li>Isle Royale National Park, Michigan</li>
+<li>Voyageurs National Park, Minnesota</li>
+<li>Theodore Roosevelt National Park, North Dakota</li>
+<li>Badlands National Park, South Dakota</li>
+<li>Wind Cave National Park, South Dakota</li>
+<li>Rocky Mountain National Park, Colorado</li>
+<li>Great Sand Dunes National Park and Preserve, Colorado</li>
+<li>Black Canyon of the Gunnison National Park, Colorado</li>
+<li>Mesa Verde National Park, Colorado</li>
+<li>Canyonlands National Park, Utah</li>
+<li>Arches National Park, Utah</li>
+<li>Capitol Reef National Park, Utah</li>
+<li>Bryce Canyon National Park, Utah</li>
+<li>Zion National Park, Utah</li>
+<li>Great Basin National Park, Nevada</li>
+<li>Grand Teton National Park, Wyoming</li>
+<li>Yellowstone National Park, Wyoming</li>
+<li>Glacier National Park, Montana</li>
+<li>North Cascades National Park, Washington</li>
+<li>Mount Rainier National Park, Washington</li>
+<li>Olympic National Park, Washington</li>
+<li>Crater Lake National Park, Oregon</li>
+<li>Redwood National and State Parks, California</li>
+<li>Lassen Volcanic National Park, California</li>
+<li>Yosemite National Park, California</li>
+<li>Kings Canyon National Park, California</li>
+<li>Sequoia National Park, California</li>
+<li>Pinnacles National Park, California</li>
+<li>Channel Islands National Park, California</li>
+<li>Joshua Tree National Park, California</li>
+<li>Death Valley National Park, California</li>
+</ol>
+<h3>Want to make your own road trip?</h3>
+<p>If you like the idea of taking an optimal road trip but don't like the locations I chose, don't fret: you can make your own road trip!</p>
+<p>This time around, I used the Gurobi TSP solver to optimize this road trip. Check out <a href="https://nathanbrixius.wordpress.com/2016/06/09/computing-optimal-road-trips-using-operations-research/">Nathan Brixius' blog post</a> to learn how to make your own, or <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/optimal-road-trip/Computing%20the%20optimal%20road%20trip%20across%20the%20U.S..ipynb">check out my alternative methods</a> to optimizing road trips using Python and Google Maps.</p>
+<p>If Python coding is beyond you, there are web sites like <a href="https://www.routexl.com/">RouteXL.com</a> that will do it for you. They optimize road trips with up to 20 stops for free, and 20+ stops for a nominal fee.</p>
+<p>Happy road tripping!</p>

@@ -1,0 +1,55 @@
+---
+layout: post
+title: U.S. Racial Diversity by County
+date: 2014-04-29 00:21:11.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+tags:
+- county
+- ethnicity
+- map
+- racial diversity
+- united states
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_keywords: united states, usa, racial diversity, county, map, ethnicity
+  _aioseop_description: Randy Olson maps out racial diversity in the U.S.
+  _aioseop_title: U.S. Racial Diversity by County
+  _thumbnail_id: '3653'
+  dsq_thread_id: '3245767152'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430385944;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:4431;}i:1;a:1:{s:2:"id";i:2412;}i:2;a:1:{s:2:"id";i:3582;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/04/29/u-s-racial-diversity-by-county/"
+---
+<p>The U.S. is typically viewed as a melting pot of races and cultures, but recent maps showing the <a href="http://i.imgur.com/cQWZfwA.png">ethnic distribution of the U.S.</a> seem to hint that the U.S. isn't as well-mixed as we all thought. In this visualization, I mapped out the racial/ethnic diversity of the U.S. to give us a better sense of the hotspots of diversity.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/US_racial_diversity_map.png"><img src="{{ site.baseurl }}/assets/2014/04/US_racial_diversity_map.png" alt="US_racial_diversity_map" width="988" height="662" class="aligncenter size-full wp-image-3653" /></a></p>
+<p>To calculate racial/ethnic diversity, I computed the <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a> on the "% ethnicity" data for each county using the 6 ethnic categories the U.S. Census tracks: White (non-Latino), African American, Native American, Asian American, Latino, and Other. A county will come out with high entropy when all 6 ethnic categories are as even as possible (i.e., each ~16.7%), whereas it will come out with low entropy if the county is only inhabited by people of one ethnic category. I've included the <a href="http://www.randalolson.com/wp-content/uploads/us_map_ethnicities.csv">raw census data</a> if you want to tinker with it yourself.</p>
+<p>One of the most notable features is that the Midwest and Northeast are fairly <a href="http://i.imgur.com/cQWZfwA.png">homogeneously white</a>. Vermont, New Hampshire, and Maine stand as the pinnacle of racial homogeneity, each with only one or two counties with even a blip of diversity. The only exceptions to this trend are the major cities throughout the U.S., which seem to attract people of all ethnicities regardless of the state the city is in.</p>
+<p>As a Michigander, I'm the most surprised to see how diverse the Upper Peninsula is. I thought only crazy white people lived up that far in Michigan.</p>
+<p>Here's the least diverse counties:</p>
+<ol>
+<li><strong>Tucker County, West Virginia</strong> (100% White, non-Latino)</li>
+<li><strong>Robertson County, Kentucky</strong> (100% White, non-Latino)</li>
+<li><strong>Hooker County, Nebraska</strong> (100% White, non-Latino)</li>
+<li><strong>Hand County, South Dakota</strong> (99% White, non-Latino and 1% Latino)</li>
+<li><strong>Owsley County, Kentucky</strong> (98% White, non-Latino and 2% Latino)</li>
+</ol>
+<p>And the most diverse counties:</p>
+<ol>
+<li><strong>Aleutians West Census Area, Alaska</strong> (31.4% White (non Latino), 5.7% African American, 15.1% Native American, 28.3% Asian American, 13.1% Latino, and 6.4% Other)</li>
+<li><strong>Aleutians East Borough, Alaska</strong> (13.5% White (non Latino), 6.7% African American, 27.7% Native American, 35.4% Asian American, 12.3% Latino, and 4.4% Other)</li>
+<li><strong>Queens County, New York</strong> (27.6% White (non Latino), 17.7% African American, 0.3% Native American, 22.8% Asian American, 27.5% Latino, and 4% Other)</li>
+<li><strong>Alameda County, California</strong> (34.1% White (non Latino), 12.2% African American, 0.3% Native American, 25.9% Asian American, 22.5% Latino, and 5.1% Other)</li>
+<li><strong>Solano County, California</strong> (40.8% White (non Latino), 14.2% African American, 0.5% Native American, 14.3% Asian American, 24% Latino, and 6.2% Other)</li>
+</ol>

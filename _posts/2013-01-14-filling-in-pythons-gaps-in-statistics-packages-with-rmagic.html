@@ -1,0 +1,177 @@
+---
+layout: post
+title: Filling in Python's gaps in statistics packages with Rmagic
+date: 2013-01-14 22:53:19.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- ipython
+- productivity
+- python
+- statistics
+- tutorial
+tags:
+- ipython
+- pandas
+- python
+- R language
+- Rmagic
+- statistics
+- tutorial
+meta:
+  _wpas_done_all: '1'
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_title: Filling in Python's gaps in statistics packages with Rmagic
+  _aioseop_description: Randy Olson shows how to use IPython's Rmagic package to seamlessly
+    integrate R code with the IPython interface.
+  dsq_thread_id: '3245762777'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430347092;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:71;}i:1;a:1:{s:2:"id";i:289;}i:2;a:1:{s:2:"id";i:1896;}}}}
+  _aioseop_keywords: ipython, python, statistics, R language, Rmagic, pandas, tutorial
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2013/01/14/filling-in-pythons-gaps-in-statistics-packages-with-rmagic/"
+---
+<p>Have you ever found yourself searching for a statistics package in Python, but it just isn't available? This is the biggest reason I've heard when my colleagues say they're unwilling to make the switch from R to Python for statistical analysis. To counteract that argument, the geniuses developing <a href="http://ipython.org/">IPython</a> created <a href="http://nbviewer.ipython.org/github/ipython/ipython/blob/3607712653c66d63e0d7f13f073bde8c0f209ba8/docs/examples/notebooks/rmagic_extension.ipynb">Rmagic</a>, a package which allows you to run R code within the IPython interface.</p>
+<p>Let's get to the cut and dry and see how it works. If you want to follow along, the IPython Notebook and data file is available on github: <a href="https://github.com/rhiever/rmagic-tutorial">https://github.com/rhiever/rmagic-tutorial</a></p>
+<h3>Installing Rmagic</h3>
+<p>Rmagic comes along with the IPython package, so just follow my <a href="http://www.randalolson.com/2012/05/12/a-short-demo-on-how-to-use-ipython-notebook-as-a-research-notebook/">IPython tutorial</a> to install IPython. Beyond IPython, all you need is Python's <a href="https://pypi.org/project/rpy2/">rpy2 package</a> to run Rmagic:</p>
+<pre name="code" class="sql:nogutter">
+sudo easy_install rpy2
+</pre>
+<p>I also exclusively use the <a href="http://pandas.pydata.org/">pandas</a> package when I'm dealing with data, so make sure to have that installed as well:</p>
+<pre name="code" class="sql:nogutter">
+sudo easy_install pandas
+</pre>
+<h3>Using Rmagic for statistical analysis</h3>
+<p>I do most of my statistical analysis in Python nowadays, but sometimes there's just that one statistical function that I need that Python doesn't quite have yet. In those cases, I use Rmagic to "fill the gap" in Python's statistics packages. Rmagic lets me pass my data to R, run the R function on the data, then seamlessly return the data back to Python before I start having nightmares about using R again. Since there are already a ton of R statistics tutorials out there, this tutorial will instead concentrate on how to use Rmagic to link together Python and R code.</p>
+<h4>Load the rmagic extension</h4>
+<pre name="code" class="python:nogutter">
+%load_ext rmagic
+</pre>
+<h4>Use R to view summary information about the data</h4>
+<p>If you like how R provides summary information about the data, you can print out the summary() function.</p>
+<p>%R tells IPython that the line is R code.</p>
+<p>-i parasiteData tells IPython to pass the parasiteData DataFrame to R.</p>
+<p>The rest is R code. You can have multiple lines of R code separated by semicolons.</p>
+<p>Note that when you want to print anything out from R, you need to place the print() function around it.</p>
+<pre name="code" class="python:nogutter">
+from pandas import *
+
+# read data from data file into a pandas DataFrame
+parasiteData = read_csv("parasite_data.csv", sep=",", na_values=["", " "])
+
+# print the R summary() function for the data
+%R -i parasiteData print(summary(parasiteData))
+
+
+   Virulence      Replicate    ShannonDiversity
+ Min.   :0.50   Min.   : 1.0   Min.   :0.0000  
+ 1st Qu.:0.60   1st Qu.:13.0   1st Qu.:0.0000  
+ Median :0.75   Median :25.5   Median :0.8457  
+ Mean   :0.75   Mean   :25.5   Mean   :0.8364  
+ 3rd Qu.:0.90   3rd Qu.:38.0   3rd Qu.:1.5337  
+ Max.   :1.00   Max.   :50.0   Max.   :2.9008  
+ NA's   :50                              
+</pre>
+<h4>View a R plot in IPython</h4>
+<p>You can even view plots of your data in IPython from R.</p>
+<pre name="code" class="python:nogutter">
+from pandas import *
+
+# read data from data file into a pandas DataFrame
+parasiteData = read_csv("parasite_data.csv", sep=",", na_values=["", " "])
+
+# plot the Shannon Diversity as a function of Virulence in R
+%R -i parasiteData plot(ShannonDiversity ~ Replicate, data = parasiteData,
+                        xlab="Replicate",
+                        ylab="Shannon Diversity")
+</pre>
+<p><img src="{{ site.baseurl }}/assets/2013/01/rmagic-r-plot.png" alt="rmagic-r-plot" width="480" height="480" class="aligncenter size-full wp-image-581" /></p>
+<h4>Filling in the gaps</h4>
+<p>Beyond the basics, you can use R to perform a single function on your data, then return the result back to Python. Here's a simple example.</p>
+<p>-o meanShannonDiversity tells IPython to return the meanShannonDiversity variable back from R to IPython.</p>
+<pre name="code" class="python:nogutter">
+from pandas import *
+
+# read data from data file into a pandas DataFrame
+parasiteData = read_csv("parasite_data.csv", sep=",", na_values=["", " "])
+
+# calculate the mean Shannon Diversity for experiments with Virulence = 0.7
+# do the subsetting in Python - it's easier!
+ShannonDiversity = parasiteData[parasiteData["Virulence"] == 0.7]["ShannonDiversity"]
+
+%R -i ShannonDiversity -o meanShannonDiversity meanShannonDiversity <- mean(ShannonDiversity)
+
+print "R Mean:     ", meanShannonDiversity[0]
+print "Python Mean:", ShannonDiversity.mean()
+
+
+R Mean:      1.1261538832
+Python Mean: 1.1261538832
+</pre>
+<p>How about a more useful example? We can use R's built-in bootstrapping function to construct 95% confidence intervals for our data.</p>
+<pre name="code" class="python:nogutter">
+from pandas import *
+
+# read data from data file into a pandas DataFrame
+parasiteData = read_csv("parasite_data.csv", sep=",", na_values=["", " "])
+
+# calculate the 95% confidence interval for Shannon Diversity for
+# experiments with Virulence = 0.5 and 0.8
+# do the subsetting in Python - it's easier!
+ShannonDiversityV5 = parasiteData[parasiteData["Virulence"] == 0.5]["ShannonDiversity"]
+ShannonDiversityV8 = parasiteData[parasiteData["Virulence"] == 0.8]["ShannonDiversity"]
+
+# load R's boot library
+%R require(boot)
+
+# define the function we're bootstrapping (mean)
+%R sampleMean <- function(x, d) { return(mean(x[d])) }
+
+# bootstrap the 95% confidence intervals for the Virulence = 0.5 experiments
+%R -i ShannonDiversityV5 -o bootstrapCIV5
+%R bootstrap <- boot(ShannonDiversityV5, sampleMean, R=10000);
+%R ci <- boot.ci(bootstrap, type="basic");
+$R bootstrapCIV5 <- list(ci$basic[1,4], ci$basic[1,5])
+
+# bootstrap the 95% confidence intervals for the Virulence = 0.8 experiments
+%R -i ShannonDiversityV8 -o bootstrapCIV8
+%R bootstrap <- boot(ShannonDiversityV8, sampleMean, R=10000);
+%R ci <- boot.ci(bootstrap, type="basic");
+%R bootstrapCIV8 <- list(ci$basic[1,4], ci$basic[1,5])
+
+# plot the 95% confidence intervals
+figure(figsize(8,6))
+xlim(0.4, 0.9)
+title("Comparison of Shannon Diversity")
+xlabel("Virulence")
+ylabel("Shannon Diversity")
+errorbar(x = [0.5], y = [ShannonDiversityV5.mean()],
+         yerr = [ShannonDiversityV5.mean() - bootstrapCIV5[0],
+                 bootstrapCIV5[1] - ShannonDiversityV5.mean()])
+errorbar(x = [0.8], y = [ShannonDiversityV8.mean()],
+         yerr = [ShannonDiversityV8.mean() - bootstrapCIV8[0],
+                 bootstrapCIV8[1] - ShannonDiversityV8.mean()])
+
+# print the 95% confidence intervals
+print "95% confidence interval (Virulence = 0.5):",
+       bootstrapCIV5[0], "to", bootstrapCIV5[1]
+print "95% confidence interval (Virulence = 0.8):",
+       bootstrapCIV8[0], "to", bootstrapCIV8[1]
+
+
+Loading required package: boot
+95% confidence interval (Virulence = 0.5): [ 0.55618822] to [ 0.92704398]
+95% confidence interval (Virulence = 0.8): [ 1.05437854] to [ 1.49182085]
+</pre>
+<p><img src="{{ site.baseurl }}/assets/2013/01/rmagic-python-plot.png" alt="rmagic-python-plot" width="501" height="389" class="aligncenter size-full wp-image-582" /></p>
+<p>And there you have it: we know there is a significant difference between the experiments with Virulence = 0.5 and 0.8 because their 95% confidence intervals don't overlap.</p>
+<p>For those who use Octave, there is a similar <a href="http://ipython.org/ipython-doc/2/config/extensions/octavemagic.html">octavemagic package</a> in IPython as well.</p>

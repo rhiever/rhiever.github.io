@@ -1,0 +1,83 @@
+---
+layout: post
+title: 'Design critique: Putting Big Pharma spending in perspective'
+date: 2015-03-01 17:36:49.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data visualization
+tags:
+- big pharma
+- budget
+- design critique
+- marketing
+- r&amp;d
+- remake
+meta:
+  _edit_last: '2'
+  _aioseop_description: Randy Olson critiques a recently popular infographic on the
+    odd spending habits of Big Pharma companies.
+  _aioseop_title: Putting Big Pharma spending in perspective
+  dsq_thread_id: '3559187676'
+  _responsive_layout: default
+  _thumbnail_id: '6241'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430348898;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:5879;}i:1;a:1:{s:2:"id";i:5525;}i:2;a:1:{s:2:"id";i:4882;}}}}
+  _aioseop_keywords: data visualization, design critique, remake, big pharma, marketing,
+    r&d, budget, John Oliver, Last Week Tonight
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/03/01/design-critique-putting-big-pharma-spending-in-perspective/"
+---
+<p>Recently, <a href="http://reddit.com/r/dataisbeautiful">/r/DataIsBeautiful</a> began hosting <a href="http://www.reddit.com/r/dataisbeautiful/comments/2wftbr/new_weekly_event_make_it_better_mondays/">weekly visualization redesign competitions</a> challenging everyone to come up with better and less misleading designs of existing graphics. Below is the first of many redesigns and detailed critiques that I will be working on.</p>
+<hr />
+<p>In early 2015, John Oliver and his team released an excellent <a href="https://www.youtube.com/watch?v=YQZ2UeOTO3I">exposé on Big Pharma</a> and their shady marketing tactics. Shortly thereafter, Leon Markovitz from <a href="http://web.archive.org/web/20170302222153/http://dadaviz.com/i/3194/">dadaviz</a> released the following bubble chart to feed the ensuing anti-Big Pharma news cycle.</p>
+<p><a href="http://web.archive.org/web/20170302222153/http://dadaviz.com/i/3194/"><img src="{{ site.baseurl }}/assets/2015/03/9-out-of-10-big-pharma-companies-spend-more-on-mar-1423570941.34-1027249-1024x724.png" alt="9-out-of-10-big-pharma-companies-spend-more-on-mar-1423570941.34-1027249" width="605" height="428" class="aligncenter size-large wp-image-6238" /></a></p>
+<p>While this bubble chart visualizes an interesting phenomenon, several aspects of the chart can be improved to tell a more accurate and complete story. Below, I will outline and address three such improvements.</p>
+<h3>Better design through better chart choices</h3>
+<p>It has been shown time and time again that <a href="http://www.perceptualedge.com/articles/08-21-07.pdf">circles are terrible for making comparisons</a>. Worse, the above bubble chart makes it even more difficult to use the circles to compare values by not even overlapping them. The visual representations of the data in this graphic are minimally useful, and most readers will simply rely on reading and comparing the numbers inside each circle, which renders the chart a fancy-looking data table.</p>
+<p>Most basic guides for selecting charts <a href="http://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf">recommend</a> the use of bar charts for comparisons of data. Let's rework the above chart into a bar chart.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/big-pharma-revenue-spending-breakdown.png"><img src="{{ site.baseurl }}/assets/2015/03/big-pharma-revenue-spending-breakdown.png" alt="big-pharma-revenue-spending-breakdown" width="857" height="469" class="aligncenter size-full wp-image-6275" /></a></p>
+<p>The bar chart works much better than the bubble chart for comparing the company's marketing and R&D budgets by placing them on the same axis. It also still allows the viewer to look up approximate budget numbers via the x-axis grid lines. However, the bar chart is also quite cluttered because it's comparing 2 values for 10 companies.</p>
+<p>This is where it's important to think about the purpose of the chart. Leon wanted to use this chart to communicate the fact that "9 out of 10 Big Pharma companies spend more on marketing than R&D." This fact can more effectively be communicated by a scatter plot, as I've demonstrated below. In the chart below, each square represents a company.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/big-pharma-marketing-vs-rd-spending.png"><img src="{{ site.baseurl }}/assets/2015/03/big-pharma-marketing-vs-rd-spending.png" alt="big-pharma-marketing-vs-rd-spending" width="610" height="517" class="aligncenter size-full wp-image-6254" /></a></p>
+<p>The key to this scatter plot is the line running diagonally through the center of the chart, which represents parity between marketing and R&D spending. Now the viewer can immediately tell how many Big Pharma companies spend more on marketing than R&D: They need only count the number of squares above and below the line of parity.</p>
+<p>As an added advantage, the scatter plot still allows the viewer to gauge approximate budgets for each company <em>and</em> allows for a third dimension of data -- total company revenue in this case -- to be visualized via the size of the squares. Even though the identity of the individual companies are lost in the scatter plot, this issue could be remedied by annotating the graph with the names, changing the squares to pictures of the company logos, or even turning the graphic into an interactive. I did not do so here because the company names are not particularly important to the story.</p>
+<h3>Don't forget to normalize</h3>
+<p>Another basic mistake in the original bubble chart was that the data was not <a href="http://en.wikipedia.org/wiki/Normalization_%28statistics%29">normalized</a> in any way, making comparisons between the Big Pharma companies precarious.</p>
+<p>Taken at face value, the non-normalized numbers seem to indicate that Johnson & Johnson is a marketing giant and far more invested in marketing than Astra Zeneca. These numbers completely ignore the fact that Johnson & Johnson brings in far more revenues than Astra Zeneca; when we take both company's total revenues into account, Astra Zeneca actually spends a higher percentage of its revenues (28%) on marketing than Johnson & Johnson (24%).</p>
+<p>Below, I normalized all of the expenditures by each company's 2013 yearly revenues.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/big-pharma-marketing-vs-rd-pct-spending.png"><img src="{{ site.baseurl }}/assets/2015/03/big-pharma-marketing-vs-rd-pct-spending.png" alt="big-pharma-marketing-vs-rd-pct-spending" width="610" height="517" class="aligncenter size-full wp-image-6253" /></a></p>
+<p>By normalizing the expenditures, the graph now tells a more complete story: We can meaningfully compare the Big Pharma companies and see that most of them spend about 15% of their revenues on R&D and 20-25% of their revenues on marketing, with Roche and Eli Lilly & Co. being the odd ones out sitting on the line of parity.</p>
+<h3>Provide meaningful context</h3>
+<p>Perhaps the most egregious oversight in the design of the original bubble chart was the failure to provide any meaningful context to the data. The viewer was left with the fact that "9 out of 10 Big Pharma companies spend more on marketing than R&D," but many viewers don't know if a large marketing budget is normal for a company or not. Left to their own devices, many viewers (especially those who watched John Oliver <a href="https://www.youtube.com/watch?v=YQZ2UeOTO3I">exposé</a>) assumed "R&D good, marketing BAD" and immediately grabbed their pitchforks and aimed them at Big Pharma.</p>
+<p>To provide at least some context to the data, I looked up the 2013 marketing and R&D budgets of 6 large companies and plotted them alongside the Big Pharma companies. The companies are:</p>
+<ul>
+<li>Samsung</li>
+<li>Intel</li>
+<li>Microsoft</li>
+<li>Google</li>
+<li>Toyota</li>
+<li>General Motors</li>
+</ul>
+<p>These companies were picked based on the ease of looking up their budget and revenue information. Unsurprisingly, not all companies make this information readily accessible on the internet.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/companies-marketing-vs-rd-spending.png"><img src="{{ site.baseurl }}/assets/2015/03/companies-marketing-vs-rd-spending.png" alt="companies-marketing-vs-rd-spending" width="610" height="517" class="aligncenter size-full wp-image-6241" /></a></p>
+<p>At least based on the companies chosen, it appears that Big Pharma as a whole is an outlier when it comes to marketing budgets. Even Samsung with its infamous $14bn marketing budget only spends ~8% of its revenues on marketing. The only company that even comes close to Big Pharma in terms of marketing is Intel, but it still spends more on R&D than marketing.</p>
+<p>Perhaps the pitchforks over Big Pharma's apparently overgrown marketing budget were warranted, but we didn't know until at least some context was provided.</p>
+<h3>Conclusions</h3>
+<p>Well-designed data visualizations are one of the most effective mediums for communicating information today. We must be careful when designing visualizations to make sure that they tell the whole truth rather than <a href="http://www.fastcodesign.com/3024273/infographic-of-the-day/infographics-lie-heres-how-to-spot-the-bs">bend statistics</a> to tell the story we want to hear. In this critique, I have covered 3 common oversights that lead to bad and/or misleading visualizations:</p>
+<ul>
+<li>Selection of a proper chart</li>
+<li>Normalizing data</li>
+<li>Providing meaningful context</li>
+</ul>
+<p>Before sharing your visualizations in the future, please be sure to review your work to ensure that you didn't hit one of these common pitfalls.</p>
+<p>If you liked what you saw in this post and want to learn more, check out my <a href="http://shop.oreilly.com/product/0636920046592.do">Python data visualization video course</a> that I made in collaboration with O'Reilly. In just one hour, I will cover these topics and much more, which will provide you with a strong starting point for your career in data visualization.</p>
+<p><center><iframe src="http://www.oreilly.com/authors/widgets/684.html" height="500px" width="200px" scrolling="no" frameborder="0"></iframe></center></p>

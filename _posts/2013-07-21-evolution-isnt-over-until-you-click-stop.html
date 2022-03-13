@@ -1,0 +1,69 @@
+---
+layout: post
+title: Evolution isn't over until you click stop
+date: 2013-07-21 16:00:54.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- research
+tags:
+- digital evolution
+- evolutionary computation
+- false conclusions
+- long term evolution
+- performance comparison
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _wpas_done_all: '1'
+  _aioseop_description: Randy Olson discusses why it is important to make longer runs
+    in Evolutionary Computation and Digital Evolution research.
+  _aioseop_title: Evolution isn't over until you click stop
+  _thumbnail_id: '1717'
+  _aioseop_keywords: evolutionary computation, performance comparison, digital evolution,
+    long term evolution, false conclusions
+  dsq_thread_id: '3245766903'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430358659;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:1561;}i:1;a:1:{s:2:"id";i:336;}i:2;a:1:{s:2:"id";i:1745;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2013/07/21/evolution-isnt-over-until-you-click-stop/"
+---
+<h3>Why we need to run simulations out longer in Evolutionary Computation and Digital Evolution research</h3>
+<p>I thought I had this whole evolutionary computation thing down by now. After all, I've been evolving things inside the computer for 5 years. I've evolved <a href="http://www.randalolson.com/wp-content/uploads/2012/05/Randal-S-Olson-HIM-Thesis.pdf">robots</a>. I've evolved <a href="http://www.randalolson.com/wp-content/uploads/Olson-Predator-confusion-is-sufficient-to-evolve-swarming-behavior-2013.pdf">digital critters</a>. Heck, I've even <a href="http://www.randalolson.com/wp-content/uploads/Olson-Evolved-digital-ecosystems-Dynamic-steady-state-not-optimal-fixed-point-2013.pdf">studied how evolution works</a> in complex digital fitness landscapes.</p>
+<p>But nope. As always, evolution managed to surprise me. It wasn't a good surprise, either. It nearly led me to the wrong conclusion in one of my projects.</p>
+<p>This time, I learned an important lesson about evolution: <strong>Evolution isn't over until you click stop</strong>.</p>
+<p>"What does that mean?," you ask.</p>
+<p>Well, let me tell you the story of how I came to this realization.</p>
+<h5>Short runs can lead to false conclusions</h5>
+<p>For the past year, I've been studying <a href="http://www.randalolson.com/2013/04/24/how-and-why-do-animals-evolve-grouping-behavior/">collective animal behavior</a> using digital evolutionary models. I want to get at how and why animals work together in groups. For one of these projects, I was studying the effect of predator attack mode on the evolution of swarming behavior in a selfish herd. Everything was going smoothly. I had run my evolutionary simulations out to 1,200 generations -- the normal number of generations I run my simulations out to -- and I saw some clear evolutionary trends in the data, shown below.</p>
+<p>[caption id="attachment_1653" align="aligncenter" width="723"]<a href="http://www.randalolson.com/wp-content/uploads/artificial-selection-1kgens.png"><img src="{{ site.baseurl }}/assets/2013/07/artificial-selection-1kgens.png" alt="Artificial selection experiments - 1,200 generations" width="723" height="381" class="size-full wp-image-1653" /></a> Artificial selection experiments at 1,200 generations. "Mean Nearby Prey" is a measure of how densely the prey are swarming, or if they are swarming at all. Error bars are 95% confidence intervals.[/caption]</p>
+<p>From this data, I felt confident making three conclusions:</p>
+<ol>
+<li>the Outside Attack treatment was strongly selecting for swarming behavior,</li>
+<li>the Random Walk Attack treatment was weakly selecting for swarming behavior, and</li>
+<li>the Random Attack treatment was not selecting for swarming behavior.</li>
+</ol>
+<p>Perhaps the most controversial conclusion was the third one. It completely went against people's intuition of how the selfish herd theory works. Why wouldn't random attacks select for selfish herd behavior? There <em>has</em> to be an advantage to swarming, even with random attacks! But the data was pretty clear: Even at generation 1,200, the prey weren't swarming at all in the random attack treatment. Even the difference in "swarminess" between generations 1 and 1,200 in the Random Attack treatment wasn't statistically significant.</p>
+<p>"Are you sure you ran the simulations out long enough?", <a href="https://www.msu.edu/~mwiser/">one of my colleagues</a> asked. I chuckled, feeling confident that 1,200 generations was more than enough to get a sense for the evolutionary trends in my model. And of course he'd ask that question. He's one of the researchers studying long-term evolutionary trends in the <a href="http://myxo.css.msu.edu/ecoli/">Long-term Experimental Evolution project</a>. Nevertheless, I ran my experiments out for another 800 generations (for a total of 2,000 generations) to sate his curiosity.</p>
+<p>[caption id="attachment_1654" align="aligncenter" width="719"]<a href="http://www.randalolson.com/wp-content/uploads/artificial-selection-2kgens.png"><img src="{{ site.baseurl }}/assets/2013/07/artificial-selection-2kgens.png" alt="Artificial selection experiments - 2,000 generations" width="719" height="381" class="size-full wp-image-1654" /></a> Artificial selection experiments at 2,000 generations. "Mean Nearby Prey" is a measure of how densely the prey are swarming, or if they are swarming at all. Error bars are 95% confidence intervals.[/caption]</p>
+<p>That's when things got interesting. Suddenly that difference in "swarminess" between generations 1 and 2,000 in the Random Attack treatment <em>was</em> statistically significant. Suddenly it looked the beginnings of swarming behavior <em>was</em> evolving by generation 2,000 in the Random Attack treatment. My curiosity piqued, I ran the experiments out to 10,000 generations...</p>
+<p>[caption id="attachment_1655" align="aligncenter" width="719"]<a href="http://www.randalolson.com/wp-content/uploads/artificial-selection-10kgens.png"><img src="{{ site.baseurl }}/assets/2013/07/artificial-selection-10kgens.png" alt="Artificial selection experiments - 10,000 generations" width="719" height="381" class="size-full wp-image-1655" /></a> Artificial selection experiments at 10,000 generations. "Mean Nearby Prey" is a measure of how densely the prey are swarming, or if they are swarming at all. Error bars are 95% confidence intervals.[/caption]</p>
+<p><strong>WOAH!</strong></p>
+<p>What a difference a "few" generations can make!</p>
+<p>If you look at generations 1,000 and 2,000 for the Random Attack treatment in the graph above, what originally looked a lot like a plateau was just the beginnings of a slow ascent toward swarming behavior. In fact, the difference between generations 1 and 2,000 look nothing like a plateau in this graph; it's pretty clear that the prey were beginning to swarm at that point. Rather than not selecting for swarming behavior at all, <strong>the Random Attack treatment merely exhibited a very weak selective pressure for swarming behavior</strong>. My original conclusion was wrong because I was ending my runs too early!</p>
+<p>It was at this point that I learned...</p>
+<h5>Evolution can be surprisingly slow</h5>
+<p>[caption id="attachment_1656" align="aligncenter" width="731"]<a href="http://www.randalolson.com/wp-content/uploads/artificial-selection-50kgens.png"><img src="{{ site.baseurl }}/assets/2013/07/artificial-selection-50kgens.png" alt="Artificial selection experiments - 50,000 generations" width="731" height="381" class="size-full wp-image-1656" /></a> Artificial selection experiments at 50,000 generations. "Mean Nearby Prey" is a measure of how densely the prey are swarming, or if they are swarming at all. Error bars are 95% confidence intervals.[/caption]</p>
+<p>It ended up taking about 20,000 generations for the prey in the Random Attack treatment to evolve visually noticeable swarming behavior, which is roughly 20x longer than the other two treatments. While I certainly wasn't wrong in claiming that the Random Walk Attack and Outside Attack treatments select much more strongly for swarming behavior, if I hadn't run the simulations out longer, I would have wrongly concluded that Random Attacks don't select for swarming behavior. I would have missed out on something much more interesting: that random attacks do indeed select for swarming behavior, but <em>very</em> weakly.</p>
+<p>And that's how I learned my lesson: <strong>Evolution isn't over until you click stop</strong>. I was ending my runs too early and wasn't giving my digital critters enough time to figure out how to survive in their world.</p>
+<h3>What does this mean for Evolutionary Computation research?</h3>
+<p>I've read my fair share of Evolutionary Computation literature, and I'm not alone in cutting my runs short. I lost count of how many papers that report on simulations that only ran for 100 or 200 generations and claim that such and such evolutionary algorithm fails to find the optimal solution. Are 200 generations really enough to effectively explore the fitness landscape? If we're really so limited on time that we can only run 200 generations, is an evolutionary algorithm really the right algorithm to use?</p>
+<p>The problem is even worse in projects that go unpublished. How many times have researchers run an evolutionary algorithm out for a couple hundred generations, didn't seen any progress, and called it quits and moved on to the next setup? I implore all Evolutionary Computation researchers to echo the words of my colleague to themselves the next time this situation is encountered: <strong>"Are you sure you ran the simulations out long enough?"</strong> You could be right on the edge of a really interesting discovery.</p>
+<p>[caption id="attachment_1717" align="aligncenter" width="500"]<a href="http://www.randalolson.com/wp-content/uploads/dont-give-up.jpg"><img src="{{ site.baseurl }}/assets/2013/07/dont-give-up.jpg" alt="Don't give up; you could be right on the edge of a really interesting discovery." class="size-full wp-image-1717" /></a> If your evolutionary algorithm isn't performing as expected within a couple hundred generations, don't give up. You could be right on the edge of a really interesting discovery.[/caption]</p>

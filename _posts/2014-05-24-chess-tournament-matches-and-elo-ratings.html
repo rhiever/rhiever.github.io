@@ -1,0 +1,74 @@
+---
+layout: post
+title: Chess tournament games and Elo ratings
+date: 2014-05-24 02:42:11.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- chess match
+- draw
+- elo rating
+- expert
+- first-move advantage
+- stalemate
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _wp_old_slug: chess-tournament-matches-and-elo-scores
+  _aioseop_description: Randy Olson analyzes over 675,000 chess games to explore the
+    role of Elo ratings.
+  _aioseop_keywords: chess game, elo rating, first-move advantage, expert, draw, stalemate
+  _aioseop_title: Chess tournament games and Elo ratings
+  _thumbnail_id: '4212'
+  dsq_thread_id: '3245767274'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430354109;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:4459;}i:1;a:1:{s:2:"id";i:5525;}i:2;a:1:{s:2:"id";i:4205;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/05/24/chess-tournament-matches-and-elo-ratings/"
+---
+<p>Chess is by far one of my favorite games. Ever since Seth Kadish shared one of his <a href="http://vizual-statistix.tumblr.com/post/78821780083/when-i-started-this-blog-one-of-my-first">visualizations of square utilization by chess masters</a>, I've been wanting to follow up to see what else we can visualize about chess. A few months ago, Daniel Freeman from <a href="http://chessgames.com">ChessGames.com</a> generously opened his chess data set to me to analyze, which contains a huge collection of 675,000+ chess tournament games ranging all the way back to the 15th century. This will be the first in a series of blog posts exploring this data set. To begin, I was interested in <a href="https://en.wikipedia.org/wiki/Elo_rating_system">Elo ratings</a> and how they predict the outcome of chess games.</p>
+<p>[caption id="attachment_4178" align="aligncenter" width="768"]<a href="http://www.randalolson.com/wp-content/uploads/fischer-chess.png"><img src="{{ site.baseurl }}/assets/2014/05/fischer-chess.png" alt="Chess match: Bobby Fischer vs. Mikhail Tal (1960)" width="768" height="596" class="size-full wp-image-4178" /></a> <strong>Chess match: Bobby Fischer vs. Mikhail Tal (1960)</strong>[/caption]</p>
+<p>The goal of the Elo rating system is to assign a numeric value that represents a player's chess skill. It's a fairly straightforward yet elegant rating system:</p>
+<ul>
+<li>All new players start at a relatively low Elo rating.</li>
+<li>If you beat someone, your Elo rating goes up and their rating goes down the same amount, and vice versa if you lose.</li>
+<li>The number of points your rating changes by is determined by the difference between you and your opponent's rating.</li>
+</ul>
+<p>For example, if you have an Elo rating of 1600 and beat a 2200 rated player, your ratings are going to change a lot. But if you beat a 1000 rating player (as a 1600 rating player), your ratings won't change much.</p>
+<p>Therefore, it's in your best interest to play against others around or above your current Elo rating. After dozens of games, you'll eventually arrive at an Elo rating that's representative of your chess skill.</p>
+<h3>Distributions of Elo ratings</h3>
+<p>Let's start by jumping into the diagnostics. Since this is a data set of chess tournament games, most of the rated players have pretty high Elo ratings. The majority of the games I'll be analyzing were played by experts with a 2000+ Elo rating, many in the 2500 range. To give you a sense of what these ratings mean: <a href="https://en.wikipedia.org/wiki/Bobby_Fischer">Bobby Fischer's</a> peak rating was 2785, and <a href="https://en.wikipedia.org/wiki/Garry_Kasparov">Garry Kasparov's</a> was 2851. So we're analyzing games by some pretty talented chess players.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-elo-rating-distribution.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-elo-rating-distribution.png" alt="chess-elo-rating-distribution" width="767" height="480" class="aligncenter size-full wp-image-4260" /></a></p>
+<p>Another important factor to look at is the difference in Elo ratings between the two players in each game. Following the wise advice above, <strong>most of the chess tournament games were played between competitors with a fairly close Elo rating</strong>. This will be important to keep in mind later as I look at the effect of differences in Elo ratings.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-elo-difference-distribution.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-elo-difference-distribution.png" alt="chess-elo-difference-distribution" width="766" height="497" class="aligncenter size-full wp-image-4259" /></a></p>
+<p>Enough diagnostics. Let's get into the meat of the data.</p>
+<h3>Elo ratings tend to predict game outcome</h3>
+<p>My experience with playing against higher-rated players is that the game always seems to end quickly with a checkmate. Sure enough, I'm not the only one to experience this: The higher the difference in Elo rating, the faster the game reaches its final conclusion. <strong>The typical game with evenly-matched competitors lasts about 90 plies (45 moves)</strong>, whereas expert vs. rookie games tend to end in a mere 77 plies (38 moves).</p>
+<p>Some of the shortest chess games end in a <a href="https://en.wikipedia.org/wiki/Fool%27s_mate">Fool's Mate</a>, where Black checkmates White on her second move. I haven't been able to look if such a game happened in this data set, but it's unlikely because Fool's Mates typically only happen in rookie play. In contrast, the longest recorded chess game was between <a href="http://www.chessgames.com/perl/chessgame?gid=1268705">Ivan Nikolic and Goran Arsovic in 1989</a>, who took a whopping 20 hours to play 269 moves that ended in a draw. Talk about dedication!</p>
+<p>(Note: In all of the following plots, the white line is the mean and the shaded blue area is the <a href="https://en.wikipedia.org/wiki/Confidence_interval">95% confidence interval</a>.)</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-length-elo-difference.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-length-elo-difference.png" alt="chess-length-elo-difference" width="736" height="491" class="aligncenter size-full wp-image-4261" /></a></p>
+<p>Furthermore, relative Elo ratings strongly predict who's going to win the game. <strong>Evenly-matched competitors have a 50/50 chance of winning</strong>, but the more uneven the match is, the more it swings in favor of the competitor with the higher Elo rating. I'd imagine the only reason this trend levels out at ~90% is because this data set contains games where a talented new player hasn't quite reached their proper Elo rating yet.</p>
+<p>As an extreme case, 9-year-old Awonder Liang <a href="http://www.chessgames.com/perl/chessgame?gid=1693029">defeated GM Larry Kaufman</a> in 2012 in a stunning performance that went straight into the world record books.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-win-elo-difference.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-win-elo-difference.png" alt="chess-win-elo-difference" width="758" height="494" class="aligncenter size-full wp-image-4263" /></a></p>
+<p>These findings are likely unsurprising for experienced chess players: Elo ratings tend to accurately predict the outcome of a game. For those who are newer to chess, just know this: <strong>If you're pitted against someone with a much higher Elo rating, you can expect a quick and decisive defeat</strong>.</p>
+<h3>It matters if you're black or white</h3>
+<p>An often-cited problem with chess is the <a href="https://en.wikipedia.org/wiki/First-move_advantage_in_chess">first-move advantage</a>. Because the White player gets to move first, they get to set the stage for how the game will turn out -- if they know what they're doing. Sure enough, we see exactly that effect in this data set: Newer players with an Elo rating < 1800 tend to lose the first-move advantage and still only win 50% of the non-<a href="https://en.wikipedia.org/wiki/Tie_(draw)">drawn games</a> as White. Meanwhile, the first-move advantage becomes increasingly pronounced the more skilled the players are, where expert players win as much as 62% of their non-drawn games when playing as White.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-white-win-by-avg-elo.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-white-win-by-avg-elo.png" alt="chess-white-win-by-avg-elo" width="754" height="494" class="aligncenter size-full wp-image-4262" /></a></p>
+<p>Contrary to <a href="https://www.youtube.com/watch?v=F2AitTPI5U0">Michael Jackson's famous pop song</a>, it matters if you're Black or White in chess. Newcomers, take note: <strong>Try to play as White as much as possible and learn to harness the first-move advantage</strong>.</p>
+<h3>Draws are more common in expert games</h3>
+<p>Finally, I wanted to take a look at the breakdown of wins, losses, and ties by player skill. I've always heard that rookie chess games tend to be more decisive than expert games, but I'd never seen any data on it. The theory makes sense, of course: rookies tend to leave more openings than their more experienced counterparts, making it easier to close the game with a checkmate.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/chess-win-type-plot.png"><img src="{{ site.baseurl }}/assets/2014/05/chess-win-type-plot-1024x568.png" alt="chess-win-type-plot" width="600" height="333" class="aligncenter size-large wp-image-4212" /></a></p>
+<p>Sure enough, we see a dramatic rise in tie games from rookie (20% draws) to expert (50% draws) games. Your eyes aren't fooling you: <strong>Half of all expert chess games end in a draw</strong>. We also see the first-move advantage in this chart, where it becomes less and less common for players to win as Black in expert games. Several chess theoreticians even argue that in a perfectly played game, the best outcome for Black is a draw. Unsurprisingly, luring your opponent into a draw has become <a href="http://www.quora.com/Chess/What-are-the-most-amazing-draws-in-Chess-history">somewhat of an art</a> as Black.</p>
+<p>So there you have it. Elo ratings predict the outcome of a chess game in several ways. It'll be interesting to break Elo ratings down by year and see how they've evolved over time.</p>
+<hr />
+<p>What else can we learn from this data set? Leave your suggestions (and why it'd be an interesting analysis) in the comments.</p>

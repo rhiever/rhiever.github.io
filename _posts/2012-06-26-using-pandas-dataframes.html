@@ -1,0 +1,211 @@
+---
+layout: post
+title: Using pandas DataFrames to process data from multiple replicate runs in Python
+date: 2012-06-26 13:52:53.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+- statistics
+- tutorial
+tags:
+- data management
+- pandas
+- plotting data
+- python
+- research
+- statistics
+meta:
+  _edit_last: '2'
+  _aioseop_title: Using pandas DataFrames to process data from multiple replicate
+    runs in Python
+  _aioseop_description: Randal Olson demonstrates how to use pandas DataFrames to
+    process data from multiple replicate runs in Python.
+  _responsive_layout: default
+  _aioseop_keywords: data management, pandas, plotting data, python, statistics, tutorial
+  dsq_thread_id: '3245762663'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430344259;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:572;}i:1;a:1:{s:2:"id";i:289;}i:2;a:1:{s:2:"id";i:4882;}}}}
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2012/06/26/using-pandas-dataframes/"
+---
+<p>Per a <a href="http://www.randalolson.com/2012/05/12/a-short-demo-on-how-to-use-ipython-notebook-as-a-research-notebook/#comment-7" target="_blank" rel="noopener noreferrer">recommendation in my previous blog post</a>, I decided to follow up and write a short how-to on how to use pandas to process data from multiple replicate runs in Python.</p>
+<p>If you do research like mine, you'll often find yourself with multiple datasets from an experiment that you've run in replicate multiple times. There are plenty of ways to manage and process data nowadays, but I've never seen it made so easy as it is with <a href="http://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">pandas</a>.</p>
+<h3>Installing pandas</h3>
+<p>If you don't already have pandas installed, download it at: <a href="https://pandas.pydata.org/getting_started.html" target="_blank" rel="noopener noreferrer">https://pandas.pydata.org/getting_started.html</a></p>
+<p>Then do the typical python package install process.</p>
+<pre name="code" class="html:nogutter:nocontrols">cd unzipped-pandas-folder-name/
+python setup.py build_ext --inplace
+sudo python setup.py install
+</pre>
+<p>Note: if you're not using pandas in IPython Notebook, the <code>build_ext --inplace</code> part is unnecessary.</p>
+<h3>Using pandas</h3>
+<p>Below, I'll show you the 23 lines of Python code that I use to read in, process, and plot all of the data from my experiments. After that, I'll break the code block down line-by-line and explain what's happening.</p>
+<pre name="code" class="python">from pandas import *
+import glob
+
+dataLists = {}
+
+# read data
+for folder in glob.glob("experiment-data-directory/*"):
+    
+    dataLists[folder.split("/")[1]] = []
+    
+    for datafile in glob.glob(folder + "/*.csv"):
+
+        dataLists[folder.split("/")[1]].append(read_csv(datafile))
+
+# calculate stats for data
+meanDFs = {}
+stderrDFs = {}
+
+for key in dataLists.keys():
+    
+    keyDF = (concat(dataLists[key], axis=1, keys=range(len(dataLists[key])))
+            .swaplevel(0, 1, axis=1)
+            .sortlevel(axis=1)
+            .groupby(level=0, axis=1))
+    
+    meanDFs[key] = keyDF.mean()
+    stderrDFs[key] = keyDF.std().div(sqrt(len(dataLists[key]))).mul(2.0)
+    
+    keyDF = None
+
+# plot data
+for column in meanDFs[key].columns:
+    
+    # don't plot generation over generation - that's pointless!
+    if not (column == "generation"):
+    
+        figure(figsize=(20, 15))
+        title(column.replace("_", " ").title())
+        ylabel(column.replace("_", " ").title())
+        xlabel("Generation")
+        
+        for key in meanDFs.keys():
+
+            errorbar(x=meanDFs[key]["generation"], y=meanDFs[key][column], yerr=stderrDFs[key][column], label=key)
+            
+        legend(loc=2)
+</pre>
+<p>Here's one graph from the end product.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/2012/06/prey_fitness.png"><img src="{{ site.baseurl }}/assets/2012/06/prey_fitness-1024x768.png" alt="Prey Fitness" title="Prey Fitness Graph" width="550" height="412" class="alignnone size-large wp-image-236" /></a></p>
+<h3>Required packages</h3>
+<p>Along with the <strong>pandas</strong> package, the <strong>glob</strong> package is extremely useful for aggregating folders and files into a single list so they can be iterated over.</p>
+<pre name="code" class="python:firstline[1]:nocontrols">from pandas import *
+import glob
+</pre>
+<h3>Reading data with pandas</h3>
+<p><code>glob.glob(str)</code> aggregates all of the files and folders matching a given *nix directory expression.</p>
+<pre name="code" class="python:firstline[7]:nocontrols">for folder in glob.glob("experiment-data-directory/*"):
+</pre>
+<p>For example, say <code>experiment-data-directory</code> contains 4 other directories: <code>treatment1, treatment2, treatment3,</code> and <code>treatment 4</code>. It will return a list of the directories in string format.</p>
+<pre name="code" class="python:nogutter:nocontrols">print glob.glob("experiment-data-directory/*")
+>>> ["treatment1", "treatment2", "treatment3", "treatment 4"]
+</pre>
+<p>Similarly, <code>glob.glob(folder + "/*.csv")</code> will return a list of all .csv files in the given directory.</p>
+<pre name="code" class="python:nogutter:nocontrols">print glob.glob("treatment1/*.csv")
+>>> ["treatment1/run1.csv", "treatment1/run2.csv", "treatment1/run3.csv"]
+</pre>
+<p>Finally, line 13 stores all of the pandas DataFrames read in by the pandas <code>read_csv(str)</code> function. <code>read_csv(str)</code> is a powerful function that will take care of reading and parsing your csv files into DataFrames. Make sure to have your column titles at the top of each csv file!</p>
+<pre name="code" class="python:firstline[13]:nocontrols">
+        dataLists[folder.split("/")[1]].append(read_csv(datafile))
+</pre>
+<p>Thus, dataLists maps <code>"treatment1", "treatment2", "treatment3", "treatment4"</code> to their corresponding list of DataFrames, with each DataFrame containing the data of a single run. More on how powerful DataFrames are below!</p>
+<h3>Statistics with pandas</h3>
+<p>This bit of code iterates over each treatment.</p>
+<pre name="code" class="python:firstline[16]:nocontrols">meanDFs = {}
+stderrDFs = {}
+
+for key in dataLists.keys():
+</pre>
+<p>And here's where we see the real power of pandas DataFrames.</p>
+<p>Line 21 merges the list of DataFrames into a single DataFrame containing every run's data for that treatment.</p>
+<pre name="code" class="python:firstline[21]:nocontrols">keyDF = (concat(dataLists[key], axis=1, keys=range(len(dataLists[key])))</pre>
+<p>Line 22 makes it so the run data is grouped on a per-data-column basis instead of a per-run basis.</p>
+<pre name="code" class="python:firstline[22]:nocontrols">            .swaplevel(0, 1, axis=1)</pre>
+<p>Line 23 sorts the column names in ascending order. This is purely for aesthetic purposes.</p>
+<pre name="code" class="python:firstline[23]:nocontrols">            .sortlevel(axis=1)</pre>
+<p>Lastly, line 24 groups all of the replicate run data together by column.</p>
+<pre name="code" class="python:firstline[24]:nocontrols">            .groupby(level=0, axis=1))</pre>
+<p>Here's an <a href="http://stackoverflow.com/questions/11174367/averaging-data-from-multiple-data-files-in-python-with-pandas" target="_blank" rel="noopener noreferrer">example</a> of how this works in practice:</p>
+<pre name="code" class="python:nogutter:collapse">In [12]:  x
+Out[12]:
+          A         B         C
+0 -0.264438 -1.026059 -0.619500
+1  0.927272  0.302904 -0.032399
+2 -0.264273 -0.386314 -0.217601
+3 -0.871858 -0.348382  1.100491
+
+In [13]:  y
+Out[13]:
+          A         B         C
+0  1.923135  0.135355 -0.285491
+1 -0.208940  0.642432 -0.764902
+2  1.477419 -1.659804 -0.431375
+3 -1.191664  0.152576  0.935773
+
+In [14]: glued = pd.concat([x, y], axis=1, keys=['x', 'y'])
+
+In [15]: glued
+Out[15]: 
+          x                             y                    
+          A         B         C         A         B         C
+0 -0.264438 -1.026059 -0.619500  1.923135  0.135355 -0.285491
+1  0.927272  0.302904 -0.032399 -0.208940  0.642432 -0.764902
+2 -0.264273 -0.386314 -0.217601  1.477419 -1.659804 -0.431375
+3 -0.871858 -0.348382  1.100491 -1.191664  0.152576  0.935773
+
+In [16]: glued.swaplevel(0, 1, axis=1).sortlevel(axis=1)
+Out[16]: 
+          A                   B                   C          
+          x         y         x         y         x         y
+0 -0.264438  1.923135 -1.026059  0.135355 -0.619500 -0.285491
+1  0.927272 -0.208940  0.302904  0.642432 -0.032399 -0.764902
+2 -0.264273  1.477419 -0.386314 -1.659804 -0.217601 -0.431375
+3 -0.871858 -1.191664 -0.348382  0.152576  1.100491  0.935773
+
+In [17]: glued = glued.swaplevel(0, 1, axis=1).sortlevel(axis=1)
+
+In [18]: glued
+Out[18]: 
+          A                   B                   C          
+          x         y         x         y         x         y
+0 -0.264438  1.923135 -1.026059  0.135355 -0.619500 -0.285491
+1  0.927272 -0.208940  0.302904  0.642432 -0.032399 -0.764902
+2 -0.264273  1.477419 -0.386314 -1.659804 -0.217601 -0.431375
+3 -0.871858 -1.191664 -0.348382  0.152576  1.100491  0.935773
+</pre>
+<p>By storing the data this way in pandas DataFrames, you can do all kinds of powerful operations on the data on a per-DataFrame basis. In lines 26 and 27, I compute the mean and standard error of the mean of every column (over an arbitrary number of replicates) for every treatment with just a couple lines.</p>
+<pre name="code" class="python:firstline[26]:nocontrols:nocontrols">    meanDFs[key] = keyDF.mean()
+    stderrDFs[key] = keyDF.std().div(sqrt(len(dataLists[key]))).mul(2.0)
+    
+    keyDF = None
+</pre>
+<p>DataFrames have all kinds of built-in functions to perform standard operations on them en masse: <code>add(), sub(), mul(), div(), mean(), std()</code>, etc. The full list is located at: <a href="http://pandas.pydata.org/pandas-docs/dev/generated/pandas.DataFrame.html" target="_blank" rel="noopener noreferrer">http://pandas.pydata.org/pandas-docs/dev/generated/pandas.DataFrame.html</a></p>
+<h3>Plotting pandas data with matplotlib</h3>
+<p>The code below assumes you have a "generation" column that your data is plotted over. If you use another x-axis, it is easy enough to replace "generation" with whatever you named your x-axis.</p>
+<pre name="code" class="python:firstline[32]:nocontrols">for column in meanDFs[key].columns:
+    
+    # don't plot generation over generation - that's pointless!
+    if not (column == "generation"):
+    
+        figure(figsize=(20, 15))
+        title(column.replace("_", " ").title())
+        ylabel(column.replace("_", " ").title())
+        xlabel("Generation")
+        
+        for key in meanDFs.keys():
+
+            errorbar(x=meanDFs[key]["generation"], y=meanDFs[key][column], yerr=stderrDFs[key][column], label=key)
+            
+        legend(loc=2)
+</pre>
+<p>You can access each column individually by indexing it with the name of the column you want, e.g. <code>dataframe["column_name"]</code>. Since DataFrames store each column's data as a list, it doesn't even take any extra work to pass the data to matplotlib to plot it.</p>

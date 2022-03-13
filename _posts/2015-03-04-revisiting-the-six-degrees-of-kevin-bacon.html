@@ -1,0 +1,70 @@
+---
+layout: post
+title: Revisiting the Six Degrees of Kevin Bacon
+date: 2015-03-04 20:16:28.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- Bacon number
+- Eric Roberts
+- film
+- Kevin Bacon
+- six degrees of separation
+meta:
+  _edit_last: '2'
+  _aioseop_keywords: Kevin Bacon, Six Degrees of Kevin Bacon, 6 degrees of separation,
+    small world, Eric Roberts, Oracle of Bacon, network analysis, films, movies
+  _thumbnail_id: '6354'
+  _responsive_layout: default
+  _aioseop_description: Randy Olson revisits the Six Degrees of Kevin Bacon to see
+    if Kevin is really the Center of the Hollywood Universe.
+  _aioseop_title: Revisiting the Six Degrees of Kevin Bacon
+  dsq_thread_id: ''
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430395408;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:2331;}i:1;a:1:{s:2:"id";i:2630;}i:2;a:1:{s:2:"id";i:2268;}}}}
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2015/03/04/revisiting-the-six-degrees-of-kevin-bacon/"
+---
+<p>In early 1994, three <a href="http://www.albright.edu/">Albright College</a> students were watching <em>Footloose</em> during a heavy snowstorm. By pure coincidence, the next movie that came on the television was <em>The Air Up There</em>, another popular film starring <a href="http://www.imdb.com/name/nm0000102/">Kevin Bacon</a>. Intrigued by the coincidence, the students started counting how many films Kevin Bacon had acted in and speculating how many actors he had appeared on film with. It didn't take long for the trio to turn their interest into a game, trying to link every actor to Kevin Bacon through a series of shared movie appearances.</p>
+<p>What began as an inside joke quickly spread across the nation and became a popular parlor game. Players may ponder: What series of films do you think Emma Watson and Kevin Bacon are linked through? You may be surprised: John Cleese links Watson with Bacon directly, leaving Watson with a "Bacon number" of 2 (the number of shared movie appearances linking Watson and Bacon).</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/shortest-path-kevin-bacon-emma-watson.png"><img src="{{ site.baseurl }}/assets/2015/03/shortest-path-kevin-bacon-emma-watson.png" alt="shortest-path-kevin-bacon-emma-watson" width="705" height="214" class="aligncenter size-full wp-image-6326" /></a></p>
+<p>This game is now widely known as the <a href="http://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon">Six Degrees of Kevin Bacon</a> -- named so because the Albright College trio had found that no actor is more than 6 shared movie appearances ("degrees") away from indirectly collaborating with Kevin Bacon. Interestingly enough, the trio had stumbled across one of the first examples of the <a href="http://en.wikipedia.org/wiki/Small-world_network">small-world phenomenon</a>: Because everyone is so widely connected in modern times, we're connected to every other human in the world by no more than <a href="http://en.wikipedia.org/wiki/Six_degrees_of_separation">6 links of mutual friends</a>. Apparently, the same rules apply to actor collaboration networks.</p>
+<p>It's been over two decades since the Six Degrees of Kevin Bacon was invented. We now have a <a href="http://imdb.com/">massive database of movies</a> and vastly more powerful computers to look at this problem. It's about time we revisit the Six Degrees of Kevin Bacon to see if the trio's findings hold up.</p>
+<h3>The Six Degrees of Kevin Bacon</h3>
+<p>The Albright College trio picked Kevin Bacon because he's been a highly productive actor, appearing in <a href="http://www.imdb.com/name/nm0000102/">over 60 films</a> with a wide range of actors. According to the aptly-named <a href="https://oracleofbacon.org/help.php">Oracle of Bacon</a>, Kevin Bacon has appeared in film with 3,031 actors during his film career. When the Oracle of Bacon calculated the Bacon number for 1.91 million other actors, the trio's finding were validated: 99%+ of all actors have a Bacon number of 5 or less.</p>
+<p>Below, I charted distribution of Bacon numbers for all 1.91 million actors. Incredibly, there is a single actor out there who starred in such an obscure film that he/she has a Bacon number of 10. Props to you if you find out who it is.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/num-actors-degrees-separation-chart.png"><img src="{{ site.baseurl }}/assets/2015/03/num-actors-degrees-separation-chart.png" alt="num-actors-degrees-separation-chart" width="704" height="517" class="aligncenter size-full wp-image-6351" /></a></p>
+<p>Alongside the Bacon numbers, I charted the distribution of "Roberts" numbers. Eric Roberts stands out as an actor who has had such a productive movie career that he has 379 movie and TV credits to his name as of March 2015. It's no surprise, then, that <strong>Eric Roberts has appeared on the silver screen with 8,398 other actors</strong> -- truly an unprecedented accomplishment in Hollywood.</p>
+<p>Even more interesting is that Kevin Bacon actually <em>isn't</em> the "Center of the Hollywood Universe" as so many have claimed. When the Oracle of Bacon calculated the average number of movie appearances connecting every actor to every other actor, they found that <strong>Kevin Bacon didn't even make the <a href="https://oracleofbacon.org/center_list.php">top 100 most "central" actor list</a></strong>. In fact, the top 10 most "central" actors are:</p>
+<ol>
+<li>Eric Roberts</li>
+<li>Michael Madsen</li>
+<li>Danny Trejo</li>
+<li>Samuel L. Jackson</li>
+<li>Harvey Keitel</li>
+<li>Robert De Niro</li>
+<li>Willem Dafoe</li>
+<li>Malcolm McDowell</li>
+<li>Donald Sutherland</li>
+<li>Michael Caine</li>
+</ol>
+<p>That's right. You'd never guess it, but Eric Roberts -- the movie villain who we're always happy to see killed at the end of the movie -- is the real Center of the Hollywood Universe.</p>
+<h3>The Three Degrees of Eric Roberts</h3>
+<p>The most impressive part about Roberts' career is how few links it takes to connect him to any other actor out there. Shown in the chart below, <strong>1 in 4 of the 1.91 million actors on IMDb are within 2 degrees of separation from Eric Roberts.</strong> In contrast, fewer than 1 in 5 are within 2 degrees of separation from Kevin Bacon. By 3 degrees out, Eric Roberts can be connected to 88% of all actors out there, which includes nearly all of the well-known actors. At this point, it's amazing that Kevin Bacon and Eric Roberts never <a href="https://oracleofbacon.org/movielinks.php?a=Kevin+Bacon&b=Eric+Roberts+(I)&use_using=1&u0=on&use_genres=1&g0=on&g4=on&g8=on&g16=on&g20=on&g1=on&g5=on&g9=on&g13=on&g17=on&g21=on&g25=on&g2=on&g6=on&g10=on&g14=on&g22=on&g26=on&g3=on&g11=on&g15=on&g23=on&g27=on">starred</a> in a movie together!</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/cumulative-pct-actors-degrees-separation-chart.png"><img src="{{ site.baseurl }}/assets/2015/03/cumulative-pct-actors-degrees-separation-chart.png" alt="cumulative-pct-actors-degrees-separation-chart" width="708" height="509" class="aligncenter size-full wp-image-6354" /></a></p>
+<p>My point? <strong>We should rename the Six Degrees of Kevin Bacon to the Three Degrees of Eric Roberts</strong> -- or at least the Three Degrees of Kevin Bacon. Given that Kevin Bacon <a href="http://www.cnn.com/2014/03/08/tech/web/kevin-bacon-six-degrees-sxsw/">dislikes</a> the Six Degrees game, I'm sure he would see this as a welcome change.</p>
+<hr />
+<p>If you'd like to read more about how the Oracle of Bacon works, check out their <a href="https://oracleofbacon.org/how.php">How It Works page</a>.</p>
+<p>If you find yourself stumped when playing the Three Degrees of Eric Roberts, the Oracle of Bacon also provides a <a href="https://oracleofbacon.org/index.php">lookup service</a>.</p>
+<p>Now get out there and impress your friends with your impressive movie knowledge!</p>

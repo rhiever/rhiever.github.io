@@ -1,0 +1,48 @@
+---
+layout: post
+title: The window of virality on Reddit
+date: 2014-03-21 23:49:27.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+- reddit
+tags:
+- front page
+- hot algorithm
+- post
+- reddit
+- viral
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _aioseop_keywords: reddit, post, viral, hot algorithm, front page
+  _aioseop_description: Randy Olson visualizes when posts go viral and when they fade
+    into obscurity on Reddit.
+  _thumbnail_id: '2885'
+  _aioseop_title: The window of virality on Reddit
+  dsq_thread_id: '3245764694'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430189828;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:3951;}i:1;a:1:{s:2:"id";i:4007;}i:2;a:1:{s:2:"id";i:5930;}}}}
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/03/21/the-window-of-virality-on-reddit/"
+---
+<p>Have you ever wondered why most of the posts on Reddit's front page are less than 12 hours old? Or why a post with a score of 4,000 is ranked below 3,000 score post? It all has to do with Reddit's window of virality.</p>
+<p>Each post on Reddit has a score attached to it: score = upvotes - downvotes. Reddit's "hotness" algorithm uses this score in combination with the post's age to rank every single post on Reddit.</p>
+<p>Amir Salihefendic wrote a fantastic post explaining the nitty gritty of <a href="http://web.archive.org/web/20151123030118/http://amix.dk/blog/post/19588">how Reddit's hotness algorithm works</a>, so I won't bother repeating that here. Instead, I'll jump right into the visualization showing us Reddit's window of virality.</p>
+<p>The y-axis indicates the post's current score; the higher up, the higher the post's score. The x-axis indicates the post's current age; the more to the right, the older the post is. The color indicates the post's "hotness" or virality, with darker shades of red for viral posts and darker shades of blue for posts that don't stand a chance of getting to Reddit's front page.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/post_hotness_score_and_age.png"><img src="{{ site.baseurl }}/assets/2014/03/post_hotness_score_and_age.png" alt="Reddit post hotness by score and age" class="size-full wp-image-2824" /></a></p>
+<p>I labeled the dark blue region as "dead" because posts in these regions have the same hotness as a newly submitted post with no upvotes. If our post can be outranked by a post that hasn't even been voted on yet, it doesn't stand a chance of making the front page.</p>
+<p>Immediately, we see why posts older than 12 hours are such a rarity on Reddit's front page: <strong>A 12-hour-old post needs roughly 3x the score to match the hotness of a 6-hour-old post!</strong> 18- and 24-hour-old posts don't even stand a chance on the front page unless it's <a href="http://www.reddit.com/r/IAmA/comments/z1c9z/i_am_barack_obama_president_of_the_united_states/">President Obama holding an AMA</a>. Clearly, the life of a viral post on Reddit is short -- so if you make it to the front page, enjoy your precious few hours in the spotlight.</p>
+<p>It's no surprise then that <a href="http://www.randalolson.com/2013/03/15/a-data-driven-guide-to-creating-successful-reddit-posts/">time plays such a huge role in the success of a Reddit post</a>. If <strong>the first 6 hours of a post's life are the most crucial for going viral on Reddit</strong>, none of that time can be wasted sitting around when no one's online.</p>
+<p>In the end, all posts must die. As we see in the top right of this graph, even the most high-scoring posts will be ouranked by a new post with no upvotes at all by the end of their second day of life. <a href="http://www.randalolson.com/2013/03/12/retracing-the-evolution-of-reddit-through-post-data/">Reddit's front page is constantly evolving</a>, and 2-day-old news is <em>just so yesterday</em>.</p>
+<p>There's of course an important addendum here: <strong>This classification really only applies to Reddit's front page, but not individual subreddit pages</strong>. If we take a stroll down any of the smaller, non-default subreddits, we'll see plenty of older, sub-500 score posts that are still on the front page of the subreddit. That just means it's easier to get on the front page of the individual subreddits -- but that's a topic for a future post!</p>

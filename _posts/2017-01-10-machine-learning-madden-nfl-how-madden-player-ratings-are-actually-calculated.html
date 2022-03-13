@@ -1,0 +1,179 @@
+---
+layout: post
+title: 'Machine Learning Madden NFL: How Madden player ratings are actually calculated'
+date: 2017-01-10 13:04:37.000000000 -08:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- machine learning
+tags:
+- football
+- machine learning
+- madden
+- nfl
+meta:
+  _edit_last: '2'
+  _responsive_layout: default
+  _jetpack_dont_email_post_to_subs: '1'
+  _thumbnail_id: '8490'
+  dsq_thread_id: '5451836968'
+  _aioseop_keywords: madden, nfl, football, machine learning, statistics, linear model,
+    calculate, player ratings, OVR, predict, top player
+  _aioseop_description: Randy Olson uses machine learning to learn how Madden calculates
+    a player's overall rating.
+  _aioseop_title: 'Machine Learning Madden NFL: How Madden player ratings are actually
+    calculated'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2017/01/10/machine-learning-madden-nfl-how-madden-player-ratings-are-actually-calculated/"
+---
+<p>For the past few months, I've been playing <a href="https://www.easports.com/madden-nfl">Madden NFL 17</a> in my free time. I really enjoy the team-building aspect of the franchise mode, where I've taken on challenges such as finally bringing the Lombardi trophy home to Philadelphia.</p>
+<p>As a data nerd, one thing I love about Madden NFL is their player rating system, where they assign numerical values to practically every aspect of every player's abilities. These ratings are then summarized into an overall player rating (OVR for short), which is a fairly good indication of how skilled a player is and how dominant they will be on the football field.</p>
+<p><center><br />
+<a href="https://media.easports.com/content/www-easports/en_US/madden-nfl/news/2016/madden-17-gameplay-ball-carrier-special-moves/_jcr_content/par/image_1.img.jpg"><img src="{{ site.baseurl }}/assets/2017/01/image_1.img.jpg" alt="Madden NFL 17" /></a><br />
+<font size="1">Image courtesy of EA Sports</font><br />
+</center></p>
+<p>A couple years ago, FiveThirtyEight published a great <a href="https://fivethirtyeight.com/features/madden/">data-driven feature</a> explaining how Madden NFL's player ratings are made, and how essentially one person is behind the whole system. Perhaps most useful for Madden NFL players, they provided a <a href="https://web.archive.org/web/20170505133507/https://espnfivethirtyeight.files.wordpress.com/2015/03/paine-feature-madden-4.png">chart</a> showing the most important traits for each position in the game. A lot has changed in the past couple years, though, and for the longest time I've wanted to figure out the "master equation" that actually turns player ratings into their overall rating so I know what traits to focus on developing. That's the goal of this post, where I'm going to use machine learning to attempt to discover that "master equation."</p>
+<p>If you don't care about how I computed the ratings, feel free to skip ahead to the <a href="#master-equations">"master equation" section</a>.</p>
+<h3>Analyzing Madden NFL player ratings</h3>
+<p>The Madden NFL folks have been pretty awesome about sharing their player rating data. We can look up and download all of the <a href="https://www.easports.com/madden-nfl/player-ratings">active player ratings</a> directly from the Madden NFL web site, which I've done and shared in a Google doc <a href="https://docs.google.com/spreadsheets/d/1qPgzqIQB8kkULKTs6rjs6TwzMO7ZPSOqHQWLUMAyBtI/edit">here</a>. For this post, I'm working with the preseason ratings.</p>
+<p>Since no analysis is complete without some basic exploratory data analysis, let's take a look at the distribution of overall player ratings, which is what we're looking to model. The chart below is a <a href="https://en.wikipedia.org/wiki/Violin_plot">violin plot</a>, which is a combination of a box plot and histogram. Basically, it shows the distribution of Madden player OVRs.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/madden-player-ratings-overall.png"><img src="{{ site.baseurl }}/assets/2017/01/madden-player-ratings-overall.png" alt="Summary of Madden player ratings" class="aligncenter size-large wp-image-8491" /></a></p>
+<p>Madden player OVRs range from 40 (worst) to 99 (best), with a majority of the players falling between 65 and 75 OVR. Only a handful of players fall into the coveted 99 rating spot, which include current NFL greats such as Patriots TE Rob Gronkowski (when he's healthy) and Broncos linebacker Von Miller (the highest paid defensive player in NFL history). There's an interesting blip of players in the low-40s OVR range, which are better highlighted when we break down the OVRs by position:</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/madden-player-rating-distribution-by-position.png"><img src="{{ site.baseurl }}/assets/2017/01/madden-player-rating-distribution-by-position.png" alt="Summary of Madden player ratings by position" class="aligncenter size-large wp-image-8490" /></a></p>
+<p>All of the players rated in the low 40s OVR are TEs, which seems quite odd. Do NFL coaches like to hoard crappy TEs? Why would professional football teams keep players who are rated so poorly that they're statistical anomalies (in a bad way) when compared to the rest of the NFL?</p>
+<p>After a little digging into the <a href="https://docs.google.com/spreadsheets/d/1qPgzqIQB8kkULKTs6rjs6TwzMO7ZPSOqHQWLUMAyBtI/edit">player rating spreadsheet</a>, it seems that nearly all of these low-40s OVR TEs are actually long snappers, and the Madden NFL folks decided to make them TEs for some reason. Since Madden NFL doesn't currently feature long snappers nor a long snapping skill, my guess is that most of these long snappers don't even make the preseason cuts in most Madden games.</p>
+<p>Another interesting finding from the above chart is that kickers and punters tend to have the highest OVR, on average. This is likely because there's so few kickers and punters in the league (typically, only one of each per team), and few teams (except for the 2016 Buccaneers) keep a kicker or punter around if they don't excel at their job.</p>
+<p>There are many more interesting statistics to look at in this data set, but in the interest of brevity, I'll leave those charts for another post.</p>
+<h3>Finding the master equations</h3>
+<p>Now that we have a basic understanding of the data set, we want to find the "master equation" that turns player skill ratings into their OVR, which represents how good of a player they are in Madden.</p>
+<p>To accomplish this goal, I trained a linear model (with <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">Lasso regularization</a>) to predict every player's OVR based on their skill ratings. Essentially, I gave the model every player's skill ratings (speed, strength, throw power, etc.) and asked it to predict each player's OVR for me.</p>
+<p>Since each position's OVR is calculated differently---throw power is far more important for quarterbacks than defensive tackles, for example---I grouped the players by their position and trained a different linear model for each position. Thus, we're no longer looking for a master equation; we're looking for the master <em>equations</em>.</p>
+<p>One of the main advantages of linear models is their interpretability. Once a linear model is trained on a data set, we can inspect the model, which is simply a sum of the player skill ratings with weights applied to them. For example, maybe the QB master equation would look like:</p>
+<p>QB OVR = 10 + 0.5 x Throw Power + 0.25 x Throw Accuracy Short + 0.2 x Throw Accuracy Medium + 0.1 x Throw Accuracy Deep</p>
+<p>So if we want to calculate Tom Brady's OVR, we would plug his ratings into the equation:</p>
+<p>Tom Brady OVR = 10 + 0.5 x 94 + 0.25 x 98 + 0.2 x 98 + 0.1 x 84 = ... and so on.</p>
+<p>Obviously the above equation was made up, but let's take a look at the master equations that the linear models discovered.</p>
+<div id="master-equations"></div>
+<h3>The master equations</h3>
+<p>Below, I made a heatmap of the player traits that affect each position's OVR. Darker purple cells indicate important traits for the position, whereas light purple or blank traits have little to no effect. The number in each cell is the linear model's coefficient, which is the number that's multiplied by the trait in the master equation.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/how-madden-player-ratings-calculated.png"><img src="{{ site.baseurl }}/assets/2017/01/how-madden-player-ratings-calculated-973x1024.png" alt="How Madden player ratings are calculated" class="aligncenter size-large wp-image-8489" /></a></p>
+<p>Here are the intercepts for each linear model:</p>
+<p><center></p>
+<table>
+<tr>
+<th><strong>Position</strong></th>
+<th><strong>Intercept</strong></th>
+</tr>
+<tr>
+<td>QB</td>
+<td>-67.83</td>
+</tr>
+<tr>
+<td>HB</td>
+<td>-62.34</td>
+</tr>
+<tr>
+<td>FB</td>
+<td>-76.59</td>
+</tr>
+<tr>
+<td>WR</td>
+<td>-52.84</td>
+</tr>
+<tr>
+<td>TE</td>
+<td>-61.99</td>
+</tr>
+<tr>
+<td>LT</td>
+<td>-43.45</td>
+</tr>
+<tr>
+<td>LG</td>
+<td>-55.1</td>
+</tr>
+<tr>
+<td>C</td>
+<td>-56.83</td>
+</tr>
+<tr>
+<td>RG</td>
+<td>-52.97</td>
+</tr>
+<tr>
+<td>RT</td>
+<td>-44.89</td>
+</tr>
+<tr>
+<td>LE</td>
+<td>-69.02</td>
+</tr>
+<tr>
+<td>DT</td>
+<td>-61.49</td>
+</tr>
+<tr>
+<td>RE</td>
+<td>-63.67</td>
+</tr>
+<tr>
+<td>LOLB</td>
+<td>-49.92</td>
+</tr>
+<tr>
+<td>MLB</td>
+<td>-56.68</td>
+</tr>
+<tr>
+<td>ROLB</td>
+<td>-50.14</td>
+</tr>
+<tr>
+<td>CB</td>
+<td>-54.81</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>-47.58</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>-45.75</td>
+</tr>
+<tr>
+<td>K</td>
+<td>0.72</td>
+</tr>
+<tr>
+<td>P</td>
+<td>1.64</td>
+</tr>
+</table>
+<p></center></p>
+<p>The intercept is the number you add at the beginning of the equation. For the simplest example, to calculate a Punter's OVR:</p>
+<p>Punter OVR = 1.64 + 0.39 x Awareness + 0.32 x Kick Power + 0.27 x Kick Accuracy</p>
+<p>What's more interesting, though, are the most important traits for each position:</p>
+<ul>
+<li><strong>Awareness (AWR) dominates as the most important trait for nearly every position</strong>, even though many Madden players don't think Awareness has much of an effect in Madden</li>
+<li><strong>Speed (SPD) has a relatively minor impact on OVR</strong> for even the most speedy positions (HB, WR, CB), even though Speed is widely considered the most important trait by Madden players</li>
+<li>Play Recognition (PRC) trumps Awareness (AWR) for Strong Safeties</li>
+<li>Impact Blocking (IMP) is far more important for Fullbacks than the original FiveThirtyEight study suggested</li>
+</ul>
+<p>... which seems to suggest that we could make our own master equations to find every Madden player's "True OVR." We'll leave that task for a future post, though.</p>
+<h3>Caveats</h3>
+<p>No machine learning analysis comes without its assumptions and caveats, and I'll list the caveats of this analysis here:</p>
+<ol>
+<li>The estimates from these equations are just that---estimates. The predicted OVR may be a point or two off from the real OVR, but most of the time it should be correct.</li>
+<li>The team's scheme (4-3 vs 3-4 defense, for example) will affect a player's OVR for that team, which may cause some of the predicted OVRs to be off by a point or two.</li>
+<li>These equations are based on the Madden 17 preseason ratings. They may change in the future at the Madden developer's whims.</li>
+<li>These equations are from a <em>linear</em> model, and it's possible that some traits have diminishing returns at some point. If some traits have diminishing returns, we may need to build a more complex model for those traits.</li>
+</ol>
+<p>Feel free to add your thoughts in the comments. Now that we have the Madden master equations, what can we do with them?</p>

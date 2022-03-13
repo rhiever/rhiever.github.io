@@ -1,0 +1,86 @@
+---
+layout: post
+title: 'A data-driven exploration of the evolution of chess: Popularity of openings
+  over time'
+date: 2014-05-26 16:30:58.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- analysis
+- data visualization
+tags:
+- chess game
+- chess theory
+- history of chess
+- opening
+meta:
+  _thumbnail_id: '4282'
+  _aioseop_keywords: chess game, history of chess, opening, chess theory
+  _aioseop_description: Randy Olson analyzes over 650,000 chess tournament games to
+    explore how chess openings have grown and waned in popularity over time.
+  _aioseop_title: 'Evolution of chess: Popularity of openings over time'
+  _edit_last: '2'
+  _responsive_layout: default
+  dsq_thread_id: '3245765115'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430384261;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:4205;}i:1;a:1:{s:2:"id";i:4322;}i:2;a:1:{s:2:"id";i:5525;}}}}
+  _oembed_697fa1cf9b288bbfff8eb38bf84659f7: <iframe width="605" height="454" src="https://www.youtube.com/embed/eebnBP5XFVc?feature=oembed"
+    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+  _oembed_time_697fa1cf9b288bbfff8eb38bf84659f7: '1567753448'
+author:
+  login: rhiever
+  email: rhiever@gmail.com
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2014/05/26/a-data-driven-exploration-of-the-evolution-of-chess-popularity-of-openings/"
+---
+<p>For the 3rd installment in my series of <a href="http://www.randalolson.com/2014/05/24/a-data-driven-exploration-of-the-evolution-of-chess-match-lengths-and-outcomes/">blog</a> <a href="http://www.randalolson.com/2014/05/24/chess-tournament-matches-and-elo-ratings/">posts</a> exploring a data set of over 650,000 chess tournament games ranging back to the 15th century, I wanted to look at how chess openings have grown and waned in popularity over time. Again, I only have reliable data on chess games back to 1850, so 1850 will be my starting point.</p>
+<p>The first few moves of a chess game, known as the <a href="https://en.wikipedia.org/wiki/Chess_opening">chess opening</a>, are one of the most-studied aspects of the game, largely because of how important they can be. If you don't start off with a good opening, you could doom yourself to defeat before the game really even begins. It's therefore no surprise that one of the key steps to becoming a skilled chess player is studying and memorizing the <a href="https://en.wikibooks.org/wiki/Chess_Opening_Theory">many varieties of openings</a>. Hundreds of openings have been developed since 1850, so it should make for an interesting exercise to see how these openings have evolved since then.</p>
+<p>Each chess game is recorded in <a href="https://en.wikipedia.org/wiki/Portable_Game_Notation">PGN format</a>, which means that it stores every move each player made, the outcome of the game, etc. Here's an example game in PGN format:</p>
+<p><code>[Event "Hoogovens A Tournament"]<br />
+[Site "Wijk aan Zee NED"]<br />
+[Date "1999.01.20"]<br />
+[EventDate "?"]<br />
+[Round "4"]<br />
+[Result "1-0"]<br />
+[White "Garry Kasparov"]<br />
+[Black "Veselin Topalov"]<br />
+[ECO "B06"]<br />
+[WhiteElo "2812"]<br />
+[BlackElo "2700"]<br />
+[PlyCount "87"]</p>
+<p>1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be3 Bg7 5. Qd2 c6 6. f3 b5<br />
+7. Nge2 Nbd7 8. Bh6 Bxh6 9. Qxh6 Bb7 10. a3 e5 11. O-O-O Qe7<br />
+12. Kb1 a6 13. Nc1 O-O-O 14. Nb3 exd4 15. Rxd4 c5 16. Rd1 Nb6<br />
+17. g3 Kb8 18. Na5 Ba8 19. Bh3 d5 20. Qf4+ Ka7 21. Rhe1 d4<br />
+22. Nd5 Nbxd5 23. exd5 Qd6 24. Rxd4 cxd4 25. Re7+ Kb6<br />
+26. Qxd4+ Kxa5 27. b4+ Ka4 28. Qc3 Qxd5 29. Ra7 Bb7 30. Rxb7<br />
+Qc4 31. Qxf6 Kxa3 32. Qxa6+ Kxb4 33. c3+ Kxc3 34. Qa1+ Kd2<br />
+35. Qb2+ Kd1 36. Bf1 Rd2 37. Rd7 Rxd7 38. Bxc4 bxc4 39. Qxh8<br />
+Rd3 40. Qa8 c3 41. Qa4+ Ke1 42. f4 f5 43. Kc1 Rd2 44. Qa7 1-0</code></p>
+<p>With a bit of text parsing, I can count the number of times each chess opening was used on a per-game basis. For this analysis, I'll look at the openings in four classes: White's first move, Black's first move, White's second move, and Black's second move.</p>
+<h3>White's first move</h3>
+<p>It's a well-known fact that <a href="http://en.wikipedia.org/wiki/First-move_advantage_in_chess">White has a small advantage</a> at the beginning of the game. To maintain this advantage, White should press their advantage to take over the middle of the board as quickly as possible. The most popular first White moves from 1850-2014 are shown below. Note that all of these are fairly aggressive openings that build toward control of the middle of the board.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/w-first-moves-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/w-first-moves-over-time-1024x585.png" alt="w-first-moves-over-time" width="550" height="314" class="aligncenter size-large wp-image-4278" /></a></p>
+<p>In 1850, White openings were fairly homogeneous: Most chess experts played <a href="https://en.wikipedia.org/wiki/King%27s_Pawn_Game">King's Pawn</a>. Chess players didn't begin to explore variants of the King's Pawn in earnest until the 1890s, when <a href="https://en.wikipedia.org/wiki/Queen%27s_pawn">Queen's Pawn</a> (moving a Pawn to d4) started to replace King's Pawn in some player's repertoires. The 1920s saw another burst of innovation with the rising popularity of the <a href="https://en.wikipedia.org/wiki/Zukertort_Opening">Zukertort Opening</a> (moving the Knight to f3) and the <a href="https://en.wikipedia.org/wiki/English_opening">English Opening</a> (moving a Pawn to c4), which completed the set of staple first-turn openings that are really ever used nowadays.</p>
+<h3>Black's first move</h3>
+<p>Many of Black's opening moves are more defensive in nature and attempt to undermine White's initial advantage. In 1850, it was standard fare for Black to match the ever-popular King's Pawn by moving a Pawn to e5 (the <a href="https://en.wikipedia.org/wiki/Open_Game">Open Game</a>). Although I typically group unpopular openings into the "Other" category, I wanted to point out the short-lived spike in popularity of the <a href="https://en.wikipedia.org/wiki/Pirc_Defence">Pirc Defence</a> in the 1850s. Though the Pirc Defence is typically thought of as a <a href="https://en.wikipedia.org/wiki/Pirc_Defence#General_remarks">relatively new opening</a>, <a href="https://en.wikipedia.org/wiki/Moheschunder_Bannerjee">Moheschunder Bannerjee</a> used this opening almost exclusively in his 50+ games against <a href="https://en.wikipedia.org/wiki/John_Cochrane_(chess_player)">John Cochrane</a>, winning 40% of the games (far above his overall 24% win rate as Black).</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/wb-first-moves-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/wb-first-moves-over-time-1024x585.png" alt="wb-first-moves-over-time" width="550" height="314" class="aligncenter size-large wp-image-4279" /></a></p>
+<p>Moreover, the rise of the Queen's Pawn in the 1890s resulted in the rise of the <a href="https://en.wikipedia.org/wiki/Closed_Game">Closed Game</a> in the 1890s. Black openings similarly saw a burst of innovation in the 1920s, with the development of the <a href="https://en.wikipedia.org/wiki/Indian_Defence">Indian Defence</a> in response to the Queen's Pawn, and the introduction of the ever-popular <a href="https://en.wikipedia.org/wiki/Sicilian_Defence">Sicilian Defence</a> in response to the standard King's Pawn. By 2014, the Open Game is well past its glory days, and seems to be on its way out.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/French_Defence">French Defence</a> seems to have been a staple Black opening for the past 164 years, consistently comprising 5%-10% of all chess games. Amusingly, the French Defence has a reputation for solidity and resilience, which is also reflected in its historical usage.</p>
+<h3>White's second move</h3>
+<p>Here's where things get complicated. I noted in the first section that the most popular first moves for White have historically been King's and Queen's Pawn, so that's why the more popular second moves for White exclusively start with them. The Zukertort and English Openings simply haven't become popular enough yet for their followup moves to show up here.</p>
+<p><a href="http://www.randalolson.com/wp-content/uploads/wbw-second-move-over-time.png"><img src="{{ site.baseurl }}/assets/2014/05/wbw-second-move-over-time-1024x585.png" alt="wbw-second-move-over-time" width="550" height="314" class="aligncenter size-large wp-image-4282" /></a></p>
+<p>With the waning popularity of the Open Game over time, it's no surprise that the responses to it have similarly declined. By 2014, the typical response to the Open Game is to play the <a href="https://en.wikipedia.org/wiki/King's_Knight_Opening">King's Knight</a>, with the once-popular <a href="https://en.wikipedia.org/wiki/King%27s_Gambit">King's Gambit</a> and <a href="https://en.wikipedia.org/wiki/Vienna_game">Vienna Game</a> becoming all but extinct. The Sicilian Defence's explosive rise to popularity is again reflected here, with the <a href="https://en.wikipedia.org/wiki/Sicilian_Defence#Open_Sicilian:_2.Nf3_and_3.d4">Open Sicilian</a> (Knight to f3) becoming White's standard response. Again, White's response to Black's French Defence (moving a Pawn to d4) has remained consistently popular over time, rarely dropping below 5% of the games played each year.</p>
+<p>To avoid being overly wordy here, I'll allow the visualization to speak for itself and leave the reader to explore the remaining trends as they please.</p>
+<h3>Black's second move</h3>
+<p>If you're familiar with chess, you know how quickly the set of possible moves grows with each move a player makes. After White and Black's first turn, the board will be in one of 400 unique positions. After their second turn, there are <a href="http://www.popsci.com/science/article/2010-12/fyi-how-many-different-ways-can-chess-game-unfold">197,742 possible positions</a>. And after only 3 turns, 121 million possible positions. This means that if you play enough chess, it's highly likely that you will play a game that <a href="http://www.radiolab.org/story/153809-rules-set-you-free/">no one has ever played</a> in the history of our universe. You can only imagine how difficult it would be to visualize all possible chess moves even up to the third turn.</p>
+<p>Despite the infinite possibility in chess, there appears to be a strong bias toward a small subset of openings. In this data set, there were roughly 4,000 unique openings, and the 30 most popular ones comprise 70% of all chess games. Below is a visualization of the distribution of those 30 most popular openings from 1850-2014.</p>
+<p>(Have any thoughts on a better way to visualize this data? Please leave them in the comments! I've already reached the limit of what area charts can effectively visualize by Black's second move.)</p>
+<p>https://www.youtube.com/watch?v=eebnBP5XFVc</p>
+<p>Interestingly, chess appears to be becoming more diverse over time. Whereas there were less than 100 unique openings by the end of both player's second turn in 1850, there were over 1,000 unique openings by 2014. This may be an artifact of the data set, however, because there are <a href="http://www.randalolson.com/wp-content/uploads/chess-year-distribution.png">far more games recorded in the 21st century</a> in this data set.</p>
+<p>That's it for today. In the next installment, I'll be looking at more higher-level features of player strategy over time.</p>
