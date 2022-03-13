@@ -11,11 +11,11 @@ title: Dr. Randal Olson
 # Description of the Site
 description: Full stack data scientist and artificial intelligence researcher
 # URL of Image of the Site
-site-image: /rolson.github.io/assets/images/meta.jpg
+site-image: /assets/images/meta.jpg
 # Keywords of the Site
 site-keywords: Site, Template, Theme
 # URL for the Image of custom Favicon
-favicon-url: /rolson.github.io/assets/images/favicon.ico
+favicon-url: /assets/images/favicon.ico
 
 # URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
 heroimage: https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
@@ -43,7 +43,7 @@ disqus-shortname:
 # Name of the Author
 author-name: Dr. Randal Olson
 # URL for the Image of the Author
-author-image: /rolson.github.io/assets/images/randal-olson.jpg
+author-image: /assets/images/randal-olson.jpg
 # 60 Words About the Author
 author-about: Full stack data scientist and artificial intelligence researcher
 # URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
