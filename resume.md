@@ -15,18 +15,18 @@ permalink: "/resume"
 # Full stack data scientist and artificial intelligence researcher
 
 <div class="column is-full is-size-4">
-{% unless site.email == %}
+{% unless site.email == '' %}
 <a href="mailto:{{site.email}}" target="_blank" class="has-text-black"><i class="fas fa-envelope"></i> {{site.email}}</a>
 {% endunless %}
-{% unless site.linkedin_username ==  %}
+{% unless site.linkedin_username == '' %}
 <br />
 <a href="http://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="has-text-black"><i class="fab fa-linkedin"></i> {{site.linkedin_username}}</a>
 {% endunless %}
-{% unless site.github_username ==  %}
+{% unless site.github_username == '' %}
 <br />
 <a href="http://www.github.com/{{site.github_username}}" target="_blank" class="has-text-black"><i class="fab fa-github"></i> {{site.github_username}}</a>
 {% endunless %}
-{% unless site.twitter_username == %}
+{% unless site.twitter_username == '' %}
 <br />
 <a href="http://www.twitter.com/{{site.twitter_username}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i> @{{site.twitter_username}}</a>
 {% endunless %}
