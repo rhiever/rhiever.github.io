@@ -12,7 +12,7 @@ author:
   last_name: Olson
 permalink: "/resume"
 ---
-# Full stack data scientist and artificial intelligence researcher
+# Full stack data scientist and AI researcher
 
 <div class="column is-full is-size-4">
 {% unless site.email == '' %}

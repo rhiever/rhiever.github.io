@@ -81,7 +81,7 @@ defaults:
       type: 'posts'
     values:
       layout: post
-      post-image: ""
+      post-image: "/assets/images/randal-olson.jpg"
       description: ""
       tags:
         - ""
