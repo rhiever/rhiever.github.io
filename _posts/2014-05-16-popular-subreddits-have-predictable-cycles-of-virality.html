@@ -28,11 +28,6 @@ meta:
   _thumbnail_id: '3956'
   _aioseop_keywords: reddit, subreddit, virality, hotness, post ranking, front page
   dsq_thread_id: '3245764921'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1430374233;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:2823;}i:1;a:1:{s:2:"id";i:4007;}i:2;a:1:{s:2:"id";i:5930;}}}}
-  _oembed_255704eeac3e4272e5d2645c2c475d2a: <iframe width="605" height="454" src="https://www.youtube.com/embed/seMLIVDKny4?feature=oembed"
-    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
-  _oembed_time_255704eeac3e4272e5d2645c2c475d2a: '1567756983'
 author:
   login: rhiever
   email: rhiever@gmail.com
@@ -60,7 +55,7 @@ permalink: "/2014/05/16/popular-subreddits-have-predictable-cycles-of-virality/"
 <h3>"Breathing" map of virality</h3>
 <p>Just for fun, I made a "breathing" map of virality for 40 of the popular subreddits. Here, each square represents a subreddit and the color of the square represents how hot the subreddit was at the given time. To make the hotness values comparable between subreddits, I normalized each subreddit's hotness scores by the average hotness score for the subreddit. Also, to make this video a little more grandiose, each of the 40 subreddits I'm visualizing are actually copied 40 times into random locations on the grid, making for a total of 1,600 tiles.</p>
 <p>Red = hotter; blue = colder</p>
-<p>https://www.youtube.com/watch?v=seMLIVDKny4</p>
+<iframe width="605" height="454" src="https://www.youtube.com/embed/seMLIVDKny4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3><a id="methodology"> </a>Methodology</h3>
 <p>I ran a bot between March 23, 2014 through May 11, 2014 that checked the hotness of the front page of several of <a href="http://www.redditmetrics.com/">reddit's most popular subreddits</a> every hour. To determine the hotness of a subreddit's front page, I first computed and summed the <a href="http://web.archive.org/web/20151123030118/http://amix.dk/blog/post/19588">hotness of each post</a> in the subreddit's current 25 hottest posts. I then divided the subreddit's summed hotness by the summed hotness of 25 new posts with no upvotes, which is the score I plotted above.</p>
 <p>The summed hotness of 25 new posts with no upvotes provides a "baseline hotness" where a new post with no additional upvotes would <em>not</em> be able to immediately reach the subreddit's front page. Therefore, new posts in subreddits with a hotness score >= 1.0 will not start on the front page of the subreddit. In contrast, new posts in subreddits with a hotness score < 1.0 are much more likely to make it onto the subreddit's front page. Note the score's small scale; small increases or decreases of the score have a large effect!</p>
