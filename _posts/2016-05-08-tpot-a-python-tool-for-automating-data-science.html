@@ -44,7 +44,7 @@ permalink: "/2016/05/08/tpot-a-python-tool-for-automating-data-science/"
 <p>One of the most tedious parts of machine learning is model hyperparameter tuning.</p>
 <p>Support vector machines require us to select the ideal kernel, the kernel's parameters, and the penalty parameter <em>C</em>. Artificial neural networks require us to tune the number of hidden layers, number of hidden nodes, and many more hyperparameters. Even random forests require us to tune the number of trees in the ensemble at a minimum.</p>
 <p>All of these hyperparameters can have significant impacts on how well the model performs. For example, on the <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> handwritten digit data set:</p>
-<p><a href="http://www.randalolson.com/wp-content/uploads/tpot-demo-mnist-digits.png" rel="attachment wp-att-8093"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-mnist-digits-1024x1024.png" alt="tpot-demo-mnist-digits" width="600" class="aligncenter size-large wp-image-8093" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/2016/05/tpot-demo-mnist-digits.png" rel="attachment wp-att-8093"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-mnist-digits-1024x1024.png" alt="tpot-demo-mnist-digits" width="600" class="aligncenter size-large wp-image-8093" /></a></p>
 <p>If we fit a random forest classifier with only 10 trees (scikit-learn's default):</p>
 <pre name="code" class="python:nogutter">
 import pandas as pd
@@ -89,7 +89,7 @@ print(np.mean(cv_scores))
 <h3>Model selection is important</h3>
 <p>We all love to think that our favorite model will perform well on every machine learning problem, but different models are better suited for different tasks.</p>
 <p>For example, if we're working on a signal processing problem where we need to classify whether there's a "hill" or "valley" in the time series:</p>
-<p><a href="http://www.randalolson.com/wp-content/uploads/tpot-demo-hill-valley.png" rel="attachment wp-att-8092"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley.png" alt="tpot-demo-hill-valley" width="600" class="aligncenter size-large wp-image-8092" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley.png" rel="attachment wp-att-8092"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley.png" alt="tpot-demo-hill-valley" width="600" class="aligncenter size-large wp-image-8092" /></a></p>
 <p>And we apply a "tuned" random forest to the problem:</p>
 <pre name="code" class="python:nogutter">
 import pandas as pd
@@ -136,7 +136,7 @@ print(np.mean(cv_scores))
 <h3>Feature preprocessing is important</h3>
 <p>As we've seen in the previous two examples, machine learning model performance is also affected by how the features are represented. <em>Feature preprocessing</em> is a step in machine learning pipelines where we reshape the features in a manner that makes the data set easier for models to classify.</p>
 <p>For example, if we're working on a harder version of the "hill" vs. "valley" signal processing problem with noise:</p>
-<p><a href="http://www.randalolson.com/wp-content/uploads/tpot-demo-hill-valley-noise.png" rel="attachment wp-att-8091"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley-noise.png" alt="tpot-demo-hill-valley-noise" width="600" class="aligncenter size-full wp-image-8091" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley-noise.png" rel="attachment wp-att-8091"><img src="{{ site.baseurl }}/assets/2016/05/tpot-demo-hill-valley-noise.png" alt="tpot-demo-hill-valley-noise" width="600" class="aligncenter size-full wp-image-8091" /></a></p>
 <p>And we apply a "tuned" random forest to the problem:</p>
 <pre name="code" class="python:nogutter">
 import pandas as pd
