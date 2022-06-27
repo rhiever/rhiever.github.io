@@ -55,7 +55,7 @@ permalink: "/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with
 <blockquote><p>Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.</p></blockquote>
 <p>You'll see this in the spirit of all of my plots below.</p>
 <h3>Color matters</h3>
-<p>The default color scheme in matplotlib is <a href="http://matplotlib.org/examples/pylab_examples/stackplot_demo.html">pretty ugly</a>. Die-hard matlab/matplotlib fans may stand by their color scheme to the end, but it's undeniable that <a href="http://www.randalolson.com/wp-content/uploads/percent-bachelors-degrees-women-usa.png">Tableau's default color scheme</a> is orders of magnitude better than matplotlib's.</p>
+<p>The default color scheme in matplotlib is pretty ugly. Die-hard matlab/matplotlib fans may stand by their color scheme to the end, but it's undeniable that Tableau's default color scheme is orders of magnitude better than matplotlib's.</p>
 <p>Use established default color schemes from software that is well-known for producing beautiful plots. Tableau has an excellent <a href="http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html">set of color schemes</a> to use, ranging from grayscale to colored to color blind-friendly. Which brings me to my next point...</p>
 <p>Many graphic designers completely forget about <a href="http://en.wikipedia.org/wiki/Color_blindness">color blindness</a>, which affects over 5% of the viewers of their graphics. For example, a plot using red and green to differentiate two categories of data is going to be <a href="http://99designs.com/designer-blog/2013/04/17/designers-need-to-understand-color-blindness/">completely incomprehensible</a> for anyone with red-green color blindness. Whenever possible, stick to using color blind-friendly color schemes, such as <a href="http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html">Tableau's "Color Blind 10."</a></p>
 <h3>Required libraries</h3>
@@ -74,7 +74,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Read the data into a pandas DataFrame.  
-gender_degree_data = pd.read_csv("http://www.randalolson.com/wp-content/uploads/percent-bachelors-degrees-women-usa.csv")  
+gender_degree_data = pd.read_csv("http://www.randalolson.com/assets/2014/06/percent-bachelors-degrees-women-usa.csv")  
 
 # These are the "Tableau 20" colors as RGB.  
 tableau20 = [(31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),  
