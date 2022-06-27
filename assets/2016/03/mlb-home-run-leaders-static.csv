@@ -1,0 +1,147 @@
+year	rank-01	rank-02	rank-03	rank-04	rank-05	rank-06	rank-07	rank-08	rank-09	rank-10	player-01	player-02	player-03	player-04	player-05	player-06	player-07	player-08	player-09	player-10
+1871	4	4	4	3	3	3					Meyerle	Pike	Treacey	Bass	Cuthbert	Sutton				
+1872	10	6	5	4	3	3	3	3	3	3	Pike	Treacey	Meyerle	Cuthbert	York	Bass	Wood	Hall	Sutton	Gedney
+1873	14	8	7	6	5	5	4				Pike	Meyerle	Treacey	Cuthbert	York	Wright	Gedney			
+1874	15	9	8	7	7	6	5	5	5	5	Pike	Meyerle	Cuthbert	Treacey	Wright	O'Rourke	Clapp	Gedney	McVey	York
+1875	15	12	10	9	8	8	8	8	7	5	Pike	O'Rourke	Meyerle	Wright	Cuthbert	Hall	McVey	Start	Treacey	Clapp
+1876	16	14	13	10	10	9	8	8	7	6	Pike	O'Rourke	Hall	Meyerle	Wright	McVey	Cuthbert	Start	Treacey	York
+1877	20	14	13	10	10	9	9	8	8	7	Pike	O'Rourke	Hall	Meyerle	Wright	McVey	Start	Cuthbert	White	Treacey
+1878	20	15	13	11	10	10	10	9	8	8	Pike	O'Rourke	Hall	McVey	Meyerle	Start	Wright	Jones	Cuthbert	White
+1879	20	18	16	13	12	11	11	10	9	9	Pike	Jones	O'Rourke	Hall	Start	McVey	Wright	Meyerle	Hines	White
+1880	23	22	20	13	12	12	11	11	10	9	Jones	O'Rourke	Pike	Hall	Hines	Start	McVey	Wright	Meyerle	Jo O'Rourke
+1881	23	22	20	14	13	12	12	11	11	11	Jones	O'Rourke	Pike	Hines	Hall	Brouthers	Start	Wright	York	McVey
+1882	24	23	20	18	18	13	13	13	12	12	O'Rourke	Jones	Pike	Brouthers	Hines	Bennett	Hall	Stovey	Start	York
+1883	33	27	25	22	21	20	18	14	14	14	Jones	Stovey	O'Rourke	Hines	Brouthers	Pike	Bennett	Farrell	Wood	York
+1884	40	37	35	35	30	27	26	26	25	24	Jones	Stovey	Brouthers	Williamson	O'Rourke	Pfeffer	Anson	Dalrymple	Hines	Dunlap
+1885	50	45	42	38	37	35	33	32	31	27	Stovey	Jones	Brouthers	Williamson	Dalrymple	O'Rourke	Anson	Pfeffer	K Kelly	Wood
+1886	57	53	51	44	43	40	39	36	35	35	Stovey	Brouthers	Jones	Williamson	Anson	Dalrymple	Pfeffer	O'Rourke	Hines	Kelly
+1887	65	61	56	55	53	50	45	45	43	42	Brouthers	Stovey	Jones	Pfeffer	Williamson	Anson	Hines	Wood	Kelly	Dalrymple
+1888	74	70	63	62	61	56	54	53	52	52	Brouthers	Stovey	Pfeffer	Anson	Williamson	Jones	Reilly	Connor	Denny	Kelly
+1889	89	81	70	70	69	66	62	61	59	56	Stovey	Brouthers	Denny	Pfeffer	Anson	Connor	Williamson	Kelly	Reilly	Jones
+1890	101	82	80	76	75	73	65	65	65	64	Stovey	Brouthers	Connor	Anson	Pfeffer	Denny	Kelly	Reilly	Wood	Williamson
+1891	117	87	87	84	82	73	69	68	68	67	Stovey	Brouthers	Connor	Anson	Pfeffer	Denny	Reilly	Richardson	Wood	Kelly
+1892	121	99	92	85	84	73	73	72	70	69	Stovey	Connor	Brouthers	Anson	Pfeffer	Denny	Ryan	Thompson	Richardson	Kelly
+1893	122	110	94	87	85	83	77	76	74	70	Stovey	Connor	Brouthers	Pfeffer	Anson	Thompson	Tiernan	Ryan	Denny	Richardson
+1894	122	118	103	96	92	90	82	79	74	70	Stovey	Connor	Brouthers	Thompson	Pfeffer	Anson	Tiernan	Ryan	Denny	Richardson
+1895	126	122	114	105	92	92	89	85	74	73	Connor	Stovey	Thompson	Brouthers	Anson	Pfeffer	Tiernan	Ryan	Denny	Duffy
+1896	137	126	122	106	96	94	94	88	78	74	Connor	Thompson	Stovey	Brouthers	Tiernan	Anson	Pfeffer	Ryan	Duffy	Denny
+1897	138	126	122	106	101	97	94	93	89	74	Connor	Thompson	Stovey	Brouthers	Tiernan	Anson	Pfeffer	Ryan	Duffy	Denny
+1898	138	127	122	106	106	97	97	97	94	76	Connor	Thompson	Stovey	Brouthers	Tiernan	Anson	Duffy	Ryan	Pfeffer	Clements
+1899	138	127	122	106	106	102	100	97	94	80	Connor	Thompson	Stovey	Brouthers	Tiernan	Duffy	Ryan	Anson	Pfeffer	Delahanty
+1900	138	127	122	106	106	105	104	97	94	86	Connor	Thompson	Stovey	Brouthers	Tiernan	Ryan	Duffy	Anson	Pfeffer	Long
+1901	138	127	122	106	106	106	105	97	94	90	Connor	Thompson	Stovey	Brouthers	Duffy	Tiernan	Ryan	Anson	Pfeffer	Delahanty
+1902	138	127	122	111	106	106	106	100	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1903	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1904	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1905	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1906	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1907	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1908	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1909	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1910	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1911	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1912	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1913	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1914	138	127	122	118	106	106	106	101	97	94	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Anson	Pfeffer
+1915	138	127	122	118	106	106	106	101	100	97	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Wagner	Anson
+1916	138	127	122	118	106	106	106	101	101	97	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Wagner	Anson
+1917	138	127	122	118	106	106	106	101	101	98	Connor	Thompson	Stovey	Ryan	Brouthers	Duffy	Tiernan	Delahanty	Wagner	Cravath
+1918	138	127	122	118	106	106	106	106	101	101	Connor	Thompson	Stovey	Ryan	Brouthers	Cravath	Duffy	Tiernan	Delahanty	Wagner
+1919	138	127	122	118	118	106	106	106	101	101	Connor	Thompson	Stovey	Ryan	Cravath	Brouthers	Duffy	Tiernan	Delahanty	Wagner
+1920	138	127	122	119	118	106	106	106	103	101	Connor	Thompson	Stovey	Cravath	Ryan	Brouthers	Duffy	Tiernan	Ruth	Delahanty
+1921	162	138	127	122	119	118	106	106	106	101	Ruth	Connor	Thompson	Stovey	Cravath	Ryan	Brouthers	Duffy	Tiernan	Delahanty
+1922	197	138	127	122	119	118	116	108	106	106	Ruth	Connor	Thompson	Stovey	Cravath	Ryan	Walker	C Williams	Brouthers	Duffy
+1923	238	149	138	127	122	119	118	118	116	108	Ruth	C Williams	Connor	Thompson	Stovey	Cravath	Ryan	Walker	Hornsby	K Williams
+1924	284	173	141	138	127	126	122	119	118	118	Ruth	C Williams	Hornsby	Connor	Thompson	K Williams	Stovey	Cravath	Ryan	Walker
+1925	309	186	180	151	138	127	126	122	119	118	Ruth	C Williams	Hornsby	K Williams	Connor	Thompson	Wheat	Stovey	Cravath	Ryan
+1926	356	204	191	168	138	131	127	126	123	122	Ruth	C Williams	Hornsby	K Williams	Connor	Wheat	Thompson	Fournier	Kelly	Stovey
+1927	416	234	217	185	138	136	135	132	128	127	Ruth	C Williams	Hornsby	K Williams	Connor	Fournier	Heilmann	Wheat	Kelly	Thompson
+1928	470	246	238	193	149	138	136	136	132	131	Ruth	C Williams	Hornsby	K Williams	Heilmann	Connor	Fournier	Meusel	Wheat	Kelly
+1929	516	277	251	196	164	146	146	146	138	137	Ruth	Hornsby	C Williams	K Williams	Heilmann	Bottomley	Gehrig	Meusel	Connor	Wilson
+1930	565	279	251	196	193	187	183	161	156	151	Ruth	Hornsby	C Williams	K Williams	Wilson	Gehrig	Heilmann	Bottomley	Meusel	Simmons
+1931	611	295	251	233	206	196	183	173	170	169	Ruth	Hornsby	C Williams	Gehrig	Wilson	K Williams	Heilmann	Simmons	Bottomley	Goslin
+1932	652	296	267	251	229	208	196	186	183	181	Ruth	Hornsby	Gehrig	C Williams	Wilson	Simmons	K Williams	Goslin	Heilmann	Bottomley
+1933	686	299	299	251	238	222	222	196	196	194	Ruth	Gehrig	Hornsby	C Williams	Wilson	Foxx	Simmons	Goslin	K Williams	Bottomley
+1934	708	348	300	266	251	244	240	211	211	209	Ruth	Gehrig	Hornsby	Foxx	C Williams	Wilson	Simmons	Klein	Ott	Goslin
+1935	714	378	302	300	256	251	244	242	232	218	Ruth	Gehrig	Foxx	Hornsby	Simmons	C Williams	Wilson	Ott	Klein	Goslin
+1936	714	427	343	300	275	269	257	251	244	242	Ruth	Gehrig	Foxx	Hornsby	Ott	Simmons	Klein	C Williams	Wilson	Goslin
+1937	714	464	379	306	301	277	272	251	246	244	Ruth	Gehrig	Foxx	Ott	Hornsby	Simmons	Klein	C Williams	Goslin	Wilson
+1938	714	493	429	342	301	298	280	251	248	244	Ruth	Gehrig	Foxx	Ott	Hornsby	Simmons	Klein	C Williams	Goslin	Wilson
+1939	714	493	464	369	305	301	292	251	248	244	Ruth	Gehrig	Foxx	Ott	Simmons	Hornsby	Klein	C Williams	Goslin	Wilson
+1940	714	500	493	388	306	301	299	251	248	247	Ruth	Foxx	Gehrig	Ott	Simmons	Hornsby	Klein	C Williams	Goslin	Greenberg
+1941	714	519	493	415	306	301	300	251	249	248	Ruth	Foxx	Gehrig	Ott	Simmons	Hornsby	Klein	C Williams	Greenberg	Goslin
+1942	714	527	493	445	306	301	300	252	251	249	Ruth	Foxx	Gehrig	Ott	Simmons	Hornsby	Klein	Johnson	C Williams	Greenberg
+1943	714	527	493	463	307	301	300	259	251	249	Ruth	Foxx	Gehrig	Ott	Simmons	Hornsby	Klein	Johnson	C Williams	Greenberg
+1944	714	527	493	489	307	301	300	276	251	249	Ruth	Foxx	Gehrig	Ott	Simmons	Hornsby	Klein	Johnson	C Williams	Greenberg
+1945	714	534	510	493	307	301	300	288	262	251	Ruth	Foxx	Ott	Gehrig	Simmons	Hornsby	Klein	Johnson	Greenberg	C Williams
+1946	714	534	511	493	307	306	301	300	288	256	Ruth	Foxx	Ott	Gehrig	Simmons	Greenberg	Hornsby	Klein	Johnson	York
+1947	714	534	511	493	331	307	301	300	288	277	Ruth	Foxx	Ott	Gehrig	Greenberg	Simmons	Hornsby	Klein	Johnson	York
+1948	714	534	511	493	331	307	303	301	300	297	Ruth	Foxx	Ott	Gehrig	Greenberg	Simmons	DiMaggio	Hornsby	Klein	Mize
+1949	714	534	511	493	331	317	316	307	301	300	Ruth	Foxx	Ott	Gehrig	Greenberg	DiMaggio	Mize	Simmons	Hornsby	Klein
+1950	714	534	511	493	349	341	331	307	301	300	Ruth	Foxx	Ott	Gehrig	DiMaggio	Mize	Greenberg	Simmons	Hornsby	Klein
+1951	714	534	511	493	361	351	331	323	307	301	Ruth	Foxx	Ott	Gehrig	DiMaggio	Mize	Greenberg	T Williams	Simmons	Hornsby
+1952	714	534	511	493	361	355	331	324	307	301	Ruth	Foxx	Ott	Gehrig	DiMaggio	Mize	Greenberg	T Williams	Simmons	Hornsby
+1953	714	534	511	493	361	359	337	331	329	307	Ruth	Foxx	Ott	Gehrig	DiMaggio	Mize	T Williams	Greenberg	Kiner	Simmons
+1954	714	534	511	493	366	361	359	351	331	307	Ruth	Foxx	Ott	Gehrig	T Williams	DiMaggio	Mize	Kiner	Greenberg	Simmons
+1955	714	534	511	493	394	369	361	359	331	325	Ruth	Foxx	Ott	Gehrig	T Williams	Kiner	DiMaggio	Mize	Greenberg	Musial
+1956	714	534	511	493	418	369	361	359	352	331	Ruth	Foxx	Ott	Gehrig	T Williams	Kiner	DiMaggio	Mize	Musial	Greenberg
+1957	714	534	511	493	456	381	369	361	359	331	Ruth	Foxx	Ott	Gehrig	T Williams	Musial	Kiner	DiMaggio	Mize	Greenberg
+1958	714	534	511	493	482	398	369	361	359	331	Ruth	Foxx	Ott	Gehrig	T Williams	Musial	Kiner	DiMaggio	Mize	Greenberg
+1959	714	534	511	493	492	412	369	361	359	354	Ruth	Foxx	Ott	Gehrig	T Williams	Musial	Kiner	DiMaggio	Mize	Snider
+1960	714	534	521	511	493	429	369	368	361	359	Ruth	Foxx	T Williams	Ott	Gehrig	Musial	Kiner	Snider	DiMaggio	Mize
+1961	714	534	521	511	493	444	384	374	370	369	Ruth	Foxx	T Williams	Ott	Gehrig	Musial	Snider	Mantle	Mathews	Kiner
+1962	714	534	521	511	493	463	404	399	389	370	Ruth	Foxx	T Williams	Ott	Gehrig	Musial	Mantle	Mathews	Snider	Hodges
+1963	714	534	521	511	493	475	422	419	406	403	Ruth	Foxx	T Williams	Ott	Gehrig	Musial	Mathews	Mantle	Mays	Snider
+1964	714	534	521	511	493	475	454	453	445	407	Ruth	Foxx	T Williams	Ott	Gehrig	Musial	Mantle	Mays	Mathews	Snider
+1965	714	534	521	511	505	493	477	475	473	407	Ruth	Foxx	T Williams	Ott	Mays	Gehrig	Mathews	Musial	Mantle	Snider
+1966	714	542	534	521	511	496	493	493	475	442	Ruth	Mays	Foxx	T Williams	Ott	Mantle	Gehrig	Mathews	Musial	Aaron
+1967	714	564	534	521	518	511	509	493	481	475	Ruth	Mays	Foxx	T Williams	Mantle	Ott	Mathews	Gehrig	Aaron	Musial
+1968	714	587	536	534	521	512	511	510	493	475	Ruth	Mays	Mantle	Foxx	T Williams	Mathews	Ott	Aaron	Gehrig	Musial
+1969	714	600	554	536	534	521	512	511	497	493	Ruth	Mays	Aaron	Mantle	Foxx	T Williams	Mathews	Ott	Banks	Gehrig
+1970	714	628	592	536	534	521	512	511	509	493	Ruth	Mays	Aaron	Mantle	Foxx	T Williams	Mathews	Ott	Banks	Gehrig
+1971	714	646	639	536	534	521	515	512	512	511	Ruth	Mays	Aaron	Mantle	Foxx	T Williams	Killebrew	Mathews	Banks	Ott
+1972	714	673	654	541	536	534	522	521	512	512	Ruth	Aaron	Mays	Killebrew	Mantle	Foxx	Robinson	T Williams	Mathews	Banks
+1973	714	713	660	552	546	536	534	521	512	512	Ruth	Aaron	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	Mathews	Banks
+1974	733	714	660	574	559	536	534	521	512	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	Mathews	Banks
+1975	745	714	660	583	573	536	534	521	512	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	Mathews	Banks
+1976	755	714	660	586	573	536	534	521	512	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	Mathews	Banks
+1977	755	714	660	586	573	536	534	521	512	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	Mathews	Banks
+1978	755	714	660	586	573	536	534	521	512	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	Mathews	Banks
+1979	755	714	660	586	573	536	534	521	520	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	McCovey	Mathews
+1980	755	714	660	586	573	536	534	521	521	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	McCovey	Mathews
+1981	755	714	660	586	573	536	534	521	521	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	McCovey	Mathews
+1982	755	714	660	586	573	536	534	521	521	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	McCovey	Mathews
+1983	755	714	660	586	573	536	534	521	521	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	McCovey	Mathews
+1984	755	714	660	586	573	536	534	521	521	512	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	T Williams	McCovey	Mathews
+1985	755	714	660	586	573	536	534	530	521	521	Aaron	Ruth	Mays	Robinson	Killebrew	Mantle	Foxx	Jackson	T Williams	McCovey
+1986	755	714	660	586	573	548	536	534	521	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Mantle	Foxx	T Williams	McCovey
+1987	755	714	660	586	573	563	536	534	530	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Mantle	Foxx	Schmidt	T Williams
+1988	755	714	660	586	573	563	542	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1989	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1990	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1991	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1992	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1993	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1994	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1995	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1996	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1997	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1998	755	714	660	586	573	563	548	536	534	521	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	T Williams
+1999	755	714	660	586	573	563	548	536	534	522	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	Schmidt	Mantle	Foxx	McGwire
+2000	755	714	660	586	573	563	554	548	536	534	Aaron	Ruth	Mays	Robinson	Killebrew	Jackson	McGwire	Schmidt	Mantle	Foxx
+2001	755	714	660	586	583	573	567	563	548	536	Aaron	Ruth	Mays	Robinson	McGwire	Killebrew	Bonds	Jackson	Schmidt	Mantle
+2002	755	714	660	613	586	583	573	563	548	536	Aaron	Ruth	Mays	Bonds	Robinson	McGwire	Killebrew	Jackson	Schmidt	Mantle
+2003	755	714	660	658	586	583	573	563	548	539	Aaron	Ruth	Mays	Bonds	Robinson	McGwire	Killebrew	Jackson	Schmidt	Sosa
+2004	755	714	703	660	586	583	574	573	563	551	Aaron	Ruth	Bonds	Mays	Robinson	McGwire	Sosa	Killebrew	Jackson	Palmeiro
+2005	755	714	708	660	588	586	583	573	569	563	Aaron	Ruth	Bonds	Mays	Sosa	Robinson	McGwire	Killebrew	Palmeiro	Jackson
+2006	755	734	714	660	588	586	583	573	569	563	Aaron	Bonds	Ruth	Mays	Sosa	Robinson	McGwire	Killebrew	Palmeiro	Griffey
+2007	762	755	714	660	609	593	586	583	573	569	Bonds	Aaron	Ruth	Mays	Sosa	Griffey	Robinson	McGwire	Killebrew	Palmeiro
+2008	762	755	714	660	611	609	586	583	573	569	Bonds	Aaron	Ruth	Mays	Griffey	Sosa	Robinson	McGwire	Killebrew	Palmeiro
+2009	762	755	714	660	630	609	586	583	583	573	Bonds	Aaron	Ruth	Mays	Griffey	Sosa	Robinson	McGwire	Rodríguez	Killebrew
+2010	762	755	714	660	630	613	609	589	586	583	Bonds	Aaron	Ruth	Mays	Griffey	Rodríguez	Sosa	Thome	Robinson	McGwire
+2011	762	755	714	660	630	629	609	604	586	583	Bonds	Aaron	Ruth	Mays	Griffey	Rodríguez	Sosa	Thome	Robinson	McGwire
+2012	762	755	714	660	647	630	612	609	586	583	Bonds	Aaron	Ruth	Mays	Rodríguez	Griffey	Thome	Sosa	Robinson	McGwire
+2013	762	755	714	660	654	630	612	609	586	583	Bonds	Aaron	Ruth	Mays	Rodríguez	Griffey	Thome	Sosa	Robinson	McGwire
+2014	762	755	714	660	654	630	612	609	586	583	Bonds	Aaron	Ruth	Mays	Rodríguez	Griffey	Thome	Sosa	Robinson	McGwire
+2015	762	755	714	687	660	630	612	609	586	583	Bonds	Aaron	Ruth	Rodríguez	Mays	Griffey	Thome	Sosa	Robinson	McGwire
+2016	762	755	714	687	660	630	612	609	586	583	Bonds	Aaron	Ruth	Rodríguez	Mays	Griffey	Thome	Sosa	Robinson	McGwire

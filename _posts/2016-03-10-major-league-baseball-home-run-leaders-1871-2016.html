@@ -55,7 +55,7 @@ import pandas as pd
 # This is my custom matplotlib style -- feel free to reuse it
 plt.style.use('https://gist.githubusercontent.com/rhiever/d0a7332fe0beebfdc3d5/raw/223d70799b48131d5ce2723cd5784f39d7a3a653/tableau10.mplstyle')
 
-mlb_data = pd.read_csv('http://www.randalolson.com/wp-content/uploads/mlb-home-run-leaders-static.csv', sep='\t')
+mlb_data = pd.read_csv('http://www.randalolson.com/assets/2016/03/mlb-home-run-leaders-static.csv', sep='\t')
 mlb_data.set_index('year', inplace=True)
 
 # For every year (except the first 5)...
