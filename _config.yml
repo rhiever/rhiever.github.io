@@ -9,7 +9,7 @@ baseurl:
 # Title of the Site
 title: Dr. Randal S. Olson
 # Description of the Site
-description: Full stack data scientist and artificial intelligence researcher
+description: Full stack data scientist, artificial intelligence researcher, and consultant
 # URL of Image of the Site
 site-image: /assets/images/meta.jpg
 # Keywords of the Site
@@ -45,9 +45,9 @@ author-name: Dr. Randal S. Olson
 # URL for the Image of the Author
 author-image: /assets/images/randal-olson.jpg
 # 60 Words About the Author
-author-about: Full stack data scientist and artificial intelligence researcher
+author-about: Full stack data scientist, artificial intelligence researcher, and consultant
 # Longer description of the Author
-author-about-long: "Hi! I'm <strong>Dr. Randal S. Olson</strong>. I'm a full stack data scientist and AI researcher based in the Portland, Oregon metropolitan area.<br /><br />
+author-about-long: "Hi! I'm <strong>Dr. Randal S. Olson</strong>. I'm a full stack data scientist, AI researcher, and consultant based in the Portland, Oregon metropolitan area.<br /><br />
 
 I specialize in artificial intelligence, machine learning, data science, and data visualization, and occasionally write about my latest work on my <a href='blog/'>personal blog</a>, where I've become known for computing optimal road trips around the world and solving <em>Where’s Waldo?</em>, among many other creative applications of machine learning. My work has been featured all over the world and in the news, including the <a href='https://www.nytimes.com/2015/03/14/upshot/stuff-we-liked.html'>New York Times</a>, <a href='https://www.wired.com/2015/02/created-perfect-wheres-waldo-strategy-machine-learning/'>Wired</a>, <a href='https://fivethirtyeight.com/features/what-12-months-of-record-setting-temperatures-looks-like-across-the-u-s/'>FiveThirtyEight</a>, <a href='https://www.theonion.com/study-settling-for-adequate-partner-better-than-waitin-1819562531'>The Onion</a>, and much more.<br /><br />
 

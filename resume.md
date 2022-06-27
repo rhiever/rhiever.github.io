@@ -12,7 +12,7 @@ author:
   last_name: Olson
 permalink: "/resume"
 ---
-# Full stack data scientist and AI researcher
+# Full Stack Data Scientist<br />AI Researcher<br />Consultant
 
 <div class="column is-full is-size-4">
 {% unless site.email == '' %}
@@ -54,17 +54,29 @@ Undergraduate Advisor: [Prof. Kenneth Stanley](https://www.cs.ucf.edu/~kstanley/
 
 # Professional Experience
 
-### Senior AI Scientist
+### Consultant, Trainer, and Mentor
 
-**[Absci](https://www.absci.com/)** - Vancouver, WA - 2021 to Present
+**[Randal S. Olson](http://randalolson.com/)** - Vancouver, WA - 2013 to Present
 
-I work at the intersection of the Absci wet labs and AI group to make sure that our ML engineers are getting the data they need, and to make sure that the models the ML engineers are building are adding value to Absci’s strain engineering and drug discovery technology.
+Strategic advising and hands-on solutions to maximize value from data science and AI. Organizing and teaching workshops to train the next generation of data scientists. Mentoring future leaders in data science.
+
+### Owner and Managing Director
+
+**Private Research Lab** - Vancouver, WA - 2022 to Present
+
+Leading a private AI & ML research lab.
 
 ### Data Science and Machine Learning Advisor
 
 **[FOXO Technologies](https://foxotechnologies.com/)** - Minneapolis, MN - 2021 to Present
 
 I sit on the FOXO Scientific Advisory Board and advise on the data science and machine learning technology developments at FOXO.
+
+### Senior AI Scientist
+
+**[Absci](https://www.absci.com/)** - Vancouver, WA - 2021 to 2022
+
+I worked at the intersection of the Absci wet labs and AI group to make sure that our ML engineers are getting the data they need, and to make sure that the models the ML engineers are building are adding value to Absci’s strain engineering and drug discovery technology.
 
 ### Chief Data Scientist
 
@@ -172,10 +184,10 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 
 I have published over 40 peer-reviewed publications and 17 publications as first author.
 
-My publications have over 2,800 total citations and an h-index of 18.
+My publications have over 3,000 total citations and an h-index of 19.
 
 A complete list of my publications can be found on [my Google Scholar page](https://scholar.google.com/citations?user=LU96GEAAAAAJ).
 
 <hr class="has-background-black" />
 
-Last updated March 2022
+Last updated July 2022
