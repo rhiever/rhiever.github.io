@@ -56,7 +56,7 @@ Undergraduate Advisor: [Prof. Kenneth Stanley](https://www.cs.ucf.edu/~kstanley/
 
 ### Consultant, Trainer, and Mentor
 
-**[Randal S. Olson](http://randalolson.com/)** - Vancouver, WA - 2013 to Present
+**[Randal S. Olson]({{site.url}}{{site.baseurl}}/)** - Vancouver, WA - 2013 to Present
 
 Strategic advising and hands-on solutions to maximize value from data science and AI. Organizing and teaching workshops to train the next generation of data scientists. Mentoring future leaders in data science.
 

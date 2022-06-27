@@ -30,3 +30,7 @@ Gemfile.lock
 
 ### MacOS ###
 .DS_Store
+
+### Python ###
+**/*.ipynb_checkpoints/
+website-cleaner.ipynb
