@@ -1,8 +1,9 @@
 ---
 layout: post
-title: webr00t
+title: The New York Times weather chart redux
 date: 2015-08-13 20:20:32.000000000 -07:00
 type: post
+post-image: assets/2015/08/nyc-weather-july14-june15-annotated.png
 parent_id: '0'
 published: true
 password: ''
@@ -14,18 +15,6 @@ tags:
 - New York Times
 - reproducibility
 - weather
-meta:
-  _edit_last: '2'
-  _responsive_layout: default
-  _aioseop_keywords: New York Times, weather, chart, data, global warming, climate
-    change, new york city, seattle, philadelphia, usa, wunderground
-  _aioseop_description: Randy Olson shows how you can use Python to recreate a famous
-    New York Times weather chart.
-  _thumbnail_id: '7420'
-  _aioseop_title: The New York Times weather chart redux
-  dsq_thread_id: '4030617445'
-  tc-thumb-fld: a:2:{s:9:"_thumb_id";s:4:"7420";s:11:"_thumb_type";s:5:"thumb";}
-  _jetpack_dont_email_post_to_subs: '1'
 author:
   login: rhiever
   email: rhiever@gmail.com
@@ -34,4 +23,37 @@ author:
   last_name: Olson
 permalink: "/2015/08/13/the-new-york-times-weather-chart-redux/"
 ---
-<p>pornolar</p>
+
+<p>One of my favorite pastimes is <a href="{{ site.baseurl }}/2014/10/26/the-ebb-and-flow-of-movies-redux/">recreating and updating old New York Times graphics</a>. It's great practice decomposing graphs into reproducible elements, and I always learn a ton about good graphic design in the process. If you're still learning data visualization yourself, I highly recommend doing the same.</p>
+
+<p>Last month, I updated the famous <a href="http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=00014g">New York Times weather chart</a> and was fortunate enough to <a href="http://fivethirtyeight.com/features/what-12-months-of-record-setting-temperatures-looks-like-across-the-u-s/">contribute</a> it to FiveThirtyEight. In this post, I'm going to briefly go over the process of how I made these charts. You can find all of the data and code for the FiveThirtyEight article on GitHub <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/tree/master/us-weather-history">here</a>.</p>
+
+<a href="{{ site.baseurl }}/assets/2015/08/nyc-weather-july14-june15-annotated.png"><img src="{{ site.baseurl }}/assets/2015/08/nyc-weather-july14-june15-annotated.png" width="100%" /></a>
+
+<p>The first step is to find some up-to-date weather data. There's plenty of data sources out there for historical weather data, but I decided to focus on <a href="http://www.wunderground.com">Wunderground.com</a> because their historical weather pages are quite easy to parse.</p>
+
+<p>In the GitHub repository I linked above, there are two Python scripts: a <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/us-weather-history/wunderground_scraper.py">scraper</a> and a <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/us-weather-history/wunderground_parser.py">parser</a>. The scraper downloads the web pages containing historical weather data for the weather station we point it at, while the parser uses BeautifulSoup to efficiently parse the HTML and transform the web pages into a flat CSV file.</p>
+
+<a href="{{ site.baseurl }}/assets/2015/08/philadelphia-weather-july14-june15-annotated.png"><img src="{{ site.baseurl }}/assets/2015/08/philadelphia-weather-july14-june15-annotated.png" /></a>
+
+<p>With the up-to-date weather data in hand, we can now turn to the design of the weather chart. The key point to reproducing the New York Times weather chart is realizing that it's just a bar chart, where every day is represented by three bars:</p>
+
+<ul><li>A bar representing the record historical high and low temperatures for the day,</li><li>a bar representing the average of the historical high and low temperatures for the day,</li><li>and a bar representing the actual high and low temperatures for the day.</li></ul>
+
+<p>Simple, right? All we have to do is draw three bars for every day, where the bar starts at the min and stops at the max. Since we have all of those values already, we can use a handful of lines of <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/us-weather-history/visualize_weather.py">Python code</a> to generate the chart.</p>
+
+<a href="{{ site.baseurl }}/assets/2015/08/seattle-weather-july14-june15-annotated.png"><img src="{{ site.baseurl }}/assets/2015/08/seattle-weather-july14-june15-annotated.png" /></a>
+
+<p>The Python code may look a bit complicated, but it's just a bunch of custom formatting for the chart. The core of the chart is generated with the three <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/us-weather-history/visualize_weather.py#L46"><strong>plt.bar()</strong></a> calls.</p>
+
+<p>To add something new to the weather chart, I added small red and blue dots to represent new (or tied) record high and low temperatures, respectively, for the year. These are small visual cues to quickly communicate when and how often the city is experiencing record temperatures without requiring much inspection from the user. Seattle, WA, for example, has had about 20 record hot days in the past year, which you can now quickly spot thanks to the numerous red dots.</p>
+
+<p>In the Python code, this is only a couple <a href="https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/us-weather-history/visualize_weather.py#L61"><strong>plt.scatter()</strong></a> calls for the days where the actual high/low matches the record high/low temperature.</p>
+
+<p>After that, I manually designed the legend in <a href="https://www.omnigroup.com/omnigraffle">Omnigraffle</a> since it was a bit tricky to generate programmatically. I'll leave that as a practice exercise if you're really looking to flex your matplotlib muscles.</p>
+
+<p>Voilà! We now have a reproducible method to generate arbitrary weather charts for any weather station on Wunderground. Enjoy!</p>
+
+<hr class="wp-block-separator"/>
+
+<p>What are some other classic charts that you would like to see updated?</p>
