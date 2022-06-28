@@ -60,7 +60,7 @@ Undergraduate Advisor: [Prof. Kenneth Stanley](https://www.cs.ucf.edu/~kstanley/
 
 Strategic advising and hands-on solutions to maximize value from data science and AI. Organizing and teaching workshops to train the next generation of data scientists. Mentoring future leaders in data science.
 
-### Owner and Managing Director
+### Founder and Principal Investigator
 
 **Private Research Lab** - Vancouver, WA - 2022 to Present
 
