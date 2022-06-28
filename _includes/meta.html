@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1 user-scalable=no, shrink-to-fit=no">
 <meta content='#000000' name='theme-color'/>
-<meta name="keywords" content="{{site.site-keywords}}">
+<meta name="keywords" content="{% unless page.keywords %}{{site.site-keywords}}{% else %}{{page.keywords}}{% endunless %}">
 <title>{{site.title}}{% if page.title %} | {{page.title}}{% endif %}</title>
 
 <!-- Open Graph general (Facebook, Pinterest & Google+) -->
