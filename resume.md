@@ -12,7 +12,7 @@ author:
   last_name: Olson
 permalink: "/resume"
 ---
-# Full Stack Data Scientist<br />AI Researcher<br />Consultant
+# Data Scientist<br />AI Researcher<br />Consultant
 
 <div class="column is-full is-size-4">
 {% unless site.email == '' %}
@@ -28,7 +28,7 @@ permalink: "/resume"
 {% endunless %}
 {% unless site.twitter_username == '' %}
 <br />
-<a href="http://www.twitter.com/{{site.twitter_username}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i> @{{site.twitter_username}}</a>
+<a href="http://www.twitter.com/{{site.twitter_username}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i> {{site.twitter_username}}</a>
 {% endunless %}
 <br />
 <a href="/assets/Randal_S_Olson_CV.pdf" target="_blank" class="has-text-black"><i class="fas fa-file-pdf"></i> Full CV</a>
