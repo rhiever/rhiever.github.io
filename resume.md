@@ -1,7 +1,7 @@
 ---
 layout: resume
 title: Resume
-date: 2022-03-13 16:33:19.000000000 -07:00
+date: 2022-11-20 12:00:00 -07:00
 type: page
 categories: []
 tags: []
@@ -68,9 +68,9 @@ Leading a private AI & ML research lab.
 
 ### Data Science and Machine Learning Advisor
 
-**[FOXO Technologies](https://foxotechnologies.com/)** - Minneapolis, MN - 2021 to Present
+**[FOXO Technologies](https://foxotechnologies.com/)** - Minneapolis, MN - 2021 to 2022
 
-I sit on the FOXO Scientific Advisory Board and advise on the data science and machine learning technology developments at FOXO.
+I sat on the FOXO Scientific Advisory Board and advised on the data science and machine learning technology developments at FOXO.
 
 ### Senior AI Scientist
 
