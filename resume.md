@@ -1,7 +1,7 @@
 ---
 layout: resume
 title: Resume
-date: 2022-11-20 12:00:00 -07:00
+date: 2023-01-13 12:00:00 -07:00
 type: page
 categories: []
 tags: []
@@ -12,9 +12,9 @@ author:
   last_name: Olson
 permalink: "/resume"
 ---
-# Data Scientist<br />AI Researcher<br />Consultant
+# <center>Data Scientist - AI Researcher - Consultant</center>
 
-<div class="column is-full is-size-4">
+<div class="column is-full is-size-5">
 {% unless site.email == '' %}
 <a href="mailto:{{site.email}}" target="_blank" class="has-text-black"><i class="fas fa-envelope"></i> {{site.email}}</a>
 {% endunless %}
@@ -59,12 +59,6 @@ Undergraduate Advisor: [Prof. Kenneth Stanley](https://www.cs.ucf.edu/~kstanley/
 **[Randal S. Olson]({{site.url}}{{site.baseurl}}/)** - Vancouver, WA - 2013 to Present
 
 Strategic advising and hands-on solutions to maximize value from data science and AI. Organizing and teaching workshops to train the next generation of data scientists. Mentoring future leaders in data science.
-
-### Founder and Principal Investigator
-
-**Private Research Lab** - Vancouver, WA - 2022 to Present
-
-Leading a private AI & ML research lab.
 
 ### Data Science and Machine Learning Advisor
 
@@ -141,8 +135,6 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 
 * Automated Machine Learning (AutoML) expert
 
-* Expert with Python ecosystem: scikit-learn, Keras, PyTorch, HuggingFace, Weights & Biases
-
 ### Leadership
 * 4+ years experience as a data science & machine learning engineer manager
 
@@ -162,7 +154,7 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 
 * Expert with standard SWE practices: modern software design, documentation, version control, unit testing, continuous integration, Agile, Kanban
 
-* Languages: Python, bash, C/C++, Java, R, SQL, HTML, CSS, Markdown, JavaScript
+* Languages: Python (preferred), bash, C/C++, Java, R, SQL, HTML, CSS, Markdown, JavaScript
 
 ### HPC & MLOps
 * 10+ years experience using HPC systems to run massively parallel compute jobs
@@ -184,10 +176,10 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 
 I have published over 40 peer-reviewed publications and 17 publications as first author.
 
-My publications have over 3,000 total citations and an h-index of 19.
+My publications have over 4,700 total citations and an h-index of 21.
 
 A complete list of my publications can be found on [my Google Scholar page](https://scholar.google.com/citations?user=LU96GEAAAAAJ).
 
 <hr class="has-background-black" />
 
-Last updated July 2022
+Last updated January 2023
