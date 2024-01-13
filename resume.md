@@ -86,6 +86,10 @@ I was hired as the Lead Data Scientist and eventually promoted to Chief Data Sci
 * deployed said MVP models into production with a state-of-the-art MLOps platform, and
 * integrated said deployed models into a customer-facing web platform.
 
+Patents:
+* Sabes, Jon; Chen, Brian H.; and *Olson, Randal S.* [Machine learning model trained to determine a biochemical state and/or medical condition using DNA epigenetic data](https://patentsgazette.uspto.gov/week46/OG/html/1516-2/US11817214-20231114.html). *Approved* U.S. patent 11817214.
+*  *Olson, Randal S.* and Chen, Brian H. [Machine learned epigenetic status indicator](https://patentsgazette.uspto.gov/week43/OG/html/1515-4/US11795495-20231024.html). *Approved* U.S. patent 11795495.
+
 ### Lead Data Scientist
 
 **[FOXO Technologies](https://foxotechnologies.com/)** - Minneapolis, MN - 2018 to 2020
