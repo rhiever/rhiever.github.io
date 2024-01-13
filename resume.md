@@ -1,7 +1,7 @@
 ---
 layout: resume
 title: Resume
-date: 2023-01-13 12:00:00 -07:00
+date: 2024-01-13 12:00:00 -07:00
 type: page
 categories: []
 tags: []
@@ -182,4 +182,4 @@ A complete list of my publications can be found on [my Google Scholar page](http
 
 <hr class="has-background-black" />
 
-Last updated January 2023
+Last updated January 2024
