@@ -30,8 +30,6 @@ permalink: "/resume"
 <br />
 <a href="http://www.twitter.com/{{site.twitter_username}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i> {{site.twitter_username}}</a>
 {% endunless %}
-<br />
-<a href="/assets/Randal_S_Olson_CV.pdf" target="_blank" class="has-text-black"><i class="fas fa-file-pdf"></i> Full CV</a>
 </div>
 
 # Education
@@ -54,11 +52,19 @@ Undergraduate Advisor: [Prof. Kenneth Stanley](https://www.cs.ucf.edu/~kstanley/
 
 # Professional Experience
 
-### Consultant, Trainer, and Mentor
+### Technical Consultant
 
 **[Randal S. Olson]({{site.url}}{{site.baseurl}}/)** - Vancouver, WA - 2013 to Present
 
-Strategic advising and hands-on solutions to maximize value from data science and AI. Organizing and teaching workshops to train the next generation of data scientists. Mentoring future leaders in data science.
+In 2022, I transitioned to full-time consulting, primarily assisting startups with strategic guidance and practical solutions for harnessing data science and AI. I excel at transforming visionary concepts into functional prototypes.
+
+One of my favorite projects was to help build an AI system that automatically develops [epic road trips around Europe](https://guidetoeurope.com/).
+
+### Senior AI Scientist
+
+**[Absci](https://www.absci.com/)** - Vancouver, WA - 2021 to 2022
+
+I helped build ETL systems at the intersection of the wet labs and the AI team so we could develop LLMs for drug discovery.
 
 ### Data Science and Machine Learning Advisor
 
@@ -66,17 +72,14 @@ Strategic advising and hands-on solutions to maximize value from data science an
 
 I sat on the FOXO Scientific Advisory Board and advised on the data science and machine learning technology developments at FOXO.
 
-### Senior AI Scientist
-
-**[Absci](https://www.absci.com/)** - Vancouver, WA - 2021 to 2022
-
-I worked at the intersection of the Absci wet labs and AI group to make sure that our ML engineers are getting the data they need, and to make sure that the models the ML engineers are building are adding value to Absci’s strain engineering and drug discovery technology.
-
 ### Chief Data Scientist
 
 **[FOXO Technologies](https://foxotechnologies.com/)** - Minneapolis, MN - 2020 to 2021
 
-I was hired as the Lead Data Scientist and eventually promoted to Chief Data Scientist so I could better serve the company mission. While holding this role, I built a data science and software engineering team from the ground up. The purpose of this team was to merge cutting edge epigenetics research with advanced machine learning technology to improve mortality assessment for the life insurance industry and beyond. Since 2018, my team and I:
+I was promoted to Chief Data Scientist so I could better serve the company mission of bringing epigenetic testing to the life insurance industry.
+
+While holding this role, I built a data science and software engineering team from the ground up. The purpose of this team was to merge cutting edge epigenetics research with advanced machine learning technology to improve mortality assessment for the life insurance industry and beyond. Since 2018, my team and I have:
+
 * conducted observational research studies with human subjects,
 * performed data collection and cleaning on datasets containing over 800,000 molecular measurements and hundreds of human and wellness indicators,
 * developed custom DNA methylation processing software from scratch (e.g., [https://github.com/FoxoTech/methylprep](https://github.com/FoxoTech/methylprep)),
@@ -94,7 +97,7 @@ Patents:
 
 **[FOXO Technologies](https://foxotechnologies.com/)** - Minneapolis, MN - 2018 to 2020
 
-I was hired as the Lead Data Scientist to establish a data science and engineering team to execute the company mission. While holding this role, I built a data science and software engineering team from the ground up. The purpose of this team was to merge cutting edge epigenetics research with advanced machine learning technology to improve mortality assessment for the life insurance industry and beyond.
+I was hired as the Lead Data Scientist to execute the company mission of bringing epigenetic testing to life insurance. While holding this role, I built a data science and software engineering team from the ground up. The purpose of this team was to merge cutting edge epigenetics research with advanced machine learning technology to improve mortality assessment for the life insurance industry and beyond.
 
 ### Senior Data Scientist
 
@@ -135,7 +138,7 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 ### Machine Learning
 * 8+ years experience as a machine learning engineer
 
-* 3+ years experience as a deep learning & NLP model engineer
+* 3+ years experience as a deep learning model engineer
 
 * Automated Machine Learning (AutoML) expert
 
@@ -180,10 +183,10 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 
 I have published over 40 peer-reviewed publications and 17 publications as first author.
 
-My publications have over 4,700 total citations and an h-index of 21.
+My publications have over 4,800 total citations and an h-index of 22.
 
 A complete list of my publications can be found on [my Google Scholar page](https://scholar.google.com/citations?user=LU96GEAAAAAJ).
 
 <hr class="has-background-black" />
 
-Last updated January 2024
+Last updated March 2024
