@@ -89,9 +89,9 @@ While holding this role, I built a data science and software engineering team fr
 * deployed said MVP models into production with a state-of-the-art MLOps platform, and
 * integrated said deployed models into a customer-facing web platform.
 
-Patents:
-* Sabes, Jon; Chen, Brian H.; and **Olson, Randal S.** [Machine learning model trained to determine a biochemical state and/or medical condition using DNA epigenetic data](https://patentsgazette.uspto.gov/week46/OG/html/1516-2/US11817214-20231114.html). **Issued** U.S. patent 11817214.
-*  **Olson, Randal S.** and Chen, Brian H. [Machine learned epigenetic status indicator](https://patentsgazette.uspto.gov/week43/OG/html/1515-4/US11795495-20231024.html). **Issued** U.S. patent 11795495.
+Issued Patents:
+*  **Olson, Randal S.** and Chen, Brian H. [Machine learned epigenetic status indicator](https://patents.google.com/patent/US11795495B1/en). **Issued** U.S. Patent 11795495.
+* Sabes, Jon; Chen, Brian H.; and **Olson, Randal S.** [Machine learning model trained to determine a biochemical state and/or medical condition using DNA epigenetic data]([https://patentsgazette.uspto.gov/week46/OG/html/1516-2/US11817214-20231114.html](https://patents.google.com/patent/US11817214B1/en)). **Issued** U.S. Patent 11817214.
 
 ### Lead Data Scientist
 
