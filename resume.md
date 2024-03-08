@@ -131,7 +131,7 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 # Skills
 
 ### Data Science
-* 10+ years experience as a data scientist
+* 12+ years experience as a data scientist
 
 * Data visualization expert
 
@@ -141,6 +141,8 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 * 8+ years experience as a machine learning engineer
 
 * 3+ years experience as a deep learning model engineer
+
+* 1 year working with LLMs & generative AI
 
 * Automated Machine Learning (AutoML) expert
 
@@ -154,12 +156,12 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 ### Artificial Intelligence
 * Ph.D. thesis and research publications focused on the development of Artificial General Intelligence
 
-* 12+ years experience with optimization methods, particularly Genetic Algorithms and Evolutionary Computation
+* 14+ years experience with optimization methods, particularly Genetic Algorithms and Evolutionary Computation
 
-* 12+ years experience with Artificial Neural Networks and Neuroevolution
+* 14+ years experience with artificial neural networks and neuroevolution
 
 ### Software Engineering
-* 12+ years experience as a software engineer
+* 15+ years experience as a software engineer
 
 * Expert with standard SWE practices: modern software design, documentation, version control, unit testing, continuous integration, Agile, Kanban
 
@@ -168,18 +170,18 @@ I worked as a civilian employee for the Air Force developing tools for the Elect
 ### HPC & MLOps
 * 10+ years experience using HPC systems to run massively parallel compute jobs
 
-* 4+ years experience using Kubernetes and KubeFlow
+* 6+ years experience implementing and using cloud-first data infrastructure
 
-* 4+ years experience implementing and using cloud-first data infrastructure
+* 2 years experience using Kubernetes and KubeFlow
 
 ### Biology & biotechnology
 * PhD-level study and research in evolutionary biology
 
-* 4+ years experience with DNA methylation microarray data (Illumina)
+* 4 years experience with DNA methylation microarray data (Illumina)
 
-* 2+ years experience with NGS data (Illumina & PacBio)
+* 2 years experience with NGS data (Illumina & PacBio)
 
-* 2+ years experience with genetic engineering technologies
+* 2 years experience with genetic engineering technologies
 
 # Publications
 
