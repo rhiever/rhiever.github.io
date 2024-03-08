@@ -54,9 +54,9 @@ Undergraduate Advisor: [Prof. Kenneth Stanley](https://www.cs.ucf.edu/~kstanley/
 
 # Professional Experience
 
-### Technical Consultant
+### Data Science & ML Consultant
 
-**[Randal S. Olson]({{site.url}}{{site.baseurl}}/)** - Vancouver, WA - 2013 to Present
+**[Randal Olson Consulting]({{site.url}}{{site.baseurl}}/)** - Vancouver, WA - 2022 to Present
 
 In 2022, I transitioned to full-time consulting, primarily assisting startups with strategic guidance and practical solutions for harnessing data science and AI. I excel at transforming visionary concepts into functional prototypes.
 
@@ -66,7 +66,7 @@ One of my favorite projects was to help build an AI system that automatically de
 
 **[Absci](https://www.absci.com/)** - Vancouver, WA - 2021 to 2022
 
-I helped build ETL systems at the intersection of the wet labs and the AI team so we could develop LLMs for drug discovery.
+I helped build ETL systems at the intersection of the wet labs and the AI team and helped build LLMs for drug discovery. My contributions culminated in a [research paper](https://www.biorxiv.org/content/10.1101/2022.08.16.504181v1) and [patent application](https://patents.google.com/patent/US20230268026A1/en).
 
 ### Data Science and Machine Learning Advisor
 
