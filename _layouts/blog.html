@@ -18,7 +18,7 @@ layout: compress
         </div>
         <div id="results-container"></div>
         <!--Blog Cards Section-->
-        {% assign sorted_posts = site.posts | sort "priority", "date" reversed %}
+        {% assign sorted_posts = site.posts | sort "priority", "date" | reverse %}
         {% for post in sorted_posts %}
             {% include blog-card.html %}
         {% endfor %}
