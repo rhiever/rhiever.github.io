@@ -1,0 +1,334 @@
+---
+layout: post
+title: 'How to beat the Original I.Q. Tester'
+date: 2024-03-26 10:00:00.000000000 -07:00
+type: post
+post-image: /assets/2024/03/original-iq-tester.jpeg
+status: publish
+keywords: Original I.Q. Tester Game, Puzzle-Solving Strategies, Python Simulation for Puzzles, Brain Games and Strategies, Nostalgic Games, Problem-Solving Skills, Game Analysis and Strategy, Computational Thinking, Randal Olson, Randy Olson
+description: Randy Olson shows you how to beat the Original I.Q. Tester during a trip down memory lane.
+categories:
+- priority
+- puzzles
+- strategy
+- analysis
+tags:
+- puzzles
+- strategy
+- analysis
+author:
+  display_name: Randy Olson
+  first_name: Randy
+  last_name: Olson
+permalink: "/2024/03/26/how-to-beat-original-iq-tester/"
+---
+<p>Growing up, there was a simple yet mesmerizing game that captured my attention every weekend known as the <a href="https://pegame.com/product/the-original-peg-game/">Original I.Q. Tester</a>. This game, often found at the tables of family restaurants among syrup bottles and sticky menus, consisted of a wooden triangle filled with pegs, challenging players to jump pegs over each other until only one remained. The game became a ritualistic endeavor for me, especially on Sundays when I visited IHOP with my mom and step-dad on our weekly family outing. Amidst the aroma of pancakes and coffee, this game was one of my early forays into problem-solving and strategy, igniting a curiosity that has stayed with me into my later life and career.</p>
+<p>Maybe you have fond memories of playing this game, too.</p>
+<figure class="aligncenter size-large"><a href="{{ site.baseurl }}/assets/2024/03/original-iq-tester.jpeg"><img src="{{ site.baseurl }}/assets/2024/03/original-iq-tester.jpeg" /></a><br />
+<figcaption>The nostalgic Original I.Q. Tester</figcaption>
+</figure>
+<p>While cleaning out my mom's house earlier this month, an unexpected treasure surfaced from the depths of a moving box: an old Original I.Q. Tester. Had she kept it as a keepsake of our Sundays together, or did she intend to surprise me with it one day and then forgot? Either way, this rediscovery reignited my resolve to master the puzzle, not just through trial and error, but this time by harnessing the power of computation. For what other reason did I get this PhD, after all?</p>
+<h1>How difficult is Original I.Q. Tester?</h1>
+<p>To tackle the puzzle's challenge, I created a simulator for the puzzle in Python, a tool that modeled every conceivable starting position — each variation of the initial empty peg — and traced every potential path the game could follow. This digital experiment unearthed a staggering <strong>7,335,390 possible outcomes</strong>, which highlights the game's deceptively complex nature. To put that number into context, even if I was able to play 10 unique paths every Sunday, it would have taken me over 14,000 years' worth of Sundays to play every possible path. That's a lot of pancakes!</p>
+<figure class="aligncenter size-large"><a href="{{ site.baseurl }}/assets/2024/03/original-iq-tester-solution-summary.png"><img src="{{ site.baseurl }}/assets/2024/03/original-iq-tester-solution-summary.png" /></a></figure>
+<p>Interestingly, the data from my simulator revealed that about <strong>94% of all possible games end with two or more pegs defiantly remaining on the board</strong>, a statistic that underscores the puzzle's difficulty and its knack for humbling even the most strategic minds — mine among them.</p>
+<h1>Where's the best starting point?</h1>
+<p>In my initial encounters with the I.Q. Tester, I instinctively chose to start with an empty peg somewhere in the center, often in the middle of the third row from the top, assuming this offered the greatest flexibility for interesting maneuvers. This intuition seemed logical, suggesting a wealth of strategic paths from the heart of the board.</p>
+<figure class="aligncenter size-large"><a href="{{ site.baseurl }}/assets/2024/03/original-iq-tester-best-starting-pegs.png"><img src="{{ site.baseurl }}/assets/2024/03/original-iq-tester-best-starting-pegs.png" /></a></figure>
+<p>However, after rigorously analyzing every conceivable game trajectory through my simulator, I was amused — and admittedly a bit chagrined — to find that starting in the middle actually set the stage for the worst possible outcomes, dramatically limiting the paths that could lead to a single peg standing. The data compellingly pointed to the <strong>edges of the third row from the top and the center of the bottom row as the optimal starting points</strong>, revealing a counterintuitive strategy (for me) that significantly increases your chances of solving the puzzle.</p>
+<h1>What's a good jump strategy to reach 1 peg?</h1>
+<p>Next, I wanted to learn what sort of jump strategy worked best for the puzzle. In my early days, I oscillated between instinctive play, selecting jumps on a whim, and a more deliberate strategy, aiming to consolidate my pegs towards the board's center in hope of increasing the availability of subsequent jumps. This latter approach was grounded in a belief that a concentrated cluster of pegs would inherently offer more opportunities for strategic moves.</p>
+<figure class="aligncenter size-large"><a href="{{ site.baseurl }}/assets/2024/03/original-iq-tester-strategy.png"><img src="{{ site.baseurl }}/assets/2024/03/original-iq-tester-strategy.png" /></a></figure>
+<p>The data from my game-path analysis painted a clear picture: <strong>consistently opting for moves that draw pegs closer significantly boosts the likelihood of achieving the coveted outcome of a solitary peg standing</strong>. Conversely, the allure of seemingly strategic, yet ultimately divisive jumps proved to be a pitfall, as spreading the pegs across the board invariably diminishes your chances of success. This revelation was a nod to my initial instincts, affirming that cohesion, not dispersion, was key to conquering the game's intricate puzzle. Just like so many things in life, right?</p>
+<p>And sure enough, when I followed this strategy myself through a few games, I was finally able to end a game with a single peg. Victory at last!</p>
+<h1>Some example games</h1>
+<p>If you're curious what this strategy looks like when played out, here's one of the 439,000 game paths that lead to a single peg.</p>
+<details>
+<summary><strong>Click to see a 1-peg ending</strong></summary>
+<pre>
+Board labels:
+        A1
+      B1  B2
+    C1  C2  C3
+  D1  D2  D3  D4
+E1  E2  E3  E4  E5
+
+
+Initial board state (1 = peg, 0 = empty):
+    1     
+   1 1    
+  0 1 1   
+ 1 1 1 1  
+1 1 1 1 1 
+
+
+Move 1: A1 to C1
+    0     
+   0 1    
+  1 1 1   
+ 1 1 1 1 
+1 1 1 1 1 
+
+
+Move 2: D1 to B1
+    0     
+   1 1    
+  0 1 1   
+ 0 1 1 1  
+1 1 1 1 1 
+
+
+Move 3: C3 to C1
+    0     
+   1 1    
+  1 0 0   
+ 0 1 1 1  
+1 1 1 1 1 
+
+
+Move 4: E5 to C3
+    0     
+   1 1    
+  1 0 1   
+ 0 1 1 0  
+1 1 1 1 0 
+
+
+Move 5: B1 to D1
+    0     
+   0 1    
+  0 0 1   
+ 1 1 1 0  
+1 1 1 1 0 
+
+
+Move 6: B2 to D4
+    0     
+   0 0    
+  0 0 0   
+ 1 1 1 1  
+1 1 1 1 0 
+
+
+Move 7: E1 to C1
+    0     
+   0 0    
+  1 0 0   
+ 0 1 1 1  
+0 1 1 1 0 
+
+
+Move 8: E3 to E5
+    0     
+   0 0    
+  1 0 0   
+ 0 1 1 1  
+0 1 0 0 1 
+
+
+Move 9: C1 to E3
+    0     
+   0 0    
+  0 0 0   
+ 0 0 1 1  
+0 1 1 0 1 
+
+
+Move 10: E2 to E4
+    0     
+   0 0    
+  0 0 0   
+ 0 0 1 1  
+0 0 0 1 1 
+
+
+Move 11: E5 to E3
+    0     
+   0 0    
+  0 0 0   
+ 0 0 1 1  
+0 0 1 0 0 
+
+
+Move 12: E3 to C3
+    0     
+   0 0    
+  0 0 1   
+ 0 0 0 1  
+0 0 0 0 0 
+
+
+Move 13: C3 to E5
+    0     
+   0 0    
+  0 0 0   
+ 0 0 0 0  
+0 0 0 0 1
+</pre>
+</details>
+<br />
+<p>Similarly, if you want to see what the opposite of this strategy looks like, here's a typical game path that ends with 3 pegs on the board.</p>
+<details>
+<summary><strong>Click to see a 3-peg ending</strong></summary>
+<pre>
+Board labels:
+        A1
+      B1  B2
+    C1  C2  C3
+  D1  D2  D3  D4
+E1  E2  E3  E4  E5
+
+
+Initial board state (1 = peg, 0 = empty):
+    1     
+   1 1    
+  0 1 1   
+ 1 1 1 1  
+1 1 1 1 1 
+
+
+Move 1: C3 to C1
+    1     
+   1 1    
+  1 0 0   
+ 1 1 1 1  
+1 1 1 1 1 
+
+
+Move 2: E3 to C3
+    1     
+   1 1    
+  1 0 1   
+ 1 1 0 1  
+1 1 0 1 1 
+
+
+Move 3: D1 to D3
+    1     
+   1 1    
+  1 0 1   
+ 0 0 1 1  
+1 1 0 1 1 
+
+
+Move 4: D4 to D2
+    1     
+   1 1    
+  1 0 1   
+ 0 1 0 0  
+1 1 0 1 1 
+
+
+Move 5: B2 to D4
+    1     
+   1 0    
+  1 0 0   
+ 0 1 0 1  
+1 1 0 1 1 
+
+
+Move 6: E2 to C2
+    1     
+   1 0    
+  1 1 0   
+ 0 0 0 1  
+1 0 0 1 1 
+
+
+Move 7: B1 to D3
+    1     
+   0 0    
+  1 0 0   
+ 0 0 1 1  
+1 0 0 1 1 
+
+
+Move 8: D4 to D2
+    1     
+   0 0    
+  1 0 0   
+ 0 1 0 0  
+1 0 0 1 1 
+
+
+Move 9: C1 to E3
+    1     
+   0 0    
+  0 0 0   
+ 0 0 0 0  
+1 0 1 1 1 
+
+
+Move 10: E4 to E2
+    1     
+   0 0    
+  0 0 0   
+ 0 0 0 0  
+1 1 0 0 1 
+
+
+Move 11: E1 to E3
+    1     
+   0 0    
+  0 0 0   
+ 0 0 0 0  
+0 0 1 0 1
+</pre>
+</details>
+<br />
+<p>Finally, if you just want to feel better about yourself for never passing the 3-peg mark, here's one of the 6 ways to fail so spectacularly that you end up with 10 pegs left on the board and no valid jumps.</p>
+<details>
+<summary><strong>Click to see a 10-peg ending</strong></summary>
+<pre>
+Board labels:
+        A1
+      B1  B2
+    C1  C2  C3
+  D1  D2  D3  D4
+E1  E2  E3  E4  E5
+
+
+Initial board state (1 = peg, 0 = empty):
+    1     
+   1 1    
+  1 0 1   
+ 1 1 1 1  
+1 1 1 1 1 
+
+
+Move 1: E4 to C2
+    1     
+   1 1    
+  1 1 1   
+ 1 1 0 1  
+1 1 1 0 1 
+
+
+Move 2: B1 to D3
+    1     
+   0 1    
+  1 0 1   
+ 1 1 1 1  
+1 1 1 0 1 
+
+
+Move 3: E2 to C2
+    1     
+   0 1    
+  1 1 1   
+ 1 0 1 1  
+1 0 1 0 1 
+
+
+Move 4: D3 to B1
+    1     
+   1 1    
+  1 0 1   
+ 1 0 0 1  
+1 0 1 0 1 
+</pre>
+</details>
+<h1>Take-aways</h1>
+<p>Embarking on this computational quest to solve the Original I.Q. Tester was not just an exercise in tryhardism or analytics; it was a bridge to the past for me, a connection to the cherished moments I used to spend with my mom. I found myself often thinking back to those Sunday mornings, her laughter and gentle encouragement mingling with the clatter of pegs while we talked about our upcoming week and I invariably moaned about something only a teenager would care about. I miss her deeply, yet through this project, I've found solace in the realization that our loved ones often leave us with puzzles — not just those of wood and pegs, but puzzles of the heart, teaching us about resilience, togetherness, and the beauty of simple shared moments. I hope this story inspires you to cherish the puzzles in your life, recognizing them as opportunities for growth, reflection, and a reminder of the bonds that, though unseen, forever hold us close to those we love.</p>
+<p>Or, at the very least, you can impress someone with your newfound puzzle-solving skills.</p>
+<p>If you'd like to chat puzzle strategy or even share your own memories, feel free to <a href="{{ site.baseurl }}/#contact">contact me</a> anytime.</p>
